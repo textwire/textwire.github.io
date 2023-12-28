@@ -12,6 +12,8 @@
   "license": "MIT",
   "devDependencies": {
     "vuepress": "^2.0.0-rc.0"
+  },
+  "dependencies": {
+    "@vuepress/plugin-search": "^2.0.0-rc.0"
   }
 }
-
