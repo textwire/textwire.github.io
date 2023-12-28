@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "yarn build && gh-pages -d docs/.vuepress/dist"
   },
   "description": "Documentation website for Textwire library for Go",
   "main": "index.js",
@@ -14,6 +15,7 @@
     "vuepress": "^2.0.0-rc.0"
   },
   "dependencies": {
-    "@vuepress/plugin-search": "^2.0.0-rc.0"
+    "@vuepress/plugin-search": "^2.0.0-rc.0",
+    "gh-pages": "^6.1.1"
   }
 }
