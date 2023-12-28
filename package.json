@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "description": "Documentation website for Textwire library for Go",
+  "main": "index.js",
+  "repository": "https://github.com/textwire/textwire.github.io",
+  "author": "SerhiiCho",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^2.0.0-rc.0"
+  }
+}
+
