@@ -171,11 +171,16 @@ Textwire code can only be defined inside of the `{{ }}` brackets. If you want to
 {{ y := 10 }}
 ```
 
+All the bracket statements return either an empty string or a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
+
+There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
+
 Let's take a look at what features are available in Textwire.
 
 - Statements
     - 🚧 [If statements](#if-statements) `{{ if x == 1 }}`
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
+    - 🚧 [Variable declaration](#variable-declaration) `{{ x := 5 }}`
 - Expressions
     - 🚧 [Ternary expressions](#ternary-expressions) `x ? y : z`
     - 🚧 [Prefix expressions](#prefix-expressions) `!x` or `-x`
