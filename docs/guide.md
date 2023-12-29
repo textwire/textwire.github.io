@@ -6,7 +6,7 @@ Textwire is a simple yet powerful template language for Go. It is designed to ea
 
 Keep in mind that this is a separate language and has nothing to do with Go. It just has a similar syntax to make it easier for Go developer to learn and use it. As for example, you can't write `{{ true ? "yes" : "no" }}` in Go, but you can do it in Textwire.
 
-## Get started
+## 🚀 Get started
 
 Before we start using Textwire as a templating language, we need to tell it where to look for the template files. We can do that by using the `textwire.SetConfig` function only once in our `main.go` file. Here is an example of setting the configurations:
 
@@ -45,28 +45,28 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 
 In this example, for our home page, we tell Textwire to use the "home.textwire.html" file and pass the variables that we want to inject into the template. The `textwire.PrintFile` function will then parse the file and print the result to the `http.ResponseWriter` object.
 
-## Features
+## 💡 Features
 
 This is a list of features that are implemented and planned to be implemented in the future.
 
 - Statements
-    - [ ] If statements `{{ if x == 1 }}`
-    - [ ] Else statements `{{ else }}`
-    - [ ] Else-if statements `{{ else if x == 1 }}`
-    - [ ] For statements `{{ for i, name := range names }}`
+    - 🚧 If statements `{{ if x == 1 }}`
+    - 🚧 Else statements `{{ else }}`
+    - 🚧 Else-if statements `{{ else if x == 1 }}`
+    - 🚧 For statements `{{ for i, name := range names }}`
 - Expressions
-    - [ ] Ternary expressions `x ? y : z`
-    - [ ] Prefix expressions `!x` or `-x`
-    - [ ] Infix expressions `x * y`
+    - 🚧 Ternary expressions `x ? y : z`
+    - 🚧 Prefix expressions `!x` or `-x`
+    - 🚧 Infix expressions `x * y`
 - Literals
-    - [x] String literals `"Hello, World!"`
-    - [x] Integer literals `123` or `-234`
-    - [ ] Float literals `123.456`
-    - [ ] Boolean literals `true`
-    - [x] Nil literal `nil`
-    - [ ] Slice literals `[]int{1, 2, 3}`
+    - ✅ String literals `"Hello, World!"`
+    - ✅ Integer literals `123` or `-234`
+    - 🚧 Float literals `123.456`
+    - 🚧 Boolean literals `true`
+    - ✅ Nil literal `nil`
+    - 🚧 Slice literals `[]int{1, 2, 3}`
 
-## Usage parsing a string
+## 🔍 Parse a string
 
 One way of using Textwire is to use it to parse a string with embedded variables. It is useful for rendering emails or other text-based content that you want to inject variables into.
 
@@ -89,7 +89,7 @@ parsed, err := textwire.ParseStr(str, vars)
 
 Variable **"parsed"** will now contain the parsed string with the injected variables. If there is an error, the **"err"** variable will contain the error.
 
-## Usage with templates
+## 📃 Usage with templates
 
 You can use Textwire as a template language for your Server Side Rendered (SSR) web applications. Let's take a look what features you can use to build your templates.
 
@@ -139,21 +139,9 @@ The "layout" keyword is used to specify which layout to use. Assuming that our l
 {{ layout "layouts/main" }}
 ```
 
-`"layouts/main"` is the relative path to the layout file. If you have deeply nested files and don't want to always specify the relative path, you can use the set the aliases in your `main.go` file like this:
+`"layouts/main"` is the relative path to the layout file. If you have deeply nested files and don't want to always specify the relative path, you can use the set the [aliases](#define-aliases).
 
-```go
-textwire.SetAliases(map[string]string{
-    "@layouts": "src/views/templates/layouts",
-})
-```
-
-Then you can use the layout like this:
-
-```html
-{{ layout "@layouts/main" }}
-````
-
-#### insert
+### Inserting content
 
 The "insert" keywords is used to insert the content into the reserved place in layout file. Here is an example of inserting the content into layout:
 
@@ -165,7 +153,25 @@ The "insert" keywords is used to insert the content into the reserved place in l
 {{ end }}
 ```
 
-## Installation
+## 📏 Define aliases
+
+You can define aliases for specific paths so that you don't have to always specify the relative path to the layout file. For example, if you have a layout file in the "src/views/templates/layouts" folder, you can set an alias for it like this:
+
+```go
+textwire.SetAliases(map[string]string{
+    "@layouts": "src/views/templates/layouts",
+})
+```
+
+After setting the alias, you can use it like this:
+
+```html
+{{ layout "@layouts/main" }}
+```
+
+If you've used aliases on the frontend with Webpack, you will find this feature very familiar and useful.
+
+## 🧰 Installation
 
 You can install the latest Textwire version by running the following command:
 
