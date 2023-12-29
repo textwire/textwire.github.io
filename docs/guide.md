@@ -68,23 +68,26 @@ This is a list of features that are implemented and planned to be implemented in
 
 ## Usage parsing a string
 
-```go
-import (
-    "fmt"
-    "github.com/textwire/textwire"
-)
+One way of using Textwire is to use it to parse a string with embedded variables. It is useful for rendering emails or other text-based content that you want to inject variables into.
 
-str := `Hello, my name is {{ name }} and I am {{ age }} years old.`
+```go
+import "github.com/textwire/textwire"
+
+str := `
+    Hello {{ name }}! Thank you for your order #{{ orderNumber }}.
+    As a gift, we give you a {{ discount }} discount on your next order.
+`
 
 vars := map[string]interface{}{
-    "name": "John",
-    "age":  21,
+    "name": "John Doe",
+    "orderNumber": 12,
+    "discount":  "10%",
 }
 
 parsed, err := textwire.ParseStr(str, vars)
-
-fmt.Println(parsed) // would print: Hello, my name is John and I am 21 years old.
 ```
+
+Variable **"parsed"** will now contain the parsed string with the injected variables. If there is an error, the **"err"** variable will contain the error.
 
 ## Usage with templates
 
@@ -92,11 +95,13 @@ You can use Textwire as a template language for your Server Side Rendered (SSR) 
 
 ### Layouts
 
-You can define a layout for your template by creating a `[name].textwire.html`. Here is an example of a layout:
+Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a `layouts` directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on. All textwire files should end with `*.textwire.html` file extension.
+
+This is what a layout file might look like:
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ locale }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,25 +116,22 @@ You can define a layout for your template by creating a `[name].textwire.html`. 
 ### Template keywords
 
 #### reserve
-The "reserve" keyword is used to reserve a place for dynamic content that you can insert later. For example, you can reserve a place for the title of the page and then insert it later. Here is an example of inserting a title:
+The "reserve" keyword is used to reserve a place for dynamic content that you can insert later. For example, you can reserve a place for the title of the page and then insert it later. Here is an example of inserting a title and content:
 
 ```html
 {{ layout "layouts/main" }}
 
 {{ insert "title", "Home page" }}
-```
 
-First, we use the layout "layouts/main" so that parser knows which layout to use. Then we insert the title into the reserved place. The first argument is the name of the reserved place and the second argument is the value that we want to insert.
-
-As an alternative, we can insert the title like this:
-
-```html
-{{ layout "layouts/main" }}
-
-{{ insert "title" }}
-    Home page
+{{ insert "content" }}
+    <h1>Hello, World!</h1>
+    <p>This is a home page.</p>
 {{ end }}
 ```
+
+First, we use the layout "layouts/main" so that parser knows which layout to use. Then we insert the title and content into reserved places. The first argument is the name of the reserved place and the second argument is the value that we want to insert.
+
+As you can see there are two ways we can define the content. We can either use the `{{ insert "content" }}` and `{{ end }}` keywords and define content between them, or we can use the `{{ insert "title", "Home page" }}` and pass content as the second argument. The first way is useful when you want to insert a lot of content and the second way is useful when you want to insert a single line of content.
 
 #### layout
 
