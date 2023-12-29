@@ -113,9 +113,7 @@ This is what a layout file might look like:
 </html>
 ```
 
-### Template keywords
-
-#### reserve
+### Reserve space
 The "reserve" keyword is used to reserve a place for dynamic content that you can insert later. For example, you can reserve a place for the title of the page and then insert it later. Here is an example of inserting a title and content:
 
 ```html
@@ -133,7 +131,7 @@ First, we use the layout "layouts/main" so that parser knows which layout to use
 
 As you can see there are two ways we can define the content. We can either use the `{{ insert "content" }}` and `{{ end }}` keywords and define content between them, or we can use the `{{ insert "title", "Home page" }}` and pass content as the second argument. The first way is useful when you want to insert a lot of content and the second way is useful when you want to insert a single line of content.
 
-#### layout
+### Using layout
 
 The "layout" keyword is used to specify which layout to use. Assuming that our layout is placed in the "layouts" folder and called "main.textwire.html", we can use it like this:
 
