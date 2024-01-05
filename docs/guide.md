@@ -184,7 +184,7 @@ Let's take a look at what features are available in Textwire.
 - Expressions
     - 🚧 [Ternary expressions](#ternary-expressions) `x ? y : z`
     - 🚧 [Prefix expressions](#prefix-expressions) `!x` or `-x`
-    - 🚧 [Infix expressions](#infix-expressions) `x * y`
+    - ✅ [Infix expressions](#infix-expressions) `x * (y + 3)`
 - Literals
     - ✅ [String literals](#string-literals) `"Hello, World!"`
     - ✅ [Integer literals](#integer-literals) `123` or `-234`
@@ -253,11 +253,12 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 
 ```html
 <ul>
-    <li>{{ x + y }}</li>
-    <li>{{ x - y }}</li>
-    <li>{{ x * y }}</li>
-    <li>{{ x / y }}</li>
-    <li>{{ x % y }}</li>
+    <li>{{ x + y }}</li> <!-- Addition -->
+    <li>{{ x - y }}</li> <!-- Subtraction -->
+    <li>{{ x * y }}</li> <!-- Multiplication -->
+    <li>{{ x / y }}</li> <!-- Division -->
+    <li>{{ x % y }}</li> <!-- Modulo -->
+    <li>{{ (x + 2) / (y * (4 - c)) }}</li> <!-- Grouped expressions -->
 </ul>
 ```
 
