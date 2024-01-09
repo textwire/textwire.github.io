@@ -183,12 +183,12 @@ Let's take a look at what features are available in Textwire.
     - 🚧 [Variable declaration](#variable-declaration) `{{ x := 5 }}`
 - Expressions
     - 🚧 [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
-    - 🚧 [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
+    - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}`
     - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
-    - 🚧 [Float literals](#float-literals) `{{ 123.456 }}`
+    - ✅ [Float literals](#float-literals) `{{ 123.456 }}`
     - ✅ [Boolean literals](#boolean-literals) `{{ true }}`
     - ✅ [Nil literal](#nil-literals) `{{ nil }}`
     - 🚧 [Slice literals](#slice-literals) `{{ []int{1, 2, 3} }}`
