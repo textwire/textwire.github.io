@@ -175,7 +175,7 @@ All the bracket statements return either an empty string or a string. For exampl
 
 There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
 
-Let's take a look at what features are available in Textwire.
+Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
 
 - Statements
     - 🚧 [If statements](#if-statements) `{{ if x == 1 }}`
