@@ -182,7 +182,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
     - 🚧 [Variable declaration](#variable-declaration) `{{ x := 5 }}`
 - Expressions
-    - 🚧 [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
+    - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
 - Literals
