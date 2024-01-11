@@ -47,13 +47,14 @@ In this example, for our home page, we tell Textwire to use the "home.textwire.h
 
 ## 💡 Features
 
-- You can use package to parse a string with embedded Textwire code
-- You can use package as a templating language for your application
-- Language syntax is similar to Go's syntax
-- You can define layouts and insert content into them
-- You can define aliases for specific paths
-- You can use "ternary expressions" and "if statements" to conditionally render content
-- Textwire is fully tested
+- 🔍 You can use package to parse a string with embedded Textwire code
+- 📃 You can use package as a templating language for your application
+- 🧩 Language syntax is similar to Go's syntax
+- 🖼️ You can define layouts and insert content into them
+- 🛣️ You can define aliases for specific paths
+- ❓ You can use "ternary expressions" and "if statements" to conditionally render content
+- ✅ Textwire is fully tested
+- 🚦 Proper error handling
 
 ## 🔍 Parse a string
 
