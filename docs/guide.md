@@ -2,7 +2,7 @@
 
 > WARNING: Textwire is still in development and is not ready for production use.
 
-Textwire is a simple yet powerful template language for Go. It is designed to easily inject variables from Go code into a template file or just a regular string. It is inspired by Go's syntax and has a similar syntax to make it easier for Go developers to learn and use it.
+Textwire is a simple yet powerful templating language for Go. It is designed to easily inject variables from Go code into a template file or just a regular string. It is inspired by Go's syntax and has a similar syntax to make it easier for Go developers to learn and use it.
 
 Keep in mind that this is a separate language and has nothing to do with Go. It just has a similar syntax to make it easier for Go developer to learn and use it. As for example, you can't write `{{ true ? "yes" : "no" }}` in Go, but you can do it in Textwire.
 
@@ -46,6 +46,14 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 In this example, for our home page, we tell Textwire to use the "home.textwire.html" file and pass the variables that we want to inject into the template. The `textwire.PrintFile` function will then parse the file and print the result to the `http.ResponseWriter` object.
 
 ## 💡 Features
+
+- You can use package to parse a string with embedded Textwire code
+- You can use package as a templating language for your application
+- Language syntax is similar to Go's syntax
+- You can define layouts and insert content into them
+- You can define aliases for specific paths
+- You can use "ternary expressions" and "if statements" to conditionally render content
+- Textwire is fully tested
 
 ## 🔍 Parse a string
 
