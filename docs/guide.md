@@ -1,6 +1,6 @@
 # Textwire. A template language for Go.
 
-> WARNING: Textwire is still in development and is not ready for production use.
+> ⚠️ WARNING: Textwire is still in development and is not ready for production use. If you are interested in this project, please star it to show your support and it will help me to prioritize the development of this project. Thanks in advance! ❤️
 
 Textwire is a simple yet powerful templating language for Go. It is designed to easily inject variables from Go code into a template file or just a regular string. It is inspired by Go's syntax and has a similar syntax to make it easier for Go developers to learn and use it.
 
@@ -220,8 +220,6 @@ You can use if statements to conditionally render content. Here is an example of
 
 #### For statements
 
-> ⚠️ IN DEVELOPMENT
-
 You can use for statements to iterate over slices. Here is an example of using for statements:
 
 ```html
@@ -231,8 +229,6 @@ You can use for statements to iterate over slices. Here is an example of using f
 ```
 
 #### Variable declaration
-
-> ⚠️ IN DEVELOPMENT
 
 You can declare variables in 2 ways, either by using the `:=` operator or by using the `var` keyword. Here is an example of declaring variables:
 
@@ -322,8 +318,6 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ```
 
 #### Slice literals
-
-> ⚠️ IN DEVELOPMENT
 
 Defining a slice in Textwire is done is a similar way as in Go. Here is an example of defining a slice:
 
