@@ -45,7 +45,7 @@ func homeView(w http.ResponseWriter, r *http.Request) {
 
 In this example, for our home page, we tell Textwire to use the "home.textwire.html" file and pass the variables that we want to inject into the template. The `textwire.PrintFile` function will then parse the file and print the result to the `http.ResponseWriter` object.
 
-## 💡 Features
+## 📚 Table of contents
 
 - 🔍 You can use package to parse a string with embedded Textwire code
 - 📃 You can use package as a templating language for your application
@@ -185,6 +185,8 @@ All the bracket statements return either an empty string or a string. For exampl
 There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
 
 Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
+
+### 💡 Supported features
 
 - Statements
     - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
