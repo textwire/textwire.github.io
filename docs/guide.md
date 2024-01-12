@@ -199,7 +199,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
     - ✅ [Float literals](#float-literals) `{{ 123.456 }}`
     - ✅ [Boolean literals](#boolean-literals) `{{ true }}`
-    - ✅ [Nil literal](#nil-literals) `{{ nil }}`
+    - ✅ [Nil literal](#nil-literal) `{{ nil }}`
     - 🚧 [Slice literals](#slice-literals) `{{ []int{1, 2, 3} }}`
 
 ### Statements
