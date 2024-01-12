@@ -187,7 +187,7 @@ There are special bracket statements that need to be closed with `{{ end }}` key
 Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
 
 - Statements
-    - 🚧 [If statements](#if-statements) `{{ if x == 1 }}`
+    - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
     - 🚧 [Variable declaration](#variable-declaration) `{{ x := 5 }}`
 - Expressions
