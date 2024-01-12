@@ -18,7 +18,11 @@ export default defineUserConfig({
         navbar: [
             {
                 text: 'Guide',
-                link: '/guide',
+                link: '/v1/guide',
+            },
+            {
+                text: 'Features',
+                link: '/v1/features',
             },
             {
                 text: 'GitHub',
@@ -30,7 +34,7 @@ export default defineUserConfig({
                 rel: 'author',
             },
             {
-                text: '☕️ By me a coffee',
+                text: '☕️ Buy me a coffee',
                 link: 'https://www.buymeacoffee.com/serhiicho',
             },
         ],
