@@ -220,6 +220,8 @@ You can use if statements to conditionally render content. Here is an example of
 
 #### For statements
 
+> ⚠️ IN DEVELOPMENT
+
 You can use for statements to iterate over slices. Here is an example of using for statements:
 
 ```html
@@ -229,6 +231,8 @@ You can use for statements to iterate over slices. Here is an example of using f
 ```
 
 #### Variable declaration
+
+> ⚠️ IN DEVELOPMENT
 
 You can declare variables in 2 ways, either by using the `:=` operator or by using the `var` keyword. Here is an example of declaring variables:
 
@@ -318,6 +322,8 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ```
 
 #### Slice literals
+
+> ⚠️ IN DEVELOPMENT
 
 Defining a slice in Textwire is done is a similar way as in Go. Here is an example of defining a slice:
 
