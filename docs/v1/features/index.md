@@ -82,6 +82,8 @@ You can declare variables in 2 ways, either by using the `:=` operator or by usi
 {{ var y = 10 }}
 ```
 
+> Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
+
 ## Expressions
 
 ### Ternary expressions
@@ -91,6 +93,8 @@ You can use ternary expressions to conditionally render content. Here is an exam
 ```html
 <span>{{ x == 1 ? "yes" : "no" }}</span>
 ```
+
+The advantage of a "ternary expression" over "if statement" is that it can be use inside of any other expressions.
 
 ### Prefix expressions
 
