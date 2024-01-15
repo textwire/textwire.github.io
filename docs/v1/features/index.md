@@ -26,7 +26,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
 - Statements
     - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
-    - 🚧 [Variable declaration](#variable-declaration) `{{ x := 5 }}`
+    - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
 - Expressions
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
