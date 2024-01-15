@@ -46,12 +46,20 @@ Let's take a look at what features are available (✅) in Textwire and what feat
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
 ```html
+{{ if name == "Anna" }}
+    <p>Her name is Anna</p>
+{{ end }}
+```
+
+You can also use else and else if statements:
+
+```html
 {{ if x == 1 }}
-    <p>x is equal to 1</p>
+    <p>x is 1</p>
 {{ else if x == 2 }}
-    <p>x is equal to 2</p>
+    <p>x is 2</p>
 {{ else }}
-    <p>x is not equal to 1 or 2</p>
+    <p>x is not 1 and 2</p>
 {{ end }}
 ```
 
