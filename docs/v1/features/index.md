@@ -31,6 +31,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
+    - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}`
     - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
@@ -120,6 +121,30 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 </ul>
 ```
 
+### Function calls
+
+You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
+
+Functions in Textwire are type specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.
+
+Here is an example of using function calls:
+
+```html
+{{ name.split(" ") }}
+```
+
+#### The list of Built-in functions
+
+Textwire has a few buit-in functions that you can use in your templates.
+
+##### String functions
+
+| Function | Description | Arguments | Example |
+| --- | --- | --- | --- |
+| `raw` | Prints a string without escaping it | `raw()` | `{{ "<h1>Test</h1>".raw() }}` |
+| `split` | Splits a string into a slice | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
+| `trim` | Trims a string from spaces and special characters like `\t\n\r` | `trim()` | `{{ "  Anna  ".trim() }}` |
+
 ## Literals
 
 ### String literals
@@ -129,6 +154,8 @@ You can use string literals and concatenate them with other strings. Here is an 
 ```html
 {{ "Hello" + "World!" }}
 ```
+
+> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a `raw` function on strings. Example: `{{ "<h1>Test</h1>".raw() }}`
 
 ### Integer literals
 
