@@ -29,12 +29,7 @@ export default defineUserConfig({
                 link: 'https://github.com/textwire/textwire',
             },
             {
-                text: '👨🏻‍💻 Author',
-                link: 'https://serhii.io/about-me',
-                rel: 'author',
-            },
-            {
-                text: '☕️ Buy me a coffee',
+                text: 'Support project',
                 link: 'https://www.buymeacoffee.com/serhiicho',
             },
         ],
