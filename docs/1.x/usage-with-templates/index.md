@@ -35,15 +35,17 @@ The `textwire.ParseTemplate` function accepts a string as its only argument. Thi
 
 In return, we get a `Template` object that we can use to evaluate the template. The `EvaluateResponse` function accepts a `http.ResponseWriter` object and a map of variables that we want to inject into the template. The `EvaluateResponse` function will then evaluate the parsed template and print the result to the `http.ResponseWriter` object.
 
-### Layouts
+## Layouts
 
-Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a `layouts` directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on. All textwire files should end with `*.textwire.html` file extension.
+Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a `layouts` directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on.
 
-This is what a layout file might look like:
+### Reserve space in the layout
+
+The `reserve` keyword is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
 
 ```html
 <!DOCTYPE html>
-<html lang="{{ locale }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,8 +57,13 @@ This is what a layout file might look like:
 </html>
 ```
 
-### Reserve space
-The "reserve" keyword is used to reserve a place for dynamic content that you can insert later. For example, you can reserve a place for the title of the page and then insert it later. Here is an example of inserting a title and content:
+We reserve a place for the title and content of the page. We can then insert the title and content into these reserved places.
+
+### Insert content into reserved space
+
+The `insert` keyword is used to insert content into reserved places. Insert statement can be defined in 2 ways, with and without the body. In the example below, we define the insert for "title" without the body, and for "content" with the body.
+
+Let's take a look at the example how I would define a `home.textwire.html` and then I'll explain each part of it:
 
 ```html
 {{ layout "layouts/main" }}
@@ -69,28 +76,8 @@ The "reserve" keyword is used to reserve a place for dynamic content that you ca
 {{ end }}
 ```
 
-First, we use the layout "layouts/main" so that parser knows which layout to use. Then we insert the title and content into reserved places. The first argument is the name of the reserved place and the second argument is the value that we want to insert.
+- First, we tell which layout we want to use by providing a path to the layout
+- Then we insert the title into layout with the value "Home page"
+- Then we insert the content into layout with the HTML body.
 
-As you can see there are two ways we can define the content. We can either use the `{{ insert "content" }}` and `{{ end }}` keywords and define content between them, or we can use the `{{ insert "title", "Home page" }}` and pass content as the second argument. The first way is useful when you want to insert a lot of content and the second way is useful when you want to insert a single line of content.
-
-### Using layout
-
-The "layout" keyword is used to specify which layout to use. Assuming that our layout is placed in the "layouts" folder and called "main.textwire.html", we can use it like this:
-
-```html
-{{ layout "layouts/main" }}
-```
-
-`"layouts/main"` is the relative path to the layout file. If you have deeply nested files and don't want to always specify the relative path, you can use the set the [aliases](#define-aliases).
-
-### Inserting content
-
-The "insert" keywords is used to insert the content into the reserved place in layout file. Here is an example of inserting the content into layout:
-
-```html
-{{ layout "layouts/main" }}
-
-{{ insert "content" }}
-    <h1>Hello, World!</h1>
-{{ end }}
-```
+You can read more about [layout](/1.x/language-elements#layout-statement), [insert](/1.x/language-elements#insert-statement) and [reserve](/1.x/language-elements#reserve-statement) statements on the [statements](/1.x/language-elements#statements) page if you need more information about the syntax.
