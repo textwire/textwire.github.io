@@ -39,6 +39,3 @@ func main() {
     })
 }
 ```
-
-## Using with Templates
-

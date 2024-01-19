@@ -1,84 +1,39 @@
-#Usage with Templates
+# Usage with Templates
 
-Textwire is a simple yet powerful templating language for Go. It is designed to easily inject variables from Go code into a template file or just a regular string. It is inspired by Go's syntax and has a similar syntax to make it easier for Go developers to learn and use it.
+One of the main Textwire features is the ability to use it as a template engine for Go projects. Using it as template engine is split into 3 steps:
 
-Keep in mind that this is a separate language and has nothing to do with Go. It just has a similar syntax to make it easier for Go developer to learn and use it. As for example, you can't write `{{ true ? "yes" : "no" }}` in Go, but you can do it in Textwire.
-
-## Get started
-
-Before we start using Textwire as a templating language, we need to tell it where to look for the template files. We can do that by using the `textwire.NewConfig` function only once in our `main.go` file. Here is an example of setting the configurations:
+1. Create a template file with the extension `.textwire.html`
+1. Parse the template file using the `textwire.ParseTemplate` function
+1. Evaluate the template file using the `Evaluate` function on the parsed template
 
 ```go
-func main() {
-    textwire.NewConfig(textwire.Config{
-        TemplateDir: "src/views/templates",
-    })
-}
-```
-
-With this configuration in place, Textwire will scan the content of the `src/views/templates` folder and all of its subfolders for template files. It will then cache them so that it doesn't scan the folder every time you want to parse a file.
-
-To print the content of the template file, we can use the `textwire.ParseFile` function. Here is an example of parsing a template file:
-
-```go
-func main() {
-	http.HandleFunc("/", homeView)
-	fmt.Println("Listening on http://localhost:8080")
-	http.ListenAndServe(":8080", nil)
-}
-
-func homeView(w http.ResponseWriter, r *http.Request) {
-	vars := map[string]interface{}{
-		"title": "Hello, World!",
-		"age":   23,
-	}
-
-	err := textwire.PrintFile(w, "home", vars)
+func homeHandler() http.HandlerFunc {
+	tpl, err := textwire.ParseTemplate("home")
 
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	return func(w http.ResponseWriter, r *http.Request) {
+		vars := map[string]interface{}{
+			"title": "Hello, World!",
+			"age":   23,
+		}
+
+		err := tpl.EvaluateResponse(w, vars)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+	}
 }
 ```
 
-In this example, for our home page, we tell Textwire to use the "home.textwire.html" file and pass the variables that we want to inject into the template. The `textwire.PrintFile` function will then parse the file and print the result to the `http.ResponseWriter` object.
+We first parse the template because it is more efficient to parse the template once when the application starts and then evaluate it when certain routes are called.
 
-## Table of contents
+The `textwire.ParseTemplate` function accepts a string as its only argument. This string is the name of the template file without the extension. In this example, we have a template file called `home.textwire.html` and we pass the name of the file without the extension, which is `home`.
 
-- 🔍 You can use package to parse a string with embedded Textwire code
-- 📃 You can use package as a templating language for your application
-- 🧩 Language syntax is similar to Go's syntax
-- 🖼️ You can define layouts and insert content into them
-- ❓ You can use "ternary expressions" and "if statements" to conditionally render content
-- ✅ Textwire is fully tested
-- 🚦 Proper error handling
-
-## Parse a string
-
-One way of using Textwire is to use it to parse a string with embedded variables. It is useful for rendering emails or other text-based content that you want to inject variables into.
-
-```go
-import "github.com/textwire/textwire"
-
-str := `
-    Hello {{ name }}! Thank you for your order #{{ orderNumber }}.
-    As a gift, we give you a {{ discount }} discount on your next order.
-`
-
-vars := map[string]interface{}{
-    "name": "John Doe",
-    "orderNumber": 12,
-    "discount":  "10%",
-}
-
-parsed, err := textwire.ParseStr(str, vars)
-```
-
-Variable **"parsed"** will now contain the parsed string with the injected variables. If there is an error, the **"err"** variable will contain the error.
-
-## Usage with templates
-
-You can use Textwire as a template language for your Server Side Rendered (SSR) web applications. Let's take a look what features you can use to build your templates.
+In return, we get a `Template` object that we can use to evaluate the template. The `EvaluateResponse` function accepts a `http.ResponseWriter` object and a map of variables that we want to inject into the template. The `EvaluateResponse` function will then evaluate the parsed template and print the result to the `http.ResponseWriter` object.
 
 ### Layouts
 
