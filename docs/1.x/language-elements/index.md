@@ -105,6 +105,8 @@ You can use insert statement to insert content into reserved places. You cannot 
 {{ end }}
 ```
 
+Insert statement excepts 2 arguments, the name of the reserved place and the optional content that you want to insert into the reserved place.
+
 All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
 
 ### Reserve statement
@@ -124,6 +126,8 @@ When you define a layout file for you template, you need to reserve places for d
 </body>
 </html>
 ```
+
+Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
 
 ## Expressions
 
