@@ -17,12 +17,28 @@ export default defineUserConfig({
     theme: defaultTheme({
         navbar: [
             {
-                text: 'Guide',
-                link: '/v1/guide',
+                text: 'Getting Started',
+                link: '/1.x/getting-started',
             },
             {
-                text: 'Features',
-                link: '/v1/features',
+                text: 'Language Elements',
+                link: '/1.x/language-elements',
+            },
+            {
+                text: 'Usage with Templates',
+                link: '/1.x/usage-with-templates',
+            },
+            {
+                text: 'Error Handling',
+                link: '/1.x/error-handling',
+            },
+            {
+                text: 'Examples',
+                link: '/1.x/examples',
+            },
+            {
+                text: 'FAQ',
+                link: '/1.x/faq',
             },
             {
                 text: 'GitHub',

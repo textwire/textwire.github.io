@@ -1,6 +1,4 @@
-# Guide
-
-> ⚠️ WARNING: Textwire is still in development and is not ready for production use. If you are interested in this project, please star it to show your support and it will help me to prioritize the development of this project. Thanks in advance! ❤️
+#Usage with Templates
 
 Textwire is a simple yet powerful templating language for Go. It is designed to easily inject variables from Go code into a template file or just a regular string. It is inspired by Go's syntax and has a similar syntax to make it easier for Go developers to learn and use it.
 
@@ -51,7 +49,6 @@ In this example, for our home page, we tell Textwire to use the "home.textwire.h
 - 📃 You can use package as a templating language for your application
 - 🧩 Language syntax is similar to Go's syntax
 - 🖼️ You can define layouts and insert content into them
-- 🛣️ You can define aliases for specific paths
 - ❓ You can use "ternary expressions" and "if statements" to conditionally render content
 - ✅ Textwire is fully tested
 - 🚦 Proper error handling
@@ -142,21 +139,3 @@ The "insert" keywords is used to insert the content into the reserved place in l
     <h1>Hello, World!</h1>
 {{ end }}
 ```
-
-## Define aliases
-
-You can define aliases for specific paths so that you don't have to always specify the relative path to the layout file. For example, if you have a layout file in the "src/views/templates/layouts" folder, you can set an alias for it like this:
-
-```go
-textwire.SetAliases(map[string]string{
-    "@layouts": "src/views/templates/layouts",
-})
-```
-
-After setting the alias, you can use it like this:
-
-```html
-{{ layout "@layouts/main" }}
-```
-
-If you've used aliases on the frontend with Webpack, you will find this feature very familiar and useful.

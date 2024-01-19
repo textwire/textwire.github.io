@@ -1,21 +1,12 @@
-# Features
+# Language Elements
 
 Textwire is designed to be easy to use for Go developers. It has a similar syntax to Go, but it is a separate language and has specific grammar to make it easier to use as a template language.
 
-Textwire code can only be defined inside of the `{{ }}` brackets. If you want to write a regular HTML code, you can do it outside of the brackets. Code inside brackets is a single expression and can't be split into multiple lines.
+## Rules
 
-❌ Incorrect expression
-
-```html
-{{ x := 5; y := 10 }}
-```
-
-✅ Correct expression
-
-```html
-{{ x := 5 }}
-{{ y := 10 }}
-```
+- All the HTML files that you want to parse with Textwire must have a `.textwire.html` extension.
+- All the Textwire code must be inside of the `{{ }}` brackets.
+- You must use only a single statement inside `{{ }}` brackets. `{{ <statement> }}`
 
 All the bracket statements return either an empty string or a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
 
@@ -27,13 +18,16 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
     - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
+    - ✅ [Layout statement](#layout-statement) `{{ layout "main" }}`
+    - ✅ [Insert statement](#insert-statement) `{{ insert "title", "Home" }}`
+    - ✅ [Reserve statement](#reserve-statement) `{{ reserve "title" }}`
 - Expressions
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
     - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
-    - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}`
+    - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
     - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
     - ✅ [Float literals](#float-literals) `{{ 123.456 }}`
     - ✅ [Boolean literals](#boolean-literals) `{{ true }}`
@@ -84,6 +78,52 @@ You can declare variables in 2 ways, either by using the `:=` operator or by usi
 ```
 
 > Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
+
+
+### Layout statement
+
+You can use layout statement to define a layout for your template file. Here is an example of using layout statement:
+
+```html
+{{ layout "layouts/main" }}
+```
+
+Layout statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `{{ layout "main" }}` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
+
+### Insert statement
+
+You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a `layout` in the same file. Here is an example of using insert statement:
+
+```html
+{{ layout "layouts/main" }}
+
+{{ insert "title", "Home page" }}
+
+{{ insert "content" }}
+    <h1>Hello, World!</h1>
+    <p>This is a home page.</p>
+{{ end }}
+```
+
+All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
+
+### Reserve statement
+
+When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
+
+```html
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ reserve "title" }}</title>
+</head>
+<body>
+    {{ reserve "content" }}
+</body>
+</html>
+```
 
 ## Expressions
 
