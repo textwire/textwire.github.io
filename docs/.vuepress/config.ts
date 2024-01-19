@@ -44,10 +44,6 @@ export default defineUserConfig({
                 text: 'GitHub',
                 link: 'https://github.com/textwire/textwire',
             },
-            {
-                text: 'Support project',
-                link: 'https://www.buymeacoffee.com/serhiicho',
-            },
         ],
     }),
 })

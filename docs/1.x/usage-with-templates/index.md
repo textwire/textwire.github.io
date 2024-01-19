@@ -6,11 +6,11 @@ Keep in mind that this is a separate language and has nothing to do with Go. It 
 
 ## Get started
 
-Before we start using Textwire as a templating language, we need to tell it where to look for the template files. We can do that by using the `textwire.SetConfig` function only once in our `main.go` file. Here is an example of setting the configurations:
+Before we start using Textwire as a templating language, we need to tell it where to look for the template files. We can do that by using the `textwire.NewConfig` function only once in our `main.go` file. Here is an example of setting the configurations:
 
 ```go
 func main() {
-    textwire.SetConfig(textwire.Config{
+    textwire.NewConfig(textwire.Config{
         TemplateDir: "src/views/templates",
     })
 }
