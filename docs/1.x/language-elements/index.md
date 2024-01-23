@@ -32,7 +32,20 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Float literals](#float-literals) `{{ 123.456 }}`
     - ✅ [Boolean literals](#boolean-literals) `{{ true }}`
     - ✅ [Nil literal](#nil-literal) `{{ nil }}`
-    - 🚧 [Slice literals](#slice-literals) `{{ []int{1, 2, 3} }}`
+    - ✅ [Array literals](#array-literals) `{{ [1, 2, 3] }}`
+
+## Supported types
+
+Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types:
+
+| Textwire type | Equivalent Go types                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Str`         | `string`                                                                                                                                                    |
+| `Bool`        | `bool`                                                                                                                                                      |
+| `Int`         | `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`                                                                     |
+| `Float`       | `float32`, `float64`                                                                                                                                        |
+| `Nil`         | `nil`                                                                                                                                                       |
+| `Array`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32` |
 
 ## Statements
 
@@ -60,7 +73,7 @@ You can also use else and else if statements:
 
 ### For statements
 
-You can use for statements to iterate over slices. Here is an example of using for statements:
+You can use for statements to iterate over arrays. Here is an example of using for statements:
 
 ```html
 {{ for i, name := range names }}
@@ -183,11 +196,11 @@ Textwire has a few buit-in functions that you can use in your templates.
 
 ##### String functions
 
-| Function | Description | Arguments | Example |
-| --- | --- | --- | --- |
-| `raw` | Prints a string without escaping it | `raw()` | `{{ "<h1>Test</h1>".raw() }}` |
-| `split` | Splits a string into a slice | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
-| `trim` | Trims a string from spaces and special characters like `\t\n\r` | `trim()` | `{{ "  Anna  ".trim() }}` |
+| Function | Description                                                     | Arguments                 | Example                         |
+| -------- | --------------------------------------------------------------- | ------------------------- | ------------------------------- |
+| `raw`    | Prints a string without escaping it                             | `raw()`                   | `{{ "<h1>Test</h1>".raw() }}`   |
+| `split`  | Splits a string into an array                                    | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
+| `trim`   | Trims a string from spaces and special characters like `\t\n\r` | `trim()`                  | `{{ "  Anna  ".trim() }}`       |
 
 ## Literals
 
@@ -237,16 +250,16 @@ You can use boolean literals to check if a variable is true or false. Here is an
 {{ end }}
 ```
 
-### Slice literals
+### Array literals
 
-Defining a slice in Textwire is done is a similar way as in Go. Here is an example of defining a slice:
+Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
 ```html
-{{ names := []string{"John", "Jane", "Jack"} }}
+{{ names := ["John", "Jane", "Jack"] }}
 
 <ul>
-    {{ for _, name := range names }}
-        <li>{{ name }}</li>
+    {{ for index, name := names }}
+        <li>{{ index }}: {{ name }}</li>
     {{ end }}
 </ul>
 ```
