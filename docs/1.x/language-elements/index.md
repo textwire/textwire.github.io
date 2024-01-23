@@ -34,9 +34,9 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Nil literal](#nil-literal) `{{ nil }}`
     - ✅ [Array literals](#array-literals) `{{ [1, 2, 3] }}`
 
-## Supported types
+## Types and Literals
 
-Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types:
+Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
 
 | Textwire type | Equivalent Go types                                                                                                                                         |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -46,6 +46,8 @@ Textwire has a different type system that Go. When you pass a variable to Textwi
 | `Float`       | `float32`, `float64`                                                                                                                                        |
 | `Nil`         | `nil`                                                                                                                                                       |
 | `Array`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32` |
+
+The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: `{{ "hello world".split(" ") }}` to get an array of strings `["hello", "world"]`.
 
 ## Statements
 
@@ -190,17 +192,7 @@ Here is an example of using function calls:
 {{ name.split(" ") }}
 ```
 
-#### The list of Built-in functions
-
-Textwire has a few buit-in functions that you can use in your templates.
-
-##### String functions
-
-| Function | Description                                                     | Arguments                 | Example                         |
-| -------- | --------------------------------------------------------------- | ------------------------- | ------------------------------- |
-| `raw`    | Prints a string without escaping it                             | `raw()`                   | `{{ "<h1>Test</h1>".raw() }}`   |
-| `split`  | Splits a string into an array                                    | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
-| `trim`   | Trims a string from spaces and special characters like `\t\n\r` | `trim()`                  | `{{ "  Anna  ".trim() }}`       |
+> You can read more about built-in functions in the [Built-in Functions](#built-in-functions) section.
 
 ## Literals
 
@@ -263,3 +255,15 @@ Defining an array in Textwire is done is a similar way as in other languages. He
     {{ end }}
 </ul>
 ```
+
+## Built-in functions
+
+Textwire has a few buit-in functions that you can use in your templates.
+
+### String functions
+
+| Function | Description                                                     | Arguments                 | Example                         |
+| -------- | --------------------------------------------------------------- | ------------------------- | ------------------------------- |
+| `raw`    | Prints a string without escaping it                             | `raw()`                   | `{{ "<h1>Test</h1>".raw() }}`   |
+| `split`  | Splits a string into an array                                   | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
+| `trim`   | Trims a string from spaces and special characters like `\t\n\r` | `trim()`                  | `{{ "  Anna  ".trim() }}`       |
