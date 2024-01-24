@@ -16,16 +16,17 @@ Let's take a look at what features are available (✅) in Textwire and what feat
 
 - Statements
     - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
-    - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
     - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
     - ✅ [Layout statement](#layout-statement) `{{ layout "main" }}`
     - ✅ [Insert statement](#insert-statement) `{{ insert "title", "Home" }}`
     - ✅ [Reserve statement](#reserve-statement) `{{ reserve "title" }}`
+    - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
 - Expressions
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
     - ✅ [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
+    - 🚧 [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
     - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
@@ -207,6 +208,31 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 <span>{{ x++ }}</span> <!-- Increment -->
 <span>{{ x-- }}</span> <!-- Decrement -->
 ```
+
+### Comparison expressions
+
+Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
+
+```html
+{{ if x == 1 }}
+    <p>x is 1</p>
+{{ end }}
+
+{{ y > 5 ? "y is greater than 5" : "y is less than 5" }}
+```
+
+#### Supported operators
+
+All supported operators are listed in the table below:
+
+| Operator | Description      |
+| -------- | ---------------- |
+| `==`     | Equal            |
+| `!=`     | Not equal        |
+| `>`      | Greater          |
+| `<`      | Less             |
+| `>=`     | Greater or equal |
+| `<=`     | Less or equal    |
 
 ### Function calls
 
