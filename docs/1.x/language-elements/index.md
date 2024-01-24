@@ -76,13 +76,44 @@ You can also use else and else if statements:
 
 ### For statements
 
-You can use for statements to iterate over arrays. Here is an example of using for statements:
+You can use "for statements" to iterate over arrays. There are three ways to use for statements in Textwire. Here are examples of using for loops:
+
+#### For loop
+
+This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
 ```html
-{{ for i, name := range names }}
-    <p>{{ i }}. {{ name }}</p>
+{{ names := ["Ann", "Serhii"] }}
+
+{{ for i := 0; i < names.len(); i++ }}
+    <p>{{ names[i] }}</p>
 {{ end }}
 ```
+
+#### Range loop
+
+For range loop is similar to the "range" loop in Go. It returns an index and a value of an array. Here is an example of using for range loop:
+
+```html
+{{ names := ["Ann", "Serhii"] }}
+
+{{ for _, name := range names }}
+    <p>{{ name }}</p>
+{{ end }}
+```
+
+#### Infinite loop
+
+You can use infinite loop to render content infinitely. Here is an example of using infinite loop:
+
+```html
+{{ for }}
+    <p>Hello, World!</p>
+    {{ break }}
+{{ end }}
+```
+
+> Don't forget to break out out of it at some point
 
 ### Variable declaration
 
