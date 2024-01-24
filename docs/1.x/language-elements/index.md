@@ -25,6 +25,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
+    - ✅ [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
     - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
@@ -180,6 +181,15 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 </ul>
 ```
 
+### Postfix expressions
+
+You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
+
+```html
+<span>{{ x++ }}</span> <!-- Increment -->
+<span>{{ x-- }}</span> <!-- Decrement -->
+```
+
 ### Function calls
 
 You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
@@ -253,6 +263,18 @@ Defining an array in Textwire is done is a similar way as in other languages. He
     {{ for index, name := names }}
         <li>{{ index }}: {{ name }}</li>
     {{ end }}
+</ul>
+```
+
+You can access values in an array by using an index. Here is an example of accessing values in an array:
+
+```html
+{{ names := ["John", "Jane", "Jack"] }}
+
+<ul>
+    <li>{{ names[0] }}</li> <!-- "John" -->
+    <li>{{ names[1] }}</li> <!-- "Jane" -->
+    <li>{{ names[2] }}</li> <!-- "Jack" -->
 </ul>
 ```
 
