@@ -26,7 +26,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
     - ✅ [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
-    - 🚧 [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
+    - ✅ [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
     - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
@@ -217,8 +217,6 @@ Comparison expressions produce a boolean value. Here is an example of using comp
 {{ if x == 1 }}
     <p>x is 1</p>
 {{ end }}
-
-{{ y > 5 ? "y is greater than 5" : "y is less than 5" }}
 ```
 
 #### Supported operators
