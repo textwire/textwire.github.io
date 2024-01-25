@@ -6,11 +6,9 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 
 - All the HTML files that you want to parse with Textwire must have a `.textwire.html` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets.
-- You must use only a single statement inside `{{ }}` brackets. `{{ <statement> }}`
-
-All the bracket statements return either an empty string or a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
-
-There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
+- If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x := 5; y := 10 }}`.
+- All the bracket statements return a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
+- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
 
 Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
 
