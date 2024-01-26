@@ -7,25 +7,17 @@ One of the main Textwire features is the ability to use it as a template engine 
 1. Evaluate the template file using the `Evaluate` function on the parsed template
 
 ```go
-func homeHandler() http.HandlerFunc {
-	tpl, err := textwire.ParseTemplate("home")
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+    data := map[string]interface{}{
+        "title": "Hello, World!",
+        "age":   23,
+    }
 
-	if err != nil {
-		fmt.Println(err)
-	}
+    err := tpl.View(w, "home", data)
 
-	return func(w http.ResponseWriter, r *http.Request) {
-		vars := map[string]interface{}{
-			"title": "Hello, World!",
-			"age":   23,
-		}
-
-		err := tpl.EvaluateResponse(w, vars)
-
-		if err != nil {
-			fmt.Println(err)
-		}
-	}
+    if err != nil {
+        fmt.Println(err) // handle error
+    }
 }
 ```
 
