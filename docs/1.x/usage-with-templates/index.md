@@ -37,7 +37,7 @@ In return, we get a `Template` object that we can use to evaluate the template. 
 
 ## Layouts
 
-Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a `layouts` directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on.
+Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a "layouts" directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on.
 
 ### Reserve space in the layout
 
@@ -66,7 +66,7 @@ The `insert` keyword is used to insert content into reserved places. Insert stat
 Let's take a look at the example how I would define a `home.textwire.html` and then I'll explain each part of it:
 
 ```html
-{{ layout "layouts/main" }}
+{{ use "layouts/main" }}
 
 {{ insert "title", "Home page" }}
 
@@ -80,4 +80,4 @@ Let's take a look at the example how I would define a `home.textwire.html` and t
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [layout](/1.x/language-elements#layout-statement), [insert](/1.x/language-elements#insert-statement) and [reserve](/1.x/language-elements#reserve-statement) statements on the [statements](/1.x/language-elements#statements) page if you need more information about the syntax.
+You can read more about [use](/1.x/language-elements#use-statement), [insert](/1.x/language-elements#insert-statement) and [reserve](/1.x/language-elements#reserve-statement) statements on the [statements](/1.x/language-elements#statements) page if you need more information about the syntax.

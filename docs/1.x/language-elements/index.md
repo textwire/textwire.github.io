@@ -15,7 +15,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
 - Statements
     - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
     - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
-    - ✅ [Layout statement](#layout-statement) `{{ layout "main" }}`
+    - ✅ [Use statement](#use-statement) `{{ use "layouts/main" }}`
     - ✅ [Insert statement](#insert-statement) `{{ insert "title", "Home" }}`
     - ✅ [Reserve statement](#reserve-statement) `{{ reserve "title" }}`
     - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
@@ -113,22 +113,22 @@ You can declare variables in 2 ways, either by using the `:=` operator or by usi
 > Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
 
 
-### Layout statement
+### Use statement
 
-You can use layout statement to define a layout for your template file. Here is an example of using layout statement:
+You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
 ```html
-{{ layout "layouts/main" }}
+{{ use "layouts/main" }}
 ```
 
-Layout statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `{{ layout "main" }}` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
+Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `{{ use "main" }}` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
 
 ### Insert statement
 
-You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a `layout` in the same file. Here is an example of using insert statement:
+You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement:
 
 ```html
-{{ layout "layouts/main" }}
+{{ use "layouts/main" }}
 
 {{ insert "title", "Home page" }}
 
