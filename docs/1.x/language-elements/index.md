@@ -5,7 +5,8 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 ## Rules
 
 - All the HTML files that you want to parse with Textwire must have a `.textwire.html` extension.
-- All the Textwire code must be inside of the `{{ }}` brackets.
+- All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
+- Statements that start with `@` symbol are called "directives" and they can be placed anywhere except inside of `{{ }}` brackets.
 - If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x := 5; y := 10 }}`.
 - All the bracket statements return a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
 - There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
@@ -13,12 +14,12 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
 
 - Statements
-    - ✅ [If statements](#if-statements) `{{ if x == 1 }}`
+    - ✅ [If statements](#if-statements) `@if(x == 1)`
     - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
-    - ✅ [Use statement](#use-statement) `{{ use "layouts/main" }}`
-    - ✅ [Insert statement](#insert-statement) `{{ insert "title", "Home" }}`
-    - ✅ [Reserve statement](#reserve-statement) `{{ reserve "title" }}`
-    - 🚧 [For statements](#for-statements) `{{ for i, name := range names }}`
+    - ✅ [Use statement](#use-statement) `@use("layouts/main")`
+    - ✅ [Insert statement](#insert-statement) `@insert("title", "Home")`
+    - ✅ [Reserve statement](#reserve-statement) `@reserve("title")`
+    - 🚧 [For statements](#for-statements) `@for(i, name := range names)`
 - Expressions
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
@@ -56,21 +57,21 @@ The biggest difference in types and type literals between Textwire and Go is tha
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
 ```html
-{{ if name == "Anna" }}
+@if(name == "Anna")
     <p>Her name is Anna</p>
-{{ end }}
+@end
 ```
 
-You can also use else and else if statements:
+You can also use `else` and `elseif` statements:
 
 ```html
-{{ if x == 1 }}
+@if(x == 1)
     <p>x is 1</p>
-{{ else if x == 2 }}
+@elseif(x == 2)
     <p>x is 2</p>
-{{ else }}
+@else
     <p>x is not 1 and 2</p>
-{{ end }}
+@end
 ```
 
 ### For statements
@@ -84,9 +85,9 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 ```html
 {{ names := ["Ann", "Serhii"] }}
 
-{{ for i := 0; i < names.len(); i++ }}
+@for(i := 0; i < names.len(); i++)
     <p>{{ names[i] }}</p>
-{{ end }}
+@end
 ```
 
 #### Range loop
@@ -96,9 +97,9 @@ For range loop is similar to the "range" loop in Go. It returns an index and a v
 ```html
 {{ names := ["Ann", "Serhii"] }}
 
-{{ for _, name := range names }}
+@for(_, name := range names)
     <p>{{ name }}</p>
-{{ end }}
+@end
 ```
 
 ### Variable declaration
@@ -118,24 +119,24 @@ You can declare variables in 2 ways, either by using the `:=` operator or by usi
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
 ```html
-{{ use "layouts/main" }}
+@use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `{{ use "main" }}` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
+Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
 
 ### Insert statement
 
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement:
 
 ```html
-{{ use "layouts/main" }}
+@use("layouts/main")
 
-{{ insert "title", "Home page" }}
+@insert("title", "Home page")
 
-{{ insert "content" }}
+@insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
-{{ end }}
+@end
 ```
 
 Insert statement excepts 2 arguments, the name of the reserved place and the optional content that you want to insert into the reserved place.
@@ -152,10 +153,10 @@ When you define a layout file for you template, you need to reserve places for d
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ reserve "title" }}</title>
+    <title>@reserve("title")</title>
 </head>
 <body>
-    {{ reserve "content" }}
+    @reserve("content")
 </body>
 </html>
 ```
@@ -212,9 +213,9 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
 ```html
-{{ if x == 1 }}
+@if(x == 1)
     <p>x is 1</p>
-{{ end }}
+@end
 ```
 
 #### Supported operators
@@ -269,9 +270,9 @@ You can use integer literals and perform arithmetic operations with them. Here i
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```html
-{{ if x == nil }}
+@if(x == nil)
     <p>x is nil</p>
-{{ end }}
+@end
 ```
 
 ### Float literals
@@ -287,9 +288,9 @@ You can use float literals and perform arithmetic operations with them. Here is 
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
 ```html
-{{ if isTall == true }}
+@if(true)
     <p>Is tall</p>
-{{ end }}
+@end
 ```
 
 ### Array literals
@@ -300,9 +301,9 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 {{ names := ["John", "Jane", "Jack"] }}
 
 <ul>
-    {{ for index, name := names }}
+    @for(index, name := range names)
         <li>{{ index }}: {{ name }}</li>
-    {{ end }}
+    @end
 </ul>
 ```
 

@@ -33,7 +33,7 @@ Defining a layout in Textwire is very simple. You need to create a file anywhere
 
 ### Reserve space in the layout
 
-The `reserve` keyword is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
+The `reserve` statement (directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
 
 ```html
 <!DOCTYPE html>
@@ -41,10 +41,10 @@ The `reserve` keyword is used to reserve a place for dynamic content that you ca
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ reserve "title" }}</title>
+    <title>@reserve("title")</title>
 </head>
 <body>
-    {{ reserve "content" }}
+    @reserve("content")
 </body>
 </html>
 ```
@@ -53,19 +53,19 @@ We reserve a place for the title and content of the page. We can then insert the
 
 ### Insert content into reserved space
 
-The `insert` keyword is used to insert content into reserved places. Insert statement can be defined in 2 ways, with and without the body. In the example below, we define the insert for "title" without the body, and for "content" with the body.
+The `insert` statement (directive) is used to insert content into reserved places. Insert statement can be defined in 2 ways, with and without the body. In the example below, we define the insert for "title" without the body, and for "content" with the body.
 
 Let's take a look at the example how I would define a `home.textwire.html` and then I'll explain each part of it:
 
 ```html
-{{ use "layouts/main" }}
+@use("layouts/main")
 
-{{ insert "title", "Home page" }}
+@insert("title", "Home page")
 
-{{ insert "content" }}
+@insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
-{{ end }}
+@end
 ```
 
 - First, we tell which layout we want to use by providing a path to the layout
