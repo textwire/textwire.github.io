@@ -19,7 +19,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Use statement](#use-statement) `@use("layouts/main")`
     - ✅ [Insert statement](#insert-statement) `@insert("title", "Home")`
     - ✅ [Reserve statement](#reserve-statement) `@reserve("title")`
-    - 🚧 [For statements](#for-statements) `@for(i, name := range names)`
+    - 🚧 [For statements](#for-statements) `@for(var name in names)`
 - Expressions
     - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
@@ -90,15 +90,16 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-#### Range loop
+#### Array loop
 
-For range loop is similar to the "range" loop in Go. It returns an index and a value of an array. Here is an example of using for range loop:
+Array loop is the best option for looping through arrays. It returns a single item of the given array. Here is an example of using for range loop:
 
 ```html
 {{ names := ["Ann", "Serhii"] }}
 
-@for(_, name := range names)
+@for(var name in names)
     <p>{{ name }}</p>
+    <p>{{ loop.index }}</p> <!-- Index of the current item -->
 @end
 ```
 
@@ -301,8 +302,9 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 {{ names := ["John", "Jane", "Jack"] }}
 
 <ul>
-    @for(index, name := range names)
-        <li>{{ index }}: {{ name }}</li>
+    @for(var name in names)
+        <li>{{ name }}</li>
+        <li>{{ loop.index }}</li> <!-- Index of the current item -->
     @end
 </ul>
 ```
