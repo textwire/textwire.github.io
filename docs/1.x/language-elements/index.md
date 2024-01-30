@@ -12,7 +12,7 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 - There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
 
 ### Directives
-- To escape directive symbols, you can use `@@`. For example `@@if(x == 1)` will not be parsed as a directive but as HTML.
+- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML.
 - Statements that start with `@` symbol are called "directives" and they can be placed anywhere except inside of `{{ }}` brackets.
 
 ## Available features
