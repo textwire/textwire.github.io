@@ -8,16 +8,13 @@ One of the main Textwire features is the ability to use it as a template engine 
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-    data := map[string]interface{}{
-        "title": "Hello, World!",
-        "age":   23,
-    }
+	err := tpl.View(w, "home", map[string]interface{}{
+		"title":     "Home page",
+		"names":     []string{"John", "Jane", "Jack", "Jill"},
+		"showNames": true,
+	})
 
-    err := tpl.View(w, "home", data)
-
-    if err != nil {
-        fmt.Println(err) // handle error
-    }
+	err.IfErrorFatal()
 }
 ```
 

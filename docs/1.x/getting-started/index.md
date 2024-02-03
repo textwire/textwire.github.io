@@ -16,9 +16,9 @@ To apply configurations to Textwire, you need to import the `github.com/textwire
 
 ```go
 func main() {
-    textwire.New(textwire.Config{
+    tpl, err := textwire.TemplateEngine(&textwire.Config{
         // Configurations go here
-    })
+	})
 }
 ```
 
@@ -35,9 +35,11 @@ Non of the configurations are required, especially if you are using Textwire not
 
 ```go
 func main() {
-    textwire.New(textwire.Config{
+    tpl, err = textwire.TemplateEngine(&textwire.Config{
         TemplateDir: "src/templates",
-    })
+	})
+
+	err.IfErrorFatal()
 }
 ```
 

@@ -82,6 +82,8 @@ You can also use `else` and `elseif` statements:
 
 ### For statements
 
+> 🚧 This feature is still in development.
+
 You can use "for statements" to iterate over arrays. There are **2 ways** to use for statements in Textwire. Here are examples of using for loops:
 
 #### For loop
@@ -239,6 +241,8 @@ All supported operators are listed in the table below:
 | `<=`     | Less or equal    |
 
 ### Function calls
+
+> 🚧 This feature is still in development.
 
 You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
 
