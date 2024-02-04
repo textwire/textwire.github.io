@@ -50,7 +50,6 @@ To use Textwire as a template language, you need to import the `github.com/textw
 func main() {
     tpl, err := textwire.NewTemplate(&textwire.Config{
         TemplateDir: "src/templates",
-        TemplateExt: ".html",
 	})
 
     err.FatalOnError()
