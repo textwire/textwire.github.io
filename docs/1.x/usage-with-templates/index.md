@@ -1,6 +1,36 @@
 # Usage with Templates
 
-One of the main Textwire features is the ability to use it as a template engine for Go projects. Here is an example:
+## Template Configuration
+
+To use Textwire as a template engine, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template engine.
+
+```go
+func main() {
+    tpl, err := textwire.NewTemplate(&textwire.Config{
+        TemplateDir: "src/templates",
+        TemplateExt: ".html",
+	})
+
+    err.FatalOnError()
+}
+```
+
+Non of the configurations are required, because each configuration has a default value. The `NewTemplate` function returns 2 values:
+
+1. `*textwire.Template` is a struct that holds the parsed templates and has methods to evaluate the templates.
+2. `*fail.Error` is a custom Textwire error type that is used to handle errors. It is a wrapper around the `error` type and it has a few additional methods that make it easier to handle errors. You can read more about [error handling](/1.x/error-handling) in the documentation.
+
+### Available Configurations
+
+| Property      | Type     | Description of the configuration                          | Example value     | Default value |
+| ------------- | -------- | --------------------------------------------------------- | ----------------- | ------------- |
+| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"` | `"templates"` |
+| `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
+
+
+### Write response to the client
+
+There are several ways to write a response to the client. You can use the `http.ResponseWriter` object to write the response directly, or you can use the `http.Request` object to write the response. The `http.ResponseWriter` object is the most common way to write a response to the client.
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -10,7 +40,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		"showNames": true,
 	})
 
-	err.IfErrorFatal()
+	err.FatalOnError()
 }
 ```
 
