@@ -5,7 +5,7 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 ## Rules
 
 ## Syntax
-- All the HTML files that you want to parse with Textwire must have a `.textwire.html` extension.
+- All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
 - If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x := 5; y := 10 }}`.
 - All the bracket statements return a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
@@ -131,7 +131,7 @@ You have a "use statement" to define a layout for your template. Here is an exam
 @use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.textwire.html"`.
+Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
 
 ### Insert statement
 

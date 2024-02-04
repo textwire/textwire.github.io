@@ -26,10 +26,10 @@ Non of the configurations are required, especially if you are using Textwire not
 
 ### Available Configurations
 
-| Property      | Type     | Description of the configuration                          | Example value      | Default value      |
-| ------------- | -------- | --------------------------------------------------------- | ------------------ | ------------------ |
-| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"`  | `"templates"`      |
-| `TemplateExt` | `string` | The extension of the template files                       | `".textwire.html"` | `".textwire.html"` |
+| Property      | Type     | Description of the configuration                          | Example value     | Default value |
+| ------------- | -------- | --------------------------------------------------------- | ----------------- | ------------- |
+| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"` | `"templates"` |
+| `TemplateExt` | `string` | The extension of the template files                       | `".tw.html"`      | `".tw.html"`  |
 
 ### Example of setting configurations
 
