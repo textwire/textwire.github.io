@@ -25,10 +25,6 @@ export default defineUserConfig({
                 link: '/1.x/language-elements',
             },
             {
-                text: 'Usage with Templates',
-                link: '/1.x/usage-with-templates',
-            },
-            {
                 text: 'Error Handling',
                 link: '/1.x/error-handling',
             },
