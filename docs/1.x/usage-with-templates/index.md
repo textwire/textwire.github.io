@@ -28,7 +28,7 @@ Non of the configurations are required, because each configuration has a default
 | `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
 
 
-### Write response to the client
+## Write response to the client
 
 There are several ways to write a response to the client. You can use the `http.ResponseWriter` object to write the response directly, or you can use the `http.Request` object to write the response. The `http.ResponseWriter` object is the most common way to write a response to the client.
 
