@@ -5,15 +5,22 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 ## Rules
 
 ## Syntax
+
 - All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
+
+### Bracket statements
+
 - If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x := 5; y := 10 }}`.
 - All the bracket statements return a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
 - There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
+- To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
 
 ### Directives
-- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML.
-- Statements that start with `@` symbol are called "directives" and they can be placed anywhere except inside of `{{ }}` brackets.
+
+Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of `{{ }}` brackets.
+
+To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML.
 
 ## Available features
 
