@@ -293,8 +293,8 @@ You can use integer literals and perform arithmetic operations with them. Here i
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```html
-@if(x == nil)
-    <p>x is nil</p>
+@if(nil)
+    <p>It will not be displayed</p>
 @end
 ```
 
