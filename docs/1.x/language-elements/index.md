@@ -17,7 +17,7 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 
 ## Available features
 
-Let's take a look at what features are available (✅) in Textwire and what features are still in development (🚧).
+Let's take a look at what features are available (✅) in Textwire and what features are coming in the future (🚧).
 
 - Statements
     - ✅ [If statements](#if-statements) `@if(x == 1)`
@@ -32,7 +32,7 @@ Let's take a look at what features are available (✅) in Textwire and what feat
     - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
     - ✅ [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
     - ✅ [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
-    - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
+    - 🚧 Function calls `{{ name.split(" ") }}`
 - Literals
     - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
     - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
@@ -240,22 +240,6 @@ All supported operators are listed in the table below:
 | `>=`     | Greater or equal |
 | `<=`     | Less or equal    |
 
-### Function calls
-
-> 🚧 This feature is still in development.
-
-You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
-
-Functions in Textwire are type specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.
-
-Here is an example of using function calls:
-
-```html
-{{ name.split(" ") }}
-```
-
-> You can read more about built-in functions in the [Built-in Functions](#built-in-functions) section.
-
 ## Literals
 
 ### String literals
@@ -330,15 +314,3 @@ You can access values in an array by using an index. Here is an example of acces
     <li>{{ names[2] }}</li> <!-- "Jack" -->
 </ul>
 ```
-
-## Built-in functions
-
-Textwire has a few buit-in functions that you can use in your templates.
-
-### String functions
-
-| Function | Description                                                     | Arguments                 | Example                         |
-| -------- | --------------------------------------------------------------- | ------------------------- | ------------------------------- |
-| `raw`    | Prints a string without escaping it                             | `raw()`                   | `{{ "<h1>Test</h1>".raw() }}`   |
-| `split`  | Splits a string into an array                                   | `split(separator string)` | `{{ "Serhii Cho".split(" ") }}` |
-| `trim`   | Trims a string from spaces and special characters like `\t\n\r` | `trim()`                  | `{{ "  Anna  ".trim() }}`       |
