@@ -60,6 +60,8 @@ The biggest difference in types and type literals between Textwire and Go is tha
 
 ### If statements
 
+> 📢 Since version 1.0.0
+
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
 ```html
@@ -82,11 +84,11 @@ You can also use `else` and `elseif` statements:
 
 ### For statements
 
-> 🚧 This feature is still in development.
-
 You can use "for statements" to iterate over arrays. There are **2 ways** to use for statements in Textwire. Here are examples of using for loops:
 
 #### For loop
+
+> 🚧 This feature is coming next and is not available right now.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
@@ -99,6 +101,8 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 ```
 
 #### Array loop
+
+> 📢 Since version 1.0.0
 
 Array loop is the best option for looping through arrays. It returns a single item of the given array. Here is an example of using for range loop:
 
@@ -113,6 +117,8 @@ Array loop is the best option for looping through arrays. It returns a single it
 
 ### Variable declaration
 
+> 📢 Since version 1.0.0
+
 You can declare variables in 2 ways, either by using the `:=` operator or by using the `var` keyword. Here is an example of declaring variables:
 
 ```html
@@ -125,6 +131,8 @@ You can declare variables in 2 ways, either by using the `:=` operator or by usi
 
 ### Use statement
 
+> 📢 Since version 1.0.0
+
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
 ```html
@@ -134,6 +142,8 @@ You have a "use statement" to define a layout for your template. Here is an exam
 Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
 
 ### Insert statement
+
+> 📢 Since version 1.0.0
 
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement:
 
@@ -153,6 +163,8 @@ Insert statement excepts 2 arguments, the name of the reserved place and the opt
 All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
 
 ### Reserve statement
+
+> 📢 Since version 1.0.0
 
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
@@ -176,6 +188,8 @@ Reserve statement excepts only a single argument, which the name of the reserved
 
 ### Ternary expressions
 
+> 📢 Since version 1.0.0
+
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
 
 ```html
@@ -186,6 +200,8 @@ The advantage of a "ternary expression" over "if statement" is that it can be us
 
 ### Prefix expressions
 
+> 📢 Since version 1.0.0
+
 You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
 
 ```html
@@ -194,6 +210,8 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 ```
 
 ### Infix expressions
+
+> 📢 Since version 1.0.0
 
 You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
 
@@ -210,6 +228,8 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 
 ### Postfix expressions
 
+> 📢 Since version 1.0.0
+
 You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
 
 ```html
@@ -218,6 +238,8 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 ```
 
 ### Comparison expressions
+
+> 📢 Since version 1.0.0
 
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
@@ -231,18 +253,20 @@ Comparison expressions produce a boolean value. Here is an example of using comp
 
 All supported operators are listed in the table below:
 
-| Operator | Description      |
-| -------- | ---------------- |
-| `==`     | Equal            |
-| `!=`     | Not equal        |
-| `>`      | Greater          |
-| `<`      | Less             |
-| `>=`     | Greater or equal |
-| `<=`     | Less or equal    |
+| Operator | Description      | Since version |
+| -------- | ---------------- | ------------- |
+| `==`     | Equal            | 1.0.0         |
+| `!=`     | Not equal        | 1.0.0         |
+| `>`      | Greater          | 1.0.0         |
+| `<`      | Less             | 1.0.0         |
+| `>=`     | Greater or equal | 1.0.0         |
+| `<=`     | Less or equal    | 1.0.0         |
 
 ## Literals
 
 ### String literals
+
+> 📢 Since version 1.0.0
 
 You can use string literals and concatenate them with other strings. Here is an example of using string literals:
 
@@ -254,6 +278,8 @@ You can use string literals and concatenate them with other strings. Here is an 
 
 ### Integer literals
 
+> 📢 Since version 1.0.0
+
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
 
 ```html
@@ -261,6 +287,8 @@ You can use integer literals and perform arithmetic operations with them. Here i
 ```
 
 ### Nil literal
+
+> 📢 Since version 1.0.0
 
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
@@ -272,6 +300,8 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 
 ### Float literals
 
+> 📢 Since version 1.0.0
+
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
 ```html
@@ -279,6 +309,8 @@ You can use float literals and perform arithmetic operations with them. Here is 
 ```
 
 ### Boolean literals
+
+> 📢 Since version 1.0.0
 
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
@@ -289,6 +321,8 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ```
 
 ### Array literals
+
+> 📢 Since version 1.0.0
 
 Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
