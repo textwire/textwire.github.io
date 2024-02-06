@@ -2,8 +2,6 @@
 
 Textwire is designed to be easy to use for Go developers. It has a similar syntax to Go, but it is a separate language and has specific grammar to make it easier to use as a template language.
 
-## Rules
-
 ## Syntax
 
 Textwire has a simple syntax that is easy to learn. Here are some rules that you need to follow when writing Textwire code:
@@ -255,8 +253,6 @@ All supported operators are listed in the table below:
 
 ### Function calls
 
-> 🚧 This feature is coming next and is not available right now.
-
 You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
 
 Functions in Textwire are type specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.
@@ -267,7 +263,7 @@ Here is an example of using function calls:
 {{ name.split(" ") }}
 ```
 
-> You can read more about built-in functions in the [Built-in Functions](#built-in-functions) section.
+> You can read more detailed about built-in functions on the [Built-in Functions](/1.x/functions) page.
 
 ## Literals
 
@@ -343,123 +339,3 @@ You can access values in an array by using an index. Here is an example of acces
     <li>{{ names[2] }}</li> <!-- "Jack" -->
 </ul>
 ```
-
-## Built-in functions
-
-Textwire has a few built-in functions that you can use in your programs. New functions will be added in the future version of Textwire. Here is the list:
-
----
-
-### String functions
-
-#### `raw()`
-
-Prints a string without escaping it.
-
-```html
-{{ "<h1>Test</h1>".raw() }} <!-- <h1>Test</h1> -->
-```
-
-#### `split(delimiter?: string)`
-
-##### Params
-
-- `delimiter` (optional) - A string to split a string by. Default is a space.
-
-Splits a string into an array.
-
-```html
-{{ "one two".split(" ") }} <!-- Converts to array: ["one", "two"] -->
-```
-
-#### `trim(chars?: string)`
-
-##### Params
-
-- `chars` (optional) - A string of characters to trim from a string. Default is ` \t\n\r`.
-
-Trims a string from spaces and special characters like `\t\n\r` by default. You can pass a argument to trim a specific set of characters from a string.
-
-```html
-{{ " Anna ".trim() }} <!-- "Anna" -->
-```
-
-#### `len()`
-
-Returns the length of a string.
-
-```html
-{{ "Hello, World!".len() }} <!-- 13 -->
-```
-
-#### `lower()`
-
-Converts a string to lowercase.
-
-```html
-{{ "Hello, World!".lower() }} <!-- "hello, world!" -->
-```
-
-#### `upper()`
-
-Converts a string to uppercase.
-
-```html
-{{ "Hello, World!".upper() }} <!-- "HELLO, WORLD!" -->
-```
-
----
-
-### Array functions
-
-#### `len()`
-
-Returns the length of an array.
-
-```html
-{{ [1, 2, 3].len() }} <!-- 3 -->
-```
-
-#### `min()`
-
-Returns the minimum value of an array.
-
-```html
-{{ [1, 2, 3].min() }} <!-- 1 -->
-```
-
-#### `max()`
-
-Returns the maximum value of an array.
-
-```html
-{{ [1, 2, 3].max() }} <!-- 3 -->
-```
-
----
-
-### Integer functions
-
-#### `float()`
-
-Converts an integer to a float.
-
-```html
-{{ 5.float() }} <!-- 5.0 -->
-```
-
----
-
-### Float functions
-
-#### `int()`
-
-Converts a float to an integer.
-
-```html
-{{ 5.5.int() }} <!-- 5 -->
-```
-
-::: tip NOTICE
-Functions for other types like boolean, nil and so on are not available right now. They might be added in the future version if there is a need for them.
-:::

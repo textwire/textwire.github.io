@@ -25,8 +25,8 @@ export default defineUserConfig({
                 link: '/1.x/language-elements',
             },
             {
-                text: 'Error Handling',
-                link: '/1.x/error-handling',
+                text: 'Built-in Functions',
+                link: '/1.x/functions',
             },
             {
                 text: 'Examples',
