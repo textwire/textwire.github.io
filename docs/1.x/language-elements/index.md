@@ -384,6 +384,30 @@ Trims a string from spaces and special characters like `\t\n\r` by default. You 
 {{ " Anna ".trim() }} <!-- "Anna" -->
 ```
 
+#### `len()`
+
+Returns the length of a string.
+
+```html
+{{ "Hello, World!".len() }} <!-- 13 -->
+```
+
+#### `lower()`
+
+Converts a string to lowercase.
+
+```html
+{{ "Hello, World!".lower() }} <!-- "hello, world!" -->
+```
+
+#### `upper()`
+
+Converts a string to uppercase.
+
+```html
+{{ "Hello, World!".upper() }} <!-- "HELLO, WORLD!" -->
+```
+
 ---
 
 ### Array functions
