@@ -348,6 +348,8 @@ You can access values in an array by using an index. Here is an example of acces
 
 Textwire has a few built-in functions that you can use in your programs. New functions will be added in the future version of Textwire. Here is the list:
 
+---
+
 ### String functions
 
 #### `raw()`
@@ -382,6 +384,8 @@ Trims a string from spaces and special characters like `\t\n\r` by default. You 
 {{ " Anna ".trim() }} <!-- "Anna" -->
 ```
 
+---
+
 ### Array functions
 
 #### `len()`
@@ -408,6 +412,8 @@ Returns the maximum value of an array.
 {{ [1, 2, 3].max() }} <!-- 3 -->
 ```
 
+---
+
 ### Integer functions
 
 #### `float()`
@@ -417,6 +423,8 @@ Converts an integer to a float.
 ```html
 {{ 5.float() }} <!-- 5.0 -->
 ```
+
+---
 
 ### Float functions
 
