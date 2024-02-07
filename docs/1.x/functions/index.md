@@ -40,39 +40,76 @@ The output will be `one,two` because arrays are automatically converted to array
 <div>one,two</div>
 ```
 
-### `trim(chars?: string)`
+### `trim()`
 
-#### Arguments
-- `chars` (optional) - A string of characters to trim from a string. Default is ` \t\n\r`.
-
+#### Description
 Trims a string from spaces and special characters like `\t\n\r` by default. You can pass a argument to trim a specific set of characters from a string.
 
+#### Arguments
+1. `chars` (optional) - A string of characters to trim from a string. Default is ` \t\n\r`.
+
+#### Input
 ```html
-{{ " Anna ".trim() }} <!-- "Anna" -->
+<span>{{ " Anna ".trim() }}</span>
+```
+
+#### Output
+```html
+<span>Anna</span>
 ```
 
 ### `len()`
 
+#### Description
 Returns the length of a string.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ "Hello, World!".len() }} <!-- 13 -->
+<b>{{ "Hello, World!".len() }}</b>
+```
+
+#### Output
+```html
+<b>13</b>
 ```
 
 ### `lower()`
 
-Converts a string to lowercase.
+#### Description
+The `lower` function converts a string to lowercase.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ "Hello, World!".lower() }} <!-- "hello, world!" -->
+<span>{{ "Hello, World!".lower() }}<span>
+```
+
+#### Output
+```html
+<span>hello, world!</span>
 ```
 
 ### `upper()`
 
-Converts a string to uppercase.
+#### Description
+The `upper` function converts a string to uppercase.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ "Hello, World!".upper() }} <!-- "HELLO, WORLD!" -->
+<b>{{ "Hello, World!".upper() }}</b>
+```
+
+#### Output
+```html
+<b>HELLO, WORLD!</b>
 ```
 
 ---
@@ -82,7 +119,7 @@ Converts a string to uppercase.
 ### `len`
 
 #### Description
-Returns the length of an array.
+Function `len` returns the length of an array.
 
 ##### Arguments
 None
@@ -99,18 +136,38 @@ None
 
 ### `min()`
 
+#### Description
 Returns the minimum value of an array.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ [1, 2, 3].min() }} <!-- 1 -->
+<span>{{ [1, 2, 3].min() }}</span>
+```
+
+#### Output
+```html
+<span>1</span>
 ```
 
 ### `max()`
 
+#### Description
 Returns the maximum value of an array.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ [1, 2, 3].max() }} <!-- 3 -->
+<span>{{ [1, 2, 3].max() }}</span>
+```
+
+#### Output
+```html
+<span>3</span>
 ```
 
 ---
@@ -119,10 +176,20 @@ Returns the maximum value of an array.
 
 ### `float()`
 
-Converts an integer to a float.
+#### Description
+The `float` function is used to convert an integer to a float.
 
+##### Arguments
+1. `precision` (optional) - The number of decimal places to round the float to. Default is 2.
+
+#### Input
 ```html
-{{ 5.float() }} <!-- 5.0 -->
+<b>Sum: {{ 5.float() }} USD</b>
+```
+
+#### Output
+```html
+<b>Sum: 5.00 USD</b>
 ```
 
 ---
@@ -131,10 +198,20 @@ Converts an integer to a float.
 
 ### `int()`
 
+#### Description
 Converts a float to an integer.
 
+##### Arguments
+None
+
+#### Input
 ```html
-{{ 5.5.int() }} <!-- 5 -->
+<input value="{{ 5.5.int() }}" type="number">
+```
+
+#### Output
+```html
+<input value="5" type="number">
 ```
 
 ::: tip NOTICE
