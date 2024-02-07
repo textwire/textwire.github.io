@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-47ac8a90","path":"/1.x/error-handling/","title":"Error Handling","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1705658470000,"contributors":[{"name":"SerhiiCho","email":"serhiicho@protonmail.com","commits":1}]},"filePathRelative":"1.x/error-handling/index.md"}');export{e as data};
