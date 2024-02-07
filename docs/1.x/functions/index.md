@@ -10,7 +10,7 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 #### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 {{ "<h1>Test</h1>".raw() }}
 ```
@@ -28,7 +28,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 #### Arguments
 1. `delimiter` (optional) - What delimiter to use to split the string. Default is " " (space).
 
-#### Input
+#### Input example
 ```html
 <div>{{ "one two".split(" ") }}</div>
 ```
@@ -48,7 +48,7 @@ Trims a string from spaces and special characters like `\t\n\r` by default. You 
 #### Arguments
 1. `chars` (optional) - A string of characters to trim from a string. Default is ` \t\n\r`.
 
-#### Input
+#### Input example
 ```html
 <span>{{ " Anna ".trim() }}</span>
 ```
@@ -61,12 +61,12 @@ Trims a string from spaces and special characters like `\t\n\r` by default. You 
 ### `len()`
 
 #### Description
-Returns the length of a string.
+The `len` function returns the length of a string.
 
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <b>{{ "Hello, World!".len() }}</b>
 ```
@@ -84,7 +84,7 @@ The `lower` function converts a string to lowercase.
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <span>{{ "Hello, World!".lower() }}<span>
 ```
@@ -102,7 +102,7 @@ The `upper` function converts a string to uppercase.
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <b>{{ "Hello, World!".upper() }}</b>
 ```
@@ -111,8 +111,6 @@ None
 ```html
 <b>HELLO, WORLD!</b>
 ```
-
----
 
 ## Array functions
 
@@ -124,7 +122,7 @@ Function `len` returns the length of an array.
 ##### Arguments
 None
 
-#### Input:
+#### Input example:
 ```html
 <span>{{ [1, 2, 3].len() }}</span>
 ```
@@ -137,12 +135,16 @@ None
 ### `min()`
 
 #### Description
-Returns the minimum value of an array.
+The `min` function returns the minimum value of an array. With array of integers or floats, it returns the smallest number. With array of strings, it returns the string with the smallest length.
+
+::: warning
+Function `min` working only with `INT`, `FLOAT` and `STRING` arrays. If you try to use it with other types, it will return empty string.
+:::
 
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <span>{{ [1, 2, 3].min() }}</span>
 ```
@@ -155,12 +157,16 @@ None
 ### `max()`
 
 #### Description
-Returns the maximum value of an array.
+The `max` function returns the maximum value of an array. With array of integers or floats, it returns the largest number. With array of strings, it returns the string with the largest length.
+
+::: warning
+Function `max` working only with `INT`, `FLOAT` and `STRING` arrays. If you try to use it with other types, it will return empty string.
+:::
 
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <span>{{ [1, 2, 3].max() }}</span>
 ```
@@ -170,19 +176,17 @@ None
 <span>3</span>
 ```
 
----
-
 ## Integer functions
 
 ### `float()`
 
 #### Description
-The `float` function is used to convert an integer to a float.
+The `float` function is used to convert an integer to a float by adding certain decimal places to the number. You can pass an optional argument `precision` to add a specific number of decimal places to the number.
 
 ##### Arguments
 1. `precision` (optional) - The number of decimal places to round the float to. Default is 2.
 
-#### Input
+#### Input example
 ```html
 <b>Sum: {{ 5.float() }} USD</b>
 ```
@@ -192,19 +196,17 @@ The `float` function is used to convert an integer to a float.
 <b>Sum: 5.00 USD</b>
 ```
 
----
-
 ## Float functions
 
 ### `int()`
 
 #### Description
-Converts a float to an integer.
+Function `int` is used to convert a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part.
 
 ##### Arguments
 None
 
-#### Input
+#### Input example
 ```html
 <input value="{{ 5.5.int() }}" type="number">
 ```
