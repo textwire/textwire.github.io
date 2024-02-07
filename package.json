@@ -6,16 +6,22 @@
     "build": "vuepress build docs",
     "deploy": "yarn build && gh-pages -d docs/.vuepress/dist"
   },
+  "contributors": [
+    {
+      "name": "SerhiiCho",
+      "email": "serhiicho@protonmail.com"
+    }
+  ],
   "description": "Documentation website for Textwire library for Go",
   "main": "index.js",
   "repository": "https://github.com/textwire/textwire.github.io",
   "author": "SerhiiCho",
   "license": "MIT",
   "devDependencies": {
-    "vuepress": "^2.0.0-rc.0"
+    "vuepress": "^2.0.0-rc.0",
+    "gh-pages": "^6.1.1"
   },
   "dependencies": {
-    "@vuepress/plugin-search": "^2.0.0-rc.0",
-    "gh-pages": "^6.1.1"
+    "@vuepress/plugin-search": "^2.0.0-rc.0"
   }
 }
