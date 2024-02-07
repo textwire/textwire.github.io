@@ -41,10 +41,10 @@ None
 ### `split()`
 
 #### Description
-Function `split` is used to split a string into an array of substrings. It takes an optional argument `delimiter` which is used to split the string. If no delimiter is provided, it defaults to a space.
+Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space.
 
 #### Arguments
-1. `delimiter` (optional) - What delimiter to use to split the string. Default is " " (space).
+1. `separator` (optional) - What separator to use to split the string. Default is " " (space).
 
 #### Input example
 ```html
