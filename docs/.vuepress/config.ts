@@ -24,23 +24,23 @@ export default defineUserConfig({
         navbar: [
             {
                 text: 'Getting Started',
-                link: '/v1/getting-started',
+                link: '/1.x/getting-started',
             },
             {
                 text: 'Language Elements',
-                link: '/v1/language-elements',
+                link: '/1.x/language-elements',
             },
             {
                 text: 'Built-in Functions',
-                link: '/v1/functions',
+                link: '/1.x/functions',
             },
             {
                 text: 'Examples',
-                link: '/v1/examples',
+                link: '/1.x/examples',
             },
             {
                 text: 'FAQ',
-                link: '/v1/faq',
+                link: '/1.x/faq',
             },
             {
                 text: 'GitHub',
