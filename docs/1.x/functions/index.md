@@ -1,5 +1,23 @@
 # Built-in functions
 
+Textwire has a set of built-in functions that can be used to manipulate data. These functions are used to perform operations on strings, arrays, integers, and floats. You can use these functions anywhere in your Textwire programs.
+
+Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `lower` function is used to convert a string to lowercase. You can call a function on a value by using the dot operator (`.`) followed by the function name.
+
+```html
+{{ "TEXTWIRE".lower() }} <!-- output: textwire -->
+```
+
+You can also chain multiple functions together to perform complex operations.
+
+```html
+{{ "  Textwire  ".trim().lower() }} <!-- output: textwire -->
+```
+
+::: tip NOTE
+New functions are added in new version of Textwire when there is a need for them. If you have a suggestion for a new function, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub and we will consider adding it in the next version.
+:::
+
 ## String functions
 
 ### `raw()`
@@ -215,7 +233,3 @@ None
 ```html
 <input value="5" type="number">
 ```
-
-::: tip NOTICE
-Functions for other types like boolean, nil and so on are not available right now. They might be added in the future version if there is a need for them.
-:::
