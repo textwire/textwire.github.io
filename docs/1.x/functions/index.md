@@ -2,16 +2,20 @@
 
 Textwire has a set of built-in functions that can be used to manipulate data. These functions are used to perform operations on strings, arrays, integers, and floats. You can use these functions anywhere in your Textwire programs.
 
-Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `lower` function is used to convert a string to lowercase. You can call a function on a value by using the dot operator (`.`) followed by the function name.
+Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `trim` function is used to remove characters from both sides of the string. You can call a function on a value by using the dot operator (`.`) followed by the function name.
 
 ```html
-{{ "TEXTWIRE".lower() }} <!-- output: textwire -->
+<div>
+    {{ "Textwire".len() }} <!-- output: 8 -->
+</div>
 ```
 
 You can also chain multiple functions together to perform complex operations.
 
 ```html
-{{ "  Textwire  ".trim().lower() }} <!-- output: textwire -->
+<span>
+    {{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
+</span>
 ```
 
 ::: tip NOTE
@@ -92,42 +96,6 @@ None
 #### Output
 ```html
 <b>13</b>
-```
-
-### `lower()`
-
-#### Description
-The `lower` function converts a string to lowercase.
-
-##### Arguments
-None
-
-#### Input example
-```html
-<span>{{ "Hello, World!".lower() }}<span>
-```
-
-#### Output
-```html
-<span>hello, world!</span>
-```
-
-### `upper()`
-
-#### Description
-The `upper` function converts a string to uppercase.
-
-##### Arguments
-None
-
-#### Input example
-```html
-<b>{{ "Hello, World!".upper() }}</b>
-```
-
-#### Output
-```html
-<b>HELLO, WORLD!</b>
 ```
 
 ## Array functions
