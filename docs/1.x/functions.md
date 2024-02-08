@@ -123,19 +123,19 @@ None
 ### `float()`
 
 #### Description
-The `float` function is used to convert an integer to a float by adding certain decimal places to the number. You can pass an optional argument `precision` to add a specific number of decimal places to the number.
+The `float` function is used to convert an integer to a float.
 
 ##### Arguments
-1. `precision` (optional) - The number of decimal places to round the float to. Default is 2.
+None
 
 #### Input example
 ```html
-<b>Sum: {{ 5.float() }} USD</b>
+<b>{{ 5.float() }}</b>
 ```
 
 #### Output
 ```html
-<b>Sum: 5.00 USD</b>
+<b>5.0</b>
 ```
 
 ## Float functions
