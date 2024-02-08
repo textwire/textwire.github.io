@@ -65,10 +65,10 @@ The output will be `one,two` because arrays are automatically converted to array
 ### `trim()`
 
 #### Description
-Trims a string from spaces and special characters like `\t\n\r` by default. You can pass a argument to trim a specific set of characters from a string.
+Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string.
 
 #### Arguments
-1. `chars` (optional) - A string of characters to trim from a string. Default is ` \t\n\r`.
+1. `chars` (optional) - A string of characters to trim from a string. Default is `\t \n\r`.
 
 #### Input example
 ```html
