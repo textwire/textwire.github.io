@@ -27,29 +27,29 @@ Directives are special Textwire statements that start with `@` symbol. They can 
 
 ## Available features
 
-Let's take a look at what features are available (✅) in Textwire and what features are coming in the future (🚧).
+Let's take a look at what features are available in Textwire:
 
 - Statements
-    - ✅ [If statements](#if-statements) `@if(x == 1)`
-    - ✅ [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
-    - ✅ [Use statement](#use-statement) `@use("layouts/main")`
-    - ✅ [Insert statement](#insert-statement) `@insert("title", "Home")`
-    - ✅ [Reserve statement](#reserve-statement) `@reserve("title")`
-    - 🚧 [For statements](#for-statements) `@for(var name in names)`
+    - [If statements](#if-statements) `@if(x == 1)`
+    - [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
+    - [Use statement](#use-statement) `@use("layouts/main")`
+    - [Insert statement](#insert-statement) `@insert("title", "Home")`
+    - [Reserve statement](#reserve-statement) `@reserve("title")`
+    - [For statements](#for-statements) `@for(var name in names)`
 - Expressions
-    - ✅ [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
-    - ✅ [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
-    - ✅ [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
-    - ✅ [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
-    - ✅ [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
-    - 🚧 [Function calls](#function-calls) `{{ name.split(" ") }}`
+    - [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
+    - [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
+    - [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
+    - [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
+    - [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
+    - [Function calls](#function-calls) `{{ name.split(" ") }}`
 - Literals
-    - ✅ [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
-    - ✅ [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
-    - ✅ [Float literals](#float-literals) `{{ 123.456 }}`
-    - ✅ [Boolean literals](#boolean-literals) `{{ true }}`
-    - ✅ [Nil literal](#nil-literal) `{{ nil }}`
-    - ✅ [Array literals](#array-literals) `{{ [1, 2, 3] }}`
+    - [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
+    - [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
+    - [Float literals](#float-literals) `{{ 123.456 }}`
+    - [Boolean literals](#boolean-literals) `{{ true }}`
+    - [Nil literal](#nil-literal) `{{ nil }}`
+    - [Array literals](#array-literals) `{{ [1, 2, 3] }}`
 
 ## Types and Literals
 
