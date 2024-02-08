@@ -118,50 +118,6 @@ None
 <span>3</span>
 ```
 
-### `min()`
-
-#### Description
-The `min` function returns the minimum value of an array. With array of integers or floats, it returns the smallest number. With array of strings, it returns the string with the smallest length.
-
-::: warning
-Function `min` working only with `INT`, `FLOAT` and `STRING` arrays. If you try to use it with other types, it will return empty string.
-:::
-
-##### Arguments
-None
-
-#### Input example
-```html
-<span>{{ [1, 2, 3].min() }}</span>
-```
-
-#### Output
-```html
-<span>1</span>
-```
-
-### `max()`
-
-#### Description
-The `max` function returns the maximum value of an array. With array of integers or floats, it returns the largest number. With array of strings, it returns the string with the largest length.
-
-::: warning
-Function `max` working only with `INT`, `FLOAT` and `STRING` arrays. If you try to use it with other types, it will return empty string.
-:::
-
-##### Arguments
-None
-
-#### Input example
-```html
-<span>{{ [1, 2, 3].max() }}</span>
-```
-
-#### Output
-```html
-<span>3</span>
-```
-
 ## Integer functions
 
 ### `float()`
