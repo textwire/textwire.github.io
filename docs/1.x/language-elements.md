@@ -96,8 +96,6 @@ You can use "for statements" to iterate over arrays. There are **2 ways** to use
 
 #### For loop
 
-> 🚧 This feature is coming next and is not available right now.
-
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
 ```html
