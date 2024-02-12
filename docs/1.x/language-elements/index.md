@@ -13,8 +13,8 @@ Textwire has a simple syntax that is easy to learn. Here are some rules that you
 
 Bracket statements are special Textwire statements that start with `{{` brackets and end with `}}`. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Bracket statements can be placed anywhere in the file except inside of directives.
 
-- If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x := 5; y := 10 }}`.
-- All the bracket statements return a string. For example, `{{ x := 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
+- If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x = 5; y = 10 }}`.
+- All the bracket statements return a string. For example, `{{ x = 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
 - There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
 - To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
 
@@ -31,7 +31,7 @@ Let's take a look at what features are available in Textwire:
 
 - Statements
     - [If statements](#if-statements) `@if(x == 1)`
-    - [Variable declaration](#variable-declaration) `{{ x := 5 }}` or `{{ var y = 10 }}`
+    - [Variable declaration](#variable-declaration) `{{ x = 5 }}`
     - [Use statement](#use-statement) `@use("layouts/main")`
     - [Insert statement](#insert-statement) `@insert("title", "Home")`
     - [Reserve statement](#reserve-statement) `@reserve("title")`
@@ -99,9 +99,9 @@ You can use "for statements" to iterate over arrays. There are **2 ways** to use
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
 ```html
-{{ names := ["Ann", "Serhii"] }}
+{{ names = ["Ann", "Serhii"] }}
 
-@for(i := 0; i < names.len(); i++)
+@for(i = 0; i < names.len(); i++)
     <p>{{ names[i] }}</p>
 @end
 ```
@@ -111,9 +111,9 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 Array loop is the best option for looping through arrays. It returns a single item of the given array. Here is an example of using for range loop:
 
 ```html
-{{ names := ["Ann", "Serhii"] }}
+{{ names = ["Ann", "Serhii"] }}
 
-@for(var name in names)
+@for(name in names)
     <p>{{ name }}</p>
     <p>{{ loop.index }}</p> <!-- Index of the current item -->
 @end
@@ -121,11 +121,11 @@ Array loop is the best option for looping through arrays. It returns a single it
 
 ### Variable declaration
 
-You can declare variables in 2 ways, either by using the `:=` operator or by using the `var` keyword. Here is an example of declaring variables:
+You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
 ```html
-{{ x := 5 }}
-{{ var y = 10 }}
+{{ x = 5 }}
+{{ x = 10 }}
 ```
 
 > Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
@@ -316,7 +316,7 @@ You can use boolean literals to check if a variable is true or false. Here is an
 Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
 ```html
-{{ names := ["John", "Jane", "Jack"] }}
+{{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
     @for(var name in names)
@@ -329,7 +329,7 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 You can access values in an array by using an index. Here is an example of accessing values in an array:
 
 ```html
-{{ names := ["John", "Jane", "Jack"] }}
+{{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
     <li>{{ names[0] }}</li> <!-- "John" -->
