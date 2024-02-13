@@ -126,6 +126,8 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 {{ x = 10 }}
 ```
 
+You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
+
 > Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
 
 
