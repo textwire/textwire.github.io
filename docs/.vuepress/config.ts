@@ -38,10 +38,10 @@ export default defineUserConfig({
                 text: 'Built-in Functions',
                 link: '/1.x/functions/',
             },
-            {
-                text: 'Examples',
-                link: '/1.x/examples/',
-            },
+            // {
+            //     text: 'Examples',
+            //     link: '/1.x/examples/',
+            // },
             {
                 text: 'FAQ',
                 link: '/1.x/faq/',
