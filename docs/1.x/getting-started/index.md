@@ -61,7 +61,7 @@ func main() {
 Non of the configurations are required, because each configuration has a default value. The `NewTemplate` function returns 2 values:
 
 1. `*textwire.Template` is a struct that holds the parsed templates and has methods to evaluate the templates.
-2. `*fail.Error` is a custom Textwire error type that is used to handle errors. It is a wrapper around the `error` type and it has a few additional methods that make it easier to handle errors. You can read more about [error handling](/1.x/error-handling) in the documentation.
+2. `*fail.Error` is a custom Textwire error type that is used to handle errors. It is a wrapper around the `error` type and it has a few additional methods that make it easier to handle errors.
 
 #### Available Configurations
 
