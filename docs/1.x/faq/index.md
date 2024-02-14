@@ -1,7 +1,8 @@
 # FAQ
 
-::: details ❓ How do I use Textwire directives that start with @ symbol?
-----
+### How do I use Textwire directives that start with @ symbol?
+
+::: details Click to expand the answer
 Textwire has several directives that you can use anywhere directly in your text files except for `{{ }}` curly braces. Here is the example of `@if` directive:
 
 ```html
