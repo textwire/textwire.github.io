@@ -12,36 +12,6 @@ Install the Textwire package in your Go environment. You can do this by running 
 go get -u github.com/textwire/textwire
 ```
 
-## Evaluate a string
-
-You can use the `EvaluateString` function to compile and evaluate a string containing Textwire code. The `EvaluateString` function accepts a string and a map of variables that you want to inject into the string. Here is an example:
-
-```go
-inp := `Hello <b>{{ name }}</b>! Congratulations on your {{ age }}th birthday!`
-
-result, err := textwire.EvaluateString(inp, map[string]interface{}{
-    "name": "Serhii",
-    "age": 33
-})
-
-err.FatalOnError()
-```
-
-## Evaluate a file
-
-Evaluating a file can be done with the `EvaluateFile` function. The `EvaluateFile` function accepts a path to the file that contains Textwire code and a map of variables that you want to inject into the file. Here is an example:
-
-```go
-path := "path/to/file.tw.html"
-
-result, err := textwire.EvaluateFile(path, map[string]interface{}{
-    "name": "Anna",
-    "age":  25,
-})
-
-err.FatalOnError()
-```
-
 ## Usage with Templates
 
 ### Template Configuration
@@ -139,3 +109,33 @@ Let's take a look at the example how I would define a `home.tw.html` and then I'
 - Then we insert the content into layout with the HTML body.
 
 You can read more about [use](/1.x/language-elements/#use-statement), [insert](/1.x/language-elements/#insert-statement) and [reserve](/1.x/language-elements/#reserve-statement) statements on the [statements](/1.x/language-elements/#statements) page if you need more information about the syntax.
+
+## Evaluate a string
+
+You can use the `EvaluateString` function to compile and evaluate a string containing Textwire code. The `EvaluateString` function accepts a string and a map of variables that you want to inject into the string. Here is an example:
+
+```go
+inp := `Hello <b>{{ name }}</b>! Congratulations on your {{ age }}th birthday!`
+
+result, err := textwire.EvaluateString(inp, map[string]interface{}{
+    "name": "Serhii",
+    "age": 33
+})
+
+err.FatalOnError()
+```
+
+## Evaluate a file
+
+Evaluating a file can be done with the `EvaluateFile` function. The `EvaluateFile` function accepts a path to the file that contains Textwire code and a map of variables that you want to inject into the file. Here is an example:
+
+```go
+path := "path/to/file.tw.html"
+
+result, err := textwire.EvaluateFile(path, map[string]interface{}{
+    "name": "Anna",
+    "age":  25,
+})
+
+err.FatalOnError()
+```
