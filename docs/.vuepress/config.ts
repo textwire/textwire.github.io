@@ -2,10 +2,14 @@ import { defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
+import customStyles from './modules/customStyles'
 
 export default defineUserConfig({
     lang: 'en-US',
     title: 'Textwire',
+    head: [
+        ['style', { type: 'text/css' }, customStyles]
+    ],
     description: 'A template language for Go',
     bundler: viteBundler({
         viteOptions: {},
