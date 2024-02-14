@@ -2,7 +2,7 @@
 
 Welcome to Textwire, a powerful template evaluate designed for Go developers. Textwire provides a seamless way to inject variables into your HTML files, making it easier to create dynamic and data-driven content. This guide will walk you through the essential steps to get started with Textwire in your Go projects.
 
-Textwire has an elegant and easy-to-use syntax that is designed to be familiar to developers who have experience with other template languages. On the [Language Elements](/1.x/language-elements) page you can find all the available statements and directives that you can use in your Textwire templates.
+Textwire has an elegant and easy-to-use syntax that is designed to be familiar to developers who have experience with other template languages. On the [Language Elements](/1.x/language-elements/) page you can find all the available statements and directives that you can use in your Textwire templates.
 
 ## Installation
 
@@ -138,4 +138,4 @@ Let's take a look at the example how I would define a `home.tw.html` and then I'
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [use](/1.x/language-elements#use-statement), [insert](/1.x/language-elements#insert-statement) and [reserve](/1.x/language-elements#reserve-statement) statements on the [statements](/1.x/language-elements#statements) page if you need more information about the syntax.
+You can read more about [use](/1.x/language-elements/#use-statement), [insert](/1.x/language-elements/#insert-statement) and [reserve](/1.x/language-elements/#reserve-statement) statements on the [statements](/1.x/language-elements/#statements) page if you need more information about the syntax.
