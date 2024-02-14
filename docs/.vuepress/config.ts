@@ -1,16 +1,16 @@
-import { defineUserConfig, defaultTheme } from 'vuepress'
+import { defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
-// import { viteBundler } from '@vuepress/bundler-vite'
-// import { defaultTheme } from '@vuepress/theme-default'
+import { viteBundler } from '@vuepress/bundler-vite'
+import { defaultTheme } from '@vuepress/theme-default'
 
 export default defineUserConfig({
     lang: 'en-US',
     title: 'Textwire',
     description: 'A template language for Go',
-    // bundler: viteBundler({
-    //     viteOptions: {},
-    //     vuePluginOptions: {},
-    // }),
+    bundler: viteBundler({
+        viteOptions: {},
+        vuePluginOptions: {},
+    }),
     plugins: [
         searchPlugin({
             locales: {
@@ -24,23 +24,23 @@ export default defineUserConfig({
         navbar: [
             {
                 text: 'Getting Started',
-                link: '/1.x/getting-started',
+                link: '/1.x/getting-started/',
             },
             {
                 text: 'Language Elements',
-                link: '/1.x/language-elements',
+                link: '/1.x/language-elements/',
             },
             {
                 text: 'Built-in Functions',
-                link: '/1.x/functions',
+                link: '/1.x/functions/',
             },
             {
                 text: 'Examples',
-                link: '/1.x/examples',
+                link: '/1.x/examples/',
             },
             {
                 text: 'FAQ',
-                link: '/1.x/faq',
+                link: '/1.x/faq/',
             },
             {
                 text: 'GitHub',
