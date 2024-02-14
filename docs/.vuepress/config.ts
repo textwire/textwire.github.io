@@ -25,6 +25,7 @@ export default defineUserConfig({
         })
     ],
     theme: defaultTheme({
+        logo: '/images/logo.png',
         navbar: [
             {
                 text: 'Getting Started',

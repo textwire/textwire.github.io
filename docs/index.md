@@ -1,7 +1,7 @@
 ---
 home: true
 title: Textwire
-# heroImage: /images/logo.png
+heroImage: /images/logo.png
 tagline: Simple yet powerful template language for Go
 actions:
 - text: Get started →
