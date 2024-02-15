@@ -5,7 +5,7 @@ heroImage: /images/logo.png
 tagline: Simple yet powerful template language for Go
 actions:
 - text: Get started →
-  link: /1.x/getting-started
+  link: /1.x/getting-started/
   type: primary
 footer: MIT Licensed | Copyright © 2023 - present Serhii Cho
 ---
