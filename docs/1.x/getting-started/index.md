@@ -24,14 +24,16 @@ func main() {
         TemplateDir: "src/templates",
 	})
 
-    err.FatalOnError()
+    if err != nil {
+		log.Fatal(err)
+	}
 }
 ```
 
 Non of the configurations are required, because each configuration has a default value. The `NewTemplate` function returns 2 values:
 
 1. `*textwire.Template` is a struct that holds the parsed templates and has methods to evaluate the templates.
-2. `*fail.Error` is a custom Textwire error type that is used to handle errors. It is a wrapper around the `error` type and it has a few additional methods that make it easier to handle errors.
+2. `error` is the error that might occur during any stage of the template parsing.
 
 #### Available Configurations
 
@@ -53,7 +55,9 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		"showNames": true,
 	})
 
-	err.FatalOnError()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 ```
 
@@ -122,7 +126,9 @@ result, err := textwire.EvaluateString(inp, map[string]interface{}{
     "age": 33
 })
 
-err.FatalOnError()
+if err != nil {
+    log.Fatal(err)
+}
 ```
 
 ## Evaluate a file
@@ -137,5 +143,7 @@ result, err := textwire.EvaluateFile(path, map[string]interface{}{
     "age":  25,
 })
 
-err.FatalOnError()
+if err != nil {
+    log.Fatal(err)
+}
 ```
