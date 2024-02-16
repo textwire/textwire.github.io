@@ -21,10 +21,10 @@ features:
   details: You can define layouts for your template files and use them to easily render content
 - title: ❓ Conditional rendering
   details: You can use "ternary expressions" and "if statements" to conditionally render content
-- title: ✅ Fully tested
-  details: Textwire is fully tested
+- title: 🚀 Fast
+  details: Textwire is very fast and has a low memory footprint because it parses templates into an AST tree when application starts
 - title: 🚦 Error handling
-  details: Proper error handling with line numbers and file names
+  details: Proper error handling with error messages containing line numbers and file names.
 
-footer: MIT Licensed | Copyright © 2023 - present Serhii Cho
+footer: MIT Licensed | Copyright © 2023 - present Serhii Chornenkyi
 ---
