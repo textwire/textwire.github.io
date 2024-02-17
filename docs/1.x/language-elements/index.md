@@ -141,6 +141,10 @@ You have a "use statement" to define a layout for your template. Here is an exam
 
 Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
 
+::: tip
+When you use the `@use` directive, all the content of the file will not be rendered except everything inside of the `@insert` directives. It happens because you tell the program to use a layout file instead of the current file. It means that all the reserved places in the layout file will be replaced with the content that you insert into them.
+:::
+
 ### Insert statement
 
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement:
