@@ -51,6 +51,7 @@ Let's take a look at what features are available in Textwire:
     - [Boolean literals](#boolean-literals) `{{ true }}`
     - [Nil literal](#nil-literal) `{{ nil }}`
     - [Array literals](#array-literals) `{{ [1, 2, 3] }}`
+    - [Object literals](#object-literals) `{{ { "name": "John", "age": 25 } }}`
 
 ## Types and Literals
 
@@ -128,7 +129,9 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-> Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions.
+::: tip
+Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
+:::
 
 
 ### Use statement
@@ -339,5 +342,25 @@ You can access values in an array by using an index. Here is an example of acces
     <li>{{ names[0] }}</li> <!-- "John" -->
     <li>{{ names[1] }}</li> <!-- "Jane" -->
     <li>{{ names[2] }}</li> <!-- "Jack" -->
+</ul>
+```
+
+### Object literals
+
+Objects in Textwire are very similar to JSON object with key-value pairs. Here is an example of defining an object:
+
+```html
+{{ person = {"name": "John", "age": 25} }}
+```
+
+You can access values in an object by using a key. Here is an example of accessing values in an object:
+
+```html
+{{ user = {"age": 25, "name": {"first": "Anna", "last": "Cho"}} }}
+
+<ul>
+    <li>First name: {{ user.name.first }}</li> <!-- "Anna" -->
+    <li>Last name: {{ user.name.last }}</li> <!-- "Cho" -->
+    <li>Age: {{ user.age }}</li> <!-- 25 -->
 </ul>
 ```
