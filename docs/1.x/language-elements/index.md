@@ -65,6 +65,7 @@ Textwire has a different type system that Go. When you pass a variable to Textwi
 | `Float`       | `float32`, `float64`                                                                                                                                        |
 | `Nil`         | `nil`                                                                                                                                                       |
 | `Array`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32` |
+| `Object`      | any struct can be just `struct{}` or a typed struct like `User{}` with any fields                                                                           |
 
 The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: `{{ "hello world".split(" ") }}` to get an array of strings `["hello", "world"]`.
 
@@ -364,3 +365,7 @@ You can access values in an object by using a key. Here is an example of accessi
     <li>Age: {{ user.age }}</li> <!-- 25 -->
 </ul>
 ```
+
+::: tip
+Object fields are case insensitive. It means that you can access fields in an object by using any case. For example, `{{ user.name.first }}` and `{{ user.Name.First }}` will return the same value. It's done this way for convenience.
+:::
