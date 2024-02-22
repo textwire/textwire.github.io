@@ -35,6 +35,8 @@ Non of the configurations are required, because each configuration has a default
 1. `*textwire.Template` is a struct that holds the parsed templates and has methods to evaluate the templates.
 2. `error` is the error that might occur during any stage of the template parsing.
 
+In return from the `NewTemplate` function, we get a `Template` object that can be used to evaluate an already parsed template.
+
 #### Available Configurations
 
 | Property      | Type     | Description of the configuration                          | Example value     | Default value |
@@ -45,7 +47,7 @@ Non of the configurations are required, because each configuration has a default
 
 ### Write response to the client
 
-There are several ways to write a response to the client. You can use the `http.ResponseWriter` object to write the response directly, or you can use the `http.Request` object to write the response. The `http.ResponseWriter` object is the most common way to write a response to the client.
+You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -60,12 +62,6 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 ```
-
-We first parse the template because it is more efficient to parse the template once when the application starts and then evaluate it when certain routes are called.
-
-The `textwire.ParseTemplate` function accepts a string as its only argument. This string is the name of the template file without the extension. In this example, we have a template file called `home.tw.html` and we pass the name of the file without the extension, which is `home`.
-
-In return, we get a `Template` object that we can use to evaluate the template. The `EvaluateResponse` function accepts a `http.ResponseWriter` object and a map of variables that we want to inject into the template. The `EvaluateResponse` function will then evaluate the parsed template and print the result to the `http.ResponseWriter` object.
 
 ### Layouts
 
