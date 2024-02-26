@@ -128,13 +128,29 @@ Inside of every `each` loop, you can use a `loop` object to get the current inde
 | `last`   | Boolean | Is the last item in a loop                 |
 | `iter`   | Integer | Current iteration number starting from `1` |
 
+#### Example
+
 ```html
-{{ names = ["Ann", "Serhii", "Anastasia", "Vladimir"] }}
+{{ names = ["Ann", "Serhii", "Vladimir"] }}
 
 <ul>
     @each(name in names)
         <li>{{ loop.iter }}: {{ name }}</li>
     @end
+</ul>
+```
+
+#### Result
+
+```html
+<ul>
+
+        <li>1: Anna</li>
+
+        <li>2: Serhii</li>
+
+        <li>3: Vladimir</li>
+
 </ul>
 ```
 
