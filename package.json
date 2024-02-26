@@ -18,12 +18,12 @@
   "author": "SerhiiCho",
   "license": "MIT",
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.7",
-    "vuepress": "^2.0.0-rc.7",
+    "@vuepress/bundler-vite": "^2.0.0-rc.8",
     "gh-pages": "^6.1.1"
   },
   "dependencies": {
-    "@vuepress/plugin-search": "^2.0.0-rc.7",
-    "@vuepress/theme-default": "^2.0.0-rc.7"
+    "vuepress": "^2.0.0-rc.8",
+    "@vuepress/plugin-search": "^2.0.0-rc.8",
+    "@vuepress/theme-default": "^2.0.0-rc.8"
   }
 }
