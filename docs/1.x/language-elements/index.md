@@ -119,6 +119,25 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
+Inside of every `each` loop, you can use a `loop` object to get the current index of the item. For example, `{{ loop.index }}` will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
+
+| Property | Type    | Description                                |
+| -------- | ------- | ------------------------------------------ |
+| `index`  | Integer | Current index number starting from `0`     |
+| `first`  | Boolean | Is the first item in a loop                |
+| `last`   | Boolean | Is the last item in a loop                 |
+| `iter`   | Integer | Current iteration number starting from `1` |
+
+```html
+{{ names = ["Ann", "Serhii", "Anastasia", "Vladimir"] }}
+
+<ul>
+    @each(name in names)
+        <li>{{ loop.iter }}: {{ name }}</li>
+    @end
+</ul>
+```
+
 ### Variable declaration
 
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
