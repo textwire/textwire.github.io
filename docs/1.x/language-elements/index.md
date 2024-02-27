@@ -15,7 +15,7 @@ Bracket statements are special Textwire statements that start with `{{` brackets
 
 - If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x = 5; y = 10 }}`.
 - All the bracket statements return a string. For example, `{{ x = 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
-- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statements](#if-statements) and [for statements](#for-statements).
+- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statement](#if-statement) and [for statements](#for-loop).
 - To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
 
 ### Directives
@@ -30,13 +30,13 @@ Directives are special Textwire statements that start with `@` symbol. They can 
 Let's take a look at what features are available in Textwire:
 
 - Statements
-    - [If statements](#if-statements) `@if(x == 1)`
+    - [If statement](#if-statement) `@if(x == 1)`
     - [Variable declaration](#variable-declaration) `{{ x = 5 }}`
     - [Use statement](#use-statement) `@use("layouts/main")`
     - [Insert statement](#insert-statement) `@insert("title", "Home")`
     - [Reserve statement](#reserve-statement) `@reserve("title")`
-    - [For statements](#for-statements) `@for(i = 0; i < 2; i++)`
-    - [Each statements](#each-statements) `@each(name in names)`
+    - [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
+    - [Each loop](#each-loop) `@each(name in names)`
 - Expressions
     - [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
@@ -71,7 +71,7 @@ The biggest difference in types and type literals between Textwire and Go is tha
 
 ## Statements
 
-### If statements
+### If statement
 
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
@@ -93,7 +93,7 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
-### For statements
+### For loop
 
 You can use regular for loops to iterate over an array or a range of numbers.
 
@@ -107,7 +107,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-### Each statements
+### Each loop
 
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
@@ -119,7 +119,9 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-Inside of every `each` loop, you can use a `loop` object to get the current index of the item. For example, `{{ loop.index }}` will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
+Inside of every `each` loop, you can optionally use a `loop` object to get the current index of the item or other data that is updated on every iteration.
+
+For example, `{{ loop.index }}` will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
 
 | Property | Type    | Description                                |
 | -------- | ------- | ------------------------------------------ |
@@ -140,7 +142,7 @@ Inside of every `each` loop, you can use a `loop` object to get the current inde
 </ul>
 ```
 
-#### Result
+#### Output
 
 ```html
 <ul>
