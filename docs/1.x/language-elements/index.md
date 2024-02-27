@@ -211,7 +211,7 @@ When you define a layout file for you template, you need to reserve places for d
 
 ```html
 <!DOCTYPE html>
-<html lang="{{ locale }}">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -222,6 +222,10 @@ When you define a layout file for you template, you need to reserve places for d
 </body>
 </html>
 ```
+
+::: tip
+All the variables passed to the template file will be available in the layout file. It means that you can even use replace the `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file.
+:::
 
 Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
 
