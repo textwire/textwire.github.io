@@ -104,8 +104,14 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 
 @for(i = 0; i < names.len(); i++)
     <p>{{ names[i] }}</p>
+@else
+    <p>No names</p>
 @end
 ```
+
+::: tip
+The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
+:::
 
 ### Each loop
 
