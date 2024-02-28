@@ -116,8 +116,14 @@ Each statement is a special for loop that you can use to iterate over an array. 
 
 @each(name in names)
     <p>{{ name }}</p>
+@else
+    <p>No names</p>
 @end
 ```
+
+::: tip
+The `@else` statement is optional and can be used to render content when the array is empty.
+:::
 
 Inside of every `each` loop, you can optionally use a `loop` object to get the current index of the item or other data that is updated on every iteration.
 
