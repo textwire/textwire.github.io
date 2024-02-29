@@ -51,6 +51,10 @@ export default defineUserConfig({
                 text: 'GitHub',
                 link: 'https://github.com/textwire/textwire',
             },
+            {
+                text: 'Changelog',
+                link: 'https://github.com/textwire/textwire/blob/main/CHANGELOG.md',
+            },
         ],
     }),
 })
