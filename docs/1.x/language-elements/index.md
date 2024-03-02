@@ -115,6 +115,21 @@ The `@else` statement is optional and can be used to render content when there a
 
 You can also use `@break` and `@continue` directives inside of a for loop to break or continue the loop.
 
+#### Example
+```html
+{{ names = ["Ann", "Serhii", "Vladimir"] }}
+
+<ul>
+    @for(i = 0; i < names.len(); i++)
+        @if(names[i] == "Serhii")
+            @continue
+        @end
+
+        <li>{{ names[i] }}</li>
+    @end
+</ul>
+```
+
 ### Each loop
 
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
@@ -144,8 +159,6 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 | `last`   | Boolean | Is the last item in a loop                 |
 | `iter`   | Integer | Current iteration number starting from `1` |
 
-You can also use `@break` and `@continue` directives inside of a for loop to break or continue the loop.
-
 #### Example
 
 ```html
@@ -169,6 +182,24 @@ You can also use `@break` and `@continue` directives inside of a for loop to bre
 
         <li>3: Vladimir</li>
 
+</ul>
+```
+
+You can also use `@break` and `@continue` directives inside of a for loop to break or continue the loop.
+
+#### Example
+
+```html
+{{ names = ["Ann", "Serhii", "Vladimir"] }}
+
+<ul>
+    @each(name in names)
+        @if(name == "Serhii")
+            @continue
+        @end
+
+        <li>{{ name }}</li>
+    @end
 </ul>
 ```
 
