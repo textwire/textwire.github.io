@@ -113,7 +113,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
 :::
 
-You can also use `@break` and `@continue` directives inside of a for loop to break or continue the loop.
+You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop.
 
 #### Example
 ```html
@@ -121,10 +121,7 @@ You can also use `@break` and `@continue` directives inside of a for loop to bre
 
 <ul>
     @for(i = 0; i < names.len(); i++)
-        @if(names[i] == "Serhii")
-            @continue
-        @end
-
+        @continueIf(names[i] == "Serhii")
         <li>{{ names[i] }}</li>
     @end
 </ul>
@@ -185,7 +182,7 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 </ul>
 ```
 
-You can also use `@break` and `@continue` directives inside of a for loop to break or continue the loop.
+You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop.
 
 #### Example
 
@@ -194,10 +191,7 @@ You can also use `@break` and `@continue` directives inside of a for loop to bre
 
 <ul>
     @each(name in names)
-        @if(name == "Serhii")
-            @continue
-        @end
-
+        @breakIf(name == "Serhii")
         <li>{{ name }}</li>
     @end
 </ul>
