@@ -113,7 +113,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
 :::
 
-You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop.
+You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
 
 #### Example
 ```html
@@ -182,7 +182,7 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 </ul>
 ```
 
-You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop.
+You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
 
 #### Example
 
