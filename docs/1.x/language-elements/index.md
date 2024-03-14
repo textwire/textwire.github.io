@@ -37,6 +37,7 @@ Let's take a look at what features are available in Textwire:
     - [Reserve statement](#reserve-statement) `@reserve("title")`
     - [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
     - [Each loop](#each-loop) `@each(name in names)`
+    - [Component](#component) `@component("components/post-card")`
 - Expressions
     - [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
     - [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
@@ -269,6 +270,33 @@ All the variables passed to the template file will be available in the layout fi
 :::
 
 Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
+
+### Component
+
+One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
+
+#### Example of a component `components/post-card.tw.html`
+
+```html
+<div class="post">
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+</div>
+```
+
+#### Example of using a component in a template `home.tw.html`
+
+```html
+<div class="posts">
+    @each(post in posts)
+        @component("components/post-card", { post })
+    @end
+</div>
+```
+
+The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
+The second optional argument is a [Textwire object](#object-literals) that you want to pass to the component.
+
 
 ## Expressions
 
