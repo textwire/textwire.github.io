@@ -430,16 +430,22 @@ You can access values in an array by using an index. Here is an example of acces
 
 ### Object literals
 
-Objects in Textwire are very similar to JSON object with key-value pairs. Here is an example of defining an object:
+Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
 
 ```html
 {{ person = {"name": "John", "age": 25} }}
 ```
 
+You can also use key names without quotes if your keys are valid identifiers:
+
+```html
+{{ person = { name: "John", age: 25 } }}
+```
+
 You can access values in an object by using a key. Here is an example of accessing values in an object:
 
 ```html
-{{ user = {"age": 25, "name": {"first": "Anna", "last": "Cho"}} }}
+{{ user = {age: 25, name: {first: "Anna", last: "Cho"}} }}
 
 <ul>
     <li>First name: {{ user.name.first }}</li> <!-- "Anna" -->
@@ -451,3 +457,11 @@ You can access values in an object by using a key. Here is an example of accessi
 ::: tip
 Object fields are case insensitive. It means that you can access fields in an object by using any case. For example, `{{ user.name.first }}` and `{{ user.Name.First }}` will return the same value. It's done this way for convenience.
 :::
+
+#### Shorthand property notation
+
+Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
+
+```html
+{{ name = "John"; age = 25; person = { name, age } }}
+```
