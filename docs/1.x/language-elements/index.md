@@ -295,8 +295,16 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
-The second optional argument is a [Textwire object](#object-literals) that you want to pass to the component.
 
+The second optional argument is a [Textwire object](#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
+
+```html
+<ul>
+    @each(book in books)
+        @component("parts/book", { completed: book.completed })
+    @end
+</ul>
+```
 
 ## Expressions
 
