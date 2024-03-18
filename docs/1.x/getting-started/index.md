@@ -44,6 +44,10 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 | `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"` | `"templates"` |
 | `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
 
+::: warning
+Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
+:::
+
 
 ### Write response to the client
 
