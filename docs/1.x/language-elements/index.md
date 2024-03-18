@@ -9,6 +9,10 @@ Textwire has a simple syntax that is easy to learn. Here are some rules that you
 - All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
 
+::: tip VSCode Extension
+If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+:::
+
 ### Bracket statements
 
 Bracket statements are special Textwire statements that start with `{{` brackets and end with `}}`. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Bracket statements can be placed anywhere in the file except inside of directives.

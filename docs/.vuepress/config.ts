@@ -39,13 +39,13 @@ export default defineUserConfig({
                 text: 'Built-in Functions',
                 link: '/1.x/functions/',
             },
-            // {
-            //     text: 'Examples',
-            //     link: '/1.x/examples/',
-            // },
             {
                 text: 'FAQ',
                 link: '/1.x/faq/',
+            },
+            {
+                text: 'VSCode Extension',
+                link: 'https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire',
             },
             {
                 text: 'GitHub',

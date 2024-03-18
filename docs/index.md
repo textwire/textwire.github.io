@@ -19,8 +19,8 @@ features:
   details: You can use package as a template system your website, blog, or any other project
 - title: 🖼️ Define layouts
   details: You can define layouts for your template files and use them to easily render content
-- title: ❓ Conditional rendering
-  details: You can use "ternary expressions" and "if statements" to conditionally render content
+- title: 🌈 Syntax Highlighting
+  details: You get syntax highlighting and other features for Textwire in with VSCode extension
 - title: 🚀 Fast
   details: Textwire is very fast and has a low memory footprint because it parses templates into an AST tree when application starts
 - title: 🚦 Error handling
