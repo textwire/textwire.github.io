@@ -56,7 +56,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 ```
 
 #### Output
-The output will be `one,two` because arrays are automatically converted to array items separated by a comma. But, the result of the split function is an array.
+The output will be `one,two` because when you trying to print an array, it will be split with comma. It only happens when you are trying to print the array. For example, `{{ [1, 2, 3] }}` will be printed as `1,2,3`.
 
 ```html
 <div>one,two</div>
