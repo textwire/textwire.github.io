@@ -57,6 +57,8 @@ Let's take a look at what features are available in Textwire:
     - [Nil literal](#nil-literal) `{{ nil }}`
     - [Array literals](#array-literals) `{{ [1, 2, 3] }}`
     - [Object literals](#object-literals) `{{ { "name": "John", "age": 25 } }}`
+- Other
+    - [Trailing commas](#trailing-commas) `{{ [1, 2, 3,] }}` or `{{ { "name": "John", "age": 25, } }}`
 
 ## Types and Literals
 
@@ -504,4 +506,20 @@ Similar to objects in JavaScript, you can use shorthand property notation to def
 
 ```html
 {{ name = "John"; age = 25; person = { name, age } }}
+```
+
+## Other
+
+### Trailing Commas
+
+You can use trailing commas in arrays, objects and function arguments. Here is an example of using trailing commas:
+
+```html
+{{ names = ["John", "Jane", "Jack",] }}
+{{ person = { "name": "John", "age": 25, } }}
+
+@insert(
+    "title",
+    "Home page",
+)
 ```
