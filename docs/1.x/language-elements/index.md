@@ -26,8 +26,9 @@ Bracket statements are special Textwire statements that start with `{{` brackets
 
 Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of `{{ }}` brackets.
 
-- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML.
-- You can use textwire expressions and variables inside of directives. For example `@if(x == 1)` or `@use(layoutName)`.
+- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML
+- You can use textwire expressions and variables inside of directives. For example `@if(x == 1)` or `@use(layoutName)`
+- All the directives with body like `@if`, `@for`, `@each`, `@component`, etc. must be closed with `@end` keyword
 
 ## Available features
 
@@ -237,13 +238,15 @@ When you use the `@use` directive, all the content of the file will not be rende
 
 ### Insert statement
 
-You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement:
+You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
 ```html
 @use("layouts/main")
 
+<!-- It's useful when you want to pass a variable to the layout file -->
 @insert("title", "Home page")
 
+<!-- It's useful when you want to insert content into a reserved place -->
 @insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
@@ -312,6 +315,42 @@ The second optional argument is a [Textwire object](#object-literals) that you w
     @end
 </ul>
 ```
+
+You can also use slots in components to pass content to the component. Read about slots [in the next section](#component-slots)
+
+### Component slots
+
+Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component. Let's see what slots are and how you can use them.
+
+#### Default slot
+Inside a component file, you need to define a slot where you want to pass content. Here is a simple example of a book component:
+
+```html
+<!-- components/book.tw.html -->
+<div class="book">
+    <h1>{{ book.title }}</h1>
+    <p>{{ book.description }}</p>
+
+    @slot
+</div>
+```
+
+We can now use `book.tw.html` component in our Textwire files like this:
+
+```html
+<!-- home.tw.html -->
+
+@each(book in books)
+    @component("components/book", { book })
+        @slot
+            <small>published by {{ book.author }}</small>
+            <button>Read more</button>
+        @end
+    @end
+@end
+```
+
+All the content between the `@slot` and `@end` directives will be passed to the default slot in the component file.
 
 ## Expressions
 
