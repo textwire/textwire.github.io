@@ -320,18 +320,19 @@ You can also use slots in components to pass content to the component. Read abou
 
 ### Component slots
 
-Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component. Let's see what slots are and how you can use them.
+Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
 
-#### Default slot
-Inside a component file, you need to define a slot where you want to pass content. Here is a simple example of a book component:
+There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 
 ```html
 <!-- components/book.tw.html -->
 <div class="book">
+    @slot
+
     <h1>{{ book.title }}</h1>
     <p>{{ book.description }}</p>
 
-    @slot
+    @slot('footer')
 </div>
 ```
 
@@ -343,6 +344,10 @@ We can now use `book.tw.html` component in our Textwire files like this:
 @each(book in books)
     @component("components/book", { book })
         @slot
+            <img src="{{ book.image }}" alt="{{ book.title }}">
+        @end
+
+        @slot('footer')
             <small>published by {{ book.author }}</small>
             <button>Read more</button>
         @end
@@ -350,7 +355,7 @@ We can now use `book.tw.html` component in our Textwire files like this:
 @end
 ```
 
-All the content between the `@slot` and `@end` directives will be passed to the default slot in the component file.
+In this example we use default and named slots in a single component. You can use as many slots as you want in a single component as long as names are unique.
 
 ## Expressions
 
