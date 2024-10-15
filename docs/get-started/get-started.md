@@ -15,39 +15,3 @@ Install the Textwire package in your Go environment. You can do this by running 
 ```bash
 go get -u github.com/textwire/textwire
 ```
-
-## Evaluate a string
-
-You can use the `EvaluateString` function to compile and evaluate a string containing Textwire code. The `EvaluateString` function accepts a string and a map of variables that you want to inject into the string. After evaluating the string, the function returns the evaluated string.
-
-This is useful when you want to inject variables into an email template or any other string that contains Textwire code. Here is an example:
-
-```go
-inp := `Hello <b>{{ name }}</b>! Congratulations on your {{ age }}th birthday!`
-
-result, err := textwire.EvaluateString(inp, map[string]interface{}{
-    "name": "Serhii",
-    "age": 33
-})
-
-if err != nil {
-    log.Fatal(err)
-}
-```
-
-## Evaluate a file
-
-Evaluating a file can be done with the `EvaluateFile` function. The `EvaluateFile` function accepts a path to the file that contains Textwire code and a map of variables that you want to inject into the file. Here is an example:
-
-```go
-path := "path/to/file.tw.html"
-
-result, err := textwire.EvaluateFile(path, map[string]interface{}{
-    "name": "Anna",
-    "age":  25,
-})
-
-if err != nil {
-    log.Fatal(err)
-}
-```
