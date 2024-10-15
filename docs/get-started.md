@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Getting Started
 
 Welcome to Textwire, a powerful template evaluate designed for Go developers. Textwire provides a seamless way to inject variables into your HTML files, making it easier to create dynamic and data-driven content. This guide will walk you through the essential steps to get started with Textwire in your Go projects.
@@ -18,15 +22,15 @@ go get -u github.com/textwire/textwire
 
 To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language.
 
-```go
+```go title="main.go"
 func main() {
     tpl, err := textwire.NewTemplate(&textwire.Config{
         TemplateDir: "src/templates",
-	})
+    })
 
     if err != nil {
-		log.Fatal(err)
-	}
+        log.Fatal(err)
+    }
 }
 ```
 
@@ -44,7 +48,7 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 | `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"` | `"templates"` |
 | `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
 
-::: warning
+:::warning
 Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
 :::
 
@@ -55,15 +59,15 @@ You can use the `Response` method on `Template` object to write the evaluated te
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	err := tpl.Response(w, "home", map[string]interface{}{
-		"title":     "Home page",
-		"names":     []string{"John", "Jane", "Jack", "Jill"},
-		"showNames": true,
-	})
+    err := tpl.Response(w, "home", map[string]interface{}{
+        "title":     "Home page",
+        "names":     []string{"John", "Jane", "Jack", "Jill"},
+        "showNames": true,
+    })
 
-	if err != nil {
-		log.Fatal(err)
-	}
+    if err != nil {
+        log.Fatal(err)
+    }
 }
 ```
 

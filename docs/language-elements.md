@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Language Elements
 
 Textwire is designed to be easy to use for Go developers. It has a similar syntax to Go, but it is a separate language and has specific grammar to make it easier to use as a template language.
@@ -9,7 +13,7 @@ Textwire has a simple syntax that is easy to learn. Here are some rules that you
 - All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
 
-::: tip VSCode Extension
+:::info VSCode Extension
 If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
@@ -118,7 +122,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-::: tip
+:::info
 The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
 :::
 
@@ -150,7 +154,7 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-::: tip
+:::info
 The `@else` statement is optional and can be used to render content when the array is empty.
 :::
 
@@ -217,10 +221,9 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-::: tip
+:::info
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 :::
-
 
 ### Use statement
 
@@ -232,7 +235,7 @@ You have a "use statement" to define a layout for your template. Here is an exam
 
 Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
 
-::: tip
+:::info
 When you use the `@use` directive, all the content of the file will not be rendered except everything inside of the `@insert` directives. It happens because you tell the program to use a layout file instead of the current file. It means that all the reserved places in the layout file will be replaced with the content that you insert into them.
 :::
 
@@ -275,7 +278,7 @@ When you define a layout file for you template, you need to reserve places for d
 </html>
 ```
 
-::: tip
+:::info
 All the variables passed to the template file will be available in the layout file. It means that you can even use replace the `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file.
 :::
 
@@ -541,7 +544,7 @@ You can access values in an object by using a key. Here is an example of accessi
 </ul>
 ```
 
-::: tip
+:::info Case insensitive fields
 Object fields are case insensitive. It means that you can access fields in an object by using any case. For example, `{{ user.name.first }}` and `{{ user.Name.First }}` will return the same value. It's done this way for convenience.
 :::
 

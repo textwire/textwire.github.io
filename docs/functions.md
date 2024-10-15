@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Built-in functions
 
 Textwire has a set of built-in functions that can be used to manipulate data. These functions are used to perform operations on strings, arrays, integers, and floats. You can use these functions anywhere in your Textwire programs.
@@ -18,7 +22,7 @@ You can also chain multiple functions together to perform complex operations.
 </span>
 ```
 
-::: tip NOTE
+:::info NOTE
 New functions are added in new version of Textwire when there is a need for them. If you have a suggestion for a new function, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub and we will consider adding it in the next version.
 :::
 
