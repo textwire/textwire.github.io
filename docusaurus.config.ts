@@ -42,8 +42,6 @@ const config: Config = {
                         type: ['rss', 'atom'],
                         xslt: true,
                     },
-                    // Please change this to your repo.
-                    // Useful options to enforce blogging best practices
                     onInlineTags: 'warn',
                     onInlineAuthors: 'warn',
                     onUntruncatedBlogPosts: 'warn',
@@ -56,8 +54,6 @@ const config: Config = {
     ],
 
     themeConfig: {
-        // Replace with your project's social card
-        image: 'img/docusaurus-social-card.jpg',
         navbar: {
             title: 'Textwire',
             logo: {
