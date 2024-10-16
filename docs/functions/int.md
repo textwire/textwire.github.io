@@ -4,20 +4,20 @@ sidebar_position: 4
 
 # Integer functions
 
-## `float()`
+### `float()`
 
-### Description
+#### Description
 The `float` function is used to convert an integer to a float.
 
-#### Arguments
+##### Arguments
 None
 
-### Input example
+#### Input example
 ```html
 <b>{{ 5.float() }}</b>
 ```
 
-### Output
+#### Output
 ```html
 <b>5.0</b>
 ```
