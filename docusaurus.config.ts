@@ -35,6 +35,7 @@ const config: Config = {
             {
                 docs: {
                     sidebarPath: './sidebars.ts',
+                    onlyIncludeVersions: ['v1', 'v2'],
                 },
                 blog: {
                     showReadingTime: true,
@@ -68,6 +69,10 @@ const config: Config = {
                     label: 'Docs',
                 },
                 { to: '/blog', label: 'Blog', position: 'left' },
+                {
+                    type: 'docsVersionDropdown',
+                    position: 'right',
+                },
                 {
                     href: 'https://github.com/textwire/textwire/blob/main/CHANGELOG.md',
                     label: 'Changelog',
