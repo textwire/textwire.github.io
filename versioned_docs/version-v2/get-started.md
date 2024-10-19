@@ -9,7 +9,7 @@ Welcome to Textwire, a powerful template evaluate designed for Go developers. Te
 Textwire has an elegant and easy-to-use syntax that is designed to be familiar to developers who have experience with other template languages. On the [Language Elements](/docs/v2/language-elements/) page you can find all the available statements and directives that you can use in your Textwire templates.
 
 ## What is Textwire?
-Textwire is a dynamic templating and scripting language for Go. It is designed to be ideal for embedding dynamic content in text-based formats such as HTML, XML, etc.
+Textwire is a DSL (Domain-specific language) for Go. It is designed to be ideal for embedding dynamic content in text-based formats such as HTML, XML, etc.
 
 Textwire is build specifically for Go projects and provides a simple and easy-to-use syntax for injecting variables and logic into any text-based format.
 
