@@ -1,0 +1,33 @@
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__logo {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.hero__subtitle {
+    margin-bottom: 4px;
+}
+
+.hero__description {
+    font-size: 1.1rem;
+    color: #888;
+}
+
+.hero__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 996px) {
+    .hero {
+        padding: 2rem;
+    }
+}

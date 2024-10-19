@@ -5,7 +5,11 @@
     width: 100%;
 }
 
-.featureSvg {
+.features__item {
+    padding: 20px;
+}
+
+.feature__svg {
     height: 200px;
     width: 200px;
 }

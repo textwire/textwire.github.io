@@ -1,24 +1,28 @@
-import clsx from 'clsx'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
-import Heading from '@theme/Heading'
 import HomepageFeatures from '@site/src/components/HomeFeatures'
-import styles from '@site/src/pages/index.module.css'
 
 function HomepageHeader() {
     const { siteConfig } = useDocusaurusContext()
 
     return (
-        <header className={clsx('hero hero--primary', styles.heroBanner)}>
+        <header className="hero">
             <div className="container">
-                <Heading as="h1" className="hero__title">
-                    {siteConfig.title}
-                </Heading>
+                <img
+                    className="hero__logo"
+                    src="/img/logo.png"
+                    alt="Textwire Logo"
+                />
 
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
 
-                <div className={styles.buttons}>
+                <p className="hero__description">
+                    Dynamic Templating and Scripting for Go. Ideal for embedding
+                    dynamic content with Go applications
+                </p>
+
+                <div className="hero__buttons">
                     <Link
                         className="button button--secondary button--lg"
                         to="/docs/get-started"

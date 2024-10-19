@@ -1,13 +1,11 @@
 import type { FeatureItem } from '@site/src/types'
-import styles from '@site/src/components/HomeFeatures/styles.module.css'
-import clsx from 'clsx'
 import Heading from '@theme/Heading'
 
 function Feature({ title, Svg, description }: FeatureItem) {
     return (
-        <div className={clsx('col col--4')}>
+        <div className="col col--4 features__item">
             <div className="text--center">
-                <Svg className={styles.featureSvg} role="img" />
+                <Svg className="feature__svg" role="img" />
             </div>
             <div className="text--center padding-horiz--md">
                 <Heading as="h3">{title}</Heading>
