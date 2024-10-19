@@ -1,6 +1,5 @@
 ---
 sidebar_position: 2
-title: Textwire Statements
 description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
 ---
 
