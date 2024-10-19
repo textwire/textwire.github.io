@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 description: Find answers to frequently asked questions about Textwire, including its purpose, usage, and how it differs from templating engines
 ---
 

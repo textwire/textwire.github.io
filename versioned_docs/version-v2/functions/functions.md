@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 description: Discover the built-in functions in Textwire for manipulating different types of data, and learn how to use these functions
 ---
 

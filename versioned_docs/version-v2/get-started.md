@@ -1,46 +1,15 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 description: Learn how to get started with Textwire, a powerful template evaluator for Go developers. Get to know the use cases and installation instructions
 ---
 
-# Getting Started
+# Get Started
 
-Welcome to Textwire, a powerful template evaluate designed for Go developers. Textwire provides a seamless way to inject variables into your HTML files, making it easier to create dynamic and data-driven content.
+Learn how to get started with Textwire. Get to know the installation instructions and requirements.
 
-Textwire has an elegant and easy-to-use syntax that is designed to be familiar to developers who have experience with other template languages. On the [Language Elements](/docs/v2/language-elements/) page you can find all the available statements and directives that you can use in your Textwire templates.
+## Requirements
 
-## What is Textwire?
-Textwire is a DSL (Domain-specific language) for Go. It is designed to be ideal for embedding dynamic content in text-based formats such as HTML, XML, etc.
-
-Textwire is build specifically for Go projects and provides a simple and easy-to-use syntax for injecting variables and logic into any text-based format.
-
-Textwire can be used in 3 ways:
-1. [As a templating engine for web applications](/docs/v2/guides/template-usage)
-2. [As a method to embed dynamic content into a string](/docs/v2/guides/eval-string)
-3. [As a method to embed dynamic content into a file](/docs/v2/guides/eval-file)
-
-Here is a simple example of a Textwire template:
-
-```html title="home.tw.html"
-@use("layouts/main")
-
-@insert('title', 'Welcome to Home Page')
-
-@insert('content')
-    <h1>Home Page</h1>
-    <p>This is the home page content</p>
-
-    <div>
-        @each(book in books)
-            @component('components/book', { book })
-        @else
-            <h2>No books found</h2>
-        @end
-    </div>
-@end
-```
-
-Textwire focuses on simplicity and ease of use while providing powerful features such as layouts, components, and directives. Read the next section for installation instructions.
+Go `1.13` or higher is required to use Textwire. If you don't have Go installed on your machine, you can download it from the [official Go website](https://golang.org/dl/).
 
 ## Installation
 
