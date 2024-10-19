@@ -3,22 +3,12 @@ import type { FeatureItem } from '@site/src/types'
 
 const FeatureList: FeatureItem[] = [
     {
-        title: 'Parse string',
-        Svg: require('@site/static/img/string.svg').default,
-        description: (
-            <>
-                You can use package to parse a string with embedded Textwire code. It
-                can be useful for email templates, markdown, files, etc.
-            </>
-        ),
-    },
-    {
         title: 'Templating system',
         Svg: require('@site/static/img/docs.svg').default,
         description: (
             <>
                 You can use package as a template system your website, blog, or any
-                other project
+                other project that uses Go on the frontend
             </>
         ),
     },
@@ -59,6 +49,16 @@ const FeatureList: FeatureItem[] = [
             <>
                 You get syntax highlighting and other features for Textwire in with
                 VSCode extension
+            </>
+        ),
+    },
+    {
+        title: 'Parse string',
+        Svg: require('@site/static/img/string.svg').default,
+        description: (
+            <>
+                You can use package to parse a string with embedded Textwire code. It
+                can be useful for email templates, markdown, files, etc.
             </>
         ),
     },
