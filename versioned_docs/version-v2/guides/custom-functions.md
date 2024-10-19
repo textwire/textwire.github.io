@@ -87,3 +87,7 @@ func main() {
     // highlight-end
 }
 ```
+
+:::warning Performance warning
+Custom functions are not as performant as built-in functions because they are defined in Go code. When you use a custom function, first it needs to be translated from Go to Textwire, which can be slower than built-in functions. Therefore, I would recommend to create an [issue](https://github.com/textwire/textwire/issues) with your desired built-in function, so that it can be added to Textwire if you need 100% performance.
+:::
