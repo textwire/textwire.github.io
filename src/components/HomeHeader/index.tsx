@@ -16,8 +16,8 @@ export default function HomepageHeader(): JSX.Element {
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
 
                 <p className="hero__description">
-                    Dynamic Templating and Scripting for Go. Ideal for embedding
-                    dynamic content with Go applications
+                    Dynamic Templating and Scripting language for Go. Ideal for
+                    embedding dynamic content with Go applications
                 </p>
 
                 <div className="hero__buttons">
