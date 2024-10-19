@@ -102,7 +102,7 @@ Let's take a look at the example how I would define a `home.tw.html` and then I'
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [use](/1.x/language-elements/#use-statement), [insert](/1.x/language-elements/#insert-statement) and [reserve](/1.x/language-elements/#reserve-statement) statements on the [statements](/1.x/language-elements/#statements) page if you need more information about the syntax.
+You can read more about [use](/docs/v1/language-elements/statements#use-statement), [insert](/docs/v1/language-elements/statements#insert-statement) and [reserve](/docs/v1/language-elements/statements#reserve-statement) statements on the [statements](/docs/v1/language-elements/statements) page if you need more information about the syntax.
 
 # Evaluate a string
 
