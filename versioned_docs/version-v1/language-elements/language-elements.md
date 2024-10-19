@@ -23,7 +23,7 @@ Bracket statements are special Textwire statements that start with `{{` brackets
 
 - If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x = 5; y = 10 }}`.
 - All the bracket statements return a string. For example, `{{ x = 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
-- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statement](#if-statement) and [for statements](#for-loop).
+- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statement](/docs/v1/language-elements/statements#if-statement) and [for statements](/docs/v1/language-elements/statements#for-loop).
 - To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
 
 ### Directives

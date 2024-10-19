@@ -5,9 +5,11 @@ sidebar_position: 5
 # Custom functions
 
 ## Introduction
+
 Custom functions are user-defined functions in your Go code that can be utilized within Textwire. These functions allow you to perform operations beyond what the built-in functions provide. You can attach custom functions to any data type within Textwire and invoke them on a value using the dot operator `.` followed by the function name.
 
 ## Defining custom functions
+
 To define a custom function, you need to create a function in your Go code. Here is an example of defining a `upperLast` function that converts the last character of a string to uppercase:
 
 ```go
@@ -43,6 +45,7 @@ func main() {
 You can now use the `upperLast` function anywhere in your Textwire code.
 
 ## Using custom functions
+
 Here is the example of using the `upperLast` function in Textwire after defining it:
 
 ```go
