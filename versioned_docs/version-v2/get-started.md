@@ -14,9 +14,9 @@ Textwire is a dynamic templating and scripting language for Go. It is designed t
 Textwire is build specifically for Go projects and provides a simple and easy-to-use syntax for injecting variables and logic into any text-based format.
 
 Textwire can be used in 3 ways:
-1. [As a templating engine for web applications](/docs/v2/get-started/template-usage)
-2. [As a method to embed dynamic content into a string](/docs/v2/get-started/eval-string)
-3. [As a method to embed dynamic content into a file](/docs/v2/get-started/eval-file)
+1. [As a templating engine for web applications](/docs/v2/guide/template-usage)
+2. [As a method to embed dynamic content into a string](/docs/v2/guide/eval-string)
+3. [As a method to embed dynamic content into a file](/docs/v2/guide/eval-file)
 
 Here is a simple example of a Textwire template:
 
