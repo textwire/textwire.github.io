@@ -138,7 +138,7 @@ The `insert` statement (directive) is used to insert content into reserved place
 
 Let's take a look at the example how I would define a `home.tw.html` and then I'll explain each part of it:
 
-```html
+```html title="templates/home.tw.html"
 @use("layouts/main")
 
 @insert("title", "Home page")
