@@ -3,7 +3,7 @@ import type { FeatureItem } from '@site/src/types'
 
 const FeatureList: FeatureItem[] = [
     {
-        title: '🔍 Parse string',
+        title: 'Parse string',
         Svg: require('@site/static/img/string.svg').default,
         description: (
             <>
@@ -13,8 +13,8 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: '📃 Templating system',
-        Svg: require('@site/static/img/code.svg').default,
+        title: 'Templating system',
+        Svg: require('@site/static/img/docs.svg').default,
         description: (
             <>
                 You can use package as a template system your website, blog, or any
@@ -23,8 +23,8 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: '🖼️ Define layouts',
-        Svg: require('@site/static/img/code.svg').default,
+        title: 'Define layouts',
+        Svg: require('@site/static/img/layouts.svg').default,
         description: (
             <>
                 You can define layouts for your template files and use them to easily
@@ -33,7 +33,7 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: '🚀 Fast',
+        title: 'Fast',
         Svg: require('@site/static/img/fast.svg').default,
         description: (
             <>
@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: '🚦 Error handling',
+        title: 'Error handling',
         Svg: require('@site/static/img/error.svg').default,
         description: (
             <>
@@ -53,7 +53,7 @@ const FeatureList: FeatureItem[] = [
         ),
     },
     {
-        title: '🌈 Syntax Highlighting',
+        title: 'Syntax Highlighting',
         Svg: require('@site/static/img/code.svg').default,
         description: (
             <>
