@@ -5,7 +5,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 
 # Usage with Templates
 
-## Template Configuration
+## Simple usage
 
 To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language.
 
@@ -41,12 +41,50 @@ Non of the configurations are required, because each configuration has a default
 
 In return from the `NewTemplate` function, we get a `Template` object that can be used to evaluate an already parsed template.
 
+## Configuration
+
+There are a few configurations that you can pass to the `NewTemplate` function to configure the template language. The `NewTemplate` function accepts a `*config.Config` with several properties.
+
+There are cases when you want to override the default file format or the directory where the template files are stored. Here is an example of how you can configure the template language:
+
+```go title="main.go"
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/textwire/textwire/v2"
+    // highlight-next-line
+    "github.com/textwire/textwire/v2/config"
+)
+
+var tpl *textwire.Template
+
+func main() {
+    var err error
+
+    // highlight-start
+    tpl, err = textwire.NewTemplate(&config.Config{
+        TemplateDir: "src/templates",
+        TemplateExt: ".html",
+    })
+    // highlight-end
+
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    http.HandleFunc("/", homeView)
+
+    http.ListenAndServe(":8080", nil)
+}
+```
+
 ### Available Configurations
 
-| Property      | Type     | Description of the configuration                          | Example value     | Default value |
-| ------------- | -------- | --------------------------------------------------------- | ----------------- | ------------- |
-| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"src/templates"` | `"templates"` |
-| `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
+| Property      | Type     | Description of the configuration                          |  Default value |
+| ------------- | -------- | --------------------------------------------------------- | -------------- |
+| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"templates"`  |
+| `TemplateExt` | `string` | The extension of the template files                       | `".tw.html"`   |
 
 :::warning
 Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
