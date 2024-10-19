@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Learn how to get started with Textwire, a powerful template evaluator for Go developers. Get to know the use cases and installation instructions
 ---
 
 # Getting Started

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: Learn how to define and use custom functions in Textwire, enabling you to extend the functionality of Textwire by incorporating user-defined operations
 ---
 
 # Custom functions

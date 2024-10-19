@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: Textwire has a simple syntax that is easy to learn
 ---
 
 # Language Elements

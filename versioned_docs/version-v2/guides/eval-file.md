@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: Learn how to evaluate a file containing Textwire code in your Go applications using the EvaluateFile function
 ---
 
 # Evaluate a file

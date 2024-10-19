@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+description: Learn how to upgrade your Textwire code from version 1 to version 2
 ---
 
 # Upgrade Guide

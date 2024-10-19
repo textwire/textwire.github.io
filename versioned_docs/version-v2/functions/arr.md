@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: Explore the various array functions available in Textwire
 ---
 
 # Array functions

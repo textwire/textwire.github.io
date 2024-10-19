@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+description: Explore the various string functions available in Textwire
 ---
 
 # String functions

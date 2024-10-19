@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: Learn how to evaluate a string containing Textwire code in your Go applications
 ---
 
 # Evaluate a string

@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+description: Explore the various float functions available in Textwire
 ---
 
 # Float functions

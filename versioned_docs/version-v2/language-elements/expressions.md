@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+description: You can find here all the information about expressions in Textwire
 ---
 
 # Expressions
