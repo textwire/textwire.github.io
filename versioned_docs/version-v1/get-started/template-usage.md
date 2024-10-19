@@ -9,6 +9,8 @@ sidebar_position: 2
 To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language.
 
 ```go title="main.go"
+import "github.com/textwire/textwire"
+
 func main() {
     tpl, err := textwire.NewTemplate(&textwire.Config{
         TemplateDir: "src/templates",
@@ -87,7 +89,7 @@ The `insert` statement (directive) is used to insert content into reserved place
 
 Let's take a look at the example how I would define a `home.tw.html` and then I'll explain each part of it:
 
-```html
+```html title="home.tw.html"
 @use("layouts/main")
 
 @insert("title", "Home page")

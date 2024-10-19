@@ -9,14 +9,27 @@ sidebar_position: 2
 To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language.
 
 ```go title="main.go"
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/textwire/textwire/v2"
+)
+
+var tpl *textwire.Template
+
 func main() {
-    tpl, err := textwire.NewTemplate(&textwire.Config{
-        TemplateDir: "src/templates",
-    })
+    var err error
+
+    tpl, err = textwire.NewTemplate(nil)
 
     if err != nil {
-        log.Fatal(err)
+        fmt.Println(err)
     }
+
+    http.HandleFunc("/", homeView)
+
+    http.ListenAndServe(":8080", nil)
 }
 ```
 
@@ -38,13 +51,12 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
 :::
 
-
 ## Write response to the client
 
 You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
 
-```go
-func homeHandler(w http.ResponseWriter, r *http.Request) {
+```go title="main.go"
+func homeView(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "home", map[string]interface{}{
         "title":     "Home page",
         "names":     []string{"John", "Jane", "Jack", "Jill"},
@@ -52,20 +64,20 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
     })
 
     if err != nil {
-        log.Fatal(err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
 ```
 
 ## Layouts
 
-Defining a layout in Textwire is very simple. You need to create a file anywhere inside of your template files. Many developers just create a "layouts" directory for different layouts because you might have a main layout, one for admin panel, one for user cabinet and so on.
+Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw.html`, `admin.tw.html`, `user.tw.html`.
 
 ### Reserve space in the layout
 
-The `reserve` statement (directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
+The [reserve](/docs/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me-tw.html` or `contact-us.tw.html`. Here is an example of a layout file:
 
-```html
+```html title="templates/layouts/main.tw.html"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +91,7 @@ The `reserve` statement (directive) is used to reserve a place for dynamic conte
 </html>
 ```
 
-We reserve a place for the title and content of the page. We can then insert the title and content into these reserved places.
+We reserve spaces for the title and content of the page. These reserved spaces can then be filled with the title and content from other files that use this layout. Read the next section to learn how to insert content into reserved spaces.
 
 ### Insert content into reserved space
 
@@ -102,7 +114,7 @@ Let's take a look at the example how I would define a `home.tw.html` and then I'
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [use](/docs/v1/language-elements/statements#use-statement), [insert](/docs/v1/language-elements/statements#insert-statement) and [reserve](/docs/v1/language-elements/statements#reserve-statement) statements on the [statements](/docs/v1/language-elements/statements) page if you need more information about the syntax.
+You can read more about [use](/docs/v2/language-elements/statements#use-statement), [insert](/docs/v2/language-elements/statements#insert-statement) and [reserve](/docs/v2/language-elements/statements#reserve-statement) statements on the [statements](/docs/v2/language-elements/statements) page if you need more information about the syntax.
 
 # Evaluate a string
 
