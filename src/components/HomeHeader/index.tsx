@@ -23,7 +23,7 @@ export default function HomepageHeader(): JSX.Element {
                 <div className="hero__buttons">
                     <Link
                         className="button button--secondary button--lg"
-                        to="/docs/get-started"
+                        to="/docs/v2/get-started"
                     >
                         Get started
                     </Link>

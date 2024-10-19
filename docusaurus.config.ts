@@ -35,6 +35,16 @@ const config: Config = {
             {
                 docs: {
                     sidebarPath: './sidebars.ts',
+                    versions: {
+                        v1: {
+                            label: 'v1',
+                            path: 'v1',
+                        },
+                        v2: {
+                            label: 'v2',
+                            path: 'v2',
+                        },
+                    },
                     onlyIncludeVersions: ['v1', 'v2'],
                 },
                 blog: {
