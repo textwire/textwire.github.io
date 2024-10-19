@@ -173,7 +173,7 @@ When you use the `@use` directive, all the content of the file will not be rende
 
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
-```html
+```html title="home.tw.html"
 @use("layouts/main")
 
 <!-- It's useful when you want to pass a variable to the layout file -->
@@ -194,7 +194,7 @@ All the `insert` statements will be transferred to the layout file and will be p
 
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
-```html
+```html title="layouts/main.tw.html"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,18 +218,18 @@ Reserve statement excepts only a single argument, which the name of the reserved
 
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
-### Example of a component `components/post-card.tw.html`
+### Example of a component
 
-```html
+```html title="components/post-card.tw.html"
 <div class="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
 </div>
 ```
 
-### Example of using a component in a template `home.tw.html`
+### Example of using a template
 
-```html
+```html title="home.tw.html"
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -241,7 +241,7 @@ The first argument of the `@component` directive is a path to the component file
 
 The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
 
-```html
+```html title="home.tw.html"
 <ul>
     @each(book in books)
         @component("parts/book", { completed: book.completed })
@@ -249,7 +249,7 @@ The second optional argument is a [Textwire object](/docs/v2/language-elements/l
 </ul>
 ```
 
-You can also use slots in components to pass content to the component. Read about slots [in the next section](#component-slots)
+You can also use slots in components to pass content to the component. Read about slots in the next section.
 
 ## Component slots
 
@@ -257,8 +257,7 @@ Component slots is a very common feature in most template languages and framewor
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 
-```html
-<!-- components/book.tw.html -->
+```html title="components/book.tw.html"
 <div class="book">
     @slot
 
@@ -271,9 +270,7 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 
 We can now use `book.tw.html` component in our Textwire files like this:
 
-```html
-<!-- home.tw.html -->
-
+```html title="home.tw.html"
 @each(book in books)
     @component("components/book", { book })
         @slot
