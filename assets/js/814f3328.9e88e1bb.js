@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Introducing Textwire: A Domain-Specific Language for Go","permalink":"/blog/2024/10/20/introducing-textwire-a-domain-specific-language-for-go","unlisted":false,"date":"2024-10-20T00:00:00.000Z"}]}')}}]);
