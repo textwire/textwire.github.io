@@ -14,7 +14,7 @@ const featureList: FeatureItem[] = [
             'You can define layouts for your template files and use them to easily render content',
     },
     {
-        title: 'Fast',
+        title: 'Performance',
         Svg: require('@site/static/img/fast.svg').default,
         description:
             'Textwire is very fast and has a low memory footprint because it parses templates into an AST tree when application starts',

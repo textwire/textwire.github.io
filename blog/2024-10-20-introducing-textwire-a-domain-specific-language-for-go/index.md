@@ -8,15 +8,15 @@ tags: [story]
 
 ![Introducing Textwire: A Domain-Specific Language for Go](./cover.png)
 
-What was the motivation to create Textwire? How does it work? What are the benefits of using it and should you use it in your next Go project? In this article, we will answer these questions and more.
+What was the motivation to create Textwire? How does it work? What are the benefits of using it, and should you use it in your next Go project? In this article, we will answer these questions and more.
 
 <!-- truncate -->
 
 ## What's Textwire?
 
-**Textwire is a domain-specific language (DSL) for Go that provides a simple and flexible declarative syntax on the front end.** It allows you to write business logic in Go on the backend and pass the processed data to Textwire templates.
+**Textwire is a domain-specific language (DSL) for Go that offers a simple, flexible, and declarative syntax for the front end.** It enables you to handle business logic on the backend and pass the processed data to Textwire templates.
 
-To give you a feeling of how Textwire looks, here is an example of a simple template:
+Here’s a quick example of what a basic Textwire template looks like:
 
 ```html title="index.tw.html"
 <!DOCTYPE html>
@@ -34,9 +34,21 @@ To give you a feeling of how Textwire looks, here is an example of a simple temp
 </html>
 ```
 
-As you can see, the syntax is straightforward and easy to understand. You can also use else-if statements, loops, components, and more, making Textwire an excellent choice for template management in Go.
+As shown, the syntax is clean and intuitive. You can also incorporate else-if conditions, loops, components, and more, making Textwire a powerful tool for template management in Go.
 
 ## Why Textwire over other template engines?
+**Textwire is more than just another template engine for Go—it allows you to evaluate strings or files containing Textwire code.** This means you can seamlessly integrate logic into your email templates, markdown files, or any other text-based content.
 
-**Textwire is not only a template engine similar to other engines in Go, but it also provides a way to evaluate strings or files containing Textwire code.** That means you can use Textwire to sprinkle some logic into your email templates, markdown files, or any other text-based content.
+Additionally, Textwire comes with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) that offers syntax highlighting, making template development even more straightforward.
 
+Here are some of the key benefits of using Textwire:
+- **Error handling.** Textwire provides detailed error messages with line numbers and file names, making it easier to debug your templates
+- **Performance.** Textwire is fast and has a low memory footprint, making it load pages quickly. The parsing is done at application startup, so there is no overhead during runtime
+- **Flexibility.** Textwire allows you to define custom functions and components, giving you the flexibility to create complex templates with ease
+- **Security.** Textwire is designed to be secure by default, preventing code injection attacks when printing user-generated content
+- **Support.** Textwire is constantly being improved and updated. Which means you can rely on it for your projects
+- **Good documentation.** Textwire has a comprehensive documentation that covers all the features and provides examples to help you get started
+
+## Resources
+
+For all the details on how to get started with Textwire, check out the [official documentation](/docs/v2/introduction). You can also find the source code on [GitHub](https://github.com/textwire/textwire). If you have any requests or suggestions that will help improve Textwire, feel free to open an [issue](https://github.com/textwire/textwire/issues/new) or submit a pull request.
