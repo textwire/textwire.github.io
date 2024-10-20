@@ -5,13 +5,8 @@ description: Explore the various integer functions available in Textwire
 
 # Integer functions
 
-### `float()`
-
-#### Description
-The `float` function is used to convert an integer to a float.
-
-##### Arguments
-None
+## `float()`
+Converts an integer to a float
 
 #### Input example
 ```html

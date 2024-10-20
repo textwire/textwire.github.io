@@ -5,13 +5,8 @@ description: Explore the various string functions available in Textwire
 
 # String functions
 
-### `raw()`
-
-#### Description
-Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks.
-
-#### Arguments
-None
+## `raw()`
+Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks
 
 #### Input example
 ```html
@@ -23,13 +18,11 @@ None
 <h1>Test</h1>
 ```
 
-### `split()`
-
-#### Description
-Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space.
+## `split()`
+Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
 
 #### Arguments
-1. `separator` (optional) - What separator to use to split the string. Default is " " (space).
+1. `separator` (optional) - What separator to use to split the string. Default is " " (space)
 
 #### Input example
 ```html
@@ -37,19 +30,17 @@ Function `split` is used to split a string into an array of substrings. It takes
 ```
 
 #### Output
-The output will be `one,two` because when you trying to print an array, it will be join values with comma. It only happens when you are trying to print the array. For example, `{{ [1, 2, 3] }}` will be printed as `1,2,3`.
+The output will be `one,two` because when you trying to print an array, it will be join values with comma. It only happens when you are trying to print the array. For example, `{{ [1, 2, 3] }}` will be printed as `1,2,3`
 
 ```html
 <div>one,two</div>
 ```
 
-### `trim()`
-
-#### Description
-Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string.
+## `trim()`
+Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
 
 #### Arguments
-1. `chars` (optional) - A string of characters to trim from a string. Default is `\t \n\r`.
+1. `chars` (optional) - A string of characters to trim from a string. Default is `\t \n\r`
 
 #### Input example
 ```html
@@ -61,13 +52,8 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 <span>Anna</span>
 ```
 
-### `len()`
-
-#### Description
-The `len` function returns the length of a string.
-
-#### Arguments
-None
+## `len()`
+Returns the length of the string
 
 #### Input example
 ```html
@@ -79,13 +65,8 @@ None
 <b>13</b>
 ```
 
-### `lower()`
-
-#### Description
-The `lower` function converts a string to lowercase.
-
-#### Arguments
-None
+## `lower()`
+Converts a string to lowercase
 
 #### Input example
 ```html
@@ -97,13 +78,8 @@ None
 <span>hello, world!</span>
 ```
 
-### `upper()`
-
-#### Description
-The `upper` function converts a string to uppercase.
-
-#### Arguments
-None
+## `upper()`
+Converts a string to uppercase
 
 #### Input example
 ```html

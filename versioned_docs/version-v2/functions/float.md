@@ -5,13 +5,8 @@ description: Explore the various float functions available in Textwire
 
 # Float functions
 
-### `int()`
-
-#### Description
-Function `int` is used to convert a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part.
-
-##### Arguments
-None
+## `int()`
+Converts a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part
 
 #### Input example
 ```html

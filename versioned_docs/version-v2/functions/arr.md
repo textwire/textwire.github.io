@@ -5,13 +5,8 @@ description: Explore the various array functions available in Textwire
 
 # Array functions
 
-### `len`
-
-#### Description
-Function `len` returns the length of an array.
-
-#### Arguments
-None
+## `len()`
+Returns the length of an array
 
 #### Input example:
 ```html
@@ -23,13 +18,11 @@ None
 <span>3</span>
 ```
 
-### `join`
-
-#### Description
-Function `join` is used to join the elements of an array into a string. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma.
+## `join()`
+Joins the elements of an array into a string. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
 
 #### Arguments
-1. `separator` (optional) - What separator to use to join the elements. Default is comma `,`.
+1. `separator` (optional) - What separator to use to join the elements. Default is comma `,`
 
 #### Input example:
 ```html
@@ -40,4 +33,3 @@ Function `join` is used to join the elements of an array into a string. It takes
 ```html
 <span>one two</span>
 ```
-
