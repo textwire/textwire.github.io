@@ -5,8 +5,8 @@ description: Explore the various integer functions available in Textwire
 
 # Integer functions
 
-## `float()`
-Converts an integer to a float
+## `float(): float` {#float}
+Converts an integer to a float by adding a decimal part of `.0` to the number
 
 #### Input example
 ```html
