@@ -2,28 +2,28 @@ import type { FeatureItem } from '@site/src/types'
 
 const featureList: FeatureItem[] = [
     {
-        title: 'Templating system',
-        Svg: require('@site/static/img/docs.svg').default,
+        title: 'Security',
+        Svg: require('@site/static/img/secure.svg').default,
         description:
-            'You can use package as a template system your website, blog, or any other project that uses Go on the frontend',
+            'Textwire is designed to be secure by default, preventing code injection attacks when printing user-generated content',
     },
     {
-        title: 'Define layouts',
+        title: 'Flexibility',
         Svg: require('@site/static/img/layouts.svg').default,
         description:
-            'You can define layouts for your template files and use them to easily render content',
+            'Textwire allows you to define custom functions and components, giving you the flexibility to create complex templates with ease',
     },
     {
         title: 'Performance',
         Svg: require('@site/static/img/fast.svg').default,
         description:
-            'Textwire is very fast and has a low memory footprint because it parses templates into an AST tree when application starts',
+            'Textwire is fast and has a low memory footprint, making it load pages quickly. The parsing is done at application startup, so there is no overhead during runtime',
     },
     {
         title: 'Error handling',
         Svg: require('@site/static/img/error.svg').default,
         description:
-            'Proper error handling with error messages containing line numbers and file names',
+            'Textwire provides detailed error messages with line numbers and file names, making it easier to debug your templates',
     },
     {
         title: 'Syntax Highlighting',
@@ -32,10 +32,10 @@ const featureList: FeatureItem[] = [
             'You get syntax highlighting and other features for Textwire in with VSCode extension',
     },
     {
-        title: 'Parse string',
-        Svg: require('@site/static/img/string.svg').default,
+        title: 'Good documentation',
+        Svg: require('@site/static/img/files.svg').default,
         description:
-            'You can use package to parse a string with embedded Textwire code. It can be useful for email templates, markdown, files, etc',
+            'Textwire has a comprehensive documentation that covers all the features and provides examples to help you get started',
     },
 ]
 
