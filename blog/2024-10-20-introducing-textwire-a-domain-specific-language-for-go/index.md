@@ -39,7 +39,9 @@ As shown, the syntax is clean and intuitive. You can also incorporate else-if co
 ## Why Textwire over other template engines?
 **Textwire is more than just another template engine for Go—it allows you to evaluate strings or files containing Textwire code.** This means you can seamlessly integrate logic into your email templates, markdown files, or any other text-based content.
 
-Additionally, Textwire comes with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) that offers syntax highlighting, making template development even more straightforward.
+Additionally, Textwire comes with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) that offers syntax highlighting and icons for Textwire files, making template development even more straightforward.
+
+![Textwire VSCode extension screenshot](./custom-icons.jpg)
 
 Here are some of the key benefits of using Textwire:
 - **Error handling.** Textwire provides detailed error messages with line numbers and file names, making it easier to debug your templates
@@ -48,6 +50,8 @@ Here are some of the key benefits of using Textwire:
 - **Security.** Textwire is designed to be secure by default, preventing code injection attacks when printing user-generated content
 - **Support.** Textwire is constantly being improved and updated. Which means you can rely on it for your projects
 - **Good documentation.** Textwire has a comprehensive documentation that covers all the features and provides examples to help you get started
+
+![Textwire VSCode extension screenshot](./textwire-code.jpg)
 
 ## Resources
 
