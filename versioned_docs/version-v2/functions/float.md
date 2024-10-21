@@ -4,9 +4,7 @@ description: Explore the various float functions available in Textwire
 ---
 
 # Float functions
-
 ## int
-
 ```ts
 int(): int
 ```

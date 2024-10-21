@@ -4,9 +4,7 @@ description: Explore the various string functions available in Textwire
 ---
 
 # String functions
-
 ## raw
-
 ```ts
 raw(): str
 ```
@@ -24,7 +22,6 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 ```
 
 ## split
-
 ```ts
 split(separator?: str = " "): arr
 ```
@@ -40,14 +37,11 @@ Function `split` is used to split a string into an array of substrings. It takes
 ```
 
 #### Output
-The output will be `one,two` because when you trying to print an array, it will be join values with comma. It only happens when you are trying to print the array. For example, `{{ [1, 2, 3] }}` will be printed as `1,2,3`
-
 ```html
-<div>one,two</div>
+<div>one, two</div>
 ```
 
 ## trim
-
 ```ts
 trim(chars?: str = "\t \n\r"): str
 ```
@@ -68,7 +62,6 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 ```
 
 ## len
-
 ```ts
 len(): int
 ```
@@ -86,7 +79,6 @@ Returns the length of the string
 ```
 
 ## lower
-
 ```ts
 lower(): str
 ```
@@ -104,7 +96,6 @@ Converts a string to lowercase
 ```
 
 ## upper
-
 ```ts
 upper(): str
 ```

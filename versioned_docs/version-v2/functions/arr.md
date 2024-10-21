@@ -6,7 +6,6 @@ description: Explore the various array functions available in Textwire
 # Array functions
 
 ## len
-
 ```ts
 len(): int
 ```
@@ -24,7 +23,6 @@ Returns the length of an array
 ```
 
 ## join
-
 ```ts
 join(separator?: str = ""): str
 ```
@@ -45,7 +43,6 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 ```
 
 ## rand
-
 ```ts
 <T>.rand(): T
 ```
@@ -63,7 +60,6 @@ Returns a random element from the array. The return type is the same as the type
 ```
 
 ## reverse
-
 ```ts
 reverse(): arr
 ```
@@ -81,7 +77,6 @@ Reverses the elements of an array and returns a new array
 ```
 
 ## slice
-
 ```ts
 slice(start: int, end?: int): arr
 ```
@@ -105,3 +100,21 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 :::warning
 `start` and `end` arguments cannot be negative. If you provide a negative value for `start`, it will be treated as `0`. If you provide a negative value for `end` or the value will exceed the length of the array, it will default to a value of the last index of the array
 :::
+
+## shuffle
+```ts
+shuffle(): arr
+```
+
+Shuffles the elements of an array and returns a new array
+
+#### Input example:
+```html
+<span>{{ [1, 2, 3, 5].shuffle() }}</span>
+```
+
+#### Output:
+```html
+<!-- The order of the elements will be random -->
+<span>2, 1, 3, 5</span>
+```
