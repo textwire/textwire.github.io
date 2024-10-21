@@ -5,7 +5,12 @@ description: Explore the various string functions available in Textwire
 
 # String functions
 
-## `raw(): str` {#raw}
+## raw
+
+```ts
+raw(): str
+```
+
 Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks
 
 #### Input example
@@ -18,7 +23,12 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 <h1>Test</h1>
 ```
 
-## `split(): arr` {#split}
+## split
+
+```ts
+split(separator?: str = " "): arr
+```
+
 Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
 
 #### Arguments
@@ -36,7 +46,12 @@ The output will be `one,two` because when you trying to print an array, it will 
 <div>one,two</div>
 ```
 
-## `trim(): str` {#trim}
+## trim
+
+```ts
+trim(chars?: str = "\t \n\r"): str
+```
+
 Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
 
 #### Arguments
@@ -52,7 +67,12 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 <span>Anna</span>
 ```
 
-## `len(): int` {#len}
+## len
+
+```ts
+len(): int
+```
+
 Returns the length of the string
 
 #### Input example
@@ -65,7 +85,12 @@ Returns the length of the string
 <b>13</b>
 ```
 
-## `lower(): str` {#lower}
+## lower
+
+```ts
+lower(): str
+```
+
 Converts a string to lowercase
 
 #### Input example
@@ -78,7 +103,12 @@ Converts a string to lowercase
 <span>hello, world!</span>
 ```
 
-## `upper(): str` {#upper}
+## upper
+
+```ts
+upper(): str
+```
+
 Converts a string to uppercase
 
 #### Input example

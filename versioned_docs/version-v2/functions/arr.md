@@ -5,7 +5,12 @@ description: Explore the various array functions available in Textwire
 
 # Array functions
 
-## `len(): int` {#len}
+## len
+
+```ts
+len(): int
+```
+
 Returns the length of an array
 
 #### Input example:
@@ -18,7 +23,12 @@ Returns the length of an array
 <span>3</span>
 ```
 
-## `join(): str` {#join}
+## join
+
+```ts
+join(separator?: str = ""): str
+```
+
 Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
 
 #### Arguments
@@ -34,7 +44,12 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 <span>one two</span>
 ```
 
-## `rand(): any` {#rand}
+## rand
+
+```ts
+<T>.rand(): T
+```
+
 Returns a random element from the array. The return type is the same as the type of the elements in the array
 
 #### Input example:
@@ -47,7 +62,12 @@ Returns a random element from the array. The return type is the same as the type
 <span>2</span>
 ```
 
-## `reverse(): arr` {#reverse}
+## reverse
+
+```ts
+reverse(): arr
+```
+
 Reverses the elements of an array and returns a new array
 
 #### Input example:
