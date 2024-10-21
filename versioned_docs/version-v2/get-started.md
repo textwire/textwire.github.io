@@ -5,7 +5,7 @@ description: Learn how to get started with Textwire, a powerful template evaluat
 
 # Get Started
 
-Learn how to get started with Textwire. Get to know the installation instructions and requirements.
+Learn how to get started with Textwire, get installation instructions and requirements.
 
 ## Requirements
 

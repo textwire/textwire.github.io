@@ -32,7 +32,7 @@ split(separator?: str = " "): arr
 Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
 
 #### Arguments
-1. `separator` (optional) - What separator to use to split the string. Default is " " (space)
+1. `separator` (str) (optional) - What separator to use to split the string. Default is " " (space)
 
 #### Input example
 ```html
@@ -55,7 +55,7 @@ trim(chars?: str = "\t \n\r"): str
 Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
 
 #### Arguments
-1. `chars` (optional) - A string of characters to trim from a string. Default is `\t \n\r`
+1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `\t \n\r`
 
 #### Input example
 ```html
