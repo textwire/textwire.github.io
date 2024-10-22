@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 description: Explore the various integer functions available in Textwire
 ---
 

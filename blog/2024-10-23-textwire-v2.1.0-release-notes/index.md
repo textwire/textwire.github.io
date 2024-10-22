@@ -21,10 +21,31 @@ Textwire is very young but it's growing. I'm happy to introduce **3 new built-in
 - `shuffle()` - Shuffles the elements of an array and returns a new array
 
 ### 2 New integer functions
-Here are the new integer functions that I've added in this release. Read more about them in the [integer functions](/docs/v2/functions/int) documentation.
+Read more about them in the [integer functions](/docs/v2/functions/int) documentation.
 
-- `abs()` - Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
-- `str()` - Converts an integer to a string and returns it
+- `abs(): int` - Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
+- `str(): str` - Converts an integer to a string and returns it
+
+### 5 New float functions
+Read more about them in the [float functions](/docs/v2/functions/float) documentation.
+
+- `abs(): float` - Returns the absolute value of a float. If the float is negative, it will return the positive value of it
+- `ceil(): int` - Returns the rounded up value of a float to the nearest integer
+- `floor(): int` - Returns the rounded down value of a float to the nearest integer
+- `round(): int` - Rounds a float to the nearest integer. `1.5 -> 2`, `1.4 -> 1`, `1.6 -> 2`
+- `str(): str` - Returns converted float to a string
+
+### 3 New string functions
+Read more about them in the [string functions](/docs/v2/functions/str) documentation.
+
+- `capitalize(): bool` - Capitalizes the first letter of a string
+- `reverse(): bool` - Reverses the characters of a string
+- `contains(substr: str): bool` - Returns `true` if a string contains a substring, otherwise `false`
+
+### 1 New boolean function
+Read more about it in the [boolean functions](/docs/v2/functions/bool) documentation.
+
+- `binary(): int` - Returns an integer `1` if the receiver is true, `0` otherwise
 
 
 ## Minor changes
