@@ -14,10 +14,10 @@ None
 
 #### Input example
 ```html
-<input value="{{ 5.5.int() }}" type="number">
+<b>{{ 5.5.int() }}<b>
 ```
 
 #### Output
 ```html
-<input value="5" type="number">
+<b>5<b>
 ```

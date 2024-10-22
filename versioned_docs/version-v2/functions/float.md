@@ -13,12 +13,12 @@ Converts a float to an integer by removing the decimal part of the number. It do
 
 #### Input example
 ```html
-<input value="{{ 5.5.int() }}" type="number">
+<p>{{ 5.5.int() }}</p>
 ```
 
 #### Output
 ```html
-<input value="5" type="number">
+<p>5</p>
 ```
 
 ## str
@@ -60,11 +60,45 @@ Returns the absolute value of a float
 ceil(): float
 ```
 
-floatCeilFunc returns the rounded up value of a float to the nearest integer
+Returns the rounded up value of a float to the nearest integer
 
 #### Input example
 ```html
 <p>{{ 5.125.ceil() }}</p>
+```
+
+#### Output
+```html
+<p>6</p>
+```
+
+## floor
+```ts
+floor(): float
+```
+
+Returns the rounded down value of a float to the nearest integer
+
+#### Input example
+```html
+<p>{{ 5.125.floor() }}</p>
+```
+
+#### Output
+```html
+<p>5</p>
+```
+
+## round
+```ts
+round(): float
+```
+
+Rounds a float to the nearest integer. `1.5 -> 2`, `1.4 -> 1`, `1.6 -> 2`
+
+#### Input example
+```html
+<p>{{ 5.5.round() }}</p>
 ```
 
 #### Output
