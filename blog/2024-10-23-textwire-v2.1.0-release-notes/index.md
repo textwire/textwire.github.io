@@ -47,8 +47,8 @@ Read more about it in the [boolean functions](/docs/v2/functions/bool) documenta
 
 - `binary(): int` - Returns an integer `1` if the receiver is true, `0` otherwise
 
-
-## Minor changes
+## Other changes
 Some very small changes were made to the Textwire that don't effect any functionality. Here are they:
 - 📝 Remove `CONTRIBUTING.md` file that was added in `v2.0.0`. It doesn't have any important information, it's better to make a better one in the future
+- 🐛 Fixed bug with incorrect precedence with prefixed expressions like `{{ -1.abs() }}`. This expression would left out the `-` and output `-1`. It was happening because the parser would parse `1.abs()` first, and then add the minus sign. So the precedence was like this `{{ (-(1.abs())) }}`. It's now `{{ ((-1).abs()) }}`
 
