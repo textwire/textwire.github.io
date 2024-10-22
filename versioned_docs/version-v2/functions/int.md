@@ -4,23 +4,6 @@ description: Explore the various integer functions available in Textwire
 ---
 
 # Integer functions
-## float
-```ts
-float(): float
-```
-
-Converts an integer to a float by adding a decimal part of `.0` to the number
-
-#### Input example
-```html
-<b>{{ 5.float() }}</b>
-```
-
-#### Output
-```html
-<b>5.0</b>
-```
-
 ## abs
 ```ts
 abs(): int
@@ -38,8 +21,24 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 <b>5</b>
 ```
 
-## str
+## float
+```ts
+float(): float
+```
 
+Converts an integer to a float by adding a decimal part of `.0` to the number
+
+#### Input example
+```html
+<b>{{ 5.float() }}</b>
+```
+
+#### Output
+```html
+<b>5.0</b>
+```
+
+## str
 ```ts
 str(): string
 ```

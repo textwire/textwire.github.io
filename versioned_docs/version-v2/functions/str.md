@@ -4,6 +4,81 @@ description: Explore the various string functions available in Textwire
 ---
 
 # String functions
+## capitalize
+```ts
+capitalize(): str
+```
+
+Capitalizes the first letter of a string
+
+#### Input example
+```html
+<b>{{ "hello, world!".capitalize() }}</b>
+```
+
+#### Output
+```html
+<b>Hello, world!</b>
+```
+
+## contains
+```ts
+contains(substr: str): bool
+```
+
+Returns true if the string contains the given substring, otherwise false. The function is sase-sensitive, so the substring must match the case of the string
+
+#### Arguments
+1. `substr` (str) - The substring to search for
+
+#### Input example
+```html
+<b>{{ "Hello, World!".contains("World") }}</b>
+```
+
+#### Output
+```html
+<b>true</b>
+```
+
+:::note
+If the `substr` argument is an empty string, the function will always return `true`
+:::
+
+## len
+```ts
+len(): int
+```
+
+Returns the length of the string
+
+#### Input example
+```html
+<b>{{ "Hello, World!".len() }}</b>
+```
+
+#### Output
+```html
+<b>13</b>
+```
+
+## lower
+```ts
+lower(): str
+```
+
+Converts a string to lowercase
+
+#### Input example
+```html
+<span>{{ "Hello, World!".lower() }}<span>
+```
+
+#### Output
+```html
+<span>hello, world!</span>
+```
+
 ## raw
 ```ts
 raw(): str
@@ -19,6 +94,23 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 #### Output
 ```html
 <h1>Test</h1>
+```
+
+## reverse
+```ts
+reverse(): str
+```
+
+Returns a string with the characters reversed
+
+#### Input example
+```html
+<b>{{ "stressed".reverse() }}</b>
+```
+
+#### Output
+```html
+<b>desserts</b>
 ```
 
 ## split
@@ -61,40 +153,6 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 <span>Anna</span>
 ```
 
-## len
-```ts
-len(): int
-```
-
-Returns the length of the string
-
-#### Input example
-```html
-<b>{{ "Hello, World!".len() }}</b>
-```
-
-#### Output
-```html
-<b>13</b>
-```
-
-## lower
-```ts
-lower(): str
-```
-
-Converts a string to lowercase
-
-#### Input example
-```html
-<span>{{ "Hello, World!".lower() }}<span>
-```
-
-#### Output
-```html
-<span>hello, world!</span>
-```
-
 ## upper
 ```ts
 upper(): str
@@ -111,61 +169,3 @@ Converts a string to uppercase
 ```html
 <b>HELLO, WORLD!</b>
 ```
-
-## capitalize
-```ts
-capitalize(): str
-```
-
-Capitalizes the first letter of a string
-
-#### Input example
-```html
-<b>{{ "hello, world!".capitalize() }}</b>
-```
-
-#### Output
-```html
-<b>Hello, world!</b>
-```
-
-## reverse
-```ts
-reverse(): str
-```
-
-Returns a string with the characters reversed
-
-#### Input example
-```html
-<b>{{ "stressed".reverse() }}</b>
-```
-
-#### Output
-```html
-<b>desserts</b>
-```
-
-## contains
-```ts
-contains(substr: str): bool
-```
-
-Returns true if the string contains the given substring, otherwise false. The function is sase-sensitive, so the substring must match the case of the string
-
-#### Arguments
-1. `substr` (str) - The substring to search for
-
-#### Input example
-```html
-<b>{{ "Hello, World!".contains("World") }}</b>
-```
-
-#### Output
-```html
-<b>true</b>
-```
-
-:::note
-If the `substr` argument is an empty string, the function will always return `true`
-:::
