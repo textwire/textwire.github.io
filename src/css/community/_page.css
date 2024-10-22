@@ -1,0 +1,46 @@
+.community {
+    padding-top: 20px;
+    max-width: 800px;
+    font-size: 1.1rem;
+}
+
+.community .contributors {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 11px;
+}
+
+.contributor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: transform .2s;
+}
+
+.contributor:hover {
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.contributor p {
+    margin-top: 5px;
+    font-size: .8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--ifm-font-color-base);
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.contributor img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+}
