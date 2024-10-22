@@ -45,6 +45,10 @@ func main() {
 
 You can now use the `upperLast` function anywhere in your Textwire code.
 
+:::tip Prefixing custom functions
+It's a good practice to prefix your custom functions with a unique name to avoid conflicts with built-in functions. Because built-in functions have a higher priority than custom functions, if you define a custom function with the same name as a built-in function, the built-in function will be used. You can prefix with the underscore `_` character to avoid conflicts. For example: `{{ name._upperLast() }}`.
+:::
+
 ## Using custom functions
 
 Here is the example of using the `upperLast` function in Textwire after defining it:
