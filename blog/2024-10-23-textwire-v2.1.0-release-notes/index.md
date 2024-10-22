@@ -11,7 +11,6 @@ The Textwire version `v2.0.0` brought us an ability to define [custom functions]
 <!-- truncate -->
 
 ## New Features
-
 ### 4 New array functions
 Textwire is very young but it's growing. I'm happy to introduce **3 new built-in functions** for array literals. You can read more about them in the [array functions](/docs/v2/functions/arr) documentation. Here is the short overview of them:
 
