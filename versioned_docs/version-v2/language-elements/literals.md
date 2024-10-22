@@ -47,8 +47,12 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
 ```html
-<span>{{ 1.5 + 2.5 }}</span>
+<span>{{ 1.534 + 2.5 }}</span>
 ```
+
+:::warning
+Most languages (including Textwire) use **IEEE 754 standard** for floating-point numbers. These floating-point types have a finite precision and are unable to accurately represent more than approximately 15-17 digits. For example `1234567890.1234567890` will be rounded to `1234567890.1234567` in Textwire because of the precision limit of floating-point numbers. If you need to work with large numbers, you can keep them as strings.
+:::
 
 ## Boolean literals
 
