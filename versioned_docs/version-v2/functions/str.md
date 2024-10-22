@@ -111,3 +111,61 @@ Converts a string to uppercase
 ```html
 <b>HELLO, WORLD!</b>
 ```
+
+## capitalize
+```ts
+capitalize(): str
+```
+
+Capitalizes the first letter of a string
+
+#### Input example
+```html
+<b>{{ "hello, world!".capitalize() }}</b>
+```
+
+#### Output
+```html
+<b>Hello, world!</b>
+```
+
+## reverse
+```ts
+reverse(): str
+```
+
+Returns a string with the characters reversed
+
+#### Input example
+```html
+<b>{{ "stressed".reverse() }}</b>
+```
+
+#### Output
+```html
+<b>desserts</b>
+```
+
+## contains
+```ts
+contains(substr: str): bool
+```
+
+Returns true if the string contains the given substring, otherwise false. The function is sase-sensitive, so the substring must match the case of the string
+
+#### Arguments
+1. `substr` (str) - The substring to search for
+
+#### Input example
+```html
+<b>{{ "Hello, World!".contains("World") }}</b>
+```
+
+#### Output
+```html
+<b>true</b>
+```
+
+:::note
+If the `substr` argument is an empty string, the function will always return `true`
+:::
