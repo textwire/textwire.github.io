@@ -10,7 +10,7 @@ The Textwire version `v2.0.0` brought us an ability to define [custom functions]
 
 <!-- truncate -->
 
-## New Features
+## 15 New Built-in Functions
 ### 4 New array functions
 Textwire is very young but it's growing. I'm happy to introduce **3 new built-in functions** for array literals. You can read more about them in the [array functions](/docs/v2/functions/arr) documentation. Here is the short overview of them:
 
@@ -46,8 +46,13 @@ Read more about it in the [boolean functions](/docs/v2/functions/bool) documenta
 
 - `binary(): int` - Returns an integer `1` if the receiver is true, `0` otherwise
 
+## Improvements
+These are the improvements that were made in the `v2.1.0` version of Textwire including bug fixes and other changes.
+
+- 🐛 Fixed bug with incorrect precedence with prefixed expressions like `{{ -1.abs() }}`. This expression would left out the `-` and output `-1`. It was happening because the parser would parse `1.abs()` first, and then add the minus sign. So the precedence was like this `{{ (-(1.abs())) }}`. It's now `{{ ((-1).abs()) }}`
+- 🧑‍💻 Improve error handling for custom functions. Now, when you use function that is not defined, you'll get an error that the function x doesn't exists on type y. Here is the example of an error: `[Textwire ERROR in /var/www/html/templates/home.tw.html:3]: function 'some' doesn't exist for type 'STRING'`
+
+
 ## Other changes
 Some very small changes were made to the Textwire that don't effect any functionality. Here are they:
 - 📝 Remove `CONTRIBUTING.md` file that was added in `v2.0.0`. It doesn't have any important information, it's better to make a better one in the future
-- 🐛 Fixed bug with incorrect precedence with prefixed expressions like `{{ -1.abs() }}`. This expression would left out the `-` and output `-1`. It was happening because the parser would parse `1.abs()` first, and then add the minus sign. So the precedence was like this `{{ (-(1.abs())) }}`. It's now `{{ ((-1).abs()) }}`
-
