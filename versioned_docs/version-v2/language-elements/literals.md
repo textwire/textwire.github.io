@@ -50,7 +50,7 @@ You can use float literals and perform arithmetic operations with them. Here is 
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
-:::warning
+:::warning Precision limit
 Most languages (including Textwire) use **IEEE 754 standard** for floating-point numbers. These floating-point types have a finite precision and are unable to accurately represent more than approximately 15-17 digits. For example `1234567890.1234567890` will be rounded to `1234567890.1234567` in Textwire because of the precision limit of floating-point numbers. If you need to work with large numbers, you can keep them as strings.
 :::
 
@@ -117,7 +117,7 @@ You can access values in an object by using a key. Here is an example of accessi
 </ul>
 ```
 
-:::tip
+:::tip Case insensitive fields
 **Object fields are case insensitive**. It means that you can access fields in an object by using any case. For example, `{{ user.name.first }}` and `{{ user.Name.First }}` will return the same value. It's done this way for convenience.
 :::
 

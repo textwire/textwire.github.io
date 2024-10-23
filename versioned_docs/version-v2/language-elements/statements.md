@@ -53,7 +53,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-:::info
+:::info Else is optional
 The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
 :::
 
@@ -85,8 +85,8 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-:::info
-The `@else` statement is optional and can be used to render content when the array is empty.
+:::info Else is optional
+The `@else` statement is optional and can be used to render content when the array is empty
 :::
 
 Inside of every `each` loop, you can optionally use a `loop` object to get the current index of the item or other data that is updated on every iteration.
@@ -152,7 +152,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-:::info
+:::info Declaration has no output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 :::
 
@@ -166,8 +166,8 @@ You have a "use statement" to define a layout for your template. Here is an exam
 
 Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
 
-:::info
-When you use the `@use` directive, all the content of the file will not be rendered except everything inside of the `@insert` directives. It happens because you tell the program to use a layout file instead of the current file. It means that all the reserved places in the layout file will be replaced with the content that you insert into them.
+:::info Understanding the @use Directive
+When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
 :::
 
 ## Insert statement
@@ -209,8 +209,8 @@ When you define a layout file for you template, you need to reserve places for d
 </html>
 ```
 
-:::info
-All the variables passed to the template file will be available in the layout file. It means that you can even use replace the `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file.
+:::info Pass variables to the layout
+All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
 :::
 
 Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.

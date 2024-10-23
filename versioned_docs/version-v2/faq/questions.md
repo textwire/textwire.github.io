@@ -6,13 +6,11 @@ description: Find answers to frequently asked questions about Textwire, includin
 # Questions
 
 ## What exactly is Textwire?
-
 Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use templating language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
 
 
 ## Is Textwire a templating engine?
-
-Textwire is not exactly a templating engine. It is a separate language written in Go that comes as a package.
+Textwire is not exactly a templating engine. It is a Domain-specific language (DTO) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
 
 ## Why it's best to prevent visitors of your site from seeing the result of the function output when an error occurs?
 When an error occurs in your function, the output may be incorrect or misleading. Displaying this faulty output to users can result in confusing information, broken layouts, or even unintentionally exposing sensitive data.

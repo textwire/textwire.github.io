@@ -41,8 +41,8 @@ Returns true if the string contains the given substring, otherwise false. The fu
 <b>true</b>
 ```
 
-:::note
-If the `substr` argument is an empty string, the function will always return `true`
+:::tip Empty substring
+If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
 :::
 
 ## len
