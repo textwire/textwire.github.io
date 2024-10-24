@@ -109,38 +109,32 @@ const config: Config = {
             theme: prismThemes.github,
             darkTheme: prismThemes.oneDark,
         },
-        // algolia: {
-        //     // The application ID provided by Algolia
-        //     appId: 'YOUR_APP_ID',
+        algolia: {
+            appId: '0JTU9QLN4V',
+            apiKey: '505627364f4ecc995c30aecef053f7b9',
+            indexName: 'Textwire',
 
-        //     // Public API key: it is safe to commit it
-        //     apiKey: 'YOUR_SEARCH_API_KEY',
+            // Optional: see doc section below
+            contextualSearch: true,
 
-        //     indexName: 'YOUR_INDEX_NAME',
+            // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+            // externalUrlRegex: 'external\\.com|domain\\.com',
 
-        //     // Optional: see doc section below
-        //     contextualSearch: true,
+            // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+            // replaceSearchResultPathname: {
+            //     from: '/docs/', // or as RegExp: /\/docs\//
+            //     to: '/',
+            // },
 
-        //     // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        //     externalUrlRegex: 'external\\.com|domain\\.com',
+            // Optional: Algolia search parameters
+            // searchParameters: {},
 
-        //     // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
-        //     replaceSearchResultPathname: {
-        //         from: '/docs/', // or as RegExp: /\/docs\//
-        //         to: '/',
-        //     },
+            // Optional: path for search page that enabled by default (`false` to disable it)
+            // searchPagePath: 'search',
 
-        //     // Optional: Algolia search parameters
-        //     searchParameters: {},
-
-        //     // Optional: path for search page that enabled by default (`false` to disable it)
-        //     searchPagePath: 'search',
-
-        //     // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
-        //     insights: false,
-
-        //     //... other Algolia params
-        // },
+            // Optional: whether the insights feature is enabled or not on Docsearch (`false` by default)
+            insights: false,
+        },
     } satisfies Preset.ThemeConfig,
 }
 
