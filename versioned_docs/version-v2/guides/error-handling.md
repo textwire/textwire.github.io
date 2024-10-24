@@ -15,8 +15,8 @@ If you call a function on a value that doesn't support that function, Textwire w
 - **Using a variable that doesn't exist.** If you try to use a variable that doesn't exist, Textwire will return an error
 - **Using a function on a value that doesn't support that function.** If you try to use a function on a value that doesn't support that function, Textwire will return an error
 
-### Example with a string
-Let's say you are evaluating a string that contains a Textwire code with the wrong function usage:
+## Handling errors in Textwire
+Handling errors in Textwire are handled in you Go code. Let's say you are evaluating a string that contains Textwire code with the incorrect function usage:
 
 ```go
 inp := "{{ name.split(1) }}"
@@ -30,26 +30,20 @@ if err != nil {
 }
 ```
 
-The `split` function accepts an optional `separator` argument, which should be a string. In this case, the `separator` argument is an integer, which is incorrect. Textwire will return an error in this case from the `EvaluateString` function which you can handle however you want.
+The [split](/docs/v2/functions/str#split) function requires a string as an argument, not an integer. If an incorrect argument type is passed, Textwire will return an error from the `EvaluateString` function, which you can handle as needed.
 
-### Example with templates
-If you use Textwire as a templating engine to serve the frontend, you will get an error from
+In the same way you handle errors with evaluating a file or working with templating system.
 
-```go
-err := tpl.Response(w, "home", map[string]interface{}{
-    "title": "Home page",
-})
+## What happens to the output?
+If you use Textwire to evaluate a single file or a string, the output will be empty if an error occurs. When you use Textwire as a templating system, it's a bit different.
 
-if err != nil {
-    // handle the error
-}
-```
-
-### What happens to the output?
-
-When an error occurs, we cannot serve you the output on the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this in the FAQ section.
-
-
-:::info Why hiding the output?
-Read more about [Why it's best to prevent visitors of your site from seeing the result of the function output when an error occurs](/docs/v2/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs) in the FAQ section
+### Error output in templates
+:::info
+When an error occurs, we cannot serve you the output to the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this [here in the FAQ section](/docs/v2/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
 :::
+
+When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed:
+
+![Error output in Textwire](/img/oops.png)
+
+The actual error message will be handle depending on your logic, but **it must not be displayed to the user** for security reasons.

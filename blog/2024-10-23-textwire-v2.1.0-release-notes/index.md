@@ -51,6 +51,7 @@ These are the improvements that were made in the `v2.1.0` version of Textwire in
 
 - 🐛 Fixed bug with incorrect precedence with prefixed expressions like `{{ -1.abs() }}`. This expression would left out the `-` and output `-1`. It was happening because the parser would parse `1.abs()` first, and then add the minus sign. So the precedence was like this `{{ (-(1.abs())) }}`. It's now `{{ ((-1).abs()) }}`
 - 🧑‍💻 Improve error handling for custom functions. Now, when you use function that is not defined, you'll get an error that the function x doesn't exists on type y. Here is the example of an error: `[Textwire ERROR in /var/www/html/templates/home.tw.html:3]: function 'some' doesn't exist for type 'STRING'`
+- 🧑‍💻 Improve error handling for division by zero cases. Before, it had the meaningless error message
 
 
 ## Other changes
