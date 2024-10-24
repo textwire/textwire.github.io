@@ -6,7 +6,7 @@ authors: [serhiicho]
 tags: [release]
 ---
 
-The Textwire version `v2.0.0` brought us an ability to define [custom functions](/docs/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions and other improvements.
+The Textwire version `v2.0.0` brought us an ability to define [custom functions](/docs/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions, improved error handling, and other improvements.
 
 <!-- truncate -->
 
@@ -47,13 +47,23 @@ Read more about it in the [boolean functions](/docs/v2/functions/bool) documenta
 - `binary(): int` - Returns an integer `1` if the receiver is true, `0` otherwise
 
 ## Improvements
-These are the improvements that were made in the `v2.1.0` version of Textwire including bug fixes and other changes.
+Regarding improvements, I placed a strong emphasis on proper error handling. I cannot overstate the importance of having effective error handling in place when things go wrong. Receiving clear and detailed error messages is crucial for success. Here are the enhancements introduced in version `v2.1.0`:
 
-- 🐛 Fixed bug with incorrect precedence with prefixed expressions like `{{ -1.abs() }}`. This expression would left out the `-` and output `-1`. It was happening because the parser would parse `1.abs()` first, and then add the minus sign. So the precedence was like this `{{ (-(1.abs())) }}`. It's now `{{ ((-1).abs()) }}`
-- 🧑‍💻 Improve error handling for custom functions. Now, when you use function that is not defined, you'll get an error that the function x doesn't exists on type y. Here is the example of an error: `[Textwire ERROR in /var/www/html/templates/home.tw.html:3]: function 'some' doesn't exist for type 'STRING'`
-- 🧑‍💻 Improve error handling for division by zero cases. Before, it had the meaningless error message
+- 🐛 **Fixed Bug with Prefix Expression Precedence**: Resolved an issue where prefix expressions like `{{ -1.abs() }}` were not being processed correctly. Previously, the parser evaluated the expression as `{{ (-(1.abs())) }}`, resulting in an incorrect output of `-1`. Now, the parser correctly handles the precedence, evaluating it as `{{ ((-1).abs()) }}`.
+- 🧑‍💻 **Enhanced Error Handling for Built-in Functions: I**mproved error messages when an incorrect argument type is passed to a built-in function. Users will now receive clear error messages indicating the type mismatch.
+- 🧑‍💻 **Enhanced Error Handling for Custom Functions:** If a function is called on a type where it doesn’t exist, Textwire now provides a detailed error message specifying that the function is undefined for that type. For example, an error message might read: `[Textwire ERROR in /var/www/html/templates/home.tw.html:3]: function 'some' doesn't exist for type 'STRING'`.
+- 🧑‍💻 **Enhanced Error Handling for Division by Zero:** Improved error messages for division-by-zero cases, replacing previous vague messages with more meaningful ones.
+- 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](docs/v2/guides/error-handling)
 
+#### New error page:
+![Error output in Textwire](/img/oops.png)
 
 ## Other changes
 Some very small changes were made to the Textwire that don't effect any functionality. Here are they:
 - 📝 Remove `CONTRIBUTING.md` file that was added in `v2.0.0`. It doesn't have any important information, it's better to make a better one in the future
+
+## Conclusion
+Version `v2.1.0` of Textwire brings a host of new built-in functions, improved error handling, and other enhancements. I hope you enjoy using Textwire as much as I enjoy developing it. If you have any questions or feedback, please don't hesitate to reach out to me. I'm always happy to help. Thank you for your continued support and feedback. Stay tuned for more updates and improvements in the future. Happy coding! 🚀
+
+## What's next?
+In the next version, I'll focus on further improvements to the language, including new built-in functions, better error handling, and the ability to define a custom error page for templates. Stay tuned for more updates and improvements in the future. Happy coding! 🚀
