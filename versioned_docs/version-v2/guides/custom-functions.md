@@ -7,7 +7,9 @@ description: Learn how to define and use custom functions in Textwire, enabling 
 
 ## Introduction
 
-Custom functions are user-defined functions in your Go code that can be utilized within Textwire. These functions allow you to perform operations beyond what the built-in functions provide. You can attach custom functions to any data type within Textwire and invoke them on a value using the dot operator `.` followed by the function name.
+Custom functions are user-defined functions in your Go code that extend Textwire’s capabilities beyond what built-in functions offer. You can attach custom functions to any data type in Textwire and invoke them on a value using the dot operator `.` followed by the function name.
+
+Custom functions can take any number of arguments and return a value of any type. They can be used to perform any operations and return any value of any type.
 
 ## Defining custom functions
 
@@ -45,8 +47,8 @@ func main() {
 
 You can now use the `_upperLast` function anywhere in your Textwire code.
 
-:::tip Prefixing custom functions
-It's a good practice to prefix your custom functions with a unique name to avoid conflicts with built-in functions. Because built-in functions have a higher priority than custom functions, if you define a custom function with the same name as a built-in function, the built-in function will be used. You can prefix with the underscore `_` character to avoid conflicts. For example: `{{ name._upperLast() }}`.
+:::warning Prefix custom functions
+To avoid conflicts with built-in functions, it’s recommended to prefix your custom functions with an underscore (_). Since built-in functions take precedence over custom ones, defining a custom function with the same name as a built-in function will cause the built-in function to be used. By adding an underscore prefix, you can prevent these conflicts. For example: `{{ name._upperLast() }}`
 :::
 
 ## Using custom functions
