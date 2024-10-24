@@ -66,4 +66,4 @@ Some very small changes were made to the Textwire that don't effect any function
 Version `v2.1.0` of Textwire brings a host of new built-in functions, improved error handling, and other enhancements. I hope you enjoy using Textwire as much as I enjoy developing it. If you have any questions or feedback, please don't hesitate to reach out to me. I'm always happy to help. Thank you for your continued support and feedback. Stay tuned for more updates and improvements in the future. Happy coding! 🚀
 
 ## What's next?
-In the next version, I'll focus on further improvements to the language, including new built-in functions, better error handling, and the ability to define a custom error page for templates. Stay tuned for more updates and improvements in the future. Happy coding! 🚀
+In the next version, I'll focus on further improvements to the language, including new built-in functions, better error handling, more tests, and the ability to define a custom error page for templates. Stay tuned for more updates and improvements in the future. Happy coding! 🚀
