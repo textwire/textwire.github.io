@@ -110,6 +110,15 @@ const config: Config = {
             darkTheme: prismThemes.oneDark,
         },
     } satisfies Preset.ThemeConfig,
+    plugins: [
+        [
+            'docusaurus-lunr-search',
+            {
+                excludeRoutes: ['/docs/v1/**'],
+                disableVersioning: true,
+            },
+        ],
+    ],
 }
 
 export default config
