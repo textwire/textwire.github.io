@@ -2,7 +2,6 @@
 title: "Textwire v2.1.0 Release Notes"
 description: "Get to know details about the Textwire version 2.1.0 release by reading the complete release notes"
 authors: [serhiicho]
-# image: ./cover.png
 tags: [release]
 ---
 
@@ -53,7 +52,7 @@ Regarding improvements, I placed a strong emphasis on proper error handling. I c
 - 🧑‍💻 **Enhanced Error Handling for Built-in Functions: I**mproved error messages when an incorrect argument type is passed to a built-in function. Users will now receive clear error messages indicating the type mismatch.
 - 🧑‍💻 **Enhanced Error Handling for Custom Functions:** If a function is called on a type where it doesn’t exist, Textwire now provides a detailed error message specifying that the function is undefined for that type. For example, an error message might read: `[Textwire ERROR in /var/www/html/templates/home.tw.html:3]: function 'some' doesn't exist for type 'STRING'`.
 - 🧑‍💻 **Enhanced Error Handling for Division by Zero:** Improved error messages for division-by-zero cases, replacing previous vague messages with more meaningful ones.
-- 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](docs/v2/guides/error-handling)
+- 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](/docs/v2/guides/error-handling)
 
 #### New error page:
 ![Error output in Textwire](/img/oops.png)
