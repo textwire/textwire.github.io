@@ -2,9 +2,3 @@
 @import "home/_hero";
 @import "home/_features";
 @import "community/_page";
-@import "blog/blog";
-
-.markdown img {
-    max-width: 100%;
-    height: auto;
-}
