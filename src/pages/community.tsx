@@ -37,6 +37,12 @@ export default function Home(): JSX.Element {
                         </a>
                     ))}
                 </div>
+
+                <p>
+                    If you want to support Textwire, please star ⭐️ us on{' '}
+                    <a href="https://github.com/textwire/textwire">GitHub</a> to
+                    motivate us to keep going.
+                </p>
             </main>
         </Layout>
     )
