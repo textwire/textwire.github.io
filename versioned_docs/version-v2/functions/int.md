@@ -38,6 +38,23 @@ Converts an integer to a float by adding a decimal part of `.0` to the number
 <b>5.0</b>
 ```
 
+## len
+```ts
+len(): int
+```
+
+Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
+
+#### Input example
+```html
+<b>{{ 12345.len() }}</b>
+```
+
+#### Output
+```html
+<b>5</b>
+```
+
 ## str
 ```ts
 str(): string
