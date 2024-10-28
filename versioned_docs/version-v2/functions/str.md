@@ -153,6 +153,27 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 <span>Anna</span>
 ```
 
+## truncate
+```ts
+truncate(length: int, ellipsis: str = "..."): str
+```
+
+Returns a string truncated to the given length with an optional ellipsis at the end
+
+#### Arguments
+1. `length` (int) - The length to truncate the string to
+2. `ellipsis` (str) (optional) - The ellipsis to append to the truncated string. Default is "..."
+
+#### Input example
+```html
+<b>{{ "Hello, World!".truncate(5) }}</b>
+```
+
+#### Output
+```html
+<b>Hello...</b>
+```
+
 ## upper
 ```ts
 upper(): str
