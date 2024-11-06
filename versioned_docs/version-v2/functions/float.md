@@ -72,23 +72,6 @@ Converts a float to an integer by removing the decimal part of the number. It do
 <p>5</p>
 ```
 
-## round
-```ts
-round(): int
-```
-
-Rounds a float to the nearest integer. `1.5 -> 2`, `1.4 -> 1`, `1.6 -> 2`
-
-#### Input example
-```html
-<p>{{ 5.5.round() }}</p>
-```
-
-#### Output
-```html
-<p>6</p>
-```
-
 ## str
 ```ts
 str(): str

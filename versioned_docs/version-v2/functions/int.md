@@ -55,6 +55,16 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 <b>5</b>
 ```
 
+#### Input example
+```html
+<b>{{ 1000.pretty() }}</b>
+```
+
+#### Output
+```html
+<b>1,000</b>
+```
+
 ## str
 ```ts
 str(): string

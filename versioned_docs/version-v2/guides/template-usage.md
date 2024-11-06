@@ -7,7 +7,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 
 ## Simple usage
 
-To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language.
+To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/docs/v2/guides/configurations) in Textwire.
 
 ```go title="main.go"
 import (
@@ -79,16 +79,7 @@ func main() {
 }
 ```
 
-### Available Configurations
-
-| Property      | Type     | Description of the configuration                          |  Default value |
-| ------------- | -------- | --------------------------------------------------------- | -------------- |
-| `TemplateDir` | `string` | The directory where Textwire will look for template files | `"templates"`  |
-| `TemplateExt` | `string` | The extension of the template files                       | `".tw.html"`   |
-
-:::warning Loosing extension benefits
-Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
-:::
+To read more about the available configurations, visit the [configurations](/docs/v2/guides/configurations) page.
 
 ## Write response to the client
 

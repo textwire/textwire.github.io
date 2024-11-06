@@ -2,6 +2,7 @@
     "name": "docs",
     "version": "1.0.0",
     "private": true,
+    "repository": "https://textwire.github.io",
     "scripts": {
         "docusaurus": "docusaurus",
         "start": "docusaurus start",
