@@ -1,8 +1,10 @@
 ---
+title: String Functions - Textwire v1
+sidebar_label: String Functions
 sidebar_position: 1
 ---
 
-# String functions
+# String Functions
 
 ### `raw()`
 

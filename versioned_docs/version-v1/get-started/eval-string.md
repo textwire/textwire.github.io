@@ -1,8 +1,10 @@
 ---
+title: Evaluate a String - Textwire v1
+sidebar_label: Evaluate a String
 sidebar_position: 3
 ---
 
-# Evaluate a string
+# Evaluate a String
 
 You can use the `EvaluateString` function to compile and evaluate a string containing Textwire code. The `EvaluateString` function accepts a string and a map of variables that you want to inject into the string. After evaluating the string, the function returns the evaluated string.
 

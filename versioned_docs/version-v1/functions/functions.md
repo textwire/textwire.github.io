@@ -1,9 +1,10 @@
 ---
+title: Built-in Functions - Textwire v1
+sidebar_label: Built-in Functions
 sidebar_position: 2
 ---
 
-# Built-in functions
-
+# Built-in Functions
 Textwire has a set of built-in functions that can be used to manipulate data. These functions are used to perform operations on strings, arrays, integers, and floats. You can use these functions anywhere in your Textwire programs.
 
 Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `trim` function is used to remove characters from both sides of the string. You can call a function on a value by using the dot operator (`.`) followed by the function name.

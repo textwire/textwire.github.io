@@ -1,4 +1,6 @@
 ---
+title: Error Handling - Textwire v2
+sidebar_label: Error Handling
 sidebar_position: 6
 description: Learn how to handle errors in Textwire, enabling you to identify and resolve issues in your project
 ---

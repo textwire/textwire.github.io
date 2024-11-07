@@ -1,9 +1,11 @@
 ---
+title: Float Functions - Textwire v2
+sidebar_label: Float Functions
 sidebar_position: 4
 description: Explore the various float functions available in Textwire
 ---
 
-# Float functions
+# Float Functions
 ## abs
 ```ts
 abs(): float

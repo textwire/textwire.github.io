@@ -1,9 +1,11 @@
 ---
+title: Boolean Functions - Textwire v2
+sidebar_label: Boolean Functions
 sidebar_position: 5
 description: Explore the various boolean functions available in Textwire
 ---
 
-# Boolean functions
+# Boolean Functions
 ## binary
 ```ts
 binary(): int

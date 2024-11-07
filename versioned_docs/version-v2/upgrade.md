@@ -1,4 +1,6 @@
 ---
+title: Upgrade Guide - Textwire v2
+sidebar_label: Upgrade Guide
 sidebar_position: 7
 description: Learn how to upgrade your Textwire code from version 1 to version 2
 ---
@@ -6,7 +8,6 @@ description: Learn how to upgrade your Textwire code from version 1 to version 2
 # Upgrade Guide
 
 ## Upgrading To 2.0 From 1.0
-
 Going from version 1 to version 2 is a simple process. Follow the steps below to upgrade your Textwire code to version 2.
 
 ### 1. Change the import path

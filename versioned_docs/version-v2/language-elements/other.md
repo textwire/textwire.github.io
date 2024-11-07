@@ -1,9 +1,11 @@
 ---
+title: Other Information - Textwire v2
+sidebar_label: Other Information
 sidebar_position: 5
 description: Learn about trailing commas and comments in Textwire, including how to use them in arrays, objects, and function arguments
 ---
 
-# Other
+# Other Information
 
 - Other
     - [Trailing commas](#trailing-commas) `{{ [1, 2, 3,] }}` or `{{ { "name": "John", "age": 25, } }}`

@@ -1,9 +1,11 @@
 ---
+title: Usage - Textwire v2
+sidebar_label: Usage
 sidebar_position: 3
 description: Learn how to use Textwire directives and more in your Textwire code
 ---
 
-# Usage
+# Textwire Usage
 
 ## How do I use Textwire directives that start with @ symbol?
 

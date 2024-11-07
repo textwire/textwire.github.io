@@ -1,4 +1,6 @@
 ---
+title: Expressions - Textwire v2
+sidebar_label: Expressions
 sidebar_position: 3
 description: You can find here all the information about expressions in Textwire
 ---
@@ -14,7 +16,6 @@ description: You can find here all the information about expressions in Textwire
     - [Function calls](#function-calls) `{{ name.split(" ") }}`
 
 ## Ternary expressions
-
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
 
 ```html
@@ -24,7 +25,6 @@ You can use ternary expressions to conditionally render content. Here is an exam
 The advantage of a "ternary expression" over "if statement" is that it can be use inside of any other expressions.
 
 ## Prefix expressions
-
 You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
 
 ```html
@@ -33,7 +33,6 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 ```
 
 ## Infix expressions
-
 You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
 
 ```html
@@ -48,7 +47,6 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 ```
 
 ## Postfix expressions
-
 You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
 
 ```html
@@ -57,7 +55,6 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 ```
 
 ## Comparison expressions
-
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
 ```html
@@ -67,7 +64,6 @@ Comparison expressions produce a boolean value. Here is an example of using comp
 ```
 
 ### Supported operators
-
 All supported operators are listed in the table below:
 
 | Operator | Description      |
@@ -81,7 +77,6 @@ All supported operators are listed in the table below:
 
 
 ## Function calls
-
 You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
 
 Functions in Textwire are type specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.

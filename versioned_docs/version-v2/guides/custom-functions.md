@@ -1,9 +1,11 @@
 ---
+title: Custom Functions - Textwire v2
+sidebar_label: Custom Functions
 sidebar_position: 5
 description: Learn how to define and use custom functions in Textwire, enabling you to extend the functionality of Textwire by incorporating user-defined operations
 ---
 
-# Custom functions
+# Custom Functions
 
 ## Introduction
 Custom functions are user-defined functions in your Go code that extend Textwire’s capabilities beyond what built-in functions offer. They were introduced in Textwire `v2.0.0` by suggestion from [@joeyjurjens](https://github.com/joeyjurjens).

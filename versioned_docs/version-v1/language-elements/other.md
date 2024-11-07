@@ -1,15 +1,16 @@
 ---
+title: Other Information - Textwire v1
+sidebar_label: Other Information
 sidebar_position: 5
 ---
 
-# Other
+# Other Information
 
 - Other
     - [Trailing commas](#trailing-commas) `{{ [1, 2, 3,] }}` or `{{ { "name": "John", "age": 25, } }}`
     - [Comments](#comments) `{{-- This is a Textwire comment --}}`
 
 ## Trailing Commas
-
 You can use trailing commas in arrays, objects and function arguments. Here is an example of using trailing commas:
 
 ```html
@@ -23,7 +24,6 @@ You can use trailing commas in arrays, objects and function arguments. Here is a
 ```
 
 ## Comments
-
 You can use comments in Textwire to write notes or to comment out code. Here is an example of using comments:
 
 ```html

@@ -1,4 +1,6 @@
 ---
+title: Literals - Textwire v1
+sidebar_label: Literals
 sidebar_position: 4
 ---
 
@@ -14,7 +16,6 @@ sidebar_position: 4
     - [Object literals](#object-literals) `{{ { "name": "John", "age": 25 } }}`
 
 ## String literals
-
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
 
 ```html
@@ -24,7 +25,6 @@ You can use string literals and concatenate them with other strings. You can use
 > When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/docs/v1/functions/str#raw) function on strings. Example: `{{ "<h1>Test</h1>".raw() }}`
 
 ## Integer literals
-
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
 
 ```html
@@ -32,7 +32,6 @@ You can use integer literals and perform arithmetic operations with them. Here i
 ```
 
 ## Nil literal
-
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```html
@@ -42,7 +41,6 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 ```
 
 ## Float literals
-
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
 ```html
@@ -50,7 +48,6 @@ You can use float literals and perform arithmetic operations with them. Here is 
 ```
 
 ## Boolean literals
-
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
 ```html
@@ -60,7 +57,6 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ```
 
 ## Array literals
-
 Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
 ```html
@@ -87,7 +83,6 @@ You can access values in an array by using an index. Here is an example of acces
 ```
 
 ## Object literals
-
 Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
 
 ```html
@@ -117,7 +112,6 @@ You can access values in an object by using a key. Here is an example of accessi
 :::
 
 ### Shorthand property notation
-
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
 ```html

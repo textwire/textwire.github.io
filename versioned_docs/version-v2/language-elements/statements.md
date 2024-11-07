@@ -1,4 +1,6 @@
 ---
+title: Statements - Textwire v2
+sidebar_label: Statements
 sidebar_position: 2
 description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
 ---
@@ -16,7 +18,6 @@ description: Learn about different statements in Textwire, including if statemen
     - [Component](#component) `@component("components/post-card")`
 
 ## If statement
-
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
 ```html
@@ -38,7 +39,6 @@ You can also use `else` and `elseif` statements:
 ```
 
 ## For loop
-
 You can use regular for loops to iterate over an array or a range of numbers.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
@@ -72,7 +72,6 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 ```
 
 ## Each loop
-
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
 ```html
@@ -101,7 +100,6 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 | `iter`   | Integer | Current iteration number starting from `1` |
 
 ### Example
-
 ```html
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
@@ -113,7 +111,6 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 ```
 
 ### Output
-
 ```html
 <ul>
 
@@ -129,7 +126,6 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
 
 ### Example
-
 ```html
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
@@ -142,7 +138,6 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 ```
 
 ## Variable declaration
-
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
 ```html
@@ -157,7 +152,6 @@ Variable declaration statements are not expressions! They don't return any value
 :::
 
 ## Use statement
-
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
 ```html
@@ -171,7 +165,6 @@ When you use the `@use` directive, only the content inside `@insert` directives 
 :::
 
 ## Insert statement
-
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
 ```html title="home.tw.html"
@@ -192,7 +185,6 @@ Insert statement excepts 2 arguments, the name of the reserved place and the opt
 All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
 
 ## Reserve statement
-
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
 ```html title="layouts/main.tw.html"
@@ -216,11 +208,9 @@ All the variables passed to the template file will be available in the layout fi
 Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
 
 ## Component
-
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
 ### Example of a component
-
 ```html title="components/post-card.tw.html"
 <div class="post">
     <h1>{{ post.title }}</h1>
@@ -229,7 +219,6 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 ### Example of using a template
-
 ```html title="home.tw.html"
 <div class="posts">
     @each(post in posts)
@@ -253,7 +242,6 @@ The second optional argument is a [Textwire object](/docs/v2/language-elements/l
 You can also use slots in components to pass content to the component. Read about slots in the next section.
 
 ## Component slots
-
 Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:

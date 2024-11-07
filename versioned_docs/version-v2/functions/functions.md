@@ -1,9 +1,11 @@
 ---
+title: Built-in Functions - Textwire v2
+sidebar_label: Built-in Functions
 sidebar_position: 4
 description: Discover the built-in functions in Textwire for manipulating different types of data, and learn how to use these functions
 ---
 
-# Built-in functions
+# Built-in Functions
 Textwire has a set of built-in functions that can be used to manipulate data. These functions are used to perform operations on strings, arrays, integers, and floats. You can use these functions anywhere in your Textwire programs.
 
 ## Built-in functions usage
