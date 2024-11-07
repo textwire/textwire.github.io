@@ -6,7 +6,9 @@ description: Learn how to define and use custom functions in Textwire, enabling 
 # Custom functions
 
 ## Introduction
-Custom functions are user-defined functions in your Go code that extend Textwire’s capabilities beyond what built-in functions offer. You can attach custom functions to any data type in Textwire and invoke them on a value using the dot operator `.` followed by the function name.
+Custom functions are user-defined functions in your Go code that extend Textwire’s capabilities beyond what built-in functions offer. They were introduced in Textwire `v2.0.0` by suggestion from [@joeyjurjens](https://github.com/joeyjurjens).
+
+You can attach custom functions to any data type in Textwire and invoke them on a value using the dot operator `.` followed by the function name.
 
 Custom functions can take any number of arguments and return a value of any type. They can be used to perform any operations and return any value of any type.
 
