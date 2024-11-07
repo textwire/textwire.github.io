@@ -7,13 +7,13 @@ description: Explore the various array functions available in Textwire
 
 ## join
 ```ts
-join(separator?: str = ""): str
+join(separator?: str = ","): str
 ```
 
 Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
 
 #### Arguments
-1. `separator` (str) (optional) - What separator to use to join the elements. Default is comma `,`
+1. `separator` (str) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
 #### Input example:
 ```html
