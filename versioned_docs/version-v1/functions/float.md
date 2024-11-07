@@ -1,5 +1,5 @@
 ---
-title: Float functions - Textwire v1
+title: Float functions - v1
 sidebar_label: Float functions
 sidebar_position: 5
 ---

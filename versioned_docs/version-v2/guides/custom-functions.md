@@ -1,5 +1,5 @@
 ---
-title: Custom Functions - Textwire v2
+title: Custom Functions - v2
 sidebar_label: Custom Functions
 sidebar_position: 5
 description: Learn how to define and use custom functions in Textwire, enabling you to extend the functionality of Textwire by incorporating user-defined operations

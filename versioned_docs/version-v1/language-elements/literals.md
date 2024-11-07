@@ -1,5 +1,5 @@
 ---
-title: Literals - Textwire v1
+title: Literals - v1
 sidebar_label: Literals
 sidebar_position: 4
 ---

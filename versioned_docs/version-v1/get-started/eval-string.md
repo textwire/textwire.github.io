@@ -1,5 +1,5 @@
 ---
-title: Evaluate a String - Textwire v1
+title: Evaluate a String - v1
 sidebar_label: Evaluate a String
 sidebar_position: 3
 ---

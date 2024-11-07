@@ -1,5 +1,5 @@
 ---
-title: Usage with Templates - Textwire v1
+title: Usage with Templates - v1
 sidebar_label: Usage with Templates
 sidebar_position: 2
 ---

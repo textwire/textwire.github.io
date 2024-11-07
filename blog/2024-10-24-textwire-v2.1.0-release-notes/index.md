@@ -1,5 +1,5 @@
 ---
-title: "Textwire v2.1.0 Release Notes"
+title: "v2.1.0 Release Notes"
 description: "Get to know details about the Textwire version 2.1.0 release by reading the complete release notes"
 authors: [serhiicho]
 tags: [release]

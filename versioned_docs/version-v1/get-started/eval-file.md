@@ -1,5 +1,5 @@
 ---
-title: Evaluate a File - Textwire v1
+title: Evaluate a File - v1
 sidebar_label: Evaluate a File
 sidebar_position: 4
 ---

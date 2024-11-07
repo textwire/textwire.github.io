@@ -1,5 +1,5 @@
 ---
-title: Language Elements - Textwire v1
+title: Language Elements - v1
 sidebar_label: Language Elements
 sidebar_position: 3
 ---

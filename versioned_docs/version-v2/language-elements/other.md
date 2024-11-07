@@ -1,5 +1,5 @@
 ---
-title: Other Information - Textwire v2
+title: Other Information - v2
 sidebar_label: Other Information
 sidebar_position: 5
 description: Learn about trailing commas and comments in Textwire, including how to use them in arrays, objects, and function arguments

@@ -1,5 +1,5 @@
 ---
-title: Integer Functions - Textwire v1
+title: Integer Functions - v1
 sidebar_label: Integer Functions
 sidebar_position: 4
 ---

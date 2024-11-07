@@ -1,5 +1,5 @@
 ---
-title: Float Functions - Textwire v2
+title: Float Functions - v2
 sidebar_label: Float Functions
 sidebar_position: 4
 description: Explore the various float functions available in Textwire

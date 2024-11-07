@@ -1,5 +1,5 @@
 ---
-title: String Functions - Textwire v1
+title: String Functions - v1
 sidebar_label: String Functions
 sidebar_position: 1
 ---

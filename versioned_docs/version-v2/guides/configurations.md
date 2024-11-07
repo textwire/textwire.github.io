@@ -1,5 +1,5 @@
 ---
-title: Configurations - Textwire v2
+title: Configurations - v2
 sidebar_label: Configurations
 sidebar_position: 7
 description: Learn how to setup and configure Textwire in your Go applications

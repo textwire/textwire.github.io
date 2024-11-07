@@ -1,5 +1,5 @@
 ---
-title: Built-in Functions - Textwire v1
+title: Built-in Functions - v1
 sidebar_label: Built-in Functions
 sidebar_position: 2
 ---

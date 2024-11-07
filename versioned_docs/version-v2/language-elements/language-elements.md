@@ -1,5 +1,5 @@
 ---
-title: Language Elements - Textwire v2
+title: Language Elements - v2
 sidebar_label: Language Elements
 sidebar_position: 5
 description: Textwire has a simple syntax that is easy to learn

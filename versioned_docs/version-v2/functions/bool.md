@@ -1,5 +1,5 @@
 ---
-title: Boolean Functions - Textwire v2
+title: Boolean Functions - v2
 sidebar_label: Boolean Functions
 sidebar_position: 5
 description: Explore the various boolean functions available in Textwire

@@ -1,5 +1,5 @@
 ---
-title: Other Information - Textwire v1
+title: Other Information - v1
 sidebar_label: Other Information
 sidebar_position: 5
 ---

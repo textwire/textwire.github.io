@@ -1,5 +1,5 @@
 ---
-title: Statements - Textwire v1
+title: Statements - v1
 sidebar_label: Statements
 sidebar_position: 2
 ---

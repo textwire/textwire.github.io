@@ -1,5 +1,5 @@
 ---
-title: Expressions - Textwire v2
+title: Expressions - v2
 sidebar_label: Expressions
 sidebar_position: 3
 description: You can find here all the information about expressions in Textwire

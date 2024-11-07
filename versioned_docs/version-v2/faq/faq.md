@@ -1,5 +1,5 @@
 ---
-title: FAQ - Textwire v2
+title: FAQ - v2
 sidebar_label: FAQ
 sidebar_position: 6
 description: Find answers to common questions and helpful tips in our FAQ section. Get quick solutions to common issues and learn more about our services

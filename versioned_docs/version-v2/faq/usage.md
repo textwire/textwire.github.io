@@ -1,5 +1,5 @@
 ---
-title: Usage - Textwire v2
+title: Usage - v2
 sidebar_label: Usage
 sidebar_position: 3
 description: Learn how to use Textwire directives and more in your Textwire code

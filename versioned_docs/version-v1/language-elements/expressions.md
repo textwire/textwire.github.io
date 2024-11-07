@@ -1,5 +1,5 @@
 ---
-title: Expressions - Textwire v1
+title: Expressions - v1
 sidebar_label: Expressions
 sidebar_position: 3
 ---

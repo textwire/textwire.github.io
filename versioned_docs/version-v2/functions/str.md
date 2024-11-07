@@ -1,5 +1,5 @@
 ---
-title: String Functions - Textwire v2
+title: String Functions - v2
 sidebar_label: String Functions
 sidebar_position: 2
 description: Explore the various string functions available in Textwire
