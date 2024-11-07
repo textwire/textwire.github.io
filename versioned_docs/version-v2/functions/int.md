@@ -21,6 +21,9 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 <b>5</b>
 ```
 
+## decimal
+> Read about this function **[HERE](/docs/v2/functions/str#decimal)**
+
 ## float
 ```ts
 float(): float

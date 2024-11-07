@@ -45,6 +45,29 @@ Returns true if the string contains the given substring, otherwise false. The fu
 If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
 :::
 
+## decimal
+```ts
+decimal(separator?: str = ".", decimals?: int = 2): str
+```
+
+If the string is a number, it will return the string as a decimal number. Here are some rules:
+- When the string is not a number, it will return the string as is.
+- When the string is already a decimal number, it will return the string as is.
+
+#### Arguments
+1. `separator` (str) (optional) - The separator to use for the decimal. Default is `"."`
+2. `decimals` (int) (optional) - The number of decimal places add to the number. Default is `2`
+
+#### Input example
+```html
+<b>{{ "123".decimal() }}</b>
+```
+
+#### Output
+```html
+<b>123.00</b>
+```
+
 ## len
 ```ts
 len(): int
@@ -121,7 +144,7 @@ split(separator?: str = " "): arr
 Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
 
 #### Arguments
-1. `separator` (str) (optional) - What separator to use to split the string. Default is " " (space)
+1. `separator` (str) (optional) - What separator to use to split the string. Default is `" "` (space)
 
 #### Input example
 ```html
@@ -141,7 +164,7 @@ trim(chars?: str = "\t \n\r"): str
 Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
 
 #### Arguments
-1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `\t \n\r`
+1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
 #### Input example
 ```html
@@ -162,7 +185,7 @@ Returns a string truncated to the given length with an optional ellipsis at the 
 
 #### Arguments
 1. `length` (int) - The length to truncate the string to
-2. `ellipsis` (str) (optional) - The ellipsis to append to the truncated string. Default is "..."
+2. `ellipsis` (str) (optional) - The ellipsis to append to the truncated string. Default is `"..."`
 
 #### Input example
 ```html
