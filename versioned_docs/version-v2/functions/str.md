@@ -101,6 +101,24 @@ Converts to a string with a decimal part by appending a decimal separator and th
 <b>123.00</b>
 ```
 
+## first
+```ts
+first(): str
+```
+
+Returns the first character of a string.
+- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+
+#### Input example
+```html
+<b>{{ "Textwire".first() }}</b>
+```
+
+#### Output
+```html
+<b>T</b>
+```
+
 ## len
 ```ts
 len(): int
