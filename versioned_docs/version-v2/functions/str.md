@@ -119,6 +119,24 @@ Returns the first character of a string.
 <b>T</b>
 ```
 
+## last
+```ts
+last(): str
+```
+
+Returns the last character of a string.
+- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+
+#### Input example
+```html
+<b>{{ "Textwire".last() }}</b>
+```
+
+#### Output
+```html
+<b>e</b>
+```
+
 ## len
 ```ts
 len(): int
