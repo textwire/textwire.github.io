@@ -6,6 +6,26 @@ description: Explore the various string functions available in Textwire
 ---
 
 # String Functions
+## at
+```ts
+at(index?: int = 0): str
+```
+
+Returns the character at the given index
+
+#### Arguments
+1. `index` (int) - The index of the character to return. Default is `0`, which returns the first character of the string
+
+#### Input example
+```html
+<b>{{ "Textwire".at(1) }}</b>
+```
+
+#### Output
+```html
+<b>e</b>
+```
+
 ## capitalize
 ```ts
 capitalize(): str
@@ -45,6 +65,14 @@ Returns true if the string contains the given substring, otherwise false. The fu
 
 :::tip Empty substring
 If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
+:::
+
+:::tip Ignore case
+If you want to search for a substring without considering the case, you can use the `lower` function to convert both the string and the substring to lowercase:
+
+```html
+{{ "Hello, World!".lower().contains("world") }} <!-- true -->
+```
 :::
 
 ## decimal
