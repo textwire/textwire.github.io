@@ -11,7 +11,9 @@ description: Explore the various string functions available in Textwire
 at(index?: int = 0): str
 ```
 
-Returns the character at the given index
+Returns the character at the given index.
+- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+- When the index is negative, it will count from the end of the string. For example, `-1` will return the last character of the string
 
 #### Arguments
 1. `index` (int) - The index of the character to return. Default is `0`, which returns the first character of the string
