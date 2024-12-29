@@ -106,8 +106,7 @@ Converts to a string with a decimal part by appending a decimal separator and th
 first(): str
 ```
 
-Returns the first character of a string.
-- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the first character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
 #### Input example
 ```html
@@ -124,8 +123,7 @@ Returns the first character of a string.
 last(): str
 ```
 
-Returns the last character of a string.
-- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the last character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
 #### Input example
 ```html

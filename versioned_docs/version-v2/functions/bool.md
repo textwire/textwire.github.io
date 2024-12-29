@@ -30,8 +30,7 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 then(consequence: any, alternative?: any = nil): any
 ```
 
-Returns the `consequence` if the receiver is true, otherwise returns the `alternative`.
-- The `alternative` is optional and defaults to `nil`
+Returns the `consequence` if the receiver is true, otherwise returns the `alternative`. The `alternative` is optional and defaults to `nil`
 
 #### Arguments
 1. `consequence` (any) - The value to return if the receiver is true
