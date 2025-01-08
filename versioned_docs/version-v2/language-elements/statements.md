@@ -53,13 +53,11 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-:::info Else is optional
-The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
+:::info Read More about Loops
+Read more about loops in the [Loops guide](/docs/v2/guides/loops).
 :::
 
-You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
-
-### Example
+#### Example
 ```html
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
@@ -84,58 +82,9 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-:::info Else is optional
-The `@else` statement is optional and can be used to render content when the array is empty
+:::info Read More about Loops
+Read more about loops in the [Loops guide](/docs/v2/guides/loops).
 :::
-
-Inside of every `each` loop, you can optionally use a `loop` object to get the current index of the item or other data that is updated on every iteration.
-
-For example, `{{ loop.index }}` will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
-
-| Property | Type    | Description                                |
-| -------- | ------- | ------------------------------------------ |
-| `index`  | Integer | Current index number starting from `0`     |
-| `first`  | Boolean | Is the first item in a loop                |
-| `last`   | Boolean | Is the last item in a loop                 |
-| `iter`   | Integer | Current iteration number starting from `1` |
-
-### Example
-```html
-{{ names = ["Ann", "Serhii", "Vladimir"] }}
-
-<ul>
-    @each(name in names)
-        <li>{{ loop.iter }}: {{ name }}</li>
-    @end
-</ul>
-```
-
-### Output
-```html
-<ul>
-
-        <li>1: Anna</li>
-
-        <li>2: Serhii</li>
-
-        <li>3: Vladimir</li>
-
-</ul>
-```
-
-You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
-
-### Example
-```html
-{{ names = ["Ann", "Serhii", "Vladimir"] }}
-
-<ul>
-    @each(name in names)
-        @breakIf(name == "Serhii")
-        <li>{{ name }}</li>
-    @end
-</ul>
-```
 
 ## Variable declaration
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
