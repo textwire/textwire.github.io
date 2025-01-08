@@ -29,6 +29,22 @@ You can also chain multiple functions together to perform complex operations.
 Learn about [error handling](/docs/v2/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 :::
 
-:::info Suggest a new function
-New functions are added in new version of Textwire when there is a need for them. If you have a suggestion for a new function, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub and we will consider adding it in the next version.
-:::
+## Unicode friendly
+Since I speak 4 languages, Russian, English, Chinese, and Ukrainian, I understand the importance of Unicode support. So, I'm trying to make Textwire as Unicode friendly as possible to setisfy the needs of people from different countries.
+
+All the built-in functions in Textwire are Unicode friendly, which means they can handle Unicode characters and strings without any issues. You can use these functions to manipulate strings in any language. For example:
+
+```html
+{{ "我喜欢中国".len() }} <!-- output: 5 -->
+```
+
+Or:
+
+```html
+{{ "привет".at(2) }} <!-- output: и -->
+```
+
+## Suggest a new function
+New functions are added in new version of Textwire when there is a need for them. You can follow the updates in our [Release Notes](https://github.com/textwire/textwire/blob/main/CHANGELOG.md) on GitHub.
+
+If you have a suggestion for a new functions that might benefit everybody using Textwire, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub or email me at <a mailto="serhiicho@protonmail.com">serhiicho@protonmail.com</a> and I will consider adding it in the next version. Just quick suggestion in a single paragraph is enough.

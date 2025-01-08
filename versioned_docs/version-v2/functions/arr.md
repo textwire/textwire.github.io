@@ -6,6 +6,35 @@ description: Explore the various array functions available in Textwire
 ---
 
 # Array Functions
+## contains
+```ts
+contains(elem?: any): bool
+```
+
+Returns `true` if the array contains the given element, otherwise `false`
+
+#### Arguments
+1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
+
+#### Input example:
+```html
+<span>{{ ["one", "two"].contains("two") }}</span>
+```
+
+#### Output:
+```html
+<span>1</span>
+```
+
+#### Notes
+You can do deep comparison with objects and arrays as well
+
+```html
+{{ obj = { name: 'Anna' }; [obj].contains(obj) }}
+```
+
+Keep in mind that the order of objects fields doesn't matter in the comparison, but the order of array elements does matter, because each element has a unique index. `[1, 2]` and `[2, 1]` are different arrays.
+
 ## join
 ```ts
 join(separator?: str = ","): str
@@ -45,10 +74,10 @@ Returns the length of an array
 
 ## rand
 ```ts
-<T>.rand(): T
+rand(): any
 ```
 
-Returns a random element from the array. The return type is the same as the type of the elements in the array
+Returns a random element from the array. The return type depends on the type of elements in the array.
 
 #### Input example:
 ```html

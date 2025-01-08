@@ -6,6 +6,28 @@ description: Explore the various string functions available in Textwire
 ---
 
 # String Functions
+## at
+```ts
+at(index?: int = 0): str
+```
+
+Returns the character at the given index.
+- When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+- When the index is negative, it will count from the end of the string. For example, `-1` will return the last character of the string
+
+#### Arguments
+1. `index` (int) - The index of the character to return. Default is `0`, which returns the first character of the string
+
+#### Input example
+```html
+<b>{{ "Textwire".at(1) }}</b>
+```
+
+#### Output
+```html
+<b>e</b>
+```
+
 ## capitalize
 ```ts
 capitalize(): str
@@ -47,6 +69,14 @@ Returns true if the string contains the given substring, otherwise false. The fu
 If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
 :::
 
+:::tip Ignore case
+If you want to search for a substring without considering the case, you can use the `lower` function to convert both the string and the substring to lowercase:
+
+```html
+{{ "Hello, World!".lower().contains("world") }} <!-- true -->
+```
+:::
+
 ## decimal
 ```ts
 decimal(separator?: str = ".", decimals?: int = 2): str
@@ -69,6 +99,40 @@ Converts to a string with a decimal part by appending a decimal separator and th
 #### Output
 ```html
 <b>123.00</b>
+```
+
+## first
+```ts
+first(): str
+```
+
+Returns the first character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+
+#### Input example
+```html
+<b>{{ "Textwire".first() }}</b>
+```
+
+#### Output
+```html
+<b>T</b>
+```
+
+## last
+```ts
+last(): str
+```
+
+Returns the last character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+
+#### Input example
+```html
+<b>{{ "Textwire".last() }}</b>
+```
+
+#### Output
+```html
+<b>e</b>
 ```
 
 ## len
