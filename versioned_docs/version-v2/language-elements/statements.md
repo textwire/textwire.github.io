@@ -77,8 +77,6 @@ Each statement is a special for loop that you can use to iterate over an array. 
 
 @each(name in names)
     <p>{{ name }}</p>
-@else
-    <p>No names</p>
 @end
 ```
 
