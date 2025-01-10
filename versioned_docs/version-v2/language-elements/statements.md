@@ -174,6 +174,10 @@ One of the best features of Textwire is the ability to use components. You can c
 </div>
 ```
 
+:::info Component path alias
+If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
+:::
+
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
 The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
