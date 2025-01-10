@@ -18,12 +18,12 @@ Returns `true` if the array contains the given element, otherwise `false`
 
 #### Input example:
 ```textwire
-<span>{{ ["one", "two"].contains("two") }}</span>
+{{ ["one", "two"].contains("two") }}
 ```
 
 #### Output:
 ```textwire
-<span>1</span>
+1
 ```
 
 #### Notes
@@ -47,12 +47,12 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 
 #### Input example:
 ```textwire
-<span>{{ ["one", "two"].join(" ") }}</span>
+{{ ["one", "two"].join(" ") }}
 ```
 
 #### Output:
 ```textwire
-<span>one two</span>
+one two
 ```
 
 ## len
@@ -64,12 +64,12 @@ Returns the length of an array
 
 #### Input example:
 ```textwire
-<span>{{ [1, 2, 3].len() }}</span>
+{{ [1, 2, 3].len() }}
 ```
 
 #### Output:
 ```textwire
-<span>3</span>
+3
 ```
 
 ## rand
@@ -81,12 +81,12 @@ Returns a random element from the array. The return type depends on the type of 
 
 #### Input example:
 ```textwire
-<span>{{ [1, 2, 3].rand() }}</span>
+{{ [1, 2, 3].rand() }}
 ```
 
 #### Output:
 ```textwire
-<span>2</span>
+2
 ```
 
 ## reverse
@@ -98,12 +98,12 @@ Reverses the elements of an array and returns a new array
 
 #### Input example:
 ```textwire
-<span>{{ [1, 2, 3].reverse() }}</span>
+{{ [1, 2, 3].reverse() }}
 ```
 
 #### Output:
 ```textwire
-<span>3, 2, 1</span>
+3, 2, 1
 ```
 
 ## shuffle
@@ -115,13 +115,13 @@ Shuffles the elements of an array and returns a new array
 
 #### Input example:
 ```textwire
-<span>{{ [1, 2, 3, 5].shuffle() }}</span>
+{{ [1, 2, 3, 5].shuffle() }}
 ```
 
 #### Output:
 ```textwire
 <!-- The order of the elements will be random -->
-<span>2, 1, 3, 5</span>
+2, 1, 3, 5
 ```
 
 ## slice
@@ -137,12 +137,12 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 
 #### Input example:
 ```textwire
-<span>{{ [1, 2, 3, 4, 5].slice(1, 3) }}</span>
+{{ [1, 2, 3, 4, 5].slice(1, 3) }}
 ```
 
 #### Output:
 ```textwire
-<span>2, 3</span>
+2, 3
 ```
 
 :::warning No negative arguments

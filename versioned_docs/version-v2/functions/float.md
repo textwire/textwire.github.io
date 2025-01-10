@@ -15,12 +15,12 @@ Returns the absolute value of a float. If the float is negative, it will return 
 
 #### Input example
 ```textwire
-<p>{{ -5.125.abs() }}</p>
+{{ -5.125.abs() }}
 ```
 
 #### Output
 ```textwire
-<p>5.125</p>
+5.125
 ```
 
 ## ceil
@@ -32,12 +32,12 @@ Returns the rounded up value of a float to the nearest integer
 
 #### Input example
 ```textwire
-<p>{{ 5.125.ceil() }}</p>
+{{ 5.125.ceil() }}
 ```
 
 #### Output
 ```textwire
-<p>6</p>
+6
 ```
 
 ## floor
@@ -49,12 +49,12 @@ Returns the rounded down value of a float to the nearest integer
 
 #### Input example
 ```textwire
-<p>{{ 5.125.floor() }}</p>
+{{ 5.125.floor() }}
 ```
 
 #### Output
 ```textwire
-<p>5</p>
+5
 ```
 
 ## int
@@ -66,12 +66,12 @@ Converts a float to an integer by removing the decimal part of the number. It do
 
 #### Input example
 ```textwire
-<p>{{ 5.5.int() }}</p>
+{{ 5.5.int() }}
 ```
 
 #### Output
 ```textwire
-<p>5</p>
+5
 ```
 
 ## str
@@ -83,10 +83,10 @@ Converts a float to a string. It's useful when you want to manipulate the float 
 
 #### Input example
 ```textwire
-<p>{{ 5.125.str() }}</p>
+{{ 5.125.str() }}
 ```
 
 #### Output
 ```textwire
-<p>5.125</p>
+5.125
 ```

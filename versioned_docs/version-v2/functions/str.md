@@ -20,12 +20,12 @@ Returns the character at the given index.
 
 #### Input example
 ```textwire
-<b>{{ "Textwire".at(1) }}</b>
+{{ "Textwire".at(1) }}
 ```
 
 #### Output
 ```textwire
-<b>e</b>
+e
 ```
 
 ## capitalize
@@ -37,12 +37,12 @@ Capitalizes the first letter of a string
 
 #### Input example
 ```textwire
-<b>{{ "hello, world!".capitalize() }}</b>
+{{ "hello, world!".capitalize() }}
 ```
 
 #### Output
 ```textwire
-<b>Hello, world!</b>
+Hello, world!
 ```
 
 ## contains
@@ -57,12 +57,12 @@ Returns true if the string contains the given substring, otherwise false. The fu
 
 #### Input example
 ```textwire
-<b>{{ "Hello, World!".contains("World") }}</b>
+{{ "Hello, World!".contains("World") }}
 ```
 
 #### Output
 ```textwire
-<b>true</b>
+true
 ```
 
 :::tip Empty substring
@@ -93,12 +93,12 @@ Converts to a string with a decimal part by appending a decimal separator and th
 
 #### Input example
 ```textwire
-<b>{{ "123".decimal() }}</b>
+{{ "123".decimal() }}
 ```
 
 #### Output
 ```textwire
-<b>123.00</b>
+123.00
 ```
 
 ## first
@@ -110,12 +110,12 @@ Returns the first character of a string. When the index is out of bounds, it wil
 
 #### Input example
 ```textwire
-<b>{{ "Textwire".first() }}</b>
+{{ "Textwire".first() }}
 ```
 
 #### Output
 ```textwire
-<b>T</b>
+T
 ```
 
 ## last
@@ -127,12 +127,12 @@ Returns the last character of a string. When the index is out of bounds, it will
 
 #### Input example
 ```textwire
-<b>{{ "Textwire".last() }}</b>
+{{ "Textwire".last() }}
 ```
 
 #### Output
 ```textwire
-<b>e</b>
+e
 ```
 
 ## len
@@ -144,12 +144,12 @@ Returns the length of the string
 
 #### Input example
 ```textwire
-<b>{{ "Hello, World!".len() }}</b>
+{{ "Hello, World!".len() }}
 ```
 
 #### Output
 ```textwire
-<b>13</b>
+13
 ```
 
 ## lower
@@ -195,12 +195,12 @@ Returns a string with the characters reversed
 
 #### Input example
 ```textwire
-<b>{{ "stressed".reverse() }}</b>
+{{ "stressed".reverse() }}
 ```
 
 #### Output
 ```textwire
-<b>desserts</b>
+desserts
 ```
 
 ## split
@@ -256,12 +256,12 @@ Returns a string truncated to the given length with an optional ellipsis at the 
 
 #### Input example
 ```textwire
-<b>{{ "Hello, World!".truncate(5) }}</b>
+{{ "Hello, World!".truncate(5) }}
 ```
 
 #### Output
 ```textwire
-<b>Hello...</b>
+Hello...
 ```
 
 ## upper
@@ -273,10 +273,10 @@ Converts a string to uppercase
 
 #### Input example
 ```textwire
-<b>{{ "Hello, World!".upper() }}</b>
+{{ "Hello, World!".upper() }}
 ```
 
 #### Output
 ```textwire
-<b>HELLO, WORLD!</b>
+HELLO, WORLD!
 ```

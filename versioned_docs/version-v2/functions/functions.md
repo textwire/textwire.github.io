@@ -12,17 +12,13 @@ Textwire has a set of built-in functions that can be used to manipulate data. Th
 Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `trim` function is used to remove characters from both sides of the string. You can call a function on a value by using the dot operator (`.`) followed by the function name.
 
 ```textwire
-<div>
-    {{ "Textwire".len() }} <!-- output: 8 -->
-</div>
+{{ "Textwire".len() }} <!-- output: 8 -->
 ```
 
 You can also chain multiple functions together to perform complex operations.
 
 ```textwire
-<span>
-    {{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
-</span>
+{{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
 ```
 
 :::tip Error handling

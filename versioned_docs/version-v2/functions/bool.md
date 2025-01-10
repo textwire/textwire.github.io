@@ -15,14 +15,14 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 
 #### Input example
 ```textwire
-<b>{{ true.binary() }}</b>
-<b>{{ false.binary() }}</b>
+{{ true.binary() }}
+{{ false.binary() }}
 ```
 
 #### Output
 ```textwire
-<b>1</b>
-<b>0</b>
+1
+0
 ```
 
 ## then
@@ -38,14 +38,14 @@ Returns the `consequence` if the receiver is true, otherwise returns the `altern
 
 #### Input example
 ```textwire
-<b>{{ true.then("Yes", "No") }}</b>
-<b>{{ false.then("Yes", "No") }}</b>
-<b>{{ false.then("Yes") }}</b>
+{{ true.then("Yes", "No") }}
+{{ false.then("Yes", "No") }}
+{{ false.then("Yes") }}
 ```
 
 #### Output
 ```textwire
-<b>Yes</b>
-<b>No</b>
-<b></b>
+Yes
+No
+
 ```

@@ -15,12 +15,12 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 
 #### Input example
 ```textwire
-<b>{{ -5.abs() }}</b>
+{{ -5.abs() }}
 ```
 
 #### Output
 ```textwire
-<b>5</b>
+5
 ```
 
 ## decimal
@@ -35,12 +35,12 @@ Converts an integer to a float by adding a decimal part of `.0` to the number
 
 #### Input example
 ```textwire
-<b>{{ 5.float() }}</b>
+{{ 5.float() }}
 ```
 
 #### Output
 ```textwire
-<b>5.0</b>
+5.0
 ```
 
 ## len
@@ -52,12 +52,12 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 
 #### Input example
 ```textwire
-<b>{{ 12345.len() }}</b>
+{{ 12345.len() }}
 ```
 
 #### Output
 ```textwire
-<b>5</b>
+5
 ```
 
 ## str
@@ -69,10 +69,10 @@ Converts an integer to a string and returns it
 
 #### Input example
 ```textwire
-<b>{{ 5.str() }} and {{ -10.str() }}</b>
+{{ 5.str() }} and {{ -10.str() }}
 ```
 
 #### Output
 ```textwire
-<b>5 and -10</b>
+5 and -10
 ```
