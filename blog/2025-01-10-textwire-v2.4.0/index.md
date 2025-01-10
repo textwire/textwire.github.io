@@ -15,7 +15,7 @@ Component Path Alias is a small but useful feature that is useful for people who
 
 Consider this example of calling a `components/post-card` component before the version `v2.4.0`:
 
-```html
+```textwire
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -25,7 +25,7 @@ Consider this example of calling a `components/post-card` component before the v
 
 Now you can repleace the `components/` part with `~` alias like so:
 
-```html
+```textwire
 <div class="posts">
     @each(post in posts)
         @component("~post-card", { post })

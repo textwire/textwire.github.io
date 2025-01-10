@@ -19,7 +19,7 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 ## String literals
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
 
-```html
+```textwire
 {{ "Hello" + 'World!' }}
 ```
 
@@ -28,14 +28,14 @@ You can use string literals and concatenate them with other strings. You can use
 ## Integer literals
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
 
-```html
+```textwire
 <span>{{ 1 + 2 }}</span>
 ```
 
 ## Nil literal
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
-```html
+```textwire
 @if(nil)
     <p>It will not be displayed</p>
 @end
@@ -44,7 +44,7 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 ## Float literals
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
-```html
+```textwire
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
@@ -55,7 +55,7 @@ Most languages (including Textwire) use **IEEE 754 standard** for floating-point
 ## Boolean literals
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
-```html
+```textwire
 @if(true)
     <p>Is tall</p>
 @end
@@ -64,7 +64,7 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ## Array literals
 Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
-```html
+```textwire
 {{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
@@ -77,7 +77,7 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 
 You can access values in an array by using an index. Here is an example of accessing values in an array:
 
-```html
+```textwire
 {{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
@@ -90,19 +90,19 @@ You can access values in an array by using an index. Here is an example of acces
 ## Object literals
 Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
 
-```html
+```textwire
 {{ person = {"name": "John", "age": 25} }}
 ```
 
 You can also use key names without quotes if your keys are valid identifiers:
 
-```html
+```textwire
 {{ person = { name: "John", age: 25 } }}
 ```
 
 You can access values in an object by using a key. Here is an example of accessing values in an object:
 
-```html
+```textwire
 {{ user = {age: 25, name: {first: "Anna", last: "Cho"}} }}
 
 <ul>
@@ -119,6 +119,6 @@ You can access values in an object by using a key. Here is an example of accessi
 ### Shorthand property notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
-```html
+```textwire
 {{ name = "John"; age = 25; person = { name, age } }}
 ```

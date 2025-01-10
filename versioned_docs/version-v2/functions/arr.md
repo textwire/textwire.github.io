@@ -17,19 +17,19 @@ Returns `true` if the array contains the given element, otherwise `false`
 1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
 
 #### Input example:
-```html
+```textwire
 <span>{{ ["one", "two"].contains("two") }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>1</span>
 ```
 
 #### Notes
 You can do deep comparison with objects and arrays as well
 
-```html
+```textwire
 {{ obj = { name: 'Anna' }; [obj].contains(obj) }}
 ```
 
@@ -46,12 +46,12 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 1. `separator` (str) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
 #### Input example:
-```html
+```textwire
 <span>{{ ["one", "two"].join(" ") }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>one two</span>
 ```
 
@@ -63,12 +63,12 @@ len(): int
 Returns the length of an array
 
 #### Input example:
-```html
+```textwire
 <span>{{ [1, 2, 3].len() }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>3</span>
 ```
 
@@ -80,12 +80,12 @@ rand(): any
 Returns a random element from the array. The return type depends on the type of elements in the array.
 
 #### Input example:
-```html
+```textwire
 <span>{{ [1, 2, 3].rand() }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>2</span>
 ```
 
@@ -97,12 +97,12 @@ reverse(): arr
 Reverses the elements of an array and returns a new array
 
 #### Input example:
-```html
+```textwire
 <span>{{ [1, 2, 3].reverse() }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>3, 2, 1</span>
 ```
 
@@ -114,12 +114,12 @@ shuffle(): arr
 Shuffles the elements of an array and returns a new array
 
 #### Input example:
-```html
+```textwire
 <span>{{ [1, 2, 3, 5].shuffle() }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <!-- The order of the elements will be random -->
 <span>2, 1, 3, 5</span>
 ```
@@ -136,12 +136,12 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 2. `end` (int) (optional) - The index at which to end the slice
 
 #### Input example:
-```html
+```textwire
 <span>{{ [1, 2, 3, 4, 5].slice(1, 3) }}</span>
 ```
 
 #### Output:
-```html
+```textwire
 <span>2, 3</span>
 ```
 

@@ -11,7 +11,7 @@ description: Learn how to use Textwire directives and more in your Textwire code
 
 Textwire has several directives that you can use anywhere directly in your text files except for `{{ }}` curly braces. Here is the example of `@if` directive:
 
-```html
+```textwire
 <div>
     @if(isFast)
         <b>Can run</b>

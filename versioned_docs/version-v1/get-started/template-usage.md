@@ -64,7 +64,7 @@ Defining a layout in Textwire is very simple. You need to create a file anywhere
 ### Reserve space in the layout
 The `reserve` statement (directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
 
-```html
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +85,7 @@ The `insert` statement (directive) is used to insert content into reserved place
 
 Let's take a look at the example how I would define a `home.tw.html` and then I'll explain each part of it:
 
-```html title="home.tw.html"
+```textwire title="home.tw.html"
 @use("layouts/main")
 
 @insert("title", "Home page")
