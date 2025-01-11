@@ -34,3 +34,9 @@ Now you can repleace the `components/` part with `~` alias like so:
 ```
 
 The `~` alias will be replaced with `components/` behind the scenes.
+
+### New Built-in Functions
+The `v2.4.0` release introduces new built-in functions that can be used in your Textwire templates.
+
+#### String Functions
+A couple of people suggested to add [`trimRight`](/docs/v2/functions/str#trimright) and [`trimLeft`](/docs/v2/functions/str#trimleft) functions and now they are available in the `v2.4.0` release. We already had the [`trim`](/docs/v2/functions/str#trim) function for trimming both sides of a string, but now you can trim only the left or right side of a string if that's what you need.
