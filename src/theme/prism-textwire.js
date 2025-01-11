@@ -1,7 +1,7 @@
 const keywords = 'true|false|nil|in'
 const keywordDirectives = 'else|end|break|continue|slot'
 const directiveNames =
-    'if|elseif|for|use|each|breakIf|continueIf|insert|reserve|component|slot'
+    'if|elseif|for|use|each|breakIf|continueIf|insert|reserve|component|slot|dump'
 
 const variable = {
     pattern: /\b\w+\.?\b/,
