@@ -161,12 +161,12 @@ Converts a string to lowercase
 
 #### Input example
 ```textwire
-<span>{{ "Hello, World!".lower() }}<span>
+{{ "Hello, World!".lower() }}
 ```
 
 #### Output
 ```textwire
-<span>hello, world!</span>
+hello, world!
 ```
 
 ## raw
@@ -184,6 +184,26 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 #### Output
 ```textwire
 <h1>Test</h1>
+```
+
+## repeat
+```ts
+repeat(times: int): str
+```
+
+Returns a new string consisting of count copies of the string on which it was called
+
+#### Arguments
+1. `times` (int) - The number of times to repeat the string
+
+#### Input example
+```textwire
+{{ "Hello".repeat(3) }}
+```
+
+#### Output
+```textwire
+HelloHelloHello
 ```
 
 ## reverse
