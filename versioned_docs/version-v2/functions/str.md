@@ -235,12 +235,52 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 
 #### Input example
 ```textwire
-<span>{{ " Anna ".trim() }}</span>
+<span>{{ " Textwire ".trim() }}</span>
 ```
 
 #### Output
 ```textwire
-<span>Anna</span>
+<span>Textwire</span>
+```
+
+## trimLeft
+```ts
+trimLeft(chars?: str = "\t \n\r"): str
+```
+
+Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
+
+#### Arguments
+1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
+
+#### Input example
+```textwire
+<span>{{ " Textwire".trimLeft() }}</span>
+```
+
+#### Output
+```textwire
+<span>Textwire</span>
+```
+
+## trimRight
+```ts
+trimRight(chars?: str = "\t \n\r"): str
+```
+
+Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
+
+#### Arguments
+1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
+
+#### Input example
+```textwire
+<span>{{ "Textwire ".trimRight() }}</span>
+```
+
+#### Output
+```textwire
+<span>Textwire</span>
 ```
 
 ## truncate

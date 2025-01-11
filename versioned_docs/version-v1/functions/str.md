@@ -54,12 +54,12 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 
 #### Input example
 ```textwire
-<span>{{ " Anna ".trim() }}</span>
+<span>{{ " Textwire ".trim() }}</span>
 ```
 
 #### Output
 ```textwire
-<span>Anna</span>
+<span>Textwire</span>
 ```
 
 ### `len()`
