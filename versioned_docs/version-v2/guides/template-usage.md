@@ -65,7 +65,7 @@ func main() {
     // highlight-start
     tpl, err = textwire.NewTemplate(&config.Config{
         TemplateDir: "src/templates",
-        TemplateExt: ".html",
+        TemplateExt: ".tw",
     })
     // highlight-end
 

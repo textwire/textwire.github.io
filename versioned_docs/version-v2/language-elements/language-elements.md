@@ -11,7 +11,7 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 ## Syntax
 Textwire has a simple syntax that is easy to learn. Here are some rules that you need to follow when writing Textwire code:
 
-- All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
+- All the HTML files that you want to parse with Textwire must have a `.tw.html` or `.tw` extension. Default is `.tw.html` but recommended to use `.tw` extension.
 - All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
 
 :::info VSCode Extension

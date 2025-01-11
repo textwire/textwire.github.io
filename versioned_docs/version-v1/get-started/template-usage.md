@@ -37,9 +37,8 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 | `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
 
 :::warning Loosing extension benefits
-Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
+Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw` or `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
 :::
-
 
 ## Write response to the client
 You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
