@@ -105,7 +105,7 @@ You have a "use statement" to define a layout for your template. Here is an exam
 @use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
+Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw"`.
 
 :::info Understanding the @use Directive
 When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
@@ -114,7 +114,7 @@ When you use the `@use` directive, only the content inside `@insert` directives 
 ## Insert statement
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
-```textwire title="home.tw.html"
+```textwire title="home.tw"
 @use("layouts/main")
 
 <!-- It's useful when you want to pass a variable to the layout file -->
@@ -134,7 +134,7 @@ All the `insert` statements will be transferred to the layout file and will be p
 ## Reserve statement
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
-```textwire title="layouts/main.tw.html"
+```textwire title="layouts/main.tw"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,7 +158,7 @@ Reserve statement excepts only a single argument, which the name of the reserved
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
 ### Example of a component
-```textwire title="components/post-card.tw.html"
+```textwire title="components/post-card.tw"
 <div class="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
@@ -166,7 +166,7 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 ### Example of using a template
-```textwire title="home.tw.html"
+```textwire title="home.tw"
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -182,7 +182,7 @@ The first argument of the `@component` directive is a path to the component file
 
 The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
 
-```textwire title="home.tw.html"
+```textwire title="home.tw"
 <ul>
     @each(book in books)
         @component("parts/book", { completed: book.completed })
@@ -197,7 +197,7 @@ Component slots is a very common feature in most template languages and framewor
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 
-```textwire title="components/book.tw.html"
+```textwire title="components/book.tw"
 <div class="book">
     @slot
 
@@ -210,7 +210,7 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 
 We can now use `book.tw.html` component in our Textwire files like this:
 
-```textwire title="home.tw.html"
+```textwire title="home.tw"
 @each(book in books)
     @component("components/book", { book })
         @slot
