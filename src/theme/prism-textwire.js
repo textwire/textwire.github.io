@@ -1,4 +1,3 @@
-const keywords = 'true|false|nil|in'
 const keywordDirectives = 'else|end|break|continue|slot'
 const directiveNames =
     'if|elseif|for|use|each|breakIf|continueIf|insert|reserve|component|slot|dump'
@@ -16,9 +15,7 @@ const textwireCode = {
         pattern: /{{--(.*)--}}/,
         greedy: true,
     },
-    number: {
-        pattern: /\b\d+(\.\d+)?\b/,
-    },
+    number: /\b\d+(\.\d+)?\b/,
     braces: [
         {
             pattern: /{{/,
@@ -39,16 +36,15 @@ const textwireCode = {
             lookbehind: true,
         },
     ],
-    punctuation: {
-        pattern: /,/,
-    },
+    boolean: /\b(?:true|false)\b/,
+    keyword: /\b(?:nil|in)\b/,
+    punctuation: /,/,
     object: [
         {
             pattern: /\{([^{}]*)\}/,
             inside: { variable },
         },
     ],
-    keyword: new RegExp(`\b(?:${keywords})\b/`),
     variable,
 }
 
