@@ -5,7 +5,7 @@ authors: [serhiicho]
 tags: [release]
 ---
 
-The Textwire version `v2.4.0` is an important release. The first release in 2025. It adds several convenient features and improvements to the language. This release includes Component Path Alias, introduction of new built-in functions, and more. Read the complete release notes to learn more about the changes.
+The Textwire version `v2.4.0` is an important release. The first release in 2025. It adds several convenient features and improvements to the language. This release includes Component Path Alias, introduction of new built-in functions, debugging utilities and more. Read the complete release notes to learn more about the changes.
 
 <!-- truncate -->
 
@@ -94,16 +94,12 @@ The `@dump` directive is used for debugging purposes. It will print the value of
 ```textwire title="Example"
 <h1>This is my title</h1>
 
-{{
-    user = {
-        name: "John",
-        age: 25,
-        admin: false,
-        hobbies: ["reading", "coding"],
-    }
-}}
-
-@dump(user)
+@dump({
+    name: "John",
+    age: 25,
+    admin: false,
+    hobbies: ["reading", "coding"],
+})
 
 <p>Some content</p>
 ```
@@ -111,3 +107,5 @@ The `@dump` directive is used for debugging purposes. It will print the value of
 The output would look like something like this:
 
 <img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
+
+It's an easy and convenient way to debug your templates and see what's going on inside of them.

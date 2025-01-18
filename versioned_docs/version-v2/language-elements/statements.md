@@ -248,16 +248,12 @@ Similarly, you can print objects and other types of data:
 ```textwire
 <h1>This is my title</h1>
 
-{{
-    user = {
-        name: "John",
-        age: 25,
-        admin: false,
-        hobbies: ["reading", "coding"],
-    }
-}}
-
-@dump(user)
+@dump({
+    name: "John",
+    age: 25,
+    admin: false,
+    hobbies: ["reading", "coding"],
+})
 
 <p>Some content</p>
 ```
@@ -275,3 +271,5 @@ Similarly, you can print objects and other types of data:
 ```
 
 <img src="/img/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
+
+It's an easy and convenient way to debug your templates and see what's going on inside of them.

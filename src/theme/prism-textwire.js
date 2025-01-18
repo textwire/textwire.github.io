@@ -51,7 +51,7 @@ const textwireCode = {
 Prism.languages.textwire = Prism.languages.extend('markup', {
     expression: [
         {
-            pattern: /{{(.*)}}/,
+            pattern: /{{([\s\S]*?)}}/s,
             inside: textwireCode,
         },
     ],
