@@ -9,8 +9,7 @@ The Textwire version `v2.4.0` is an important release. The first release in 2025
 
 <!-- truncate -->
 
-## Features Added
-### Component Path Alias
+## Component Path Alias
 Component Path Alias is a small but useful feature that is useful for people who will keep their components in the `components` directory. The `~` alias can be used to reference components in the `components` directory.
 
 Consider this example of calling a `components/post-card` component before the version `v2.4.0`:
@@ -35,7 +34,7 @@ Now you can repleace the `components/` part with `~` alias like so:
 
 The `~` alias will be replaced with `components/` behind the scenes.
 
-### New `trimRight` and `trimLeft` Functions
+## New `trimRight` and `trimLeft` Functions
 A couple of people suggested to add [`trimRight`](/docs/v2/functions/str#trimright) and [`trimLeft`](/docs/v2/functions/str#trimleft) functions and now they are available in the `v2.4.0` release. We already had the [`trim`](/docs/v2/functions/str#trim) function for trimming both sides of a string, but now you can trim only the left or right side of a string if that's what you need.
 
 The usage is simple:
@@ -58,7 +57,7 @@ You can also pass a string of characters to trim from a string:
 <span>Textwire</span>
 ```
 
-### New `repeat` Function
+## New `repeat` Function
 A new function [`repeat`](/docs/v2/functions/str#repeat) is added to strings. The function repeats a string a specified number of times. The function takes a single argument, the number of times to repeat the string.
 
 ```textwire title="Example"
@@ -67,4 +66,23 @@ A new function [`repeat`](/docs/v2/functions/str#repeat) is added to strings. Th
 
 ```textwire title="Output"
 <span>🤣🤣🤣🤣🤣</span>
+```
+
+## New `append` and `prepend` Functions
+Two new functions [`append`](/docs/v2/functions/arr#append) and [`prepend`](/docs/v2/functions/arr#prepend) are added to arrays. The `append` function adds one or more elements to the end of an array and returns a new array. The `prepend` function adds one or more elements to the beginning of an array and returns a new array.
+
+```textwire title="Example"
+<span>{{ ["one", "two"].append("three", "four") }}</span>
+```
+
+```textwire title="Output"
+<span>one, two, three, four</span>
+```
+
+```textwire title="Example"
+<span>{{ ["one", "two"].prepend("three", "four") }}</span>
+```
+
+```textwire title="Output"
+<span>three, four, one, two</span>
 ```
