@@ -6,6 +6,26 @@ description: Explore the various array functions available in Textwire
 ---
 
 # Array Functions
+## append
+```ts
+append(elem: any...): arr
+```
+
+Adds one or more elements to the end of an array and returns a new array
+
+#### Arguments
+- `elem` (any) - Any amount of elements to add to the array
+
+#### Input example:
+```textwire
+{{ ["one", "two"].append("three", "four") }}
+```
+
+#### Output:
+```textwire
+one, two, three, four
+```
+
 ## contains
 ```ts
 contains(elem?: any): bool
@@ -70,6 +90,26 @@ Returns the length of an array
 #### Output:
 ```textwire
 3
+```
+
+## prepend
+```ts
+prepend(elem: any...): arr
+```
+
+Adds one or more elements to the beginning of an array and returns a new array
+
+#### Arguments
+- `elem` (any) - Any amount of elements to add to the array
+
+#### Input example:
+```textwire
+{{ ["three", "four"].prepend("one", "two") }}
+```
+
+#### Output:
+```textwire
+one, two, three, four
 ```
 
 ## rand
