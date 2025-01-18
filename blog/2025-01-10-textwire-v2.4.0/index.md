@@ -86,3 +86,28 @@ Two new functions [`append`](/docs/v2/functions/arr#append) and [`prepend`](/doc
 ```textwire title="Output"
 <span>three, four, one, two</span>
 ```
+
+
+## New `@dump` Directive
+The `@dump` directive is used for debugging purposes. It will print the value of the passed variables, objects, arrays, etc. to the output. Here is an example of using the `@dump` directive:
+
+```textwire title="Example"
+<h1>This is my title</h1>
+
+{{
+    user = {
+        name: "John",
+        age: 25,
+        admin: false,
+        hobbies: ["reading", "coding"],
+    }
+}}
+
+@dump(user)
+
+<p>Some content</p>
+```
+
+The output would look like something like this:
+
+<img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
