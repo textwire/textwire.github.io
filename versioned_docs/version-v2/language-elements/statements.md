@@ -159,7 +159,7 @@ Reserve statement excepts only a single argument, which the name of the reserved
 ## Component
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
-#### Example of a Component
+### Example of a Component
 ```textwire title="components/post-card.tw"
 <div class="post">
     <h1>{{ post.title }}</h1>
@@ -167,7 +167,7 @@ One of the best features of Textwire is the ability to use components. You can c
 </div>
 ```
 
-#### Example of Using a Template
+### Example of Using a Template
 ```textwire title="home.tw"
 <div class="posts">
     @each(post in posts)
@@ -233,7 +233,45 @@ In this example we use default and named slots in a single component. You can us
 `@dump` directive is used for debugging purposes. It will print the value of the passed variables, objects, arrays, etc. to the output. Here is an example of using `@dump` directive:
 
 ```textwire
-{{ users = ["Anna", "Serhii", "Vladimir"] }}
+{{ names = ["John", "Jane", "Jack", "Jill"] }}
 
-@dump(users)
+@dump(names)
 ```
+
+The output would look like something like this:
+
+<img src="/img/dump-names.png" title="Dump output in Textwire" width="150" />
+
+### Works with Different Types
+Similarly, you can print objects and other types of data:
+
+```textwire
+<h1>This is my title</h1>
+
+{{
+    user = {
+        name: "John",
+        age: 25,
+        admin: false,
+        hobbies: ["reading", "coding"],
+    }
+}}
+
+@dump(user)
+
+<p>Some content</p>
+```
+
+<img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
+
+### Dump Multiple Objects
+`@dump` directive can accept an endless amount arguments at once:
+
+```textwire
+{{ meta = [1, 2.23, true, false, nil] }}
+{{ user = { name: "John", age: 25 } }}
+
+@dump(meta, user)
+```
+
+<img src="/img/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
