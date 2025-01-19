@@ -18,7 +18,7 @@ description: You can find here all the information about expressions in Textwire
 ## Ternary expressions
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
 
-```html
+```textwire
 <span>{{ x == 1 ? "yes" : "no" }}</span>
 ```
 
@@ -27,7 +27,7 @@ The advantage of a "ternary expression" over "if statement" is that it can be us
 ## Prefix expressions
 You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
 
-```html
+```textwire
 <span>{{ !isTall ? "Not tall" : "Is tall" }}</span>
 <span>{{ -x }}</span>
 ```
@@ -35,7 +35,7 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 ## Infix expressions
 You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
 
-```html
+```textwire
 <ul>
     <li>{{ x + y }}</li> <!-- Addition -->
     <li>{{ x - y }}</li> <!-- Subtraction -->
@@ -49,7 +49,7 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 ## Postfix expressions
 You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
 
-```html
+```textwire
 <span>{{ x++ }}</span> <!-- Increment -->
 <span>{{ x-- }}</span> <!-- Decrement -->
 ```
@@ -57,7 +57,7 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 ## Comparison expressions
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
-```html
+```textwire
 @if(x == 1)
     <p>x is 1</p>
 @end
@@ -83,7 +83,7 @@ Functions in Textwire are type specific, which means that you can't call a funct
 
 Here is an example of using function calls:
 
-```html
+```textwire
 {{ name.split(" ") }}
 ```
 

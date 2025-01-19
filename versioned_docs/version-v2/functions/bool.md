@@ -14,15 +14,15 @@ binary(): int
 Returns an integer `1` if the receiver is true, `0` otherwise
 
 #### Input example
-```html
-<b>{{ true.binary() }}</b>
-<b>{{ false.binary() }}</b>
+```textwire
+{{ true.binary() }}
+{{ false.binary() }}
 ```
 
 #### Output
-```html
-<b>1</b>
-<b>0</b>
+```textwire
+1
+0
 ```
 
 ## then
@@ -37,15 +37,15 @@ Returns the `consequence` if the receiver is true, otherwise returns the `altern
 2. `alternative` (any) - The value to return if the receiver is false. Default is `nil`, which will be converted to an empty string when rendered in the template
 
 #### Input example
-```html
-<b>{{ true.then("Yes", "No") }}</b>
-<b>{{ false.then("Yes", "No") }}</b>
-<b>{{ false.then("Yes") }}</b>
+```textwire
+{{ true.then("Yes", "No") }}
+{{ false.then("Yes", "No") }}
+{{ false.then("Yes") }}
 ```
 
 #### Output
-```html
-<b>Yes</b>
-<b>No</b>
-<b></b>
+```textwire
+Yes
+No
+
 ```

@@ -11,18 +11,14 @@ Textwire has a set of built-in functions that can be used to manipulate data. Th
 ## Built-in functions usage
 Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `trim` function is used to remove characters from both sides of the string. You can call a function on a value by using the dot operator (`.`) followed by the function name.
 
-```html
-<div>
-    {{ "Textwire".len() }} <!-- output: 8 -->
-</div>
+```textwire
+{{ "Textwire".len() }} <!-- output: 8 -->
 ```
 
 You can also chain multiple functions together to perform complex operations.
 
-```html
-<span>
-    {{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
-</span>
+```textwire
+{{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
 ```
 
 :::tip Error handling
@@ -34,13 +30,13 @@ Since I speak 4 languages, Russian, English, Chinese, and Ukrainian, I understan
 
 All the built-in functions in Textwire are Unicode friendly, which means they can handle Unicode characters and strings without any issues. You can use these functions to manipulate strings in any language. For example:
 
-```html
+```textwire
 {{ "我喜欢中国".len() }} <!-- output: 5 -->
 ```
 
 Or:
 
-```html
+```textwire
 {{ "привет".at(2) }} <!-- output: и -->
 ```
 

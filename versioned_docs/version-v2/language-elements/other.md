@@ -15,7 +15,7 @@ description: Learn about trailing commas and comments in Textwire, including how
 
 You can use trailing commas in arrays, objects and function arguments. Here is an example of using trailing commas:
 
-```html
+```textwire
 {{ names = ["John", "Jane", "Jack",] }}
 {{ person = { "name": "John", "age": 25, } }}
 
@@ -29,7 +29,7 @@ You can use trailing commas in arrays, objects and function arguments. Here is a
 
 You can use comments in Textwire to write notes or to comment out code. Here is an example of using comments:
 
-```html
+```textwire
 {{-- This is a Textwire comment --}}
 <!-- This is an HTML comment -->
 

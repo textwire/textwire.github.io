@@ -37,9 +37,8 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 | `TemplateExt` | `string` | The extension of the template files                       | `".html"`         | `".tw.html"`  |
 
 :::warning Loosing extension benefits
-Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
+Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw` or `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
 :::
-
 
 ## Write response to the client
 You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
@@ -64,7 +63,7 @@ Defining a layout in Textwire is very simple. You need to create a file anywhere
 ### Reserve space in the layout
 The `reserve` statement (directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later. Here is an example:
 
-```html
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +84,7 @@ The `insert` statement (directive) is used to insert content into reserved place
 
 Let's take a look at the example how I would define a `home.tw.html` and then I'll explain each part of it:
 
-```html title="home.tw.html"
+```textwire title="home.tw.html"
 @use("layouts/main")
 
 @insert("title", "Home page")

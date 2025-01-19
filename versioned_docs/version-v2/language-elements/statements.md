@@ -8,19 +8,21 @@ description: Learn about different statements in Textwire, including if statemen
 # Statements
 
 - Statements
-    - [If statement](#if-statement) `@if(x == 1)`
-    - [Variable declaration](#variable-declaration) `{{ x = 5 }}`
-    - [Use statement](#use-statement) `@use("layouts/main")`
-    - [Insert statement](#insert-statement) `@insert("title", "Home")`
-    - [Reserve statement](#reserve-statement) `@reserve("title")`
-    - [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
-    - [Each loop](#each-loop) `@each(name in names)`
+    - [If Statement](#if-statement) `@if(x == 1)`
+    - [Variable Declaration](#variable-declaration) `{{ x = 5 }}`
+    - [Use Statement](#use-statement) `@use("layouts/main")`
+    - [Insert Statement](#insert-statement) `@insert("title", "Home")`
+    - [Reserve Statement](#reserve-statement) `@reserve("title")`
+    - [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
+    - [Each Loop](#each-loop) `@each(name in names)`
     - [Component](#component) `@component("components/post-card")`
+    - [Component Slots](#component-clots) `@slot('footer')`
+    - [Dump Directive](#dump-directive) `@dump(users, page)`
 
-## If statement
+## If Statement
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
-```html
+```textwire
 @if(name == "Anna")
     <p>Her name is Anna</p>
 @end
@@ -28,7 +30,7 @@ You can use if statements to conditionally render content. Here is an example of
 
 You can also use `else` and `elseif` statements:
 
-```html
+```textwire
 @if(x == 1)
     <p>x is 1</p>
 @elseif(x == 2)
@@ -38,12 +40,12 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
-## For loop
+## For Loop
 You can use regular for loops to iterate over an array or a range of numbers.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
-```html
+```textwire
 {{ names = ["Ann", "Serhii"] }}
 
 @for(i = 0; i < names.len(); i++)
@@ -58,7 +60,7 @@ Read more about loops in the [Loops guide](/docs/v2/guides/loops).
 :::
 
 #### Example
-```html
+```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
 <ul>
@@ -69,10 +71,10 @@ Read more about loops in the [Loops guide](/docs/v2/guides/loops).
 </ul>
 ```
 
-## Each loop
+## Each Loop
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
-```html
+```textwire
 {{ names = ["Ann", "Serhii"] }}
 
 @each(name in names)
@@ -84,10 +86,10 @@ Each statement is a special for loop that you can use to iterate over an array. 
 Read more about loops in the [Loops guide](/docs/v2/guides/loops).
 :::
 
-## Variable declaration
+## Variable Declaration
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
-```html
+```textwire
 {{ x = 5 }}
 {{ x = 10 }}
 ```
@@ -98,23 +100,23 @@ You cannot assign values to variables that have a different type. For example, y
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 :::
 
-## Use statement
+## Use Statement
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
-```html
+```textwire
 @use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw.html"`.
+Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw"`.
 
 :::info Understanding the @use Directive
 When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
 :::
 
-## Insert statement
+## Insert Statement
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
-```html title="home.tw.html"
+```textwire title="home.tw"
 @use("layouts/main")
 
 <!-- It's useful when you want to pass a variable to the layout file -->
@@ -131,10 +133,10 @@ Insert statement excepts 2 arguments, the name of the reserved place and the opt
 
 All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
 
-## Reserve statement
+## Reserve Statement
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
-```html title="layouts/main.tw.html"
+```textwire title="layouts/main.tw"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,16 +159,16 @@ Reserve statement excepts only a single argument, which the name of the reserved
 ## Component
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
-### Example of a component
-```html title="components/post-card.tw.html"
+### Example of a Component
+```textwire title="components/post-card.tw"
 <div class="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
 </div>
 ```
 
-### Example of using a template
-```html title="home.tw.html"
+### Example of Using a Template
+```textwire title="home.tw"
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -174,11 +176,15 @@ One of the best features of Textwire is the ability to use components. You can c
 </div>
 ```
 
+:::info Component path alias
+If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
+:::
+
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
 The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
 
-```html title="home.tw.html"
+```textwire title="home.tw"
 <ul>
     @each(book in books)
         @component("parts/book", { completed: book.completed })
@@ -188,12 +194,12 @@ The second optional argument is a [Textwire object](/docs/v2/language-elements/l
 
 You can also use slots in components to pass content to the component. Read about slots in the next section.
 
-## Component slots
+## Component Slots
 Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 
-```html title="components/book.tw.html"
+```textwire title="components/book.tw"
 <div class="book">
     @slot
 
@@ -206,7 +212,7 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 
 We can now use `book.tw.html` component in our Textwire files like this:
 
-```html title="home.tw.html"
+```textwire title="home.tw"
 @each(book in books)
     @component("components/book", { book })
         @slot
@@ -222,3 +228,48 @@ We can now use `book.tw.html` component in our Textwire files like this:
 ```
 
 In this example we use default and named slots in a single component. You can use as many slots as you want in a single component as long as names are unique.
+
+## Dump Directive
+`@dump` directive is used for debugging purposes. It will print the value of the passed variables, objects, arrays, etc. to the output. Here is an example of using `@dump` directive:
+
+```textwire
+{{ names = ["John", "Jane", "Jack", "Jill"] }}
+
+@dump(names)
+```
+
+The output would look like something like this:
+
+<img src="/img/dump-names.png" title="Dump output in Textwire" width="150" />
+
+### Works with Different Types
+Similarly, you can print objects and other types of data:
+
+```textwire
+<h1>This is my title</h1>
+
+@dump({
+    name: "John",
+    age: 25,
+    admin: false,
+    hobbies: ["reading", "coding"],
+})
+
+<p>Some content</p>
+```
+
+<img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
+
+### Dump Multiple Objects
+`@dump` directive can accept an endless amount arguments at once:
+
+```textwire
+{{ meta = [1, 2.23, true, false, nil] }}
+{{ user = { name: "John", age: 25 } }}
+
+@dump(meta, user)
+```
+
+<img src="/img/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
+
+It's an easy and convenient way to debug your templates and see what's going on inside of them.

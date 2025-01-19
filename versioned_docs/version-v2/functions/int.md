@@ -14,13 +14,13 @@ abs(): int
 Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
 
 #### Input example
-```html
-<b>{{ -5.abs() }}</b>
+```textwire
+{{ -5.abs() }}
 ```
 
 #### Output
-```html
-<b>5</b>
+```textwire
+5
 ```
 
 ## decimal
@@ -34,13 +34,13 @@ float(): float
 Converts an integer to a float by adding a decimal part of `.0` to the number
 
 #### Input example
-```html
-<b>{{ 5.float() }}</b>
+```textwire
+{{ 5.float() }}
 ```
 
 #### Output
-```html
-<b>5.0</b>
+```textwire
+5.0
 ```
 
 ## len
@@ -51,13 +51,13 @@ len(): int
 Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
 
 #### Input example
-```html
-<b>{{ 12345.len() }}</b>
+```textwire
+{{ 12345.len() }}
 ```
 
 #### Output
-```html
-<b>5</b>
+```textwire
+5
 ```
 
 ## str
@@ -68,11 +68,11 @@ str(): string
 Converts an integer to a string and returns it
 
 #### Input example
-```html
-<b>{{ 5.str() }} and {{ -10.str() }}</b>
+```textwire
+{{ 5.str() }} and {{ -10.str() }}
 ```
 
 #### Output
-```html
-<b>5 and -10</b>
+```textwire
+5 and -10
 ```

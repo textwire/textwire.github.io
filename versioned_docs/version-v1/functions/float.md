@@ -15,11 +15,11 @@ Function `int` is used to convert a float to an integer by removing the decimal 
 None
 
 #### Input example
-```html
+```textwire
 <b>{{ 5.5.int() }}<b>
 ```
 
 #### Output
-```html
+```textwire
 <b>5<b>
 ```

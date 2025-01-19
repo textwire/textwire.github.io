@@ -15,12 +15,12 @@ The `float` function is used to convert an integer to a float.
 None
 
 #### Input example
-```html
+```textwire
 <b>{{ 5.float() }}</b>
 ```
 
 #### Output
-```html
+```textwire
 <b>5.0</b>
 ```
 

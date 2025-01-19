@@ -19,7 +19,7 @@ sidebar_position: 2
 ## If statement
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
-```html
+```textwire
 @if(name == "Anna")
     <p>Her name is Anna</p>
 @end
@@ -27,7 +27,7 @@ You can use if statements to conditionally render content. Here is an example of
 
 You can also use `else` and `elseif` statements:
 
-```html
+```textwire
 @if(x == 1)
     <p>x is 1</p>
 @elseif(x == 2)
@@ -42,7 +42,7 @@ You can use regular for loops to iterate over an array or a range of numbers.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
-```html
+```textwire
 {{ names = ["Ann", "Serhii"] }}
 
 @for(i = 0; i < names.len(); i++)
@@ -59,7 +59,7 @@ The `@else` statement is optional and can be used to render content when there a
 You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
 
 ### Example
-```html
+```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
 <ul>
@@ -73,7 +73,7 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 ## Each loop
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
-```html
+```textwire
 {{ names = ["Ann", "Serhii"] }}
 
 @each(name in names)
@@ -99,7 +99,7 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 | `iter`   | Integer | Current iteration number starting from `1` |
 
 ### Example
-```html
+```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
 <ul>
@@ -110,7 +110,7 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 ```
 
 ### Output
-```html
+```textwire
 <ul>
 
         <li>1: Anna</li>
@@ -125,7 +125,7 @@ For example, `{{ loop.index }}` will return the current index of the item. Here 
 You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directives inside of a for loop to break or continue the loop. `@breakIf()` and `@continueIf()` directives except a single argument, which is a condition that needs to be met to break or continue the loop.
 
 ### Example
-```html
+```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
 <ul>
@@ -139,7 +139,7 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 ## Variable declaration
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
-```html
+```textwire
 {{ x = 5 }}
 {{ x = 10 }}
 ```
@@ -153,7 +153,7 @@ Variable declaration statements are not expressions! They don't return any value
 ## Use statement
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
-```html
+```textwire
 @use("layouts/main")
 ```
 
@@ -166,7 +166,7 @@ When you use the `@use` directive, only the content inside `@insert` directives 
 ## Insert statement
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
-```html
+```textwire
 @use("layouts/main")
 
 <!-- It's useful when you want to pass a variable to the layout file -->
@@ -186,7 +186,7 @@ All the `insert` statements will be transferred to the layout file and will be p
 ## Reserve statement
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
-```html
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -210,7 +210,7 @@ Reserve statement excepts only a single argument, which the name of the reserved
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
 ### Example of a component `components/post-card.tw.html`
-```html
+```textwire
 <div class="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
@@ -218,7 +218,7 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 ### Example of using a component in a template `home.tw.html`
-```html
+```textwire
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -230,7 +230,7 @@ The first argument of the `@component` directive is a path to the component file
 
 The second optional argument is a [Textwire object](/docs/v1/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
 
-```html
+```textwire
 <ul>
     @each(book in books)
         @component("parts/book", { completed: book.completed })
@@ -245,7 +245,7 @@ Component slots is a very common feature in most template languages and framewor
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 
-```html
+```textwire
 <!-- components/book.tw.html -->
 <div class="book">
     @slot
@@ -259,7 +259,7 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 
 We can now use `book.tw.html` component in our Textwire files like this:
 
-```html
+```textwire
 <!-- home.tw.html -->
 
 @each(book in books)

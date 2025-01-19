@@ -6,6 +6,26 @@ description: Explore the various array functions available in Textwire
 ---
 
 # Array Functions
+## append
+```ts
+append(elem: any...): arr
+```
+
+Adds one or more elements to the end of an array and returns a new array
+
+#### Arguments
+- `elem` (any) - Any amount of elements to add to the array
+
+#### Input example:
+```textwire
+{{ ["one", "two"].append("three", "four") }}
+```
+
+#### Output:
+```textwire
+one, two, three, four
+```
+
 ## contains
 ```ts
 contains(elem?: any): bool
@@ -17,19 +37,19 @@ Returns `true` if the array contains the given element, otherwise `false`
 1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
 
 #### Input example:
-```html
-<span>{{ ["one", "two"].contains("two") }}</span>
+```textwire
+{{ ["one", "two"].contains("two") }}
 ```
 
 #### Output:
-```html
-<span>1</span>
+```textwire
+1
 ```
 
 #### Notes
 You can do deep comparison with objects and arrays as well
 
-```html
+```textwire
 {{ obj = { name: 'Anna' }; [obj].contains(obj) }}
 ```
 
@@ -46,13 +66,13 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 1. `separator` (str) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
 #### Input example:
-```html
-<span>{{ ["one", "two"].join(" ") }}</span>
+```textwire
+{{ ["one", "two"].join(" ") }}
 ```
 
 #### Output:
-```html
-<span>one two</span>
+```textwire
+one two
 ```
 
 ## len
@@ -63,13 +83,33 @@ len(): int
 Returns the length of an array
 
 #### Input example:
-```html
-<span>{{ [1, 2, 3].len() }}</span>
+```textwire
+{{ [1, 2, 3].len() }}
 ```
 
 #### Output:
-```html
-<span>3</span>
+```textwire
+3
+```
+
+## prepend
+```ts
+prepend(elem: any...): arr
+```
+
+Adds one or more elements to the beginning of an array and returns a new array
+
+#### Arguments
+- `elem` (any) - Any amount of elements to add to the array
+
+#### Input example:
+```textwire
+{{ ["three", "four"].prepend("one", "two") }}
+```
+
+#### Output:
+```textwire
+one, two, three, four
 ```
 
 ## rand
@@ -80,13 +120,13 @@ rand(): any
 Returns a random element from the array. The return type depends on the type of elements in the array.
 
 #### Input example:
-```html
-<span>{{ [1, 2, 3].rand() }}</span>
+```textwire
+{{ [1, 2, 3].rand() }}
 ```
 
 #### Output:
-```html
-<span>2</span>
+```textwire
+2
 ```
 
 ## reverse
@@ -97,13 +137,13 @@ reverse(): arr
 Reverses the elements of an array and returns a new array
 
 #### Input example:
-```html
-<span>{{ [1, 2, 3].reverse() }}</span>
+```textwire
+{{ [1, 2, 3].reverse() }}
 ```
 
 #### Output:
-```html
-<span>3, 2, 1</span>
+```textwire
+3, 2, 1
 ```
 
 ## shuffle
@@ -114,14 +154,14 @@ shuffle(): arr
 Shuffles the elements of an array and returns a new array
 
 #### Input example:
-```html
-<span>{{ [1, 2, 3, 5].shuffle() }}</span>
+```textwire
+{{ [1, 2, 3, 5].shuffle() }}
 ```
 
 #### Output:
-```html
+```textwire
 <!-- The order of the elements will be random -->
-<span>2, 1, 3, 5</span>
+2, 1, 3, 5
 ```
 
 ## slice
@@ -136,13 +176,13 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 2. `end` (int) (optional) - The index at which to end the slice
 
 #### Input example:
-```html
-<span>{{ [1, 2, 3, 4, 5].slice(1, 3) }}</span>
+```textwire
+{{ [1, 2, 3, 4, 5].slice(1, 3) }}
 ```
 
 #### Output:
-```html
-<span>2, 3</span>
+```textwire
+2, 3
 ```
 
 :::warning No negative arguments

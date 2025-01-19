@@ -20,7 +20,7 @@ import (
 func main() {
     textwire.Configure(&config.Config{
         TemplateDir: "templates",
-        TemplateExt: ".html",
+        TemplateExt: ".tw", // recommended to use .tw extension
     })
 }
 ```
@@ -35,10 +35,10 @@ All the configurations in Textwire are optional, because each configuration has 
 | `TemplateDir` | `string` | The directory where Textwire will look for template files | `"templates"`  |
 | `TemplateExt` | `string` | The extension of the template files                       | `".tw.html"`   |
 
-:::warning Loosing extension benefits
-Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
+:::info Recommended
+It's recommended to use `TemplateExt` setting with `.tw` extension, because `.tw.html` is a bit longer and might be removed in the future major versions of Textwire.
 :::
 
-:::info Coming in the future
-As Textwire grows, more configurations will be added to the library. If you have any suggestions for new configurations, feel free to open an issue on the [GitHub repository](https://github.com/textwire/textwire/issues).
+:::warning Loosing extension benefits
+Keep in mind that if you use VSCode and you change `TemplateExt` to something else than `.tw` or `.tw.html`, you will lose the syntax highlighting for Textwire files if you use the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire).
 :::

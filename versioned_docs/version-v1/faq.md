@@ -22,7 +22,7 @@ Textwire is not exactly a templating engine. It is a Domain-specific language (D
 ### How do I use Textwire directives that start with @ symbol?
 Textwire has several directives that you can use anywhere directly in your text files except for `{{ }}` curly braces. Here is the example of `@if` directive:
 
-```html
+```textwire
 <div>
     @if(isFast)
         <b>Can run</b>

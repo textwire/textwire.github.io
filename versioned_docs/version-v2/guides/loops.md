@@ -13,7 +13,7 @@ In most programming languages, you can use `break` and `continue` statements to 
 
 For convenience, you also have `@breakIf()` and `@continueIf()` directives. They accept a single argument, which is a condition that needs to be met to break or continue the loop. Here is an example:
 
-```html
+```textwire
 @each(num in [0, 1])
     @breakIf(num == 1)
     <p>{{ name }}</p>
@@ -35,7 +35,7 @@ For example, `{{ loop.index }}` will return the current iteration index starting
 | `iter`   | Integer | Current iteration number starting from `1` |
 
 ### Example
-```html
+```textwire
 {{ names = ["Anna", "Serhii", "Vladimir"] }}
 
 <ul>
@@ -46,7 +46,7 @@ For example, `{{ loop.index }}` will return the current iteration index starting
 ```
 
 ### Output
-```html
+```textwire
 <ul>
 
         <li>1. Anna</li>
@@ -63,7 +63,7 @@ It's a very useful feature that removes the need to create additional variables 
 ## Else Statement
 Optionally, you can use the `@else` statement to render content when the array is empty. It is similar to the `else` statement in the `@if` statement. Here is an example:
 
-```html
+```textwire
 @each(name in [])
     <p>{{ name }}</p>
 @else
