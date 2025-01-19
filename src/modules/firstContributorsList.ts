@@ -11,4 +11,8 @@ export default [
         name: 'joeyjurjens',
         img: 'https://avatars.githubusercontent.com/u/7702200',
     },
+    {
+        name: 'cemremengu',
+        img: 'https://avatars.githubusercontent.com/u/1297759',
+    },
 ]
