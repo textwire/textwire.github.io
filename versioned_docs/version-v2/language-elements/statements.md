@@ -16,7 +16,7 @@ description: Learn about different statements in Textwire, including if statemen
     - [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
     - [Each Loop](#each-loop) `@each(name in names)`
     - [Component](#component) `@component("components/post-card")`
-    - [Component Slots](#component-clots) `@slot('footer')`
+    - [Component Slots](#component-slots) `@slot('footer')`
     - [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
@@ -182,7 +182,7 @@ If your components are located in the `components` directory, you can use the `~
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object-literals) that you want to pass to the component. Here is another example of using a component with a second argument:
+The second optional argument is a [Textwire object](/docs/v2/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
 
 ```textwire title="home.tw"
 <ul>

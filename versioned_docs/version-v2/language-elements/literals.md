@@ -12,7 +12,7 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
     - [Integer](#integer) `{{ 123 }}` or `{{ -234 }}`
     - [Float](#float) `{{ 123.456 }}`
     - [Boolean](#boolean) `{{ true }}`
-    - [Nil Literal](#nil-literal) `{{ nil }}`
+    - [Nil Literal](#nil) `{{ nil }}`
     - [Array](#array) `{{ [1, 2, 3] }}`
     - [Object](#object) `{{ { "name": "John", "age": 25 } }}`
 
