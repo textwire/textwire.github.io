@@ -113,7 +113,7 @@ Use statement excepts a string literal as an argument. The string literal should
 When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
 :::
 
-## Insert Statement
+j## Insert Statement
 The `@insert` statement allows you to inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement within your layout file. This feature provides a flexible way to structure and reuse templates. Below is an example demonstrating the `@insert` statement used in two scenarios: with a content body and without one:
 
 ```textwire title="home.tw"
@@ -129,7 +129,7 @@ The `@insert` statement allows you to inject content into placeholders defined b
 @end
 ```
 
-The `@insert` statement accepts two arguments: the name of the reserved placeholder and optional content to be inserted into that placeholder.
+The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and optional content to be inserted into that placeholder.
 
 All `@insert` statements are processed in the layout file, where they are matched with the placeholders defined by the [`@reserve`](#reserve-statement) statement.
 
