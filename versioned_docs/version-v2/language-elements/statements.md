@@ -114,27 +114,27 @@ When you use the `@use` directive, only the content inside `@insert` directives 
 :::
 
 ## Insert Statement
-You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
+The `@insert` statement allows you to inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement within your layout file. This feature provides a flexible way to structure and reuse templates. Below is an example demonstrating the `@insert` statement used in two scenarios: with a content body and without one:
 
 ```textwire title="home.tw"
 @use("layouts/main")
 
-<!-- It's useful when you want to pass a variable to the layout file -->
+<!-- Without a content body -->
 @insert("title", "Home page")
 
-<!-- It's useful when you want to insert content into a reserved place -->
+<!-- With a content body -->
 @insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
 @end
 ```
 
-Insert statement excepts 2 arguments, the name of the reserved place and the optional content that you want to insert into the reserved place.
+The `@insert` statement accepts two arguments: the name of the reserved placeholder and optional content to be inserted into that placeholder.
 
-All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
+All `@insert` statements are processed in the layout file, where they are matched with the placeholders defined by the [`@reserve`](#reserve-statement) statement.
 
 ## Reserve Statement
-When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
+When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
 
 ```textwire title="layouts/main.tw"
 <!DOCTYPE html>
@@ -150,11 +150,11 @@ When you define a layout file for you template, you need to reserve places for d
 </html>
 ```
 
-:::info Pass variables to the layout
-All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
+:::info Pass Variables to the Layout
+All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
 :::
 
-Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
+The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
 
 ## Component
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
