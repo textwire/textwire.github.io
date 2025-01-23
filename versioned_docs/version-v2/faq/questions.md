@@ -8,7 +8,7 @@ description: Find answers to frequently asked questions about Textwire, includin
 # Questions
 
 ## What exactly is Textwire?
-Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use templating language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
+Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use template language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
 
 
 ## Is Textwire a templating engine?
