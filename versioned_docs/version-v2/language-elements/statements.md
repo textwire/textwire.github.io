@@ -101,19 +101,31 @@ Variable declaration statements are not expressions! They don't return any value
 :::
 
 ## Use Statement
-You have a "use statement" to define a layout for your template. Here is an example of using use statement:
+`@use` statements allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
+
+Here is an example of using use statement:
 
 ```textwire
 @use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw"`.
+Or, you can use a path alias like this:
 
-:::info Understanding the @use Directive
-When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
+```textwire
+@use("~main")
+```
+
+:::info Use statement Path alias
+If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
-j## Insert Statement
+The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/docs/v2/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/docs/v2/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
+
+:::info Understanding the @use Directive
+When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
+:::
+
+## Insert Statement
 The `@insert` statement allows you to inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement within your layout file. This feature provides a flexible way to structure and reuse templates. Below is an example demonstrating the `@insert` statement used in two scenarios: with a content body and without one:
 
 ```textwire title="home.tw"
@@ -177,7 +189,7 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 :::info Component path alias
-If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
+If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 :::
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
