@@ -207,9 +207,14 @@ The second optional argument is a [Textwire object](/docs/v2/language-elements/l
 You can also use slots in components to pass content to the component. Read about slots in the next section.
 
 ## Component Slots
-Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
+Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
 
-There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
+There are two types of slots in Textwire: default slots and named slots.
+
+- **Default Slots**: Use the `@slot` directive to define and pass content to a default slot.
+- **Named Slots**: Use the `@slot("slot-name")` directive to define and pass content to a named slot.
+
+Here’s an example of how to use slots in a component. Consider this component:
 
 ```textwire title="components/book.tw"
 <div class="book">
@@ -222,11 +227,11 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 </div>
 ```
 
-We can now use `book.tw.html` component in our Textwire files like this:
+We can now use `book.tw` component in our Textwire files like this:
 
 ```textwire title="home.tw"
 @each(book in books)
-    @component("components/book", { book })
+    @component("~book", { book })
         @slot
             <img src="{{ book.image }}" alt="{{ book.title }}">
         @end
@@ -239,10 +244,12 @@ We can now use `book.tw.html` component in our Textwire files like this:
 @end
 ```
 
-In this example we use default and named slots in a single component. You can use as many slots as you want in a single component as long as names are unique.
+In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
 
 ## Dump Directive
-`@dump` directive is used for debugging purposes. It will print the value of the passed variables, objects, arrays, etc. to the output. Here is an example of using `@dump` directive:
+The `@dump` directive will feel familiar to [Laravel](https://laravel.com/) and [Symfony](https://symfony.com/) users. It is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v2/language-elements/literals#object), [arrays](/docs/v2/language-elements/literals#array), [strings](/docs/v2/language-elements/literals#string) and other data types to the screen.
+
+Here’s an example of how to use the `@dump` directive:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack", "Jill"] }}
