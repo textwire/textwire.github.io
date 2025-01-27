@@ -36,16 +36,24 @@ The [split](/docs/v2/functions/str#split) function requires a string as an argum
 
 In the same way you handle errors with evaluating a file or working with templating system.
 
-## What happens to the output?
-If you use Textwire to evaluate a single file or a string, the output will be empty if an error occurs. When you use Textwire as a templating system, it's a bit different.
+## What Happens to the Output?
+- **Single File or String Evaluation**: If an error occurs while evaluating a single file or string, the output will be empty.
+- **Templating System**: When using Textwire as a **templating system**, an error page will be rendered instead. This is a static HTML page displayed when an error occurs.
 
-### Error output in templates
+The error page is fully customizable, and you can configure its path in the [configuration](/docs/v2/guides/configurations).
+
 :::info
 When an error occurs, we cannot serve you the output to the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this [here in the FAQ section](/docs/v2/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
 :::
 
-When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed:
+### Error output in Production
+When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
 
 ![Error output in Textwire](/img/oops.png)
 
-The actual error message will be handle depending on your logic, but **it must not be displayed to the user** for security reasons.
+### Error output in Debug Mode
+When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
+
+![Error output in Textwire](/img/debug-error-page.png)
+
+### Custom Error Page
