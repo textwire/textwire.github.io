@@ -98,3 +98,7 @@ func main() {
 ```
 
 Since `TemplateDir` is set to `templates` by default, the `ErrorPagePath` will look for the file in the `templates` directory.
+
+:::info Custom Page and Debug Mode
+Custom error pages are rendered only when `DebugMode` is set to `false`. Otherwise, the default error page will be displayed.
+:::
