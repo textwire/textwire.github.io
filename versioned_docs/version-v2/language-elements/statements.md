@@ -20,7 +20,8 @@ description: Learn about different statements in Textwire, including if statemen
     - [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
-You can use if statements to conditionally render content. Here is an example of using if statements:
+You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
+Here is an example of using if statements:
 
 ```textwire
 @if(name == "Anna")

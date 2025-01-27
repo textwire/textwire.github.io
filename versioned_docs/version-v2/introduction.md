@@ -26,20 +26,22 @@ You can use Textwire in three versatile ways:
 Here is a simple example of a Textwire template:
 
 ```textwire title="home.tw"
-@use("layouts/main")
+@use('~main')
 
 @insert('title', 'Welcome to Home Page')
 
 @insert('content')
-    <h1>Home Page</h1>
-    <p>This is the home page content</p>
+    <h1>Welcome to Textwire</h1>
+    <p>Our team along with {{ user.name }} are glad to see you!</p>
 
     <div>
         @each(book in books)
-            @component('components/book', { book })
+            @component('~book', { book })
         @else
             <h2>No books found</h2>
         @end
     </div>
 @end
 ```
+
+Click the "Next" button below to learn more about Language Elements in Textwire.
