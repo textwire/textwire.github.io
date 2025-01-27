@@ -126,7 +126,9 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
 :::
 
 ## Insert Statement
-The `@insert` statement allows you to inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement within your layout file. This feature provides a flexible way to structure and reuse templates. Below is an example demonstrating the `@insert` statement used in two scenarios: with a content body and without one:
+The `@insert` statement lets you inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
+
+Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
 
 ```textwire title="home.tw"
 @use("layouts/main")
@@ -141,9 +143,14 @@ The `@insert` statement allows you to inject content into placeholders defined b
 @end
 ```
 
-The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and optional content to be inserted into that placeholder.
+The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
 
-All `@insert` statements are processed in the layout file, where they are matched with the placeholders defined by the [`@reserve`](#reserve-statement) statement.
+All `@insert` statements are evaluated within the layout file, where they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statement.
+
+:::info Important Notes
+- Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
+- You cannot define multiple `@insert` statements with the same name in a single file.
+:::
 
 ## Reserve Statement
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
@@ -245,6 +252,10 @@ We can now use `book.tw` component in our Textwire files like this:
 ```
 
 In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
+
+:::info Important Note
+Defining multiple slots with the same name, or defining 2 default slots in a single component will result in an error.
+:::
 
 ## Dump Directive
 The `@dump` directive will feel familiar to [Laravel](https://laravel.com/) and [Symfony](https://symfony.com/) users. It is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v2/language-elements/literals#object), [arrays](/docs/v2/language-elements/literals#array), [strings](/docs/v2/language-elements/literals#string) and other data types to the screen.
