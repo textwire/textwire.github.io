@@ -26,14 +26,6 @@ Bracket statements are special Textwire statements that start with `{{` brackets
 - There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statement](/docs/v2/language-elements/statements#if-statement) and [for statements](/docs/v2/language-elements/statements#for-loop).
 - To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
 
-### Directives
-Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of `{{ }}` brackets.
-
-- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML
-- You can use textwire expressions and variables inside of directives. For example `@if(x == 1)` or `@use(layoutName)`
-- All the directives with body like `@if`, `@for`, `@each`, `@component`, etc. must be closed with `@end` keyword
-
-
 ## Types and Literals
 Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
 
