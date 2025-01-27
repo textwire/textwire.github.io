@@ -42,7 +42,7 @@ The [split](/docs/v2/functions/str#split) function requires a string as an argum
 
 In the same way you handle errors with evaluating a file or working with templating system.
 
-## What Happens to the Output?
+## Error Page
 - **Single File or String Evaluation**: If an error occurs while evaluating a single file or string, the output will be empty.
 - **Templating System**: When using Textwire as a **templating system**, an error page will be rendered instead. This is a static HTML page displayed when an error occurs.
 
@@ -52,14 +52,49 @@ The error page is fully customizable, and you can configure its path in the [con
 When an error occurs, we cannot serve you the output to the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this [here in the FAQ section](/docs/v2/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
 :::
 
-### Error output in Production
+### Error in Production
 When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
 
 ![Error output in Textwire](/img/oops.png)
 
-### Error output in Debug Mode
+### Error with Debug Mode
 When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
 
 ![Error output in Textwire](/img/debug-error-page.png)
 
 ### Custom Error Page
+If you want to define your own error page, you can do so by creating a new HTML file and setting the `ErrorPagePath` configuration to the path of the HTML file. You can read about configurations in the [Available Configurations](/docs/v2/guides/configurations#available-configurations) section.
+
+This is useful when you want to display a custom error message to your users and use your own design for the error page, including the layout usage. For example, you can create a custom error page like this:
+
+```textwire
+@use('~main')
+
+@insert('title', 'About Us')
+
+@insert('content')
+    <h1>Oops!</h1>
+    <p>Something went wrong.</p>
+    <p><a href="/">Go back to home</a></p>
+@end
+```
+
+This file should be saved somewhere in your `templates` directory that you have specified in the configuration by `TemplateDir` key. Recommended to save it in the root of `templates` directory with the name `error-page.tw`.
+
+Here is the example of how you can set the `ErrorPagePath` configuration:
+
+```go
+func main() {
+    // ...
+
+    tpl, err = textwire.NewTemplate(&config.Config{
+        TemplateExt:   ".tw",
+        ErrorPagePath: "error-page",
+        DebugMode:     true,
+    })
+
+    // ...
+}
+```
+
+Since `TemplateDir` is set to `templates` by default, the `ErrorPagePath` will look for the file in the `templates` directory.
