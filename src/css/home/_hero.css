@@ -24,10 +24,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 13px;
 }
 
 @media screen and (max-width: 996px) {
     .hero {
         padding: 2rem;
+    }
+
+    .hero__buttons {
+        flex-direction: column;
     }
 }

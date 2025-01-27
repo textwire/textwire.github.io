@@ -20,7 +20,8 @@ description: Learn about different statements in Textwire, including if statemen
     - [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
-You can use if statements to conditionally render content. Here is an example of using if statements:
+You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
+Here is an example of using if statements:
 
 ```textwire
 @if(name == "Anna")
@@ -101,40 +102,59 @@ Variable declaration statements are not expressions! They don't return any value
 :::
 
 ## Use Statement
-You have a "use statement" to define a layout for your template. Here is an example of using use statement:
+`@use` statements allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
+
+Here is an example of using use statement:
 
 ```textwire
 @use("layouts/main")
 ```
 
-Use statement excepts a string literal as an argument. The string literal should be a path to the layout file relative to a `TemplateDir` parameter that you set in the config. For example, if you set `TemplateDir` to `"src/templates/layouts"`, then you can use the layout statement like `@use("main")` and it will look for the layout file in `"src/templates/layouts/main.tw"`.
+Or, you can use a path alias like this:
+
+```textwire
+@use("~main")
+```
+
+:::info Use statement Path alias
+If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
+:::
+
+The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/docs/v2/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/docs/v2/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
 :::info Understanding the @use Directive
-When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
+When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
 :::
 
 ## Insert Statement
-You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
+The `@insert` statement lets you inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
+
+Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
 
 ```textwire title="home.tw"
 @use("layouts/main")
 
-<!-- It's useful when you want to pass a variable to the layout file -->
+<!-- Without a content body -->
 @insert("title", "Home page")
 
-<!-- It's useful when you want to insert content into a reserved place -->
+<!-- With a content body -->
 @insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
 @end
 ```
 
-Insert statement excepts 2 arguments, the name of the reserved place and the optional content that you want to insert into the reserved place.
+The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
 
-All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
+All `@insert` statements are evaluated within the layout file, where they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statement.
+
+:::info Important Notes
+- Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
+- You cannot define multiple `@insert` statements with the same name in a single file.
+:::
 
 ## Reserve Statement
-When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
+When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
 
 ```textwire title="layouts/main.tw"
 <!DOCTYPE html>
@@ -150,11 +170,11 @@ When you define a layout file for you template, you need to reserve places for d
 </html>
 ```
 
-:::info Pass variables to the layout
-All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
+:::info Pass Variables to the Layout
+All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
 :::
 
-Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
+The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
 
 ## Component
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
@@ -177,7 +197,7 @@ One of the best features of Textwire is the ability to use components. You can c
 ```
 
 :::info Component path alias
-If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
+If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 :::
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
@@ -195,9 +215,14 @@ The second optional argument is a [Textwire object](/docs/v2/language-elements/l
 You can also use slots in components to pass content to the component. Read about slots in the next section.
 
 ## Component Slots
-Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
+Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
 
-There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
+There are two types of slots in Textwire: default slots and named slots.
+
+- **Default Slots**: Use the `@slot` directive to define and pass content to a default slot.
+- **Named Slots**: Use the `@slot("slot-name")` directive to define and pass content to a named slot.
+
+Here’s an example of how to use slots in a component. Consider this component:
 
 ```textwire title="components/book.tw"
 <div class="book">
@@ -210,11 +235,11 @@ There are 2 types of slots in Textwire, default and named slots. To pass and def
 </div>
 ```
 
-We can now use `book.tw.html` component in our Textwire files like this:
+We can now use `book.tw` component in our Textwire files like this:
 
 ```textwire title="home.tw"
 @each(book in books)
-    @component("components/book", { book })
+    @component("~book", { book })
         @slot
             <img src="{{ book.image }}" alt="{{ book.title }}">
         @end
@@ -227,10 +252,16 @@ We can now use `book.tw.html` component in our Textwire files like this:
 @end
 ```
 
-In this example we use default and named slots in a single component. You can use as many slots as you want in a single component as long as names are unique.
+In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
+
+:::info Important Note
+Defining multiple slots with the same name, or defining 2 default slots in a single component will result in an error.
+:::
 
 ## Dump Directive
-`@dump` directive is used for debugging purposes. It will print the value of the passed variables, objects, arrays, etc. to the output. Here is an example of using `@dump` directive:
+The `@dump` directive will feel familiar to [Laravel](https://laravel.com/) and [Symfony](https://symfony.com/) users. It is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v2/language-elements/literals#object), [arrays](/docs/v2/language-elements/literals#array), [strings](/docs/v2/language-elements/literals#string) and other data types to the screen.
+
+Here’s an example of how to use the `@dump` directive:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack", "Jill"] }}

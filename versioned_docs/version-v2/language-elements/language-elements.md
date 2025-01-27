@@ -1,38 +1,50 @@
 ---
 title: Language Elements - v2
 sidebar_label: Language Elements
-sidebar_position: 5
+sidebar_position: 2
 description: Textwire has a simple syntax that is easy to learn
 ---
 
 # Language Elements
-Textwire is designed to be easy to use for Go developers. It has a similar syntax to Go, but it is a separate language and has specific grammar to make it easier to use as a template language.
+Textwire is designed to be intuitive for Go developers, offering a syntax that feels familiar while being tailored specifically for template usage. It's a standalone language with its own grammar designed for simplicity and ease of use.
 
-## Syntax
-Textwire has a simple syntax that is easy to learn. Here are some rules that you need to follow when writing Textwire code:
+## Textwire Syntax
 
-- All the HTML files that you want to parse with Textwire must have a `.tw.html` or `.tw` extension. Default is `.tw.html` but recommended to use `.tw` extension.
-- All the Textwire code must be inside of the `{{ }}` brackets, or start with `@` symbol.
+Textwire’s syntax is straightforward and easy to learn. Below are the key rules for writing Textwire code:
+
+- **File Extensions**: All HTML files intended for Textwire parsing must have a `.tw.html` or `.tw` extension. The default is `.tw.html`, but using the `.tw` extension is recommended.
+- **Code Placement**: All Textwire code must either:
+  - Be enclosed within `{{ }}` brackets, or
+  - Start with the `@` symbol.
 
 :::info VSCode Extension
-If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting, Textwire file icon, autocompletion, and other features for Textwire.
 :::
 
-### Bracket statements
-Bracket statements are special Textwire statements that start with `{{` brackets and end with `}}`. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Bracket statements can be placed anywhere in the file except inside of directives.
+## Directives
+Directives are special Textwire statements that begin with the `@` symbol. They are used to define layouts, insert content into reserved placeholders, and perform logical operations such as conditionals and loops. Directives can only be placed within HTML code and are not allowed inside Bracket statements (`{{` and `}}`).
 
-- If you want multiple expressions inside `{{ }}` brackets, use `;` to separate them. For example: `{{ x = 5; y = 10 }}`.
-- All the bracket statements return a string. For example, `{{ x = 5 }}` will return an empty string, but `{{ 5 + 5 }}` will return "10".
-- There are special bracket statements that need to be closed with `{{ end }}` keyword. For example, [if statement](/docs/v2/language-elements/statements#if-statement) and [for statements](/docs/v2/language-elements/statements#for-loop).
-- To escape `{{ }}` brackets, you can use `\`. For example `\{{ x }}` will not be parsed as a bracket statement but as HTML.
+#### Key Points:
+- **Expressions and Variables**: Directives support Textwire expressions and variables, e.g., `@if(x == 1)` or `@use(layoutName)`.
+- **Closing Directives**: Directives with a body, such as `@if`, `@for`, `@each`, and `@component`, must be closed using the `@end` keyword.
 
-### Directives
-Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of `{{ }}` brackets.
+## Bracket Statements
+Bracket statements are special Textwire constructs that begin with `{{` and end with `}}`. They are used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Bracket statements can be placed anywhere in the file, except within directives.
 
-- To escape directive symbols, you can use `\`. For example `\@if(x == 1)` will not be parsed as a directive but as HTML
-- You can use textwire expressions and variables inside of directives. For example `@if(x == 1)` or `@use(layoutName)`
-- All the directives with body like `@if`, `@for`, `@each`, `@component`, etc. must be closed with `@end` keyword
+#### Key Points:
+- **Multiple Expressions**: Use a semicolon (`;`) to separate multiple expressions inside brackets. For example:
 
+    ```textwire
+    {{ x = 5; y = 10 }}
+    ```
+- **Return Values**: All bracket statements return a string.
+  - Defining a variable like `{{ x = 5 }}` doesn't return anything.
+  - Expressions like `{{ 5 + 5 }}` will return result. In this example it's `"10"`.
+
+## Textwire with JavaScript
+Many JavaScript frameworks and libraries use the `@` symbol or `{{ }}` for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
+
+For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or bracket statements.
 
 ## Types and Literals
 Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
