@@ -177,7 +177,11 @@ All variables passed to the template file are also available in the layout file.
 The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
 
 ## Component
-One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
+The `@component` directive allows you to include reusable components within your templates. Components help organize and structure templates by encapsulating reusable parts of your UI.
+
+To use components in Textwire, create a `components` directory inside your templates and store your component files there. You can then include a component in your template using the `@component` directive.
+
+Here’s a simple example of using a component:
 
 ### Example of a Component
 ```textwire title="components/post-card.tw"
