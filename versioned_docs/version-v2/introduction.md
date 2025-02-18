@@ -6,7 +6,7 @@ description: Get an overview of Textwire, a powerful template evaluator for Go d
 ---
 
 # Introduction
-Textwire is a domain-specific language (DSL) tailored for Go projects, designed to effortlessly embed dynamic content into text-based formats like HTML, XML, and more.
+Textwire is a domain-specific language (DSL) tailored for Go projects, designed to effortlessly embed dynamic content into text-based formats like HTML, XML, JSON or any other text-based format that you can think of.
 
 Built specifically for Go, Textwire offers a clean and intuitive syntax that makes injecting variables and logic into any text-based format simple and efficient.
 
