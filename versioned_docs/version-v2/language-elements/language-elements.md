@@ -14,7 +14,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
 
 - **File Extensions**: All HTML files intended for Textwire parsing must have a `.tw.html` or `.tw` extension. The default is `.tw.html`, but using the `.tw` extension is recommended.
 - **Code Placement**: All Textwire code must either:
-  - Be enclosed within `{{ }}` brackets, or
+  - Be enclosed within `{{ }}` braces, or
   - Start with the `@` symbol.
 
 :::info VSCode Extension
@@ -22,29 +22,29 @@ If you use VSCode code editor, you can use our [VSCode extension](https://market
 :::
 
 ## Directives
-Directives are special Textwire statements that begin with the `@` symbol. They are used to define layouts, insert content into reserved placeholders, and perform logical operations such as conditionals and loops. Directives can only be placed within HTML code and are not allowed inside Bracket statements (`{{` and `}}`).
+Directives are special Textwire statements that begin with the `@` symbol. They are used to define layouts, insert content into reserved placeholders, and perform logical operations such as conditionals and loops. Directives can only be placed within HTML code and are not allowed inside braces statements (`{{` and `}}`).
 
 #### Key Points:
 - **Expressions and Variables**: Directives support Textwire expressions and variables, e.g., `@if(x == 1)` or `@use(layoutName)`.
 - **Closing Directives**: Directives with a body, such as `@if`, `@for`, `@each`, and `@component`, must be closed using the `@end` keyword.
 
-## Bracket Statements
-Bracket statements are special Textwire constructs that begin with `{{` and end with `}}`. They are used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Bracket statements can be placed anywhere in the file, except within directives.
+## Braces Statements
+Braces statements are special Textwire constructs that begin with `{{` and end with `}}`. They are used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Bracket statements can be placed anywhere in the file, except within directives.
 
 #### Key Points:
-- **Multiple Expressions**: Use a semicolon (`;`) to separate multiple expressions inside brackets. For example:
+- **Multiple Expressions**: Use a semicolon (`;`) to separate multiple expressions inside braces. For example:
 
     ```textwire
     {{ x = 5; y = 10 }}
     ```
-- **Return Values**: All bracket statements return a string.
+- **Return Values**: All braces statements return a string.
   - Defining a variable like `{{ x = 5 }}` doesn't return anything.
   - Expressions like `{{ 5 + 5 }}` will return result. In this example it's `"10"`.
 
 ## Textwire with JavaScript
 Many JavaScript frameworks and libraries use the `@` symbol or `{{ }}` for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
 
-For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or bracket statements.
+For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or braces statements.
 
 ## Types and Literals
 Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
