@@ -18,7 +18,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
   - Start with the `@` symbol.
 
 :::info VSCode Extension
-If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting, Textwire file icon, autocompletion, and other features for Textwire.
+If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting, Textwire file icon, autocompletion, and other features for Textwire. Plugin for [Neovim](https://neovim.io/) is coming soon.
 :::
 
 ## Directives
