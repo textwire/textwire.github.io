@@ -39,7 +39,7 @@ As shown, the syntax is clean and intuitive. You can also incorporate else-if co
 ## Why Textwire over other template engines?
 **Textwire is more than just another template engine for Go—it allows you to evaluate strings or files containing Textwire code.** This means you can seamlessly integrate logic into your email templates, markdown files, or any other text-based content.
 
-Additionally, Textwire comes with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) that offers syntax highlighting and icons for Textwire files, making template development even more straightforward.
+Additionally, Textwire comes with a [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) that offers syntax highlighting and icons for Textwire files, making template development even more straightforward. Plugin for [Neovim](https://neovim.io/) is coming soon.
 
 ![Textwire VSCode extension screenshot](./custom-icons.jpg)
 
