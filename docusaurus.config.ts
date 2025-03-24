@@ -90,6 +90,11 @@ const config: Config = {
                     position: 'right',
                 },
                 {
+                    href: 'https://github.com/textwire/textwire.nvim',
+                    label: 'Neovim Plugin',
+                    position: 'right',
+                },
+                {
                     href: 'https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire',
                     label: 'VSCode Extension',
                     position: 'right',

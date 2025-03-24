@@ -17,8 +17,8 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
   - Be enclosed within `{{ }}` braces, or
   - Start with the `@` symbol.
 
-:::info VSCode Extension
-If you use VSCode code editor, you can use our [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting, Textwire file icon, autocompletion, and other features for Textwire. Plugin for [Neovim](https://neovim.io/) is coming soon.
+:::info Syntax Highlighting
+If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
 ## Directives

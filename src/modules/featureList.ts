@@ -29,7 +29,7 @@ const featureList: FeatureItem[] = [
         title: 'Syntax Highlighting',
         Svg: require('@site/static/img/code.svg').default,
         description:
-            'You get syntax highlighting and other features for Textwire in with VSCode extension',
+            'You get syntax highlighting and other features for Textwire using the Neovim plugin and VSCode extension',
     },
     {
         title: 'Good documentation',
