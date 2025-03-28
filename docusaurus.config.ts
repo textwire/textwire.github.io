@@ -85,7 +85,7 @@ const config: Config = {
                     position: 'right',
                 },
                 {
-                    href: 'https://github.com/textwire/textwire/blob/main/CHANGELOG.md',
+                    href: 'https://github.com/textwire/textwire/blob/master/CHANGELOG.md',
                     label: 'Changelog',
                     position: 'right',
                 },
