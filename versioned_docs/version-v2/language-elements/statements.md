@@ -200,6 +200,10 @@ Here’s a simple example of using a component:
 </div>
 ```
 
+:::warning
+Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
+:::
+
 :::info Component path alias
 If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 :::
