@@ -8,16 +8,12 @@ You'll need to have Node and NPM installed on your machine to run it locally.
 
 #### Install Dependencies
 ```bash
-npm i
-# or
-yarn
+npm install
 ```
 
 #### Watch File Changes
 ```bash
 npm start
-# or
-yarn start
 ```
 
 Navigate to `http://localhost:3000` to see your documentation.
