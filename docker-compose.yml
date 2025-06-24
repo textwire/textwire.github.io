@@ -1,0 +1,13 @@
+name: textwire-docs
+
+services:
+    app:
+        image: textwire-docs
+        container_name: textwire-docs
+        build:
+            context: .
+        volumes:
+            - .:/app
+            - /app/node_modules
+        ports:
+            - 3000:3000
