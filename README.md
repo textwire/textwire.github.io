@@ -1,9 +1,8 @@
 # Textwire Documentation
-
 Docs build with [Docusaurus](https://docusaurus.io/).
 
 ## Contribute
-## NPM Commands
+### NPM Commands
 #### Install Dependencies
 ```bash
 npm install
