@@ -15,4 +15,8 @@ export default [
         name: 'cemremengu',
         img: 'https://avatars.githubusercontent.com/u/1297759',
     },
+    {
+        name: 'yaroslav-gwit',
+        img: 'https://avatars.githubusercontent.com/u/62173157',
+    },
 ]
