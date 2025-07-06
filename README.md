@@ -18,43 +18,47 @@ Navigate to `http://localhost:3000` to see your documentation.
 ### With Container Engine
 If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Docker](https://app.docker.com/), here are the steps that you can make:
 
-#### Build an image
+#### Build an Image
 To build an image, navigate to the root of the project and run this command:
-
 ```bash
 docker compose build
 ```
-
 For Podman, use:
-
 ```bash
 podman-compose build
 ```
 
-#### Run the container
-To run a container, navigate to the root of the project and run this command:
+#### Copy `node_modules` Locally
+If you need to copy `node_modules` directory from the container to your local machine, run this command for Docker:
+```bash
+docker cp textwire-docs:/app/node_modules .
+```
+For Podman, run this:
+```bash
+podman cp textwire-docs:/app/node_modules .
+```
 
+> [!NOTE]
+> `node_modules` is excluded from using volume, that's why you need to copy it manually in [docker-compose.yml](docker-compose.yml) file. It's done to prevent your local modules to be copied to Linux container, since it can create incompatibility issues between operating systems if you don't use Linux.
+
+#### Run the Container
+To run a container, navigate to the root of the project and run this command:
 ```bash
 docker compose up -d
 ```
-
 For Podman, use:
-
 ```bash
 podman-compose up -d
 ```
 
 You can visit `http://localhost:3000` to see your documentation. Your files will be auto-compiled to plain JavaScript as you change them.
 
-#### Enter the container
+#### Enter the Container
 To enter inside of the container, run this command:
-
 ```bash
 docker compose exec app sh
 ```
-
 For Podman, use:
-
 ```bash
 podman-compose exec app sh
 ```
@@ -66,13 +70,10 @@ You'll be able to run NPM commands inside of the container.
 
 #### Delete the Container
 After you are done working on a project, you can cleanup by stopping and removing all the running containers for this project.
-
 ```bash
 docker compose down
 ```
-
 For Podman, use:
-
 ```bash
 podman-compose down
 ```
