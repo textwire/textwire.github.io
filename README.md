@@ -21,17 +21,27 @@ If you use a container engine like [🦦 Podman](https://podman.io/) or [🐳 Do
 
 #### Build an image
 To build an image, navigate to the root of the project and run this command:
+
 ```bash
 docker compose build
-# for Podman, use:
+```
+
+For Podman, use:
+
+```bash
 podman-compose build
 ```
 
 #### Run the container
 To run a container, navigate to the root of the project and run this command:
+
 ```bash
 docker compose up -d
-# for Podman, use:
+```
+
+For Podman, use:
+
+```bash
 podman-compose up -d
 ```
 
@@ -39,9 +49,14 @@ You can visit `http://localhost:3000` to see your documentation. Your files will
 
 #### Enter the container
 To enter inside of the container, run this command:
+
 ```bash
 docker compose exec app sh
-# for Podman, use:
+```
+
+For Podman, use:
+
+```bash
 podman-compose exec app sh
 ```
 
@@ -52,8 +67,13 @@ You'll be able to run NPM commands inside of the container.
 
 #### Delete the Container
 After you are done working on a project, you can cleanup by stopping and removing all the running containers for this project.
+
 ```bash
 docker compose down
-# for Podman, use:
+```
+
+For Podman, use:
+
+```bash
 podman-compose down
 ```
