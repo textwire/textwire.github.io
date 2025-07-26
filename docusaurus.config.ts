@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
     title: 'Textwire',
-    tagline: 'Simple yet powerful template language for Go',
+    tagline: 'Easy for you, hard for the parser',
     favicon: 'img/favicon.png',
 
     // Set the production url of your site here

@@ -41,6 +41,16 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
+If you pass `nil` or empty string to the `@if` statement, it will be treated as `false`.
+
+```textwire
+{{ name = nil }}
+
+@if(name)
+    <p>This will not be printed</p>
+@end
+```
+
 ## For Loop
 You can use regular for loops to iterate over an array or a range of numbers.
 
