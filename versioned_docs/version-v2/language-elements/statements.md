@@ -41,7 +41,7 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
-If you pass `nil` or empty string to the `@if` statement, it will be treated as `false`.
+If you pass `nil` or an empty string to the `@if` statement, it will be treated as `false`.
 
 ```textwire
 {{ name = nil }}
