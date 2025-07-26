@@ -85,18 +85,13 @@ const config: Config = {
                     position: 'right',
                 },
                 {
-                    href: 'https://github.com/textwire/textwire/blob/master/CHANGELOG.md',
-                    label: 'Changelog',
-                    position: 'right',
-                },
-                {
                     href: 'https://github.com/textwire/textwire.nvim',
-                    label: 'Neovim Plugin',
+                    label: 'Neovim',
                     position: 'right',
                 },
                 {
                     href: 'https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire',
-                    label: 'VSCode Extension',
+                    label: 'VSCode',
                     position: 'right',
                 },
                 {
