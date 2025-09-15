@@ -19,7 +19,7 @@ Custom function were introduced in Textwire `v2.0.0` by suggestion from [\@joeyj
 :::
 
 ## Defining custom functions
-To define a custom function, you need to create a function in your Go code. Here is an example of defining a `upperLast` function that converts the last character of a string to uppercase:
+To define a custom function, you need to create a function in your Go code. Here is an example of defining an `_upperLast` function that converts the last character of a string to uppercase:
 
 ```go
 package main
@@ -58,7 +58,7 @@ To avoid conflicts with built-in functions, it’s recommended to prefix your cu
 :::
 
 ## Using custom functions
-Here is the example of using the `upperLast` function in Textwire after defining it:
+Here is the example of using the `_upperLast` function in Textwire after defining it:
 
 ```go
 package main
@@ -72,7 +72,7 @@ import (
 )
 
 func main() {
-    err := textwire.RegisterStrFunc("upperLast", func(s string, args ...interface{}) string {
+    err := textwire.RegisterStrFunc("_upperLast", func(s string, args ...interface{}) string {
         runes := []rune(s)
 
         if len(runes) > 0 {
@@ -87,7 +87,7 @@ func main() {
     }
 
     // highlight-start
-    twCode := "<h1>{{ 'hello'.upperLast() }}</h1>"
+    twCode := "<h1>{{ 'hello'._upperLast() }}</h1>"
     output, err := textwire.EvaluateString(twCode, nil)
 
     if err != nil {
