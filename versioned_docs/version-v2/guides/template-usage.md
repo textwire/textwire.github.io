@@ -29,7 +29,7 @@ func main() {
         fmt.Println(err)
     }
 
-    http.HandleFunc("/", homeView)
+    http.HandleFunc("/", homeHandler)
 
     http.ListenAndServe(":8080", nil)
 }
@@ -42,50 +42,11 @@ Non of the configurations are required, because each configuration has a default
 
 In return from the `NewTemplate` function, we get a `Template` object that can be used to evaluate an already parsed template.
 
-## Configuration
-There are a few configurations that you can pass to the `NewTemplate` function to configure the template language. The `NewTemplate` function accepts a `*config.Config` with several properties.
-
-There are cases when you want to override the default file format or the directory where the template files are stored. Here is an example of how you can configure the template language:
-
-```go title="main.go"
-import (
-    "fmt"
-    "net/http"
-
-    "github.com/textwire/textwire/v2"
-    // highlight-next-line
-    "github.com/textwire/textwire/v2/config"
-)
-
-var tpl *textwire.Template
-
-func main() {
-    var err error
-
-    // highlight-start
-    tpl, err = textwire.NewTemplate(&config.Config{
-        TemplateDir: "src/templates",
-        TemplateExt: ".tw", // recommended to use .tw extension
-    })
-    // highlight-end
-
-    if err != nil {
-        fmt.Println(err)
-    }
-
-    http.HandleFunc("/", homeView)
-
-    http.ListenAndServe(":8080", nil)
-}
-```
-
-To read more about the available configurations, visit the [configurations](/docs/v2/guides/configurations) page.
-
 ## Write response to the client
 You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
 
 ```go title="main.go"
-func homeView(w http.ResponseWriter, r *http.Request) {
+func homeHandler(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "home", map[string]interface{}{
         "title":     "Home page",
         "names":     []string{"John", "Jane", "Jack", "Jill"},
@@ -141,3 +102,43 @@ Let's take a look at the example how I would define a `home.tw.html` and then I'
 - Then we insert the content into layout with the HTML body.
 
 You can read more about [use](/docs/v2/language-elements/statements#use-statement), [insert](/docs/v2/language-elements/statements#insert-statement) and [reserve](/docs/v2/language-elements/statements#reserve-statement) statements on the [statements](/docs/v2/language-elements/statements) page if you need more information about the syntax.
+
+## Configuration
+There are a few configurations that you can pass to the `NewTemplate` function to configure the template language. The `NewTemplate` function accepts a `*config.Config` with several properties.
+
+There are cases when you want to override the default file format or the directory where the template files are stored. Here is an example of how you can configure the template language:
+
+```go title="main.go"
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/textwire/textwire/v2"
+    // highlight-next-line
+    "github.com/textwire/textwire/v2/config"
+)
+
+var tpl *textwire.Template
+
+func main() {
+    var err error
+
+    // highlight-start
+    tpl, err = textwire.NewTemplate(&config.Config{
+        TemplateDir: "src/templates",
+        TemplateExt: ".tw", // recommended to use .tw extension
+    })
+    // highlight-end
+
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    http.HandleFunc("/", homeHandler)
+
+    http.ListenAndServe(":8080", nil)
+}
+```
+
+To read more about the available configurations, visit the [configurations](/docs/v2/guides/configurations) page.
+
