@@ -16,6 +16,7 @@ import (
     "net/http"
 
     "github.com/textwire/textwire/v2"
+    "github.com/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template
@@ -23,7 +24,10 @@ var tpl *textwire.Template
 func main() {
     var err error
 
-    tpl, err = textwire.NewTemplate(nil)
+    tpl, err = textwire.NewTemplate(&config.Config{
+        TemplateExt: ".tw",
+        DebugMode:   true,
+    })
 
     if err != nil {
         fmt.Println(err)
@@ -64,10 +68,10 @@ If your template files are not showing up after you've created them and you are 
 :::
 
 ## Layouts
-Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw.html`, `admin.tw.html`, `user.tw.html`.
+Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw`, `admin.tw`, `user.tw`.
 
 ### Reserve space in the layout
-The [reserve](/docs/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me-tw.html` or `contact-us.tw.html`. Here is an example of a layout file:
+The [reserve](/docs/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
 
 ```textwire title="templates/layouts/main.tw"
 <!DOCTYPE html>
@@ -88,7 +92,7 @@ We reserve spaces for the title and content of the page. These reserved spaces c
 ### Insert content into reserved space
 The `insert` statement (directive) is used to insert content into reserved places. Insert statement can be defined in 2 ways, with and without the body. In the example below, we define the insert for "title" without the body, and for "content" with the body.
 
-Let's take a look at the example how I would define a `home.tw.html` and then I'll explain each part of it:
+Let's take a look at the example how I would define a `home.tw` and then I'll explain each part of it:
 
 ```textwire title="templates/home.tw"
 @use("layouts/main")
