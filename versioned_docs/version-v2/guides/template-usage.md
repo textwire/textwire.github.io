@@ -59,6 +59,10 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
+:::info
+If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
+:::
+
 ## Layouts
 Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw.html`, `admin.tw.html`, `user.tw.html`.
 
