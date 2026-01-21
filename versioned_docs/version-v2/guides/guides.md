@@ -1,7 +1,7 @@
 ---
 title: Guides - v2
 sidebar_label: Guides
-sidebar_position: 3
+sidebar_position: 4
 description: Learn how to use Textwire in your Go applications, including importing the package, creating template instances, and more
 ---
 

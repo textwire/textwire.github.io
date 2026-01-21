@@ -1,7 +1,7 @@
 ---
 title: Get Started - v2
 sidebar_label: Get Started
-sidebar_position: 4
+sidebar_position: 3
 description: Learn how to get started with Textwire, a powerful template evaluator for Go developers. Get to know the use cases and installation instructions
 ---
 
