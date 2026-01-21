@@ -25,7 +25,7 @@ func main() {
     var err error
 
     tpl, err = textwire.NewTemplate(&config.Config{
-        TemplateExt: ".tw",
+        TemplateExt: ".tw", // recommended to use .tw extension
         DebugMode:   true,
     })
 
