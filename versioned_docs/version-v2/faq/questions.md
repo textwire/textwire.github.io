@@ -22,7 +22,7 @@ All the non-Textwire specific parts of the text file are not parsed as HTML, XML
 That's why Textwire is fast and efficient, as it only parses the parts that are necessary and leaves the rest as is.
 
 ## Is Textwire a templating engine?
-Textwire is not exactly a templating engine. It is a Domain-specific language (DTO) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
+Textwire is not exactly a templating engine. It is a Domain-specific language (DSL) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
 
 ## Why it's best to prevent visitors of your site from seeing the result of the function output when an error occurs?
 When an error occurs in your function, the output may be incorrect or misleading. Displaying this faulty output to users can result in confusing information, broken layouts, or even unintentionally exposing sensitive data.
