@@ -15,7 +15,7 @@ Textwire is a programming language designed to be used with Go programs. Since G
 
 ### Is Textwire a templating engine?
 ## Is Textwire a templating engine?
-Textwire is not exactly a templating engine. It is a Domain-specific language (DTO) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
+Textwire is not exactly a templating engine. It is a Domain-specific language (DSL) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
 
 ## Usage
 
