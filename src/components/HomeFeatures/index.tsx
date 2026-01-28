@@ -1,7 +1,8 @@
+import React from 'react'
 import Feature from '@site/src/components/HomeFeatures/Feature'
 import featureList from '@site/src/modules/featureList'
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): React.ReactElement {
     return (
         <section className="features">
             <div className="container">

@@ -1,8 +1,8 @@
-import type { JSX } from 'react'
+import React from 'react'
 import Layout from '@theme/Layout'
 import firstContributorsList from '@site/src/modules/firstContributorsList'
 
-export default function Home(): JSX.Element {
+export default function Home(): React.ReactElement {
     return (
         <Layout
             title="Community Heroes"

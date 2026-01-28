@@ -1,7 +1,8 @@
+import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Link from '@docusaurus/Link'
 
-export default function HomepageHeader(): JSX.Element {
+export default function HomepageHeader(): React.ReactElement {
     const { siteConfig } = useDocusaurusContext()
 
     return (
@@ -9,15 +10,15 @@ export default function HomepageHeader(): JSX.Element {
             <div className="container">
                 <img
                     className="hero__logo"
-                    src="/img/logo.png"
+                    src="/img/banner.png"
                     alt="Textwire Logo"
                 />
 
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
 
                 <p className="hero__description">
-                    Dynamic Templating and Scripting language for Go. Ideal for
-                    embedding dynamic content with Go applications
+                    Dynamic Domain-Specific Language for Go.<br />
+                    Ideal for embedding dynamic content with Go applications
                 </p>
 
                 <div className="hero__buttons">
