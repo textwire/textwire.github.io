@@ -39,8 +39,12 @@ const config: Config = {
                             label: 'v2',
                             path: 'v2',
                         },
+                        v3: {
+                            label: 'v3',
+                            path: 'v3',
+                        },
                     },
-                    onlyIncludeVersions: ['v1', 'v2'],
+                    onlyIncludeVersions: ['v1', 'v2', 'v3'],
                 },
                 blog: {
                     showReadingTime: true,

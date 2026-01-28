@@ -17,21 +17,22 @@ export default function HomepageHeader(): React.ReactElement {
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
 
                 <p className="hero__description">
-                    Dynamic Domain-Specific Language for Go.<br />
+                    Dynamic Domain-Specific Language for Go.
+                    <br />
                     Ideal for embedding dynamic content with Go applications
                 </p>
 
                 <div className="hero__buttons">
                     <Link
                         className="button button--primary button--lg"
-                        to="/docs/v2/get-started"
+                        to="/docs/v3/get-started"
                     >
                         Get started
                     </Link>
 
                     <Link
                         className="button button--secondary button--lg"
-                        to="/docs/v2/introduction/"
+                        to="/docs/v3/introduction/"
                     >
                         Introduction
                     </Link>
