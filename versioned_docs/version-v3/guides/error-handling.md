@@ -6,50 +6,82 @@ description: Learn how to handle errors in Textwire, enabling you to identify an
 ---
 
 # Error Handling
-Textwire aims to provide a simple and user-friendly API for developers. However, errors can still occur in your project. This guide will help you understand how to handle errors in Textwire, enabling you to identify and resolve issues effectively.
+Textwire provides a simple and user-friendly API, but errors can still occur during template processing, evaluation, or configuration. This guide covers error handling patterns to help you identify and resolve issues effectively.
 
-## When Do Errors Occur?
-Errors in Textwire can arise from a variety of situations. For instance, calling a non-existent function will result in an error. Regardless of whether you're parsing a string or a file, errors will be returned to your Go code. Below are common scenarios that may lead to errors:
+## Common Error Scenarios
+Errors occur during template processing, evaluation, or configuration. Textwire returns detailed error messages to help identify and resolve issues quickly.
 
 ### Common Error Cases
-- **Incorrect Argument Types**: Passing an argument of the wrong type to a function (e.g., passing an integer to a function that expects a string).
-- **Division by Zero**: Attempting to divide by zero will result in an error.
-- **Undefined Functions**: Using a function that does not exist in Textwire will trigger a detailed error message.
-- **Undefined Variables**: Referencing a variable that has not been defined.
-- **Unsupported Function Calls**: Calling a function on a value type that does not support it.
-- **Undefined `@insert` Statements**: Using an `@insert` with a name that is not defined in the layout file.
-- **Duplicate `@insert` or `@slot` Statements**: Defining the same `@insert` or `@slot` statement multiple times in a layout file with the same name.
-- **Invalid Layout File Paths**: Specifying a layout file path that does not exist, such as `@use('~something')`.
+There are lots of different errors you can get, but here are several of them:
 
-Textwire will return detailed error messages in each of these scenarios, helping you quickly identify and resolve issues in your project.
+- **Incorrect Argument Types**: Passing wrong type arguments to functions (e.g., integer to string function)
+- **Division by Zero**: Attempting division by zero
+- **Undefined Functions**: Using non-existent functions
+- **Undefined Variables**: Referencing undefined variables
+- **Undefined `@insert` Statements**: Using undefined insert names in layouts
+- **Duplicate `@insert` or `@slot` Statements**: Multiple definitions with same name
+- **Invalid Layout File Paths**: Specifying non-existent layout paths like `@use('dir/something')`
 
-## Handling errors in Textwire
-Handling errors in Textwire are handled in you Go code. Let's say you are evaluating a string that contains Textwire code with an incorrect function usage:
+## Error Handling in Go
+Error handling in Textwire occurs in your Go code. Most functions return standard Go `error` types that you handle with typical Go error checking patterns.
+
+### Basic Error Handling
 
 ```go
 inp := "{{ name.split(1) }}"
 
-result, err := textwire.EvaluateString(inp, map[string]interface{}{
-    "name": "Serhii Cho",
+result, err := textwire.EvaluateString(inp, map[string]any{
+    "name": "Amy Adams",
 })
 
 if err != nil {
-    // handle the error
+    // Handle error
+    log.Printf("String evaluation failed: %v", err)
 }
 ```
 
-The [split](/docs/v3/functions/str#split) function requires a string as an argument, not an integer. If an incorrect argument type is passed, Textwire will return an error from the `EvaluateString` function, which you can handle as needed.
+The [split](/docs/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You're going to get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
 
-In the same way you handle errors with evaluating a file or working with templating system.
+### Common Error Handling Patterns
 
-## Error Page
-- **Single File or String Evaluation**: If an error occurs while evaluating a single file or string, the output will be empty.
-- **Templating System**: When using Textwire as a **templating system**, an error page will be rendered instead. This is a static HTML page displayed when an error occurs.
+```go
+// Function registration
+if err := textwire.RegisterStrFunc("_func", fn); err != nil {
+    log.Fatal(err)
+}
 
-The error page is fully customizable, and you can configure its path in the [configuration](/docs/v3/guides/configurations).
+// Template creation
+tpl, err := textwire.NewTemplate(config)
+if err != nil {
+    log.Fatal(err)
+}
 
-:::info
-When an error occurs, we cannot serve you the output to the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this [here in the FAQ section](/docs/v3/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
+// Template evaluation
+result, err := textwire.EvaluateString(input, data)
+if err != nil {
+    log.Printf("Evaluation error: %v", err)
+}
+
+// Web handler
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+    err := tpl.Response(w, "home", data)
+    if err != nil {
+        http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+        log.Printf("Template error: %v", err)
+        return
+    }
+}
+```
+
+## Error Pages
+### Error Behavior
+- **Single File or String Evaluation**: Errors result in empty output
+- **Template System**: Errors render a custom error page instead of content
+
+The error page is fully customizable and configurable via the [configuration](/docs/v3/guides/configurations).
+
+:::info Security Considerations
+When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/docs/v3/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
 :::
 
 ### Error in Production
@@ -62,10 +94,11 @@ When you enable the `DebugMode` in Textwire, you can see the error message in th
 
 ![Error output in Textwire](/img/debug-error-page.png)
 
-### Custom Error Page
-If you want to define your own error page, you can do so by creating a new HTML file and setting the `ErrorPagePath` configuration to the path of the HTML file. You can read about configurations in the [Available Configurations](/docs/v3/guides/configurations#available-configurations) section.
+### Custom Error Pages
+Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/docs/v3/guides/configurations#available-configurations) section.
 
-This is useful when you want to display a custom error message to your users and use your own design for the error page, including the layout usage. For example, you can create a custom error page like this:
+#### Creating a Custom Error Page
+Use layouts and Textwire syntax for your error page:
 
 ```textwire
 @use('~main')
@@ -79,25 +112,28 @@ This is useful when you want to display a custom error message to your users and
 @end
 ```
 
-This file should be saved somewhere in your `templates` directory that you have specified in the configuration by `TemplateDir` key. Recommended to save it in the root of `templates` directory with the name `error-page.tw`.
+Save this file in your `templates` directory, preferably as `error-page.tw`.
 
-Here is the example of how you can set the `ErrorPagePath` configuration:
+#### Configuration Example
 
 ```go
 func main() {
-    // ...
-
     tpl, err = textwire.NewTemplate(&config.Config{
         ErrorPagePath: "error-page",
-        DebugMode:     true,
+        DebugMode:     false,
     })
-
-    // ...
 }
 ```
 
-Since `TemplateDir` is set to `templates` by default, the `ErrorPagePath` will look for the file in the `templates` directory.
+With default `TemplateDir` of `"templates"`, the error page will be loaded from `templates/error-page.tw`.
 
-:::info Custom Page and Debug Mode
-Custom error pages are rendered only when `DebugMode` is set to `false`. Otherwise, the default error page will be displayed.
+:::info Debug Mode Behavior
+Custom error pages render only when `DebugMode` is `false`. Debug mode shows detailed error information instead.
 :::
+
+## Best Practices
+1. **Always check errors** from Textwire functions
+2. **Log errors appropriately** for debugging and monitoring
+3. **Use custom error pages** in production for better user experience
+4. **Enable debug mode** only during development with `os.Getenv("APP_DEBUG")` or something similar
+5. **Handle web errors gracefully** without exposing internal details
