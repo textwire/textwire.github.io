@@ -1,7 +1,7 @@
 ---
 title: Expressions - v3
 sidebar_label: Expressions
-sidebar_position: 3
+sidebar_position: 5
 description: You can find here all the information about expressions in Textwire
 ---
 

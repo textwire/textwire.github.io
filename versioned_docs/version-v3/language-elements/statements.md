@@ -1,7 +1,7 @@
 ---
 title: Statements - v3
 sidebar_label: Statements
-sidebar_position: 2
+sidebar_position: 4
 description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
 ---
 

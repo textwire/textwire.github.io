@@ -1,19 +1,33 @@
 ---
 title: Get Started - v3
 sidebar_label: Get Started
-sidebar_position: 3
-description: Learn how to get started with Textwire, a powerful template evaluator for Go developers. Get to know the use cases and installation instructions
+sidebar_position: 2
+description: Learn how to get started with Textwire DSL for Go, including installation instructions and quick start guide
 ---
 
 # Get Started
-Learn how to get started with Textwire, get installation instructions and requirements.
+This guide will help you get Textwire up and running in your Go project. You'll learn about the requirements, installation process, and how to create your first template.
 
 ## Requirements
-Go `1.13` or higher is required to use Textwire. If you don't have Go installed on your machine, you can download it from the [official Go website](https://golang.org/dl/).
+Go `1.25` or higher is required to use Textwire. If you don't have Go installed on your machine, you can download it from the [official Go website](https://golang.org/dl/).
 
 ## Installation
-Install the Textwire package in your Go environment. You can do this by running the following command:
+Install the Textwire package in your Go environment:
 
 ```bash
 go get -u github.com/textwire/textwire/v3
 ```
+
+## Verification
+To verify that Textwire is installed correctly, you can check the version:
+
+```bash
+go list -m github.com/textwire/textwire/v3
+```
+
+## Next Steps
+Now that you have Textwire installed, explore these resources:
+
+- [Guides](/docs/v3/guides/template-usage) - Discover advanced usage patterns and best practices
+- [Language Elements](/docs/v3/language-elements/) - Learn about Textwire syntax and features
+- [Functions](/docs/v3/functions/) - Explore built-in functions available in templates
