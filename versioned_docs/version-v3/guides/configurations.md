@@ -6,7 +6,7 @@ description: Learn how to setup and configure Textwire in your Go applications
 ---
 
 # Configurations
-Textwire offers several configuration options to customize its behavior. You can apply these settings in two ways:
+Textwire provides several configuration options to customize its behavior. You can apply these settings in two ways:
 
 1. **Using `textwire.Configure`:**
    Call the `textwire.Configure` function to set global configurations for the library.
@@ -30,25 +30,25 @@ func main() {
 }
 ```
 
-In the example above the `TemplateDir` and `TemplateExt` make sense only if you use Textwire as a template engine for your project. For things like evaluating a single Textwire file or a string, you don't need to set these configurations.
+In the example above, `TemplateDir` and `TemplateExt` apply only when using Textwire as a template engine for your project. For evaluating individual Textwire files or strings, these configurations are not required.
 
-All the configurations in Textwire are optional, because each configuration has a default value. Read more about the available configurations below.
+All configurations in Textwire are optional, as each has a default value. Read more about the available configurations below.
 
 ## Available Configurations
-| Property        | Type     | Description of the configuration                                                                     | Default value |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
-| `TemplateDir`   | `string` | The directory where Textwire will look for template files | `"templates"` |
-| `TemplateExt`   | `string` | The extension of the template files | `".tw"` |
-| `ErrorPagePath` | `string` | The relative path to the custom error page. It's relative to the `TemplateDir` directory. Custom error page is displayed only when `DebugMode` is set to `false` | `""` |
-| `DebugMode`     | `bool`   | Is a flag to enable the debug mode. With this mode enabled you can see error messages in the browser. Read about the error handling [here](/docs/v3/guides/error-handling) | `false` |
-| `GlobalData`     | `map[string]any`   | Global data will be available in all Textwire files. Read more [here](#global-data) | `map[string]any{}` |
+| Property        | Type     | Description                                                                                         | Default value |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------- | ------------- |
+| `TemplateDir`   | `string` | The directory where Textwire searches for template files                                            | `"templates"` |
+| `TemplateExt`   | `string` | The file extension for template files                                                                | `".tw"` |
+| `ErrorPagePath` | `string` | The relative path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false` | `""` |
+| `DebugMode`     | `bool`   | A flag that enables debug mode. When enabled, error messages are displayed in the browser. Read more about error handling [here](/docs/v3/guides/error-handling) | `false` |
+| `GlobalData`     | `map[string]any`   | Global data accessible in all Textwire files. Read more [here](#global-data)                      | `map[string]any{}` |
 
-:::warning Losing Extension Features
-If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To retain full extension functionality, change the extension to `.tw` for Textwire files.
+:::warning Extension Compatibility
+If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
 :::
 
 ## Global Data
-Sometimes you need to propagate values from Go code to Textwire and to make it available everywhere. It's useful for environment variables, authenticated user and similar data. You can use the `GlobalData` configuration for this purpose. Here is an example:
+You may need to propagate values from Go code to make them available across all Textwire templates. This is useful for environment variables, authenticated user data, and similar global information. Use the `GlobalData` configuration for this purpose. Here is an example:
 
 ```go title="main.go"
 tpl, err = textwire.NewTemplate(&config.Config{
@@ -64,7 +64,7 @@ if err != nil {
 }
 ```
 
-You can access you global data in any Textwire files using `global` object. Here is an example:
+You can access your global data in any Textwire template using the `global` object. Here is an example:
 
 ```textwire title="home.tw"
 @if(global.env == "development")
@@ -78,4 +78,4 @@ You can access you global data in any Textwire files using `global` object. Here
 @end
 ```
 
-`global` variable is a reserved word and you cannot define variables with this name. Read more about [reserved variables](/docs/v3/introduction#reserved-variable-names).
+The `global` identifier is a reserved word and cannot be used for variable names. Read more about [reserved variables](/docs/v3/introduction#reserved-variable-names).
