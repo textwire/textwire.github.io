@@ -44,7 +44,7 @@ Braces statements are special Textwire constructs that begin with `{{` and end w
 ## Textwire with JavaScript
 Many JavaScript frameworks and libraries use the `@` symbol or `{{ }}` for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
 
-For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or bracesstatements.
+For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or braces statements.
 
 ## Types and Literals
 Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:

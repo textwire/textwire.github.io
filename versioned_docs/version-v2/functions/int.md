@@ -43,6 +43,8 @@ Converts an integer to a float by adding a decimal part of `.0` to the number
 5.0
 ```
 
+The value `0` will be converted to `0.0`.
+
 ## len
 ```ts
 len(): int
