@@ -13,7 +13,7 @@ description: Learn about trailing commas and comments in Textwire, including how
 
 ## Trailing Commas
 
-You can use trailing commas in arrays, objects and function arguments. Here is an example of using trailing commas:
+You can use trailing commas in arrays, objects, and function arguments. Here is an example of using trailing commas:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack",] }}

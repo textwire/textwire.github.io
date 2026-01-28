@@ -23,7 +23,7 @@ You can use string literals and concatenate them with other strings. You can use
 {{ "Hello" + 'World!' }}
 ```
 
-> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/docs/v3/functions/str#raw) function on strings. Example: `{{ "<h1>Test</h1>".raw() }}`
+> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the [raw()](/docs/v3/functions/str#raw) function on strings. Example: `{{ "<h1>Test</h1>".raw() }}`
 
 ## Integer
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:

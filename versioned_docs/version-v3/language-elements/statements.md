@@ -83,7 +83,7 @@ Read more about loops in the [Loops guide](/docs/v3/guides/loops).
 ```
 
 ## Each Loop
-Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
+Each statement is a special form of for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -105,7 +105,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 {{ x = 10 }}
 ```
 
-You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
+You cannot assign values to variables of a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
 :::info Declaration has no output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
