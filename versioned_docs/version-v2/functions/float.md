@@ -11,7 +11,7 @@ description: Explore the various float functions available in Textwire
 abs(): float
 ```
 
-Returns the absolute value of a float. If the float is negative, it will return the positive value of it
+Returns the absolute value of a float. If the float is negative, it will return its positive value
 
 #### Input example
 ```textwire

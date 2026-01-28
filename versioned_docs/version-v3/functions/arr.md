@@ -53,7 +53,7 @@ You can do deep comparison with objects and arrays as well
 {{ obj = { name: 'Anna' }; [obj].contains(obj) }}
 ```
 
-Keep in mind that the order of objects fields doesn't matter in the comparison, but the order of array elements does matter, because each element has a unique index. `[1, 2]` and `[2, 1]` are different arrays.
+Keep in mind that the order of object's fields doesn't matter in the comparison, but the order of array elements does matter, because each element has a unique index. `[1, 2]` and `[2, 1]` are different arrays.
 
 ## join
 ```ts
@@ -186,5 +186,5 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 ```
 
 :::warning No negative arguments
-`start` and `end` arguments cannot be negative. If you provide a negative value for `start`, it will be treated as `0`. If you provide a negative value for `end` or the value will exceed the length of the array, it will default to a value of the last index of the array
+`start` and `end` arguments cannot be negative. If you provide a negative value for `start`, it will be treated as `0`. If you provide a negative value for `end` or the value exceeds the length of the array, it will default to the last index of the array
 :::

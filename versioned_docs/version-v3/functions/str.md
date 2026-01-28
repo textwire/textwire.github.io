@@ -50,7 +50,7 @@ Hello, world!
 contains(substr: str): bool
 ```
 
-Returns true if the string contains the given substring, otherwise false. The function is sase-sensitive, so the substring must match the case of the string
+Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string
 
 #### Arguments
 1. `substr` (str) - The substring to search for
@@ -85,11 +85,11 @@ decimal(separator?: str = ".", decimals?: int = 2): str
 Converts to a string with a decimal part by appending a decimal separator and the number of decimal places. Here are some rules:
 - When the string is not a number, it will return the string as is
 - When the string is already a decimal number, it will return the string as is
-- When the you use on a string, it will return the string as is if it's not a number
+- When you use it on a string, it will return the string as is if it's not a number
 
 #### Arguments
 1. `separator` (str) (optional) - The separator to use for the decimal. Default is `"."`
-2. `decimals` (int) (optional) - The number of decimal places add to the number. Default is `2`
+2. `decimals` (int) (optional) - The number of decimal places to add to the number. Default is `2`
 
 #### Input example
 ```textwire
@@ -106,7 +106,7 @@ Converts to a string with a decimal part by appending a decimal separator and th
 first(): str
 ```
 
-Returns the first character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
 #### Input example
 ```textwire
@@ -123,7 +123,7 @@ T
 last(): str
 ```
 
-Returns the last character of a string. When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
 #### Input example
 ```textwire
@@ -248,7 +248,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 trim(chars?: str = "\t \n\r"): str
 ```
 
-Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
+Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
 #### Arguments
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
@@ -268,7 +268,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 trimLeft(chars?: str = "\t \n\r"): str
 ```
 
-Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
+Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
 #### Arguments
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
@@ -288,7 +288,7 @@ Trims left side of a string from spaces and special characters like tabs, spaces
 trimRight(chars?: str = "\t \n\r"): str
 ```
 
-Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass a argument to trim a specific set of characters from a string
+Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
 #### Arguments
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
