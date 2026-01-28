@@ -8,7 +8,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 # Usage with Templates
 
 ## Simple usage
-To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/docs/v3/guides/configurations) in Textwire.
+To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure Textwire. Read more about [configurations](/docs/v3/guides/configurations).
 
 ```go title="main.go"
 import (
@@ -62,6 +62,18 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
+If you don't want to write directly to response, you can use `String()` method to get the final string:
+
+```go
+out, failure := tpl.String("home", map[string]any{
+    "names":     []string{"John", "Jane", "Jack", "Jill"},
+    "showNames": true,
+    "books":     books,
+})
+```
+
+Keep in mind that `tpl.String()` doesn't return `error`, it returns `*fail.Error`, which is a Textwire wrapper for error.
+
 :::info
 If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
 :::
@@ -70,7 +82,7 @@ If your template files are not showing up after you've created them and you are 
 Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw`, `admin.tw`, `user.tw`.
 
 ### Reserve space in the layout
-The [reserve](/docs/v3/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
+The [@reserve](/docs/v3/language-elements/statements#reserve-statement) directive is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
 
 ```textwire title="templates/layouts/main.tw"
 <!DOCTYPE html>
@@ -89,7 +101,7 @@ The [reserve](/docs/v3/language-elements/statements#reserve-statement) statement
 We reserve spaces for the title and content of the page. These reserved spaces can then be filled with the title and content from other files that use this layout. Read the next section to learn how to insert content into reserved spaces.
 
 ### Insert content into reserved space
-The `insert` statement (directive) is used to insert content into reserved places. Insert statement can be defined in 2 ways, with and without the body. In the example below, we define the insert for "title" without the body, and for "content" with the body.
+The [@insert](/docs/v3/language-elements/statements#insert-statement) directive is used to insert content into reserved places. It can be defined in 2 ways, with and without the body. In the example below, we define the `@insert` for "title" without the body, and for "content" with the body.
 
 Let's take a look at the example how I would define a `home.tw` and then I'll explain each part of it:
 
@@ -108,7 +120,7 @@ Let's take a look at the example how I would define a `home.tw` and then I'll ex
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [use](/docs/v3/language-elements/statements#use-statement), [insert](/docs/v3/language-elements/statements#insert-statement) and [reserve](/docs/v3/language-elements/statements#reserve-statement) statements on the [statements](/docs/v3/language-elements/statements) page if you need more information about the syntax.
+You can read more about [@use](/docs/v3/language-elements/statements#use-statement), [@insert](/docs/v3/language-elements/statements#insert-statement) and [@reserve](/docs/v3/language-elements/statements#reserve-statement) directives on the [statements](/docs/v3/language-elements/statements) page if you need more information about the syntax.
 
 ## Configuration
 There are a few configurations that you can pass to the `NewTemplate` function to configure the template language. The `NewTemplate` function accepts a `*config.Config` with several properties.

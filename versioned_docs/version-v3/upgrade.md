@@ -24,3 +24,8 @@ Run the command `go mod tidy` to update the dependencies in your `go.mod` file
 ```bash
 go mod tidy
 ```
+
+### 3. Rename global variable
+If you have any defined variables called `global`, rename it to something else because this variable is now reserved.
+
+### 4. 

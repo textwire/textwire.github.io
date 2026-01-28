@@ -41,7 +41,41 @@ All the configurations in Textwire are optional, because each configuration has 
 | `TemplateExt`   | `string` | The extension of the template files | `".tw"` |
 | `ErrorPagePath` | `string` | The relative path to the custom error page. It's relative to the `TemplateDir` directory. Custom error page is displayed only when `DebugMode` is set to `false` | `""` |
 | `DebugMode`     | `bool`   | Is a flag to enable the debug mode. With this mode enabled you can see error messages in the browser. Read about the error handling [here](/docs/v3/guides/error-handling) | `false` |
+| `GlobalData`     | `map[string]any`   | Global data will be available in all Textwire files. Read more [here](#global-data) | `map[string]any{}` |
 
 :::warning Losing Extension Features
 If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To retain full extension functionality, change the extension to `.tw` for Textwire files.
 :::
+
+## Global Data
+Sometimes you need to propagate values from Go code to Textwire and to make it available everywhere. It's useful for environment variables, authenticated user and similar data. You can use the `GlobalData` configuration for this purpose. Here is an example:
+
+```go title="main.go"
+tpl, err = textwire.NewTemplate(&config.Config{
+    ErrorPagePath: "error-page",
+    DebugMode:     true,
+    GlobalData: map[string]any{
+        "env":  os.Getenv("APP_ENV"),
+        "auth": auth.User(),
+    },
+})
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+You can access you global data in any Textwire files using `global` object. Here is an example:
+
+```textwire title="home.tw"
+@if(global.env == "development")
+    <p>You are in development mode</p>
+@end
+
+@if(global.auth == nil)
+    <p>Please log in.</p>
+@else
+    <p>Welcome, {{ global.auth.name }}!</p>
+@end
+```
+
+`global` variable is a reserved word and you cannot define variables with this name. Read more about [reserved variables](/docs/v3/introduction#reserved-variable-names).

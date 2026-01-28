@@ -70,3 +70,8 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 :::note
 Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as `<your float>.int()`, `<your int>.float()`, etc.
 :::
+
+## Reserved Variable Names
+Textwire has 2 reserved variable names that you cannot use:
+1. `loop` Object that is used inside loops. [Read more](/docs/v2/guides/loops#loop-variables)
+2. `global` Global object available in all Textwire files. [Read more](/docs/v3/guides/configurations#global-data)
