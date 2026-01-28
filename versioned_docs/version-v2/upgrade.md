@@ -13,8 +13,9 @@ Going from version 1 to version 2 is a simple process. Follow the steps below to
 ### 1. Change the import path
 Change all the imports in your code from `github.com/textwire/textwire` to `github.com/textwire/textwire/v2`
 
-```go
-import "github.com/textwire/textwire/v2"
+```diff
+- import "github.com/textwire/textwire"
++ import "github.com/textwire/textwire/v2"
 ```
 
 ### 2. Update the dependencies
