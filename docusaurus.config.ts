@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic'
 
 const config: Config = {
     title: 'Textwire',
-    tagline: 'Easy for you, hard for the parser',
+    tagline: 'Easy for you, difficult for the parser',
     favicon: 'img/favicon.png',
     url: 'https://textwire.github.io',
     baseUrl: '/',

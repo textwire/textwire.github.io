@@ -44,4 +44,27 @@ Here is a simple example of a Textwire template:
 @end
 ```
 
-Click the "Next" button below to learn more about Language Elements in Textwire.
+## Mathematical Expressions
+Textwire operates similar to Go when it comes to mathematical expressions. You can use the following operators in your templates:
+- Addition: `+` (`a + b`)
+- Subtraction: `-` (`a - b`)
+- Multiplication: `*` (`a * b`)
+- Division: `/` (`a / b`)
+- Modulus: `%` (`a % b`)
+- Parentheses: `()` (`(a + b) * c`)
+- Greater than: `>` (`a > b`)
+- Less than: `<` (`a < b`)
+- Greater than or equal to: `>=` (`a >= b`)
+- Less than or equal to: `<=` (`a <= b`)
+- Equal to: `==` (`a == b`)
+- Not equal to: `!=` (`a != b`)
+- Increment: `++` (`a++`)
+- Decrement: `--` (`a--`)
+- Negation: `-` (`-a`)
+- Logical NOT: `!` (`!a`)
+- Logical AND: `&&` (`a && b`)
+- Logical OR: `||` (`a || b`)
+
+:::note
+You cannot mismatch types when performing mathematical operations. For example, you cannot add an integer to a float directly. You need to convert one of the types to match the other using type conversion functions like `<your float>.int()`, `<your int>.float()`, etc.
+:::

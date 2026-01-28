@@ -12,7 +12,7 @@ Textwire offers several configuration options to customize its behavior. You can
    Call the `textwire.Configure` function to set global configurations for the library.
 
 2. **Passing to `textwire.NewTemplate`:**
-   Pass the configuration directly to the `textwire.NewTemplate` function when creating templates, allowing you to customize behavior on a per-template basis.
+   Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
 ## Setting Configurations
 To learn how to set configurations using `textwire.NewTemplate`, refer to the [Usage with Templates](/docs/v2/guides/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
