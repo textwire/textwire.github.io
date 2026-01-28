@@ -107,6 +107,7 @@ const config: Config = {
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.oneDark,
+            additionalLanguages: ['diff'],
         },
     } satisfies Preset.ThemeConfig,
 
