@@ -1,17 +1,42 @@
 ---
-title: Evaluate a File - v3
+title: Loops - v3
 sidebar_label: Loops Usage
 sidebar_position: 8
 description: Learn how to use different types of loops in Textwire, including 'each' and 'for' loops
 ---
 
 # Loops Usage
-Textwire has two types of loops: [for loop](/docs/v3/language-elements/statements#for-loop) and [each loop](/docs/v3/language-elements/statements#each-loop), you can read about them on their respective pages. Both loops are used to iterate over arrays and have special syntax. In this guide, we will show you extra features of these loops and how to use them.
+Textwire provides two types of loops: [for loop](/docs/v3/language-elements/statements#for-loop) and [each loop](/docs/v3/language-elements/statements#each-loop). Both loops iterate over arrays with special syntax and additional features. This guide covers loop functionality and usage patterns.
+
+## For Loops
+Textwire supports traditional for loops with the syntax `@for(<declaration>; <condition>; <post>)`. All three parameters are optional.
+
+```textwire
+{{ names = ["Ann", "Serhii"] }}
+
+@for(i = 0; i < names.len(); i++)
+    <p>{{ names[i] }}</p>
+@else
+    <p>No names</p>
+@end
+```
+
+## Each Loops
+Each loops provide simplified array iteration with syntax `@each(<declaration> in <array>)`.
+
+```textwire
+{{ names = ["Ann", "Serhii"] }}
+
+@each(name in names)
+    <p>{{ name }}</p>
+@end
+```
 
 ## Break and Continue
-In most programming languages, you can use `break` and `continue` statements to break or continue a loop. Textwire has similar functionality, but it is implemented as directives with the `@` symbol.
+Textwire provides multiple loop control directives:
 
-For convenience, you also have `@breakIf()` and `@continueIf()` directives. They accept a single argument, which is a condition that needs to be met to break or continue the loop. Here is an example:
+### Conditional Break and Continue
+Use `@breakIf()` and `@continueIf()` with a single condition argument.
 
 ```textwire
 @each(num in [0, 1])
@@ -22,17 +47,32 @@ For convenience, you also have `@breakIf()` and `@continueIf()` directives. They
 
 When the condition is `false`, the directive does nothing. When the condition is `true`, the loop is broken or continued.
 
-## Loop Variables
-Inside of every `each` and `for` loop, you have an access to a `loop` object. It allows you to get the current iteration index or other data that is updated on every iteration.
+### Direct Break and Continue
+Use `@break` and `@continue` without conditions for immediate loop control.
 
-For example, `{{ loop.index }}` will return the current iteration index starting from `0`. `{{ loop.first }}` will return `true` if it is the first iteration. Here is a list of all the properties of the `loop` object you can use:
+```textwire
+@each(item in items)
+    @if(item.should_print)
+        <p>{{ item }}</p>
+    @end
+
+    @break
+@end
+```
+
+Direct `@continue` skips to next iteration immediately. Direct `@break` exits the loop entirely.
+
+## Loop Variables
+Both `@for` and `@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration.
+
+Available properties:
 
 | Property | Type    | Description                                |
 | -------- | ------- | ------------------------------------------ |
-| `index`  | Integer | Current index number starting from `0`     |
-| `first`  | Boolean | Is the first item in a loop                |
-| `last`   | Boolean | Is the last item in a loop                 |
-| `iter`   | Integer | Current iteration number starting from `1` |
+| `index`  | int     | Current index number starting from `0`     |
+| `first`  | bool    | Is the first item in a loop or not?        |
+| `last`   | bool    | Is the last item in a loop or not?         |
+| `iter`   | int     | Current iteration number starting from `1` |
 
 ### Example
 ```textwire
@@ -58,10 +98,10 @@ For example, `{{ loop.index }}` will return the current iteration index starting
 </ul>
 ```
 
-It's a very useful feature that removes the need to create additional variables to track the iteration index or other data.
+It's a useful feature that eliminates the need for additional variables to track iteration data.
 
 ## Else Statement
-Optionally, you can use the `@else` statement to render content when the array is empty. It is similar to the `else` statement in the `@if` statement. Here is an example:
+Use `@else` to render content when arrays are empty. This works with both `@for` and `@each` loops. Here is an example:
 
 ```textwire
 @each(name in [])
@@ -71,6 +111,9 @@ Optionally, you can use the `@else` statement to render content when the array i
 @end
 ```
 
-The result will be `<p>No names</p>` because the array is empty. If you remove the `@else` statement, nothing will be rendered.
+When the array is empty, the result is `<p>No names</p>`. Without the `@else` statement, nothing renders when arrays are empty. The same behavior applies to `@for` loops.
 
-With `for` loops, the `@else` statement will behave the same way. The body of the `@else` statement will be rendered when the loop is not executed.
+## Best Practices
+1. **Choose appropriate loop type**: Use `@each` for simple array iteration, `@for` for index-based control
+2. **Handle empty arrays**: Always include `@else` for better user experience
+3. **Use loop variables**: Leverage `loop.first`, and `loop.last` for conditional logic
