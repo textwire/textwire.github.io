@@ -26,7 +26,6 @@ import (
 func main() {
     textwire.Configure(&config.Config{
         TemplateDir: "templates",
-        TemplateExt: ".tw", // recommended to use .tw extension
     })
 }
 ```
@@ -39,14 +38,10 @@ All the configurations in Textwire are optional, because each configuration has 
 | Property        | Type     | Description of the configuration                                                                     | Default value |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------- | ------------- |
 | `TemplateDir`   | `string` | The directory where Textwire will look for template files | `"templates"` |
-| `TemplateExt`   | `string` | The extension of the template files | `".tw.html"` |
+| `TemplateExt`   | `string` | The extension of the template files | `".tw"` |
 | `ErrorPagePath` | `string` | The relative path to the custom error page. It's relative to the `TemplateDir` directory. Custom error page is displayed only when `DebugMode` is set to `false` | `""` |
 | `DebugMode`     | `bool`   | Is a flag to enable the debug mode. With this mode enabled you can see error messages in the browser. Read about the error handling [here](/docs/v3/guides/error-handling) | `false` |
 
-:::info Recommended
-We recommend using the `TemplateExt` setting with the `.tw` extension. The `.tw.html` extension is longer and may be deprecated in future major versions of Textwire.
-:::
-
 :::warning Losing Extension Features
-If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw` or `.tw.html`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To retain full extension functionality, change the extension to `.tw` for Textwire files.
+If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To retain full extension functionality, change the extension to `.tw` for Textwire files.
 :::

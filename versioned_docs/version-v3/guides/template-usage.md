@@ -25,7 +25,6 @@ func main() {
     var err error
 
     tpl, err = textwire.NewTemplate(&config.Config{
-        TemplateExt: ".tw", // recommended to use .tw extension
         DebugMode:   true,
     })
 
@@ -134,7 +133,6 @@ func main() {
     // highlight-start
     tpl, err = textwire.NewTemplate(&config.Config{
         TemplateDir: "src/templates",
-        TemplateExt: ".tw", // recommended to use .tw extension
     })
     // highlight-end
 
