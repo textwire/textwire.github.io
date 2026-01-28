@@ -18,6 +18,8 @@ With Textwire, seamlessly integrate dynamic content into your HTML files, enabli
 
 The syntax is designed to be familiar and easy-to-learn, especially for developers with experience in other template languages. Visit the [Language Elements](/docs/v3/language-elements/) page to explore the full range of available statements and directives for your templates.
 
+## How to use it
+
 You can use Textwire in three versatile ways:
 1. [As a templating engine for web applications](/docs/v3/guides/template-usage)
 2. [To embed dynamic content into a string](/docs/v3/guides/eval-string)
