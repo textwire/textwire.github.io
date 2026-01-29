@@ -17,7 +17,7 @@ For experienced developers, here's the high-level overview:
 - Update file extensions from `.tw.html` to `.tw` (optional)
 - Function call precedence has changed for prefix expressions
 
-Going from version 2 to version 3 is a simple process if you are not using Textwire's inner Lexer and Parser. If you do use Textwire's parser directly, see [this](/docs/v3/upgrade#changes-to-the-parser) section.
+Going from version 2 to version 3 is a simple process but it does involve some breaking changes.
 
 The reason we are doing so many breaking changes in one release is because it's better to do them right now when we don't have lots of people using Textwire. This transition would be much harder with tens of thousands of users than hundreds of users. Thank you for choosing Textwire, we'll do the best job possible to give you the least painful transition experience with detailed guide.
 
@@ -145,5 +145,5 @@ Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't
 You can set any extension for Textwire that you want, refer to [configurations](/docs/v3/guides/configurations) page for more details. But we recommend using `.tw`.
 :::
 
-## Changes to the Parser
-TODO: ignore this section for now
+### Using Parser Directly
+If you are using `parser.ParseProgram()` directly, it was renamed to `parser.Parse()`.
