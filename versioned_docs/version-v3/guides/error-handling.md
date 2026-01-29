@@ -9,10 +9,10 @@ description: Learn how to handle errors in Textwire, enabling you to identify an
 Textwire provides a simple and user-friendly API, but errors can still occur during template processing, evaluation, or configuration. This guide covers error handling patterns to help you identify and resolve issues effectively.
 
 ## Common Error Scenarios
-Errors occur during template processing, evaluation, or configuration. Textwire returns detailed error messages to help identify and resolve issues quickly.
+Textwire returns detailed error messages to help identify and resolve issues quickly.
 
 ### Common Error Cases
-There are lots of different errors you can get, but here are several of them:
+Here are several common error types:
 
 - **Incorrect Argument Types**: Passing wrong type arguments to functions (e.g., integer to string function)
 - **Division by Zero**: Attempting division by zero
@@ -40,7 +40,7 @@ if err != nil {
 }
 ```
 
-The [split](/docs/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You're going to get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
+The [split](/docs/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
 
 ### Common Error Handling Patterns
 
@@ -87,12 +87,12 @@ When errors occur, preventing output display protects against incorrect data bei
 ### Error in Production
 When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
 
-![Error output in Textwire](/img/oops.png)
+![Production error page in Textwire](/img/oops.png)
 
 ### Error with Debug Mode
 When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
 
-![Error output in Textwire](/img/debug-error-page.png)
+![Debug mode error page in Textwire](/img/debug-error-page.png)
 
 ### Custom Error Pages
 Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/docs/v3/guides/configurations#available-configurations) section.
