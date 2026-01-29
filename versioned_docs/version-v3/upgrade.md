@@ -9,7 +9,7 @@ description: Learn how to upgrade your Textwire code from v2 to v3
 ## Upgrading from v2 to v3
 Going from version 2 to version 3 is a simple process if you are not using Textwire's inner Lexer and Parser. If you do use Textwire's parser directly, see [this](/docs/v3/upgrade#changes-to-the-parser) section.
 
-The reason we are doing so many breaking changes in one release is because it's better to do them right now when we don't have lots of people using Textwire. This transition would be much harded with tens of thousands of users than hundreds of users. Thank you for choosing Textwire, we'll do the best job possible to give you the least painful transition experience with detailed guide.
+The reason we are doing so many breaking changes in one release is because it's better to do them right now when we don't have lots of people using Textwire. This transition would be much harder with tens of thousands of users than hundreds of users. Thank you for choosing Textwire, we'll do the best job possible to give you the least painful transition experience with detailed guide.
 
 Follow the steps below to upgrade your Textwire code to v3.
 
@@ -38,7 +38,7 @@ If you have any defined variables called `global`, rename it to something else b
 grep -r "global" ./templates
 ```
 
-Replace `./templates` with the path to your Textwire files. It will show you all the files that you need to modify. If you found any, prefix them with underscore like `_global` and search the `"global"` in your Go files, the part that passes that variable through to Textwire.
+Replace `./templates` with the path to your Textwire files. It will show you all the files that you need to modify. If you found any, prefix them with underscore like `_global` and search for `"global"` in your Go files, in the parts that pass that variable through to Textwire.
 
 ```bash
 grep -r '"global"' ./internal
@@ -49,7 +49,7 @@ Replace `./internal` with the path to your Go code. If you found any values that
 ### 5. Return Type for Custom Functions
 In Textwire v2, custom functions would return the receiver type. For example, if you define a custom function for strings, it would return string. In Textwire v3, custom functions for all types return type `any`, which is an alias to `interface{}`. Check if you have custom functions defined in your Go code.
 
-```bash title="Search custom functions with RegEx
+```bash title="Search custom functions with RegEx"
 grep -r -E "Register(Str|Int|Bool|Float|Arr)Func\(" ./internal
 ```
 
@@ -71,7 +71,7 @@ Textwire v2 has a wrong [precedence](https://en.wikipedia.org/wiki/Order_of_oper
 #### New Precedence Behavior
 Textwire v3 puts higher precedence on function call and in code like this ``{{ !"aaa".contains("a") }}`` it would first evaluate `"aaa".contains("a")` and then apply `!` operator. Check if you use the functions with prefix expressions like `!` and `-` and make sure they returns the result you expect.
 
-Here is the command that will help you to find all functions that might get effected by this change. Only functions that return boolean, integer or float are could be effected by this change. See if any of them have prefix.
+Here is the command that will help you to find all functions that might be affected by this change. Only functions that return boolean, integer or float could be affected by this change. See if any of them have prefix.
 
 ```bash
 grep -r -E "\.(contains|len|rand|abs|float|ceil|floor|int|binary|then)\(" ./internal
@@ -80,8 +80,8 @@ grep -r -E "\.(contains|len|rand|abs|float|ceil|floor|int|binary|then)\(" ./inte
 Replace `./internal` with the path to your Go code.
 
 If you found something like `{{ -numb.floor() }}`, you can fix it in two ways:
-1. **Keep the old vehavior.**  To keep the old behavior just add parenthesis like this `{{ (-numb).floor() }}`.
-2. **To make a proper behavior.**  To make a proper result, you don't need to change anything, just keep `{{ -numb.floor() }}`. It will evaluate `numb.floor()` first and then prepend `-` sign to the result.
+1. **Keep the old behavior.** To keep the old behavior just add parenthesis like this `{{ (-numb).floor() }}`.
+2. **To get the correct behavior.** To get the correct result, you don't need to change anything, just keep `{{ -numb.floor() }}`. It will evaluate `numb.floor()` first and then prepend `-` sign to the result.
 
 ### 7. Changed Default file Extension
 Textwire v2 is using `.tw.html` file extension by default, in v3 this file default file extension was changed to `.tw`. If you use `.tw.html` for your Textwire files, you can resolve this in 2 ways:
@@ -96,7 +96,7 @@ tpl, err = textwire.NewTemplate(&config.Config{
 ```
 
 #### 2. A Long Term Solution
-Rename of Textwire file extensions from `.tw.html` to `.tw` and make sure you don't have `TemplateExt` configuration setup. In Textwire v3 `TemplateExt` is set to `.tw` by default.
+Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't have `TemplateExt` configuration setup. In Textwire v3 `TemplateExt` is set to `.tw` by default.
 
 :::info
 You can set any extension for Textwire that you want, refer to [configurations](/docs/v3/guides/configurations) page for more details. But we recommend using `.tw`.
