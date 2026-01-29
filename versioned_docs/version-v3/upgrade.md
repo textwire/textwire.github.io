@@ -32,6 +32,7 @@ The reason we are doing so many breaking changes in one release is because it's 
 
 ---
 
+## Steps
 Follow the steps below to upgrade your Textwire code to v3.
 
 ### 1. New Import Path
@@ -49,16 +50,12 @@ Run the command `go mod tidy` to update the dependencies in your `go.mod` file
 go mod tidy
 ```
 
----
-
 ### 3. Minimal Go Version is 1.25
 Make sure your Go version is `1.25` or higher.
 
 :::warning Breaking Change
 Applications using Go versions below 1.25 will not work with Textwire v3.
 :::
-
----
 
 ### 4. Global Variable Conflict
 If you have any defined variables called `global`, rename it to something else because this variable is now reserved. You'll get an error if you are trying to use it.
