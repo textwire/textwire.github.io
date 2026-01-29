@@ -141,6 +141,3 @@ Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't
 :::info
 You can set any extension for Textwire that you want, refer to [configurations](/docs/v3/guides/configurations) page for more details. But we recommend using `.tw`.
 :::
-
-### Using Parser Directly
-If you are using `parser.ParseProgram()` directly, it was renamed to `parser.Parse()`.
