@@ -28,7 +28,10 @@ Run the command `go mod tidy` to update the dependencies in your `go.mod` file
 go mod tidy
 ```
 
-### 3. Global Variable Conflict
+### 3. Minimal Go Version is 1.25
+Make sure your Go version is `1.25` or higher.
+
+### 4. Global Variable Conflict
 If you have any defined variables called `global`, rename it to something else because this variable is now reserved. You'll get an error if you are trying to use it.
 
 ```bash title="Recursively search files that contain the word global"
@@ -43,7 +46,7 @@ grep -r '"global"' ./internal
 
 Replace `./internal` with the path to your Go code. If you found any values that you pass to Textwire, replace `"global"` with `"_global"`.
 
-### 4. Return Type for Custom Functions
+### 5. Return Type for Custom Functions
 In Textwire v2, custom functions would return the receiver type. For example, if you define a custom function for strings, it would return string. In Textwire v3, custom functions for all types return type `any`, which is an alias to `interface{}`. Check if you have custom functions defined in your Go code.
 
 ```bash title="Search custom functions with RegEx
@@ -61,7 +64,7 @@ Replace `./internal` with the path to your Go code. If you found any, just chang
 
 The behavior will not change, because your function will still return the same type as it was.
 
-### 5. Precedence Change
+### 6. Precedence Change
 #### Understanding the Problem
 Textwire v2 has a wrong [precedence](https://en.wikipedia.org/wiki/Order_of_operations) for function call operations with prefix expressions. For example, operation like `{{ !"aaa".contains("a") }}` would evaluate `!"aaa"` first and cause an error because you cannot use `!` operator on string.
 
@@ -80,7 +83,7 @@ If you found something like `{{ -numb.floor() }}`, you can fix it in two ways:
 1. **Keep the old vehavior.**  To keep the old behavior just add parenthesis like this `{{ (-numb).floor() }}`.
 2. **To make a proper behavior.**  To make a proper result, you don't need to change anything, just keep `{{ -numb.floor() }}`. It will evaluate `numb.floor()` first and then prepend `-` sign to the result.
 
-### 6. Changed Default file Extension
+### 7. Changed Default file Extension
 Textwire v2 is using `.tw.html` file extension by default, in v3 this file default file extension was changed to `.tw`. If you use `.tw.html` for your Textwire files, you can resolve this in 2 ways:
 
 #### 1. Easy Solution
@@ -100,4 +103,4 @@ You can set any extension for Textwire that you want, refer to [configurations](
 :::
 
 ## Changes to the Parser
-TODO:
+TODO: ignore this section for now
