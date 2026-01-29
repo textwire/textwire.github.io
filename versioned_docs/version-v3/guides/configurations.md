@@ -1,12 +1,12 @@
 ---
-title: Template Configurations - v3
-sidebar_label: Template Configurations
+title: Configurations - v3
+sidebar_label: Configurations
 sidebar_position: 7
 description: Learn how to setup and configure Textwire in your Go applications
 ---
 
-# Template Configurations
-Textwire provides several configuration options to customize its behavior. You can apply these settings in two ways:
+# Configurations
+Textwire provides several configuration options for your templates to customize the behavior. You can apply these settings in two ways:
 
 1. **Using `textwire.Configure`:**
    Call the `textwire.Configure` function to set global configurations for the library.
@@ -15,7 +15,7 @@ Textwire provides several configuration options to customize its behavior. You c
    Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
 :::info
-Configurations can only apply for templates, if you use Textwire as templating system. For simple code executions with [EvaluateString](/docs/v3/guides/eval-string) and [EvaluateFile](/docs/v3/guides/eval-file) configurations are not applied.
+Setting configurations with `Configure` and `NewTemplate` functions are only applied when you use Textwire as templating system. For simple string evaluations with `EvaluateString` or `EvaluateFile` configurations are ignored.
 :::
 
 ## Setting Configurations
