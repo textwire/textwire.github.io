@@ -120,7 +120,7 @@ const config: Config = {
         [
             'docusaurus-lunr-search',
             {
-                excludeRoutes: ['/docs/v1/**'],
+                excludeRoutes: ['/docs/v1/**', '/docs/v2/**'],
                 disableVersioning: true,
             },
         ],
