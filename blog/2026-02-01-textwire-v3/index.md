@@ -76,6 +76,14 @@ err := textwire.RegisterObjFunc("_addProp", func(obj map[string]any, args ...any
 })
 ```
 
+You can now use it in Textwire:
+
+```go
+input := `{{ obj = {name: "Anna"}; obj = obj._addProp("age", 25); obj.age }}`
+result, err := textwire.EvaluateString(input, nil)
+// Result: "25"
+```
+
 ## Improvements
 ### Error Handling
 Improve error handling with [this commit](https://github.com/textwire/textwire/commit/d9442c5d567d788652c03fb8efa6125c93ee5843) when trying to use `@use`, `@insert`, `@reserve` or `@component` directives in simple `EvaluateString` or `EvaluateFile` function calls. These directives are only allowed inside template files with `textwire.NewTemplate`.
