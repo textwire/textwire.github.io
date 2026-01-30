@@ -1,8 +1,10 @@
 import React from 'react'
 import Layout from '@theme/Layout'
 import HomeFeatures from '@site/src/components/HomeFeatures'
+import Introduction from '@site/src/components/Introduction'
 import HomeHeader from '@site/src/components/HomeHeader'
 
+// Home page. Main page.
 export default function Home(): React.ReactElement {
     return (
         <Layout
@@ -12,6 +14,7 @@ export default function Home(): React.ReactElement {
             <HomeHeader />
 
             <main>
+                <Introduction />
                 <HomeFeatures />
             </main>
         </Layout>

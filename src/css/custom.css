@@ -1,4 +1,3 @@
 @import "_variables";
-@import "home/_hero";
-@import "home/_features";
-@import "community/_page";
+@import "home/_index";
+@import "community/_index";

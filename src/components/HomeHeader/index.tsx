@@ -6,7 +6,7 @@ export default function HomepageHeader(): React.ReactElement {
     const { siteConfig } = useDocusaurusContext()
 
     return (
-        <header className="hero">
+        <header className="home-section hero">
             <div className="container">
                 <img
                     className="hero__logo"

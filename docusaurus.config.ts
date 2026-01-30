@@ -99,6 +99,11 @@ const config: Config = {
                     position: 'right',
                 },
                 {
+                    href: 'https://liberapay.com/textwire/',
+                    label: 'Donate',
+                    position: 'right',
+                },
+                {
                     type: 'search',
                     position: 'right',
                 },
