@@ -13,7 +13,7 @@ arr.append(elem: any...): arr
 
 Adds one or more elements to the end of an array and returns a new array
 
-#### Arguments
+#### Arguments:
 - `elem` (any) - Any amount of elements to add to the array
 
 #### Input example:
@@ -22,7 +22,7 @@ Adds one or more elements to the end of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 one, two, three, four
 ```
 
@@ -33,7 +33,7 @@ arr.contains(elem?: any): bool
 
 Returns `true` if the array contains the given element, otherwise `false`
 
-#### Arguments
+#### Arguments:
 1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
 
 #### Input example:
@@ -42,7 +42,7 @@ Returns `true` if the array contains the given element, otherwise `false`
 ```
 
 #### Output:
-```textwire
+```html
 1
 ```
 
@@ -62,7 +62,7 @@ arr.join(separator?: str = ","): str
 
 Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
 
-#### Arguments
+#### Arguments:
 1. `separator` (str) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
 #### Input example:
@@ -71,7 +71,7 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 ```
 
 #### Output:
-```textwire
+```html
 one two
 ```
 
@@ -88,7 +88,7 @@ Returns the length of an array
 ```
 
 #### Output:
-```textwire
+```html
 3
 ```
 
@@ -99,7 +99,7 @@ arr.prepend(elem: any...): arr
 
 Adds one or more elements to the beginning of an array and returns a new array
 
-#### Arguments
+#### Arguments:
 - `elem` (any) - Any amount of elements to add to the array
 
 #### Input example:
@@ -108,7 +108,7 @@ Adds one or more elements to the beginning of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 one, two, three, four
 ```
 
@@ -125,7 +125,7 @@ Returns a random element from the array. The return type depends on the type of 
 ```
 
 #### Output:
-```textwire
+```html
 2
 ```
 
@@ -142,7 +142,7 @@ Reverses the elements of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 3, 2, 1
 ```
 
@@ -159,7 +159,7 @@ Shuffles the elements of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 <!-- The order of the elements will be random -->
 2, 1, 3, 5
 ```
@@ -171,7 +171,7 @@ arr.slice(start: int, end?: int): arr
 
 Returns a portion of an array. The `start` argument is the index at which to begin the slice. The `end` argument is the index at which to end the slice. If `end` is not provided, it slices to the end of the array
 
-#### Arguments
+#### Arguments:
 1. `start` (int) - The index at which to begin the slice
 2. `end` (int) (optional) - The index at which to end the slice
 
@@ -181,7 +181,7 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 ```
 
 #### Output:
-```textwire
+```html
 2, 3
 ```
 

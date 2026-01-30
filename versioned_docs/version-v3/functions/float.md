@@ -13,13 +13,13 @@ float.abs(): float
 
 Returns the absolute value of a float. If the float is negative, it will return its positive value
 
-#### Input example
+#### Input example:
 ```textwire
 {{ -5.125.abs() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5.125
 ```
 
@@ -30,13 +30,13 @@ float.ceil(): int
 
 Returns the rounded up value of a float to the nearest integer
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.125.ceil() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 6
 ```
 
@@ -47,13 +47,13 @@ float.floor(): int
 
 Returns the rounded down value of a float to the nearest integer
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.125.floor() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5
 ```
 
@@ -64,13 +64,13 @@ float.int(): int
 
 Converts a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.5.int() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5
 ```
 
@@ -81,12 +81,12 @@ float.str(): str
 
 Converts a float to a string. It's useful when you want to manipulate the float as a string. For displaying the float, you don't need to use this function, as Textwire automatically converts the float to a string when displaying it
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.125.str() }}
 ```
 
 #### Output
-```textwire
+```html
 5.125
 ```

@@ -2,21 +2,21 @@
 title: Global Functions - v3
 sidebar_label: Global Functions
 sidebar_position: 6
-description: Explore global function available in Textwire
+description: Explore global functions available in Textwire
 ---
 
 # Global Functions
 Global functions are not attached to any specific type like strings or integers, they are globally available everywhere. They are similar to Golang `len()`, `cap()` functions.
 
-This global function that should be used only with variables. It allows you to check if the variable is defined or not to prevent Textwire from creating an error.
+This global function should be used only with variables. It allows you to check if the variable is defined or not to prevent Textwire from creating an error.
 
 ## defined
 ```ts
 defined(arg: any...): bool
 ```
 
-#### Arguments
-- `arg` (any) - Any amount of arguments
+#### Arguments:
+1. `arg` (any) - Any amount of arguments
 
 If you pass more than 1 variable, the function will return `true` if all variables are defined.
 
@@ -31,7 +31,7 @@ Defined
 ```
 
 ### When to Use It?
-You can use it inside of you components when you need to check if variable was passed to the component or not. Here is the example when the `book` variable is required but `author` is optional.
+You can use it inside of your components when you need to check if variable was passed to the component or not. Here is the example when the `book` variable is required but `author` is optional.
 
 ```textwire title="components/book.tw"
 <div class="book">
@@ -47,7 +47,7 @@ You can use it inside of you components when you need to check if variable was p
 ```
 
 ### How it Works with Literal Types
-The function `defined` designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
+The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
 ```textwire
 {{ defined("") ? 'Yes' : 'No' }} <!-- Output: Yes -->
@@ -59,3 +59,6 @@ The function `defined` designed to work with variables, but if you try to call i
 {{ defined([]) ? 'Yes' : 'No' }} <!-- Output: Yes -->
 ```
 
+:::tip Best Practice
+Use `defined()` when working with optional variables in components to avoid runtime errors when the variable is not passed to the template.
+:::

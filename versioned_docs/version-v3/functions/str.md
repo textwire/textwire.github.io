@@ -15,16 +15,16 @@ Returns the character at the given index.
 - When the index is out of bounds, it will return `nil` type, which will be converted to an empty string when rendered in the template
 - When the index is negative, it will count from the end of the string. For example, `-1` will return the last character of the string
 
-#### Arguments
+#### Arguments:
 1. `index` (int) - The index of the character to return. Default is `0`, which returns the first character of the string
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Textwire".at(1) }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 e
 ```
 
@@ -35,13 +35,13 @@ str.capitalize(): str
 
 Capitalizes the first letter of a string
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "hello, world!".capitalize() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 Hello, world!
 ```
 
@@ -52,16 +52,16 @@ str.contains(substr: str): bool
 
 Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string
 
-#### Arguments
+#### Arguments:
 1. `substr` (str) - The substring to search for
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello, World!".contains("World") }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 true
 ```
 
@@ -87,17 +87,17 @@ Converts to a string with a decimal part by appending a decimal separator and th
 - When the string is already a decimal number, it will return the string as is
 - When you use it on a string, it will return the string as is if it's not a number
 
-#### Arguments
+#### Arguments:
 1. `separator` (str) (optional) - The separator to use for the decimal. Default is `"."`
 2. `decimals` (int) (optional) - The number of decimal places to add to the number. Default is `2`
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "123".decimal() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 123.00
 ```
 
@@ -108,13 +108,13 @@ str.first(): str
 
 Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Textwire".first() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 T
 ```
 
@@ -125,13 +125,13 @@ str.last(): str
 
 Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Textwire".last() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 e
 ```
 
@@ -142,13 +142,13 @@ str.len(): int
 
 Returns the length of the string
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello, World!".len() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 13
 ```
 
@@ -159,13 +159,13 @@ str.lower(): str
 
 Converts a string to lowercase
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello, World!".lower() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 hello, world!
 ```
 
@@ -176,13 +176,13 @@ str.raw(): str
 
 Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "<h1>Test</h1>".raw() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 <h1>Test</h1>
 ```
 
@@ -193,16 +193,16 @@ str.repeat(times: int): str
 
 Returns a new string consisting of count copies of the string on which it was called
 
-#### Arguments
+#### Arguments:
 1. `times` (int) - The number of times to repeat the string
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello".repeat(3) }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 HelloHelloHello
 ```
 
@@ -213,13 +213,13 @@ str.reverse(): str
 
 Returns a string with the characters reversed
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "stressed".reverse() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 desserts
 ```
 
@@ -230,16 +230,16 @@ str.split(separator?: str = " "): arr
 
 Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
 
-#### Arguments
+#### Arguments:
 1. `separator` (str) (optional) - What separator to use to split the string. Default is `" "` (space)
 
-#### Input example
+#### Input example:
 ```textwire
 <div>{{ "one two".split(" ") }}</div>
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 <div>one, two</div>
 ```
 
@@ -250,16 +250,16 @@ str.trim(chars?: str = "\t \n\r"): str
 
 Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
-#### Arguments
+#### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example
+#### Input example:
 ```textwire
 <span>{{ " Textwire ".trim() }}</span>
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 <span>Textwire</span>
 ```
 
@@ -270,16 +270,16 @@ str.trimLeft(chars?: str = "\t \n\r"): str
 
 Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
-#### Arguments
+#### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example
+#### Input example:
 ```textwire
 <span>{{ " Textwire".trimLeft() }}</span>
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 <span>Textwire</span>
 ```
 
@@ -290,16 +290,16 @@ str.trimRight(chars?: str = "\t \n\r"): str
 
 Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
 
-#### Arguments
+#### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example
+#### Input example:
 ```textwire
 <span>{{ "Textwire ".trimRight() }}</span>
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 <span>Textwire</span>
 ```
 
@@ -310,17 +310,17 @@ str.truncate(length: int, ellipsis: str = "..."): str
 
 Returns a string truncated to the given length with an optional ellipsis at the end
 
-#### Arguments
+#### Arguments:
 1. `length` (int) - The length to truncate the string to
 2. `ellipsis` (str) (optional) - The ellipsis to append to the truncated string. Default is `"..."`
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello, World!".truncate(5) }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 Hello...
 ```
 
@@ -331,12 +331,12 @@ str.upper(): str
 
 Converts a string to uppercase
 
-#### Input example
+#### Input example:
 ```textwire
 {{ "Hello, World!".upper() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 HELLO, WORLD!
 ```

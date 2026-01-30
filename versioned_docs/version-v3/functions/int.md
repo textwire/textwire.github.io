@@ -13,13 +13,13 @@ int.abs(): int
 
 Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
 
-#### Input example
+#### Input example:
 ```textwire
 {{ -5.abs() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5
 ```
 
@@ -33,13 +33,13 @@ int.float(): float
 
 Converts an integer to a float by adding a decimal part of `.0` to the number
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.float() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5.0
 ```
 
@@ -52,13 +52,13 @@ int.len(): int
 
 Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 12345.len() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5
 ```
 
@@ -69,12 +69,12 @@ int.str(): str
 
 Converts an integer to a string and returns it
 
-#### Input example
+#### Input example:
 ```textwire
 {{ 5.str() }} and {{ -10.str() }}
 ```
 
-#### Output
-```textwire
+#### Output:
+```html
 5 and -10
 ```
