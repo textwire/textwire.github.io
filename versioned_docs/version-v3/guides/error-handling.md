@@ -20,7 +20,7 @@ Here are several common error types:
 - **Undefined Variables**: Referencing undefined variables
 - **Undefined `@insert` Statements**: Using undefined insert names in layouts
 - **Duplicate `@insert` or `@slot` Statements**: Multiple definitions with same name
-- **Invalid Layout File Paths**: Specifying non-existent layout paths like `@use('dir/something')`
+- **Invalid Layout File Paths**: Specifying non-existent layout paths like `@use ('dir/something')`
 
 ## Error Handling in Go
 Error handling in Textwire occurs in your Go code. Most functions return standard Go `error` types that you handle with typical Go error checking patterns.
@@ -101,11 +101,11 @@ Create custom error pages by setting the `ErrorPagePath` configuration. Read mor
 Use layouts and Textwire syntax for your error page:
 
 ```textwire
-@use('~main')
+@use ('~main')
 
-@insert('title', 'About Us')
+@insert ('title', 'About Us')
 
-@insert('content')
+@insert ('content')
     <h1>Oops!</h1>
     <p>Something went wrong.</p>
     <p><a href="/">Go back to home</a></p>

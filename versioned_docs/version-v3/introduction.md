@@ -28,17 +28,17 @@ You can use Textwire in three different ways:
 Below is a simple example of a Textwire template:
 
 ```textwire title="home.tw"
-@use('~main')
+@use ('~main')
 
-@insert('title', 'Welcome to Home Page')
+@insert ('title', 'Welcome to Home Page')
 
-@insert('content')
+@insert ('content')
     <h1>Welcome to Textwire</h1>
         <p>Our team, along with {{ user.name }}, is pleased to welcome you!</p>
 
     <div>
-        @each(book in books)
-            @component('~book', { book })
+        @each (book in books)
+            @component ('~book', { book })
         @else
             <h2>No books found</h2>
         @end

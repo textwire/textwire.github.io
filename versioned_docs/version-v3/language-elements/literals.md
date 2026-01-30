@@ -36,7 +36,7 @@ You can use integer literals and perform arithmetic operations with them. Here i
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```textwire
-@if(nil)
+@if (nil)
     <p>It will not be displayed</p>
 @end
 ```
@@ -56,7 +56,7 @@ Most languages (including Textwire) use **IEEE 754 standard** for floating-point
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
 ```textwire
-@if(true)
+@if (true)
     <p>Is tall</p>
 @end
 ```
@@ -68,9 +68,8 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 {{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
-    @each(name in names)
+    @each (name in names)
         <li>{{ name }}</li>
-        <li>{{ loop.index }}</li> {{-- Index of the current item --}}
     @end
 </ul>
 ```
@@ -84,7 +83,31 @@ You can access values in an array by using an index. Here is an example of acces
     <li>{{ names[0] }}</li> {{-- John --}}
     <li>{{ names[1] }}</li> {{-- Jane --}}
     <li>{{ names[2] }}</li> {{-- Jack --}}
+    <li>{{ names[10] }}</li> {{-- nil --}}
 </ul>
+```
+
+:::info
+Accessing array on non-existant index returns `nil` instead of resulting in error.
+:::
+
+### Best Practices
+Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Here are 2 ways of performing this check:
+
+#### If Statement 
+```textwire
+{{ names = [] }}
+
+@if (names[0] != nil)
+    {{ names[0].upper() }}
+@end
+```
+
+#### Ternary Expression
+```textwire
+{{ names = [] }}
+
+{{ names[0] == nil ? '' : names[0].upper() }}
 ```
 
 ## Object

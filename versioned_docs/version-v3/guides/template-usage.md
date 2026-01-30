@@ -90,10 +90,10 @@ The [@reserve](/docs/v3/language-elements/statements#reserve-statement) directiv
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@reserve("title")</title>
+    <title>@reserve ("title")</title>
 </head>
 <body>
-    @reserve("content")
+    @reserve ("content")
 </body>
 </html>
 ```
@@ -106,11 +106,11 @@ The [@insert](/docs/v3/language-elements/statements#insert-statement) directive 
 Here is an example `home.tw` template:
 
 ```textwire title="templates/home.tw"
-@use("layouts/main")
+@use ("layouts/main")
 
-@insert("title", "Home page")
+@insert ("title", "Home page")
 
-@insert("content")
+@insert ("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
 @end

@@ -9,12 +9,12 @@ description: Learn how to use different types of loops in Textwire, including 'e
 Textwire provides two types of loops: [for loop](/docs/v3/language-elements/statements#for-loop) and [each loop](/docs/v3/language-elements/statements#each-loop). Both loops iterate over arrays with special syntax and additional features. This guide covers loop functionality and usage patterns.
 
 ## For Loops
-Textwire supports traditional for loops with the syntax `@for(<declaration>; <condition>; <post>)`. All three parameters are optional.
+Textwire supports traditional for loops with the syntax `@for (<declaration>; <condition>; <post>)`. All three parameters are optional.
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
 
-@for(i = 0; i < names.len(); i++)
+@for (i = 0; i < names.len(); i++)
     <p>{{ names[i] }}</p>
 @else
     <p>No names</p>
@@ -22,12 +22,12 @@ Textwire supports traditional for loops with the syntax `@for(<declaration>; <co
 ```
 
 ## Each Loops
-Each loops provide simplified array iteration with syntax `@each(<declaration> in <array>)`.
+Each loops provide simplified array iteration with syntax `@each (<declaration> in <array>)`.
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
 
-@each(name in names)
+@each (name in names)
     <p>{{ name }}</p>
 @end
 ```
@@ -36,11 +36,11 @@ Each loops provide simplified array iteration with syntax `@each(<declaration> i
 Textwire provides multiple loop control directives:
 
 ### Conditional Break and Continue
-Use `@breakIf()` and `@continueIf()` with a single condition argument.
+Use `@breakIf ()` and `@continueIf ()` with a single condition argument.
 
 ```textwire
-@each(num in [0, 1])
-    @breakIf(num == 1)
+@each (num in [0, 1])
+    @breakIf (num == 1)
     <p>{{ name }}</p>
 @end
 ```
@@ -51,8 +51,8 @@ When the condition is `false`, the directive does nothing. When the condition is
 Use `@break` and `@continue` without conditions for immediate loop control.
 
 ```textwire
-@each(item in items)
-    @if(item.should_print)
+@each (item in items)
+    @if (item.should_print)
         <p>{{ item }}</p>
     @end
 
@@ -79,7 +79,7 @@ Available properties:
 {{ names = ["Anna", "Serhii", "Vladimir"] }}
 
 <ul>
-    @each(name in names)
+    @each (name in names)
         <li>{{ loop.iter }}. {{ name }}</li>
     @end
 </ul>
@@ -104,7 +104,7 @@ It's a useful feature that eliminates the need for additional variables to track
 Use `@else` to render content when arrays are empty. This works with both `@for` and `@each` loops. Here is an example:
 
 ```textwire
-@each(name in [])
+@each (name in [])
     <p>{{ name }}</p>
 @else
     <p>No names</p>

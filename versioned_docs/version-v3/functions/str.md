@@ -8,7 +8,7 @@ description: Explore the various string functions available in Textwire
 # String Functions
 ## at
 ```ts
-at(index?: int = 0): str
+str.at(index?: int = 0): str
 ```
 
 Returns the character at the given index.
@@ -30,7 +30,7 @@ e
 
 ## capitalize
 ```ts
-capitalize(): str
+str.capitalize(): str
 ```
 
 Capitalizes the first letter of a string
@@ -47,7 +47,7 @@ Hello, world!
 
 ## contains
 ```ts
-contains(substr: str): bool
+str.contains(substr: str): bool
 ```
 
 Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string
@@ -79,7 +79,7 @@ If you want to search for a substring without considering the case, you can use 
 
 ## decimal
 ```ts
-decimal(separator?: str = ".", decimals?: int = 2): str
+str.decimal(separator?: str = ".", decimals?: int = 2): str
 ```
 
 Converts to a string with a decimal part by appending a decimal separator and the number of decimal places. Here are some rules:
@@ -103,7 +103,7 @@ Converts to a string with a decimal part by appending a decimal separator and th
 
 ## first
 ```ts
-first(): str
+str.first(): str
 ```
 
 Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
@@ -120,7 +120,7 @@ T
 
 ## last
 ```ts
-last(): str
+str.last(): str
 ```
 
 Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
@@ -137,7 +137,7 @@ e
 
 ## len
 ```ts
-len(): int
+str.len(): int
 ```
 
 Returns the length of the string
@@ -154,7 +154,7 @@ Returns the length of the string
 
 ## lower
 ```ts
-lower(): str
+str.lower(): str
 ```
 
 Converts a string to lowercase
@@ -171,7 +171,7 @@ hello, world!
 
 ## raw
 ```ts
-raw(): str
+str.raw(): str
 ```
 
 Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks
@@ -188,7 +188,7 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 
 ## repeat
 ```ts
-repeat(times: int): str
+str.repeat(times: int): str
 ```
 
 Returns a new string consisting of count copies of the string on which it was called
@@ -208,7 +208,7 @@ HelloHelloHello
 
 ## reverse
 ```ts
-reverse(): str
+str.reverse(): str
 ```
 
 Returns a string with the characters reversed
@@ -225,7 +225,7 @@ desserts
 
 ## split
 ```ts
-split(separator?: str = " "): arr
+str.split(separator?: str = " "): arr
 ```
 
 Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
@@ -245,7 +245,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 
 ## trim
 ```ts
-trim(chars?: str = "\t \n\r"): str
+str.trim(chars?: str = "\t \n\r"): str
 ```
 
 Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
@@ -265,7 +265,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 
 ## trimLeft
 ```ts
-trimLeft(chars?: str = "\t \n\r"): str
+str.trimLeft(chars?: str = "\t \n\r"): str
 ```
 
 Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
@@ -285,7 +285,7 @@ Trims left side of a string from spaces and special characters like tabs, spaces
 
 ## trimRight
 ```ts
-trimRight(chars?: str = "\t \n\r"): str
+str.trimRight(chars?: str = "\t \n\r"): str
 ```
 
 Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
@@ -305,7 +305,7 @@ Trims right side of a string from spaces and special characters like tabs, space
 
 ## truncate
 ```ts
-truncate(length: int, ellipsis: str = "..."): str
+str.truncate(length: int, ellipsis: str = "..."): str
 ```
 
 Returns a string truncated to the given length with an optional ellipsis at the end
@@ -326,7 +326,7 @@ Hello...
 
 ## upper
 ```ts
-upper(): str
+str.upper(): str
 ```
 
 Converts a string to uppercase

@@ -8,7 +8,7 @@ description: Explore the various boolean functions available in Textwire
 # Boolean Functions
 ## binary
 ```ts
-binary(): int
+bool.binary(): int
 ```
 
 Returns an integer `1` if the receiver is true, `0` otherwise
@@ -27,7 +27,7 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 
 ## then
 ```ts
-then(consequence: any, alternative?: any = nil): any
+bool.then(consequence: any, alternative?: any = nil): any
 ```
 
 Returns the `consequence` if the receiver is true, otherwise returns the `alternative`. The `alternative` is optional and defaults to `nil`

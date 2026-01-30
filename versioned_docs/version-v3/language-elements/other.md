@@ -19,7 +19,7 @@ You can use trailing commas in arrays, objects, and function arguments. Here is 
 {{ names = ["John", "Jane", "Jack",] }}
 {{ person = { "name": "John", "age": 25, } }}
 
-@insert(
+@insert (
     "title",
     "Home page",
 )

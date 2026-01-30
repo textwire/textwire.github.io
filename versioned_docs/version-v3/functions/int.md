@@ -8,7 +8,7 @@ description: Explore the various integer functions available in Textwire
 # Integer Functions
 ## abs
 ```ts
-abs(): int
+int.abs(): int
 ```
 
 Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
@@ -28,7 +28,7 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 
 ## float
 ```ts
-float(): float
+int.float(): float
 ```
 
 Converts an integer to a float by adding a decimal part of `.0` to the number
@@ -47,7 +47,7 @@ The value `0` will be converted to `0.0`.
 
 ## len
 ```ts
-len(): int
+int.len(): int
 ```
 
 Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
@@ -64,7 +64,7 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 
 ## str
 ```ts
-str(): str
+int.str(): str
 ```
 
 Converts an integer to a string and returns it

@@ -8,7 +8,7 @@ description: Explore the various array functions available in Textwire
 # Array Functions
 ## append
 ```ts
-append(elem: any...): arr
+arr.append(elem: any...): arr
 ```
 
 Adds one or more elements to the end of an array and returns a new array
@@ -28,7 +28,7 @@ one, two, three, four
 
 ## contains
 ```ts
-contains(elem?: any): bool
+arr.contains(elem?: any): bool
 ```
 
 Returns `true` if the array contains the given element, otherwise `false`
@@ -57,7 +57,7 @@ Keep in mind that the order of object's fields doesn't matter in the comparison,
 
 ## join
 ```ts
-join(separator?: str = ","): str
+arr.join(separator?: str = ","): str
 ```
 
 Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
@@ -77,7 +77,7 @@ one two
 
 ## len
 ```ts
-len(): int
+arr.len(): int
 ```
 
 Returns the length of an array
@@ -94,7 +94,7 @@ Returns the length of an array
 
 ## prepend
 ```ts
-prepend(elem: any...): arr
+arr.prepend(elem: any...): arr
 ```
 
 Adds one or more elements to the beginning of an array and returns a new array
@@ -114,7 +114,7 @@ one, two, three, four
 
 ## rand
 ```ts
-rand(): any
+arr.rand(): any
 ```
 
 Returns a random element from the array. The return type depends on the type of elements in the array.
@@ -131,7 +131,7 @@ Returns a random element from the array. The return type depends on the type of 
 
 ## reverse
 ```ts
-reverse(): arr
+arr.reverse(): arr
 ```
 
 Reverses the elements of an array and returns a new array
@@ -148,7 +148,7 @@ Reverses the elements of an array and returns a new array
 
 ## shuffle
 ```ts
-shuffle(): arr
+arr.shuffle(): arr
 ```
 
 Shuffles the elements of an array and returns a new array
@@ -166,7 +166,7 @@ Shuffles the elements of an array and returns a new array
 
 ## slice
 ```ts
-slice(start: int, end?: int): arr
+arr.slice(start: int, end?: int): arr
 ```
 
 Returns a portion of an array. The `start` argument is the index at which to begin the slice. The `end` argument is the index at which to end the slice. If `end` is not provided, it slices to the end of the array
