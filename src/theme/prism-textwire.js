@@ -57,7 +57,7 @@ Prism.languages.textwire = Prism.languages.extend('markup', {
     ],
     directive: [
         {
-            pattern: new RegExp(`@(?:${directiveNames})\s*\\([^)]*\\)`, ''),
+            pattern: new RegExp(`@(?:${directiveNames})\\s*\\([^)]*\\)`, ''),
             inside: textwireCode,
         },
         {
