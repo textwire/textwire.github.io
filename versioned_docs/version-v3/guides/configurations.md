@@ -59,7 +59,6 @@ Global data allows you to share values from your Go code across all Textwire tem
 
 ```go title="main.go"
 import (
-    "log"
     "os"
     "github.com/textwire/textwire/v3"
     "github.com/textwire/textwire/v3/config"
