@@ -91,7 +91,14 @@ Improve error handling with [this commit](https://github.com/textwire/textwire/c
 Now, you'll get a clear error message like `@use, @insert, @reserve, @component only allowed in templates` if you try to use them. Previously, the error wasn't clear.
 
 ### Memory Performance
-Improve memory and performance with optimized data structures and reduced memory allocations.
+Improve memory and performance with optimized data structures and reduced memory allocations. Here are the optimizations:
+
+| Improved target | Speed | Memory usage | Allocations |
+|----------|-------|--------|-------------|
+| Function [arr.join()](/docs/v3/functions/arr#join) | ⚡ **18.5× faster** | 💾 **97.8% less** | 📉 **33% fewer** |
+| Tokenizing directives | ⚡ **1.24× faster** | 💾 **46.9% less** | 📉 **84.9% fewer** |
+
+Here is a GitHub [issue](https://github.com/textwire/textwire/issues/59) for `array.join()` if you are interested.
 
 ### Error Messages
 Improved all error messages in [this commit](https://github.com/textwire/textwire/commit/e6b0935af2d7de0469733e12028fc349564584c6) to make them clearer and more straightforward.
