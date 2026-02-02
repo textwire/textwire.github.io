@@ -50,7 +50,7 @@ Use the `Response` method on a `Template` instance to write the evaluated templa
 
 ```go title="main.go"
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-    err := tpl.Response(w, "home", map[string]interface{}{
+    err := tpl.Response(w, "views/home", map[string]interface{}{
         "title":     "Home page",
         "names":     []string{"John", "Jane", "Jack", "Jill"},
         "showNames": true,
@@ -65,7 +65,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 If you prefer not to write directly to the response, use the `String()` method to obtain the final string:
 
 ```go
-out, failure := tpl.String("home", map[string]any{
+out, failure := tpl.String("views/home", map[string]any{
     "names":     []string{"John", "Jane", "Jack", "Jill"},
     "showNames": true,
     "books":     books,
@@ -103,9 +103,9 @@ This layout reserves spaces for the page title and content. These placeholders c
 ### Inserting Content into Reserved Spaces
 The [@insert](/docs/v3/language-elements/statements#insert-statement) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
 
-Here is an example `home.tw` template:
+Here is an example `templates/views/home.tw` template:
 
-```textwire title="templates/home.tw"
+```textwire title="templates/views/home.tw"
 @use ("layouts/main")
 
 @insert ("title", "Home page")

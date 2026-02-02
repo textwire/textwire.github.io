@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '@theme/Layout'
 import HomeFeatures from '@site/src/components/HomeFeatures'
-import Introduction from '@site/src/components/Introduction'
+import HomeIntroduction from '@site/src/components/HomeIntroduction'
 import HomeHeader from '@site/src/components/HomeHeader'
 
 // Home page. Main page.
@@ -14,7 +14,7 @@ export default function Home(): React.ReactElement {
             <HomeHeader />
 
             <main>
-                <Introduction />
+                <HomeIntroduction />
                 <HomeFeatures />
             </main>
         </Layout>

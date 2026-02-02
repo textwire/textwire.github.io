@@ -6,7 +6,7 @@ description: Learn how to evaluate files containing Textwire code in your Go app
 ---
 
 # Evaluating Files
-Use the `EvaluateFile` function to compile and evaluate a file containing Textwire code. The function accepts a file path and a map of variables to inject into the template. This approach is ideal for processing individual template files without setting up a full template engine.
+Use the `EvaluateFile` function to evaluate a file containing Textwire code. The function accepts a file path and a map of variables to inject into the template. This approach is ideal for processing individual template files without setting up a full template engine.
 
 Here is an example:
 

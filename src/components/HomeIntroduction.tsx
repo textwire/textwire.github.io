@@ -63,9 +63,11 @@ export default function HomepageFeatures(): React.ReactElement {
 │       
 ├── components/
 │   └── book.tw
+│       
+├── views/
+│   └── home.tw
 │
-├── error-page.tw
-└── home.tw`
+└── error-page.tw`
 
     const goCode = `package main
 
@@ -89,14 +91,14 @@ func main() {
         fmt.Println(err)
     }
 
-    http.HandleFunc("/", homeView)
+    http.HandleFunc("/", homeHandler)
 
     if err := http.ListenAndServe(":8080", nil); err != nil {
         fmt.Println(err)
     }
 }
 
-func homeView(w http.ResponseWriter, r *http.Request) {
+func homeHandler(w http.ResponseWriter, r *http.Request) {
     vars := map[string]any{
         "books": []struct{ Title, Author, Image string }{
             {"The Great Gatsby", "F. Scott Fitzgerald", "https://placehold.co/400"},
@@ -107,7 +109,7 @@ func homeView(w http.ResponseWriter, r *http.Request) {
         },
     }
 
-    err := tpl.Response(w, "home", vars)
+    err := tpl.Response(w, "views/home", vars)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }

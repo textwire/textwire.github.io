@@ -90,9 +90,6 @@ Improve error handling with [this commit](https://github.com/textwire/textwire/c
 
 Now, you'll get a clear error message like `@use, @insert, @reserve, @component only allowed in templates` if you try to use them. Previously, the error wasn't clear.
 
-#### Unused Files Warning
-Another significant improvement is that now, in v3, Textwire will ignore all `.tw` files that are not included (used) in your program. For example, if you have `templates/components/book.tw` file and you don't use it anywhere, this file will not be parsed and cached. Textwire will give you a warning that this particular file is not used anywhere.
-
 ### Memory Performance
 Improve memory and performance with optimized data structures and reduced memory allocations. Here are the optimizations:
 
