@@ -107,8 +107,8 @@ You can access values in an object by using a key. Here is an example of accessi
 </ul>
 ```
 
-:::tip Case insensitive fields
-**Object fields are case insensitive**. It means that you can access fields in an object by using any case. For example, `{{ user.name.first }}` and `{{ user.Name.First }}` will return the same value. It's done this way for convenience.
+:::tip First Character is Case-Insensitive
+**First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means `{{ user.name.first }}` and `{{ user.Name.First }}` resolve to the same result.
 :::
 
 ### Shorthand property notation
