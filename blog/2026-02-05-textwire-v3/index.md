@@ -107,11 +107,15 @@ Improved all error messages in [this commit](https://github.com/textwire/textwir
 Like any software, Textwire has its share of bugs. We found and fixed several bugs in this release. You can find the list of fixed bugs below.
 
 ### Incorrect File Path
-Fixed incorrect file path in error messages when an error occurs inside the `@insert` directive.
+Fixed incorrect file path in error messages when an error occurs inside the `@insert` directive. It used to point to the wrong file.
 
 ### Function `contains()`
-Fixed `contains` function for strings, `{{ !"aaa".contains("a") }}` now returns correct result.
-Fixed `contains` function for arrays, `{{ ![{}, 21].contains({age: 21}) }}` now returns correct result.
+- Fixed `contains` function for strings, `{{ !"aaa".contains("a") }}` now returns correct result.
+- Fixed `contains` function for arrays, `{{ ![{}, 21].contains({age: 21}) }}` now returns correct result.
+They both used to work incorrect because of incorrect precidence, which was fixed.
+
+### Replace Panic with Error
+Now you will get a proper error when trying to access propery on non object type like `{{ "str".nice }}`. Before, in Textwire v2 you would get a panic with weird error message and long stacktrace.
 
 ## Breaking Changes
 Textwire v3 introduces several breaking changes. We're implementing these changes now rather than later, as it's better to make significant updates when the user base is smaller.
