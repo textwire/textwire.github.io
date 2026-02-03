@@ -36,7 +36,7 @@ You can use integer literals and perform arithmetic operations with them. Here i
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```textwire
-@if (nil)
+@if(nil)
     <p>It will not be displayed</p>
 @end
 ```
@@ -56,7 +56,7 @@ Most languages (including Textwire) use **IEEE 754 standard** for floating-point
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
 ```textwire
-@if (true)
+@if(true)
     <p>Is tall</p>
 @end
 ```
@@ -68,7 +68,7 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 {{ names = ["John", "Jane", "Jack"] }}
 
 <ul>
-    @each (name in names)
+    @each(name in names)
         <li>{{ name }}</li>
     @end
 </ul>
@@ -98,7 +98,7 @@ Always check array access with index for `nil` before using it to prevent using 
 ```textwire
 {{ names = [] }}
 
-@if (names[0] != nil)
+@if(names[0] != nil)
     {{ names[0].upper() }}
 @end
 ```
