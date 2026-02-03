@@ -1,7 +1,7 @@
 ---
 title: String Functions - v3
 sidebar_label: String Functions
-sidebar_position: 2
+sidebar_position: 7
 description: Explore the various string functions available in Textwire
 ---
 

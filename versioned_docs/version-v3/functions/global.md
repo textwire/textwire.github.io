@@ -1,7 +1,7 @@
 ---
 title: Global Functions - v3
 sidebar_label: Global Functions
-sidebar_position: 6
+sidebar_position: 2
 description: Explore global functions available in Textwire
 ---
 
