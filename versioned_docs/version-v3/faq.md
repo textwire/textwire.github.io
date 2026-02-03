@@ -1,11 +1,14 @@
 ---
-title: Questions - v3
-sidebar_label: Questions
-sidebar_position: 2
-description: Find answers to frequently asked questions about Textwire, including its purpose, usage, and how it differs from templating engines
+title: FAQ - v3
+sidebar_label: FAQ
+sidebar_position: 6
+description: Find answers to common questions and helpful tips in our FAQ section. Get quick solutions to common issues and learn more about our services
 ---
 
-# Questions
+# Frequently Asked Questions (FAQ)
+Welcome to our FAQ page, where we address the most common questions and concerns about using Textwire. Whether you’re new to **Textwire** or a seasoned user, the FAQ is designed to provide quick and helpful answers to your most pressing queries.
+
+Here, you’ll find explanations, solutions to common problems, and best practices to make the most of your experience. If you don’t find the answer you’re looking for, feel free to reach out to us by creating an [issue on GitHub](https://github.com/textwire/textwire.github.io/issues/new) and we’ll be happy to help and update the FAQ with your question to help others.
 
 ## What exactly is Textwire?
 Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use template language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
