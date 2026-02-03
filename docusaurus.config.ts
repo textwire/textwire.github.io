@@ -78,7 +78,7 @@ const config: Config = {
                     label: 'Docs',
                 },
                 { to: '/blog', label: 'Blog', position: 'left' },
-                { to: '/community', label: 'Community', position: 'left' },
+                { to: '/support', label: '♥️ Support', position: 'left' },
                 {
                     type: 'docsVersionDropdown',
                     position: 'right',

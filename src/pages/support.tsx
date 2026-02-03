@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '@theme/Layout'
 import { contributors } from '@site/src/modules/contributors'
 
-export default function Community(): React.ReactElement {
+export default function Support(): React.ReactElement {
     return (
         <Layout
             title="Early Stargazers & Community Heroes"
@@ -61,17 +61,23 @@ export default function Community(): React.ReactElement {
                     </div>
                 </section>
 
-                <section>
+                <section className="call-to-action">
                     <p>
-                        Want to support Textwire? Star ⭐️ us on{' '}
-                        <a
-                            href="https://github.com/textwire/textwire"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
+                        To help Textwire continue evolving, we need your support. 
+                        Our goal is $50 per week in total weekly donations to maintain Textwire core,
+                        VSCode and Neovim plugins, LSP server, Tree Sitter parser, and documentation.{' '}
+                        <a href="https://liberapay.com/textwire" target="_blank" rel="noopener noreferrer">
+                            Donate on Liberapay
+                        </a>{' '}
+                        to help us reach this goal.
+                    </p>
+                    
+                    <p>
+                        You can also support us by starring ⭐️ Textwire on{' '}
+                        <a href="https://github.com/textwire/textwire" target="_blank" rel="noopener noreferrer">
                             GitHub
                         </a>{' '}
-                        to help us keep growing.
+                        to help increase visibility and grow our community.
                     </p>
                 </section>
             </main>
