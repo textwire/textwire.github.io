@@ -2,48 +2,58 @@ import React from 'react'
 import Layout from '@theme/Layout'
 import firstContributorsList from '@site/src/modules/firstContributorsList'
 
-export default function Home(): React.ReactElement {
+interface Contributor {
+    name: string
+    img: string
+}
+
+export default function Community(): React.ReactElement {
     return (
         <Layout
-            title="Community Heroes"
-            description="Simple yet powerful template language for Go"
+            title="Early Stargazers & Community Heroes"
+            description="Meet the early supporters who believed in Textwire from the beginning"
         >
             <main className="container community">
-                <h1>People Who Help Shape Textwire ❤️</h1>
+                <section className="community-hero">
+                    <h1>Early Stargazers & Community Heroes ❤️</h1>
 
-                <p>
-                    We owe a huge thanks to the incredible members of our community
-                    who have helped shape Textwire. Your feedback, ideas, and support
-                    have been invaluable. Thank you for being a part of our journey!
-                </p>
+                    <p>
+                        We owe a huge thanks to the early supporters who believed in Textwire from the beginning. 
+                        Your stars, feedback, and enthusiasm have been invaluable in helping us grow this project. 
+                        Thank you for being part of our journey!
+                    </p>
+                </section>
 
-                <p>
-                    This version emphasizes the contributors’ role in shaping
-                    Textwire and acknowledges their importance in the project’s
-                    growth.
-                </p>
-
-                <h2>First People to Contribute to Textwire</h2>
+                <section className="early-stargazers">
+                    <h2>First People to Star Textwire</h2>
 
                 <div className="contributors">
-                    {firstContributorsList.map(({ img, name }) => (
+                    {firstContributorsList.map(({ img, name }: Contributor) => (
                         <a
                             href={`https://github.com/${name}`}
                             key={name}
                             className="contributor"
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Visit ${name}'s GitHub profile`}
                         >
-                            <img src={img} alt={name} />
+                            <img src={img} alt={`${name}'s GitHub avatar`} />
                             <p>{name}</p>
                         </a>
                     ))}
                 </div>
 
-                <p>
-                    If you want to support Textwire, please star ⭐️ us on{' '}
-                    <a href="https://github.com/textwire/textwire">GitHub</a> to
-                    motivate us to keep going.
-                </p>
+                </section>
+
+                <section className="call-to-action">
+                    <p>
+                        Want to support Textwire? Star ⭐️ us on{' '}
+                        <a href="https://github.com/textwire/textwire" target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>{' '}
+                        to help us keep growing.
+                    </p>
+                </section>
             </main>
         </Layout>
     )
