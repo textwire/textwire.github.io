@@ -6,6 +6,7 @@ description: Learn how to setup and configure Textwire in your Go applications
 ---
 
 # Configurations
+
 Textwire provides configuration options to customize template behavior. You can apply these settings in two ways:
 
 1. **Using `textwire.Configure`:**
@@ -15,12 +16,13 @@ Textwire provides configuration options to customize template behavior. You can 
    Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
 :::info
-Setting configurations with `Configure` and `NewTemplate` functions is only applied when you use Textwire as templating system. 
+Setting configurations with `Configure` and `NewTemplate` functions is only applied when you use Textwire as templating system.
 
 For simple string evaluations with `EvaluateString` or `EvaluateFile`, configurations are ignored.
 :::
 
 ## Setting Configurations
+
 For detailed instructions on using `textwire.NewTemplate`, refer to the [Usage with Templates](/docs/v3/guides/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
 
 ```go
@@ -42,19 +44,22 @@ In the example above, `TemplateDir` applies only when using Textwire as a templa
 All Textwire configurations are optional and include sensible default values. Read more about the available configurations below.
 
 ## Available Configurations
-| Property        | Type            | Description                                                                                              | Default value        |
-| --------------- | --------------- | -------------------------------------------------------------------------------------------------------- | -------------------- |
-| `TemplateDir`   | `string`        | The directory where Textwire searches for template files                                                 | `"templates"`        |
-| `TemplateExt`   | `string`        | The file extension for template files                                                                     | `".tw"`              |
-| `ErrorPagePath` | `string`        | The path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false` | `""`                 |
-| `DebugMode`     | `bool`          | A flag that enables debug mode. When enabled, error messages are displayed in the browser. Read more in the [Error Handling guide](/docs/v3/guides/error-handling) | `false`              |
-| `GlobalData`    | `map[string]any`| Global data accessible in all Textwire files. Read more [here](#global-data)                             | `map[string]any{}`   |
+
+| Property        | Type             | Description                                                                                                                                                                              | Default value           |
+| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `TemplateDir`   | `string`         | The directory where Textwire searches for template files.                                                                                                                                | `"templates"`           |
+| `TemplateFS`    | `fs.FS`          | Provides an optional fs.FS filesystem for template access. Use this field to embed templates into your binary using Go's embed package. [Read more](/docs/v3/guides/template-embedding). | `os.DirFS(TemplateDir)` |
+| `TemplateExt`   | `string`         | The file extension for template files.                                                                                                                                                   | `".tw"`                 |
+| `ErrorPagePath` | `string`         | The path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false`.                                           | `""`                    |
+| `DebugMode`     | `bool`           | A flag that enables debug mode. When enabled, error messages are displayed in the browser. Read more in the [Error Handling guide](/docs/v3/guides/error-handling).                      | `false`                 |
+| `GlobalData`    | `map[string]any` | Global data accessible in all Textwire files. [Read more](#global-data).                                                                                                                 | `map[string]any{}`      |
 
 :::warning Extension Compatibility
 If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
 :::
 
 ## Global Data
+
 Global data allows you to share values from your Go code across all Textwire templates. This is useful for environment variables, authenticated user data, and similar global information. Use the `GlobalData` configuration for this purpose. Here is an example:
 
 ```go title="main.go"
