@@ -1,6 +1,6 @@
 ---
-title: "v3 Release Notes"
-description: "Get to know details about the Textwire v3 release by reading the complete release notes"
+title: 'v3 Release Notes'
+description: 'Get to know details about the Textwire v3 release by reading the complete release notes'
 authors: [serhiicho]
 tags: [release]
 ---
@@ -12,15 +12,18 @@ Textwire v3 is one of the most important releases, introducing several significa
 If you are transitioning from Textwire v2, you can follow [this guide](/docs/v3/upgrade) for all the instructions. v3 contains several breaking changes, so make sure you don't miss any parts of the guide.
 
 ### Table of Contents
+
 - [New Features](#new-features)
 - [Improvements](#improvements)
 - [Bug Fixes](#bug-fixes)
 - [Breaking Changes](#breaking-changes)
 
 ## New Features
+
 Textwire v3 brings several new features to the language. Let's explore these features, starting with a new concept in Textwire - global functions.
 
 ### Function `defined`
+
 Textwire v3 introduces the global function [defined()](/docs/v3/functions/global#defined) that returns a boolean value. This function should be used only with variables and allows you to check if a variable is defined to prevent Textwire from creating an error.
 
 ```textwire title="components/header.tw"
@@ -37,6 +40,7 @@ Textwire v3 introduces the global function [defined()](/docs/v3/functions/global
 Here are the commits [0a19b](https://github.com/textwire/textwire/commit/0a19b5b5d6363a2ee9c9827df25026ffab5c2e1e), [f1d3f](https://github.com/textwire/textwire/commit/f1d3fdc0736dd0892aeacfa28b5156cca0c78ac3), [264e7](https://github.com/textwire/textwire/commit/264e7ffc37a1d3bf6344fb99530be2f2b89c2081).
 
 ### Global Data
+
 In v3 you can now pass values from your Go code to any Textwire template using the global object. Here is an example of passing some values:
 
 ```go title="main.go"
@@ -65,6 +69,7 @@ In your templates, you can access global object like this:
 Read more about [Global Data](/docs/v3/guides/configurations#global-data) in our docs, or look at the [commit](https://github.com/textwire/textwire/commit/f156f3fd2175f925652d462d75dc843a396de702).
 
 ### Custom Functions for Object Type
+
 In Textwire v2 you could define [custom functions](/docs/v3/guides/custom-functions) for all types except objects; in v3 you can now do that. This was added with [this commit](https://github.com/textwire/textwire/commit/a225ccacaf0fc9ca62365ebfe7e715de39b067af). Here is a simple example:
 
 ```go
@@ -85,6 +90,7 @@ result, err := textwire.EvaluateString(input, nil)
 ```
 
 ### Embed Templates into Binary
+
 Now, in Textwire v3 you can use Go's embedded package to embed Textwire template files into a final, compiled binary. You can read about how to use this functionality in [our docs](/docs/v3/guides/template-embedding). But it looks something like this:
 
 ```go title="main.go" showLineNumbers
@@ -113,39 +119,46 @@ func main() {
 ```
 
 ## Improvements
+
 ### Error Handling
+
 Improve error handling with [this commit](https://github.com/textwire/textwire/commit/d9442c5d567d788652c03fb8efa6125c93ee5843) when trying to use `@use`, `@insert`, `@reserve` or `@component` directives in simple `EvaluateString` or `EvaluateFile` function calls. These directives are only allowed inside template files with `textwire.NewTemplate`.
 
 Now, you'll get a clear error message like `@use, @insert, @reserve, @component only allowed in templates` if you try to use them. Previously, the error wasn't clear.
 
+Also, improved all error messages in [this commit](https://github.com/textwire/textwire/commit/e6b0935af2d7de0469733e12028fc349564584c6) to make them clearer and more straightforward.
+
 ### Memory Performance
+
 Improve memory and performance with optimized data structures and reduced memory allocations. Here are the optimizations:
 
-| Improved target | Speed | Memory usage | Allocations |
-|----------|-------|--------|-------------|
-| Function [arr.join()](/docs/v3/functions/arr#join) | ⚡ **18.5× faster** | 💾 **97.8% less** | 📉 **33% fewer** |
-| Tokenizing directives | ⚡ **1.24× faster** | 💾 **46.9% less** | 📉 **84.9% fewer** |
+| Improved target                           | Speed               | Memory usage      | Allocations        |
+| ----------------------------------------- | ------------------- | ----------------- | ------------------ |
+| [arr.join()](/docs/v3/functions/arr#join) | ⚡ **18.5× faster** | 💾 **97.8% less** | 📉 **33% fewer**   |
+| Tokenizing directives                     | ⚡ **1.24× faster** | 💾 **46.9% less** | 📉 **84.9% fewer** |
 
 Here is a GitHub [issue](https://github.com/textwire/textwire/issues/59) for `array.join()` if you are interested.
 
-### Error Messages
-Improved all error messages in [this commit](https://github.com/textwire/textwire/commit/e6b0935af2d7de0469733e12028fc349564584c6) to make them clearer and more straightforward.
-
 ## Bug Fixes
+
 Like any software, Textwire has its share of bugs. We found and fixed several bugs in this release. You can find the list of fixed bugs below.
 
 ### Incorrect File Path
+
 Fixed incorrect file path in error messages when an error occurs inside the `@insert` directive. It used to point to the wrong file.
 
 ### Function `contains()`
+
 - Fixed `contains` function for strings, `{{ !"aaa".contains("a") }}` now returns correct result.
 - Fixed `contains` function for arrays, `{{ ![{}, 21].contains({age: 21}) }}` now returns correct result.
-They both used to work incorrect because of incorrect precidence, which was fixed.
+  They both used to work incorrect because of incorrect precidence, which was fixed.
 
 ### Replace Panic with Error
+
 Now you will get a proper error when trying to access propery on non object type like `{{ "str".nice }}`. Before, in Textwire v2 you would get a panic with weird error message and long stacktrace.
 
 ## Breaking Changes
+
 Textwire v3 introduces several breaking changes. We're implementing these changes now rather than later, as it's better to make significant updates when the user base is smaller.
 
 This transition would be much harder with tens of thousands of users than with hundreds. Thank you for choosing Textwire - we'll provide the least painful transition experience with our [detailed upgrade guide](/docs/v3/upgrade).
@@ -155,17 +168,21 @@ I'll discuss each breaking change briefly because they are already explained in 
 :::
 
 ### Custom Functions Return Type
+
 When you define a custom function, it now returns the type `any`. If you have any registered custom functions, make sure to change their return type to `any`.
 
 ### Reserved Variable Name
+
 Variable `global` is now reserved, you cannot use this name for your variables.
 
 ### Precedence Fix
+
 Fixed precedence for prefix expressions and function call expressions. In Textwire v3, function calls now have higher precedence over prefix expressions. Instead of `((!var).func())`, we now have `(!(var.func()))`.
 
 ### Default Extension Change
+
 Changed the default file extension from `.tw.html` to `.tw`. If you still want to support `.tw.html`, add the field `TemplateExt: ".tw.html"` to your configuration in `NewTemplate` or `Configure`. This will behave the same way as in Textwire v2.
 
 ### Minimal Go Version
-In Textwire v3, the minimum supported Go version is now `1.23`. In Textwire v2, it was `1.22.0`.
 
+In Textwire v3, the minimum supported Go version is now `1.25.0`. In Textwire v2, it was `1.22.0`. Upgrade your project to the latest version to use Textwire v3.
