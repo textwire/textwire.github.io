@@ -58,7 +58,7 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
 ```textwire
-@if (x == 1)
+@if(x == 1)
     <p>x is 1</p>
 @end
 ```

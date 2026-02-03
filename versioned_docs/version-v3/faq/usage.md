@@ -21,4 +21,4 @@ Textwire has several directives that you can use anywhere directly in your text 
 </div>
 ```
 
-The space after the directive name is optional; it means that you can write it as `@if (true)` or `@if(true)` or even `@if   (true)` if you want it. But we recommend using no space for consistency and less work for the parser.
+The space after the directive name is optional; it means that you can write it as `@if(true)` or even `@if   (true)` if you want it. But we recommend using no space for consistency and less work for the parser.

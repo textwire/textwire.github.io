@@ -25,7 +25,7 @@ If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https:/
 Directives are special Textwire statements that begin with the `@` symbol. They are used to define layouts, insert content into reserved placeholders, and perform logical operations such as conditionals and loops. Directives can only be placed within template files and are not allowed inside braces statements (`{{` and `}}`).
 
 #### Key Points:
-- **Expressions and Variables**: Directives support Textwire expressions and variables, e.g., `@if (x == 1)` or `@use (layoutName)`.
+- **Expressions and Variables**: Directives support Textwire expressions and variables, e.g., `@if(x == 1)` or `@use(layoutName)`.
 - **Closing Directives**: Directives with a body, such as `@if`, `@for`, `@each`, and `@component`, must be closed using the `@end` keyword.
 
 ## Braces Statements
@@ -43,7 +43,7 @@ Braces statements are special Textwire constructs that begin with `{{` and end w
 ## Textwire with JavaScript
 Many JavaScript frameworks and libraries use the `@` symbol or `{{ }}` for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
 
-For example, `\@if (x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or braces statements.
+For example, `\@if(x == 1)` and `\{{ x = 1 }}` will not be parsed as Textwire directives or braces statements.
 
 ## Types and Literals
 Textwire has a different type system than Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:

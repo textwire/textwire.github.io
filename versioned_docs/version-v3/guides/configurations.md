@@ -77,11 +77,11 @@ tpl, err = textwire.NewTemplate(&config.Config{
 You can access your global data in any Textwire template using the `global` object. Here is an example:
 
 ```textwire title="home.tw"
-@if (global.env == "development")
+@if(global.env == "development")
     <p>You are in development mode</p>
 @end
 
-@if (global.auth == nil)
+@if(global.auth == nil)
     <p>Please log in.</p>
 @else
     <p>Welcome, {{ global.auth.name }}!</p>
