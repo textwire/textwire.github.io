@@ -19,4 +19,8 @@ export default [
         name: 'yaroslav-gwit',
         img: 'https://avatars.githubusercontent.com/u/62173157',
     },
+    {
+        name: 'Ali Jonathan Nabavi',
+        img: 'https://avatars.githubusercontent.com/u/109124',
+    },
 ]
