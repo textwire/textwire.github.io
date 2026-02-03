@@ -3,3 +3,8 @@ export type FeatureItem = {
     Svg: React.ComponentType<React.ComponentProps<'svg'>>
     description: string
 }
+
+export type Contributor = {
+    name: string
+    img: string
+}
