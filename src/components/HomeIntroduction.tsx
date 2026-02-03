@@ -2,11 +2,11 @@ import React from 'react'
 import CodeBlock from '@theme/CodeBlock'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
-import { homeViewTw } from '../modules/textwireCodeExamples/homeViewTw'
-import { bookComponentTw } from '../modules/textwireCodeExamples/bookComponentTw'
-import { layoutBaseTw } from '../modules/textwireCodeExamples/layoutBaseTw'
-import { dirStructure } from '../modules/textwireCodeExamples/dirStructure'
-import { goCode } from '../modules/textwireCodeExamples/goCode'
+import { homeViewTw } from '@site/src/modules/textwireCodeExamples/homeViewTw'
+import { bookComponentTw } from '@site/src/modules/textwireCodeExamples/bookComponentTw'
+import { layoutBaseTw } from '@site/src/modules/textwireCodeExamples/layoutBaseTw'
+import { dirStructure } from '@site/src/modules/textwireCodeExamples/dirStructure'
+import { goCode } from '@site/src/modules/textwireCodeExamples/goCode'
 
 export default function HomepageFeatures(): React.ReactElement {
     return (
