@@ -84,6 +84,34 @@ result, err := textwire.EvaluateString(input, nil)
 // Result: "25"
 ```
 
+### Embed Templates into Binary
+Now, in Textwire v3 you can use Go's embedded package to embed Textwire template files into a final, compiled binary. You can read about how to use this functionality in [our docs](/docs/v3/guides/template-embedding). But it looks something like this:
+
+```go title="main.go" showLineNumbers
+package main
+
+import (
+	"embed"
+
+	"github.com/textwire/textwire/v3"
+	"github.com/textwire/textwire/v3/config"
+)
+
+// highlight-start
+//go:embed templates/*
+var templateFS embed.FS
+// highlight-end
+
+func main() {
+    tpl, err := textwire.NewTemplate(&config.Config{
+        // highlight-next-line
+        TemplateFS:    templateFS,
+    })
+
+    // other logic here ...
+}
+```
+
 ## Improvements
 ### Error Handling
 Improve error handling with [this commit](https://github.com/textwire/textwire/commit/d9442c5d567d788652c03fb8efa6125c93ee5843) when trying to use `@use`, `@insert`, `@reserve` or `@component` directives in simple `EvaluateString` or `EvaluateFile` function calls. These directives are only allowed inside template files with `textwire.NewTemplate`.
