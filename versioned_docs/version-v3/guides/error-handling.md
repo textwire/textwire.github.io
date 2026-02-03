@@ -81,7 +81,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 The error page is fully customizable and configurable via the [configuration](/docs/v3/guides/configurations).
 
 :::info Security Considerations
-When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/docs/v3/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
+When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/docs/v3/faq/questions#why-is-it-best-to-prevent-visitors-from-seeing-function-output-when-an-error-occurs).
 :::
 
 ### Error in Production
