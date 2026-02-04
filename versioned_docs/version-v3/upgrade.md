@@ -159,3 +159,14 @@ Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't
 :::info
 You can set any extension for Textwire that you want, refer to [configurations](/docs/v3/guides/configurations) page for more details. But we recommend using `.tw`.
 :::
+
+### 8. Components Scope Fix
+
+Components in **Textwire v2** would pass variables to their children automatially without manual passing. It was a bug. In **Textwire v3** each component has its scope. You need to pass data manually if you were using this:
+
+```diff
+{{ name = "Anna" }}
+
+- @component('user')
++ @component('user', { name })
+```
