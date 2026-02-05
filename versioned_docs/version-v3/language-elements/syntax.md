@@ -83,9 +83,11 @@ Use a semicolon (`;`) to separate multiple expressions inside braces. For exampl
 ```textwire
 {{ x = 5; y = 10 }}
 ```
+
 ### Return Values
 
 Most braces statements return a string when they contain expressions.
+
 - Defining a variable like `{{ x = 5 }}` doesn't return anything and results in empty string.
 - Expressions like `{{ 5 + 5 }}` will return a result. In this example it's `"10"`.
 
