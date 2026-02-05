@@ -40,7 +40,7 @@ Directives with a body, such as `@if`, `@for`, and `@each`, must be closed using
 
 The space after the directive name is optional; it means that you can write it as `@if(true)` or even `@if   (true)` if you want it. But we recommend using no space for consistency and less work for the parser.
 
-### Hybrit Directives
+### Hybrid Directives
 
 Some directives like `@component`, `@slot` and `@insert` have optional body. For example, you can write `@component('navbar')` without a body or with a body:
 
