@@ -13,13 +13,14 @@ description: Learn about different statements in Textwire, including if statemen
     - [Use Statement](#use-statement) `@use("layouts/main")`
     - [Insert Statement](#insert-statement) `@insert("title", "Home")`
     - [Reserve Statement](#reserve-statement) `@reserve("title")`
-    - [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
-    - [Each Loop](#each-loop) `@each(name in names)`
+    - [For Statement](#for-statement) `@for(i = 0; i < 2; i++)`
+    - [Each Statement](#each-statement) `@each(name in names)`
     - [Component](#component) `@component("components/post-card")`
     - [Component Slots](#component-slots) `@slot('footer')`
     - [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
+
 You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
 Here is an example of using if statements:
 
@@ -51,7 +52,8 @@ If you pass `nil` or an empty string to the `@if` statement, it will be treated 
 @end
 ```
 
-## For Loop
+## For Statement
+
 You can use regular for loops to iterate over an array or a range of numbers.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
@@ -71,6 +73,7 @@ Read more about loops in the [Loops guide](/docs/v3/guides/loops).
 :::
 
 #### Example
+
 ```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
 
@@ -82,8 +85,9 @@ Read more about loops in the [Loops guide](/docs/v3/guides/loops).
 </ul>
 ```
 
-## Each Loop
-Each statement is a special form of for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
+## Each Statement
+
+Each statement is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -98,6 +102,7 @@ Read more about loops in the [Loops guide](/docs/v3/guides/loops).
 :::
 
 ## Variable Declaration
+
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
 ```textwire
@@ -112,6 +117,7 @@ Variable declaration statements are not expressions! They don't return any value
 :::
 
 ## Use Statement
+
 `@use` statements allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
 
 Here is an example of using use statement:
@@ -132,15 +138,15 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
 
 ### Important Notes
 
-### Important Notes
+1. Only **one** `@use` statement is allowed per template file. Defining multiple layouts will cause an error.
 
-- Only **one** `@use` statement is allowed per template file. Defining multiple layouts will cause an error.
     ```textwire
     @use('~main')
     @use('~user')  <!-- ❌ Error -->
     ```
 
-- You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
+2. You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
+
     ```textwire
     @use('~base') <!-- ✅ Recommended -->
 
@@ -148,9 +154,10 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
     @insert('description', 'This is a books example template with Textwire')
     ```
 
-- Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
+3. Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
 ## Insert Statement
+
 The `@insert` statement lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
 
 Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
@@ -173,11 +180,13 @@ The `@insert` statement is optional and accepts two arguments: the name of the r
 All `@insert` statements are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statements in the layout file.
 
 ### Important Notes
-- Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
-- You cannot define multiple `@insert` statements with the same name in a single file. It will result in error.
-- If you define `@insert` statement without defining `@use` statement first, you'll get an error.
+
+1. Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
+2. You cannot define multiple `@insert` statements with the same name in a single file. It will result in error.
+3. If you define `@insert` statement without defining `@use` statement first, you'll get an error.
 
 ## Reserve Statement
+
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
 
 ```textwire title="layouts/main.tw"
@@ -201,6 +210,7 @@ All variables passed to the template file are also available in the layout file.
 The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
 
 ## Component
+
 The `@component` directive allows you to include reusable components within your templates. Components help organize and structure templates by encapsulating reusable parts of your UI.
 
 To use components in Textwire, create a `components` directory inside your templates and store your component files there. You can then include a component in your template using the `@component` directive.
@@ -208,6 +218,7 @@ To use components in Textwire, create a `components` directory inside your templ
 Here’s a simple example of using a component:
 
 ### Example of a Component
+
 ```textwire title="components/post-card.tw"
 <div class="post">
     <h1>{{ post.title }}</h1>
@@ -216,6 +227,7 @@ Here’s a simple example of using a component:
 ```
 
 ### Example of Using a Template
+
 ```textwire title="home.tw"
 <div class="posts">
     @each(post in posts)
@@ -247,12 +259,13 @@ The second optional argument is a [Textwire object](/docs/v3/language-elements/l
 You can also use slots in components to pass content to the component. Read about slots in the next section.
 
 ## Component Slots
+
 Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
 
-There are two types of slots in Textwire: default slots and named slots.
+There are 2 types of slots in Textwire: default slots and named slots.
 
-- **Default Slots**: Use the `@slot` directive to define and pass content to a default slot.
-- **Named Slots**: Use the `@slot("slot-name")` directive to define and pass content to a named slot.
+1. **Default Local Slots**: Use the `@slot` directive to define and pass content to a default slot.
+2. **Named Local Slots**: Use the `@slot("name")` directive to define and pass content to a named slot.
 
 Here’s an example of how to use slots in a component. Consider this component:
 
@@ -269,13 +282,15 @@ Here’s an example of how to use slots in a component. Consider this component:
 
 We can now use `book.tw` component in our Textwire files like this:
 
-```textwire title="home.tw"
+```textwire title="views/home.tw"
 @each(book in books)
     @component("~book", { book })
+        <!-- default slot -->
         @slot
             <img src="{{ book.image }}" alt="{{ book.title }}">
         @end
 
+        <!-- named slot -->
         @slot('footer')
             <small>published by {{ book.author }}</small>
             <button>Read more</button>
@@ -286,12 +301,14 @@ We can now use `book.tw` component in our Textwire files like this:
 
 In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
 
-:::info Important Note
-Defining multiple slots with the same name, or defining 2 default slots in a single component will result in an error.
-:::
+### Important Notes
+
+1. Defining multiple slots with the same name in a single component will result in an error.
+2. Defining multiple default slots in a single component will result in an error.
 
 ## Dump Directive
-The `@dump` directive will feel familiar to [Laravel](https://laravel.com/) and [Symfony](https://symfony.com/) users. It is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v3/language-elements/literals#object), [arrays](/docs/v3/language-elements/literals#array), [strings](/docs/v3/language-elements/literals#string) and other data types to the screen.
+
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v3/language-elements/literals#object), [arrays](/docs/v3/language-elements/literals#array), [strings](/docs/v3/language-elements/literals#string) and other data types to the screen.
 
 Here’s an example of how to use the `@dump` directive:
 
@@ -306,6 +323,7 @@ The output would look like something like this:
 <img src="/img/dump-names.png" title="Dump output in Textwire" width="150" />
 
 ### Works with Different Types
+
 Similarly, you can print objects and other types of data:
 
 ```textwire
@@ -324,6 +342,7 @@ Similarly, you can print objects and other types of data:
 <img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
 
 ### Dump Multiple Objects
+
 `@dump` directive can accept an endless amount arguments at once:
 
 ```textwire
