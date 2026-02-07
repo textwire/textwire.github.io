@@ -120,13 +120,7 @@ Here is an example of using use statement:
 @use("layouts/main")
 ```
 
-Or, you can use a path alias like this:
-
-```textwire
-@use("~main")
-```
-
-:::info Use statement Path alias
+:::info Use Statement Path Alias
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
@@ -136,8 +130,23 @@ The `@use` statement accepts a string literal as its argument. This string liter
 When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
 :::
 
+### Important Notes
+
+- If you try to defined multiple `@use` statements in a single file, it will result in an error. You can only use one layout per template file.
+    ```textwire
+    @use('~main')
+    @use('~user')  <!-- ❌ Results in ERROR -->
+    ```
+- You can define `@use` statement anywhere in your template file. However, we recommend defining it as a first line in the file for better readability and to avoid confusion.
+    ```textwire
+    @use('~base') <!-- ✅ Recommended -->
+
+    @insert('title', 'Home Page')
+    @insert('description', 'This is a books example template with Textwire')
+    ```
+
 ## Insert Statement
-The `@insert` statement lets you inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
+The `@insert` statement lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
 
 Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
 
@@ -156,12 +165,12 @@ Below is an example demonstrating two scenarios for the `@insert` statement with
 
 The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
 
-All `@insert` statements are evaluated within the layout file, where they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statement.
+All `@insert` statements are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statements in the layout file.
 
-:::info Important Notes
+### Important Notes
 - Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
-- You cannot define multiple `@insert` statements with the same name in a single file.
-:::
+- You cannot define multiple `@insert` statements with the same name in a single file. It will result in error.
+- If you define `@insert` statement without defining `@use` statement first, you'll get an error.
 
 ## Reserve Statement
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
