@@ -170,3 +170,9 @@ Components in **Textwire v2** would pass variables to their children automatiall
 - @component('user')
 + @component('user', { name })
 ```
+
+### 9. Variable Leak Fix
+
+Fixed variable leak from template to layout non-explicitly. In Textwire v2, if you had a variable in your template, it would be accessible in your layout without passing it explicitly. In Textwire v3, this is not available anymore.
+
+If you were utilizing this behavior, you can fix it by using [Global Data](/docs/v3/guides/configurations#global-data). Use it to pass variables into all of your Textwire files.

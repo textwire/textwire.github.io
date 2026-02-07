@@ -126,6 +126,9 @@ func main() {
 - Now, you'll get a clear error message like `@use, @insert, @reserve, @component only allowed in templates` if you try to use them. Previously, the error wasn't clear.
 - Improved all error messages in [this commit](https://github.com/textwire/textwire/commit/e6b0935af2d7de0469733e12028fc349564584c6) to make them clearer and more straightforward.
 - You'll get a proper error instead of panic when you try to use `@each(item in false)` directive on non-array type.
+- You'll get a clear error when using 2 or more `@use` statements in the same template.
+
+There are much more improvements to error handling in this release, so make sure to [upgrade](/docs/v3/upgrade) to version 3.
 
 ### 2. Memory Performance
 
@@ -221,3 +224,9 @@ Components in **Textwire v2** would pass variables to their children automatiall
 - @component('user')
 + @component('user', { name })
 ```
+
+### 7. Variable Leak Fix
+
+Fixed variable leak from template to layout non-explicitly. In Textwire v2, if you had a variable in your template, it would be accessible in your layout without passing it explicitly. In Textwire v3, this is not available anymore.
+
+Use the [Global Data](/docs/v3/guides/configurations#global-data) to pass variables into all of your Textwire files.
