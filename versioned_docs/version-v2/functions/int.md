@@ -64,7 +64,7 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 
 ## str
 ```ts
-str(): string
+str(): str
 ```
 
 Converts an integer to a string and returns it

@@ -8,7 +8,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 # Usage with Templates
 
 ## Simple usage
-To use Textwire as a template language, you need to import the `github.com/textwire/textwire` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/docs/v2/guides/configurations) in Textwire.
+To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/docs/v2/guides/configurations) in Textwire.
 
 ```go title="main.go"
 import (

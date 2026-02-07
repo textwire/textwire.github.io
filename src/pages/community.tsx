@@ -1,49 +1,85 @@
+import type { Contributor } from '@site/src/types'
 import React from 'react'
 import Layout from '@theme/Layout'
-import firstContributorsList from '@site/src/modules/firstContributorsList'
+import { contributors } from '@site/src/modules/contributors'
 
-export default function Home(): React.ReactElement {
+export default function Support(): React.ReactElement {
     return (
         <Layout
-            title="Community Heroes"
-            description="Simple yet powerful template language for Go"
+            title="Early Stargazers & Community Heroes"
+            description="Meet the early supporters who believed in Textwire from the beginning"
         >
             <main className="container community">
-                <h1>People Who Help Shape Textwire ❤️</h1>
-
-                <p>
-                    We owe a huge thanks to the incredible members of our community
-                    who have helped shape Textwire. Your feedback, ideas, and support
-                    have been invaluable. Thank you for being a part of our journey!
-                </p>
-
-                <p>
-                    This version emphasizes the contributors’ role in shaping
-                    Textwire and acknowledges their importance in the project’s
-                    growth.
-                </p>
-
-                <h2>First People to Contribute to Textwire</h2>
-
-                <div className="contributors">
-                    {firstContributorsList.map(({ img, name }) => (
+                <section>
+                    <h1>Meet the Creator</h1>
+                    <p>
+                        I'm{' '}
                         <a
-                            href={`https://github.com/${name}`}
-                            key={name}
-                            className="contributor"
+                            href="https://serhiicho.com/about-me"
                             target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            <img src={img} alt={name} />
-                            <p>{name}</p>
+                            SerhiiCho
                         </a>
-                    ))}
-                </div>
+                        , and I fell in love with Go in 2019. That's when I started
+                        investing my time in the language and noticed something was
+                        missing. Other templating systems didn't give me the joy of
+                        writing frontend code that I was looking for. Textwire is my
+                        answer - one of those small lego bricks that completes the Go
+                        ecosystem's templating landscape.
+                    </p>
+                </section>
 
-                <p>
-                    If you want to support Textwire, please star ⭐️ us on{' '}
-                    <a href="https://github.com/textwire/textwire">GitHub</a> to
-                    motivate us to keep going.
-                </p>
+                <section>
+                    <h2>Early Stargazers & Community Heroes ❤️</h2>
+
+                    <p>
+                        We owe a huge thanks to the early supporters who believed in
+                        Textwire from the beginning. Your stars, feedback, and
+                        enthusiasm have been invaluable in helping us grow this
+                        project. Thank you for being part of our journey!
+                    </p>
+                </section>
+
+                <section>
+                    <h2>First People to Star Textwire</h2>
+
+                    <div className="contributors">
+                        {contributors.map(({ img, name }: Contributor) => (
+                            <a
+                                href={`https://github.com/${name}`}
+                                key={name}
+                                className="contributor"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Visit ${name}'s GitHub profile`}
+                            >
+                                <img src={img} alt={`${name}'s GitHub avatar`} />
+                                <p>{name}</p>
+                            </a>
+                        ))}
+                    </div>
+                </section>
+
+                <section className="call-to-action">
+                    <p>
+                        To help Textwire continue evolving, we need your support. 
+                        Our goal is $50 per week in total weekly donations to maintain Textwire core,
+                        VSCode and Neovim plugins, LSP server, Tree Sitter parser, and documentation.{' '}
+                        <a href="https://liberapay.com/textwire" target="_blank" rel="noopener noreferrer">
+                            Donate on Liberapay
+                        </a>{' '}
+                        to help us reach this goal.
+                    </p>
+                    
+                    <p>
+                        You can also support us by starring ⭐️ Textwire on{' '}
+                        <a href="https://github.com/textwire/textwire" target="_blank" rel="noopener noreferrer">
+                            GitHub
+                        </a>{' '}
+                        to help increase visibility and grow our community.
+                    </p>
+                </section>
             </main>
         </Layout>
     )

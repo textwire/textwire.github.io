@@ -39,8 +39,12 @@ const config: Config = {
                             label: 'v2',
                             path: 'v2',
                         },
+                        v3: {
+                            label: 'v3',
+                            path: 'v3',
+                        },
                     },
-                    onlyIncludeVersions: ['v1', 'v2'],
+                    onlyIncludeVersions: ['v1', 'v2', 'v3'],
                 },
                 blog: {
                     showReadingTime: true,
@@ -74,7 +78,7 @@ const config: Config = {
                     label: 'Docs',
                 },
                 { to: '/blog', label: 'Blog', position: 'left' },
-                { to: '/community', label: 'Community', position: 'left' },
+                { to: '/community', label: '♥️ Support', position: 'left' },
                 {
                     type: 'docsVersionDropdown',
                     position: 'right',
@@ -103,6 +107,7 @@ const config: Config = {
         prism: {
             theme: prismThemes.github,
             darkTheme: prismThemes.oneDark,
+            additionalLanguages: ['diff', 'bash'],
         },
     } satisfies Preset.ThemeConfig,
 
@@ -110,7 +115,7 @@ const config: Config = {
         [
             'docusaurus-lunr-search',
             {
-                excludeRoutes: ['/docs/v1/**'],
+                excludeRoutes: ['/docs/v1/**', '/docs/v2/**'],
                 disableVersioning: true,
             },
         ],
