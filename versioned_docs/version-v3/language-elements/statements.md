@@ -132,18 +132,23 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
 
 ### Important Notes
 
-- If you try to defined multiple `@use` statements in a single file, it will result in an error. You can only use one layout per template file.
+### Important Notes
+
+- Only **one** `@use` statement is allowed per template file. Defining multiple layouts will cause an error.
     ```textwire
     @use('~main')
-    @use('~user')  <!-- ❌ Results in ERROR -->
+    @use('~user')  <!-- ❌ Error -->
     ```
-- You can define `@use` statement anywhere in your template file. However, we recommend defining it as a first line in the file for better readability and to avoid confusion.
+
+- You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
     ```textwire
     @use('~base') <!-- ✅ Recommended -->
 
     @insert('title', 'Home Page')
     @insert('description', 'This is a books example template with Textwire')
     ```
+
+- Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
 ## Insert Statement
 The `@insert` statement lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
