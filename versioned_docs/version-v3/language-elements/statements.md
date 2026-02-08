@@ -7,17 +7,16 @@ description: Learn about different statements in Textwire, including if statemen
 
 # Statements
 
-- Statements
-    - [If Statement](#if-statement) `@if(x == 1)`
-    - [Variable Declaration](#variable-declaration) `{{ x = 5 }}`
-    - [Use Statement](#use-statement) `@use("layouts/main")`
-    - [Insert Statement](#insert-statement) `@insert("title", "Home")`
-    - [Reserve Statement](#reserve-statement) `@reserve("title")`
-    - [For Statement](#for-statement) `@for(i = 0; i < 2; i++)`
-    - [Each Statement](#each-statement) `@each(name in names)`
-    - [Component](#component) `@component("components/post-card")`
-    - [Component Slots](#component-slots) `@slot('footer')`
-    - [Dump Directive](#dump-directive) `@dump(users, page)`
+- [If Statement](#if-statement) `@if(x == 1)`
+- [Variable Declaration](#variable-declaration) `{{ x = 5 }}`
+- [Use Statement](#use-statement) `@use("layouts/main")`
+- [Insert Statement](#insert-statement) `@insert("title", "Home")`
+- [Reserve Statement](#reserve-statement) `@reserve("title")`
+- [For Statement](#for-statement) `@for(i = 0; i < 2; i++)`
+- [Each Statement](#each-statement) `@each(name in names)`
+- [Component](#component) `@component("components/post-card")`
+- [Component Slots](#component-slots) `@slot('footer')`
+- [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
 
@@ -236,17 +235,13 @@ Here’s a simple example of using a component:
 </div>
 ```
 
-:::warning
-Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
-:::
-
 :::info Component path alias
 If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 :::
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is a [Textwire object](/docs/v3/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
+The second optional argument is an [object](/docs/v3/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
 
 ```textwire title="home.tw"
 <ul>
@@ -256,7 +251,10 @@ The second optional argument is a [Textwire object](/docs/v3/language-elements/l
 </ul>
 ```
 
-You can also use slots in components to pass content to the component. Read about slots in the next section.
+### Imporant Notes
+1. You can include layout file into components using [`@use`](/docs/v3/language-elements/statements#use-statement) statement, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+2. Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
+3. You can use [slots](/docs/v3/language-elements/statements#component-slots) in components to pass content to the component file.
 
 ## Component Slots
 
