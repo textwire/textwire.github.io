@@ -41,6 +41,6 @@ Or:
 ```
 
 ## Suggest a new function
-New functions are added in new version of Textwire when there is a need for them. You can follow the updates in our [Release Notes](https://github.com/textwire/textwire/blob/main/CHANGELOG.md) on GitHub.
+New functions are added in new version of Textwire when there is a need for them. You can follow the updates in our [Release Notes](https://github.com/textwire/textwire/blob/master/CHANGELOG.md) on GitHub.
 
 If you have a suggestion for a new function that might benefit everybody using Textwire, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub or email me at <a mailto="serhiicho@protonmail.com">serhiicho@protonmail.com</a> and I will consider adding it in the next version. A quick suggestion in a single paragraph is enough.
