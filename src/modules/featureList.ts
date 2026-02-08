@@ -3,39 +3,33 @@ import type { FeatureItem } from '@site/src/types'
 const featureList: FeatureItem[] = [
     {
         title: 'Security',
-        Svg: require('@site/static/img/secure.svg').default,
         description:
-            'Textwire is designed to be secure by default, preventing code injection attacks when printing user-generated content',
+            'Built with security-first design, Textwire prevents code injection and common vulnerabilities by default',
     },
     {
         title: 'Flexibility',
-        Svg: require('@site/static/img/layouts.svg').default,
         description:
-            'Textwire allows you to define custom functions and components, giving you the flexibility to create complex templates with ease',
+            'Textwire allows you to define custom functions, components, layouts, and custom error pages, giving you the flexibility to create complex templates with ease',
     },
     {
         title: 'Performance',
-        Svg: require('@site/static/img/fast.svg').default,
         description:
             'Textwire is fast and has a low memory footprint, making it load pages quickly. The parsing is done at application startup, so there is no overhead during runtime',
     },
     {
-        title: 'Error handling',
-        Svg: require('@site/static/img/error.svg').default,
+        title: 'Error Handling',
         description:
             'Textwire provides detailed error messages with line numbers and file names, making it easier to debug your templates',
     },
     {
         title: 'Syntax Highlighting',
-        Svg: require('@site/static/img/code.svg').default,
         description:
             'You get syntax highlighting and other features for Textwire using the Neovim plugin and VSCode extension',
     },
     {
-        title: 'Good documentation',
-        Svg: require('@site/static/img/files.svg').default,
+        title: 'Perfect Docs',
         description:
-            'Textwire has a comprehensive documentation that covers all the features and provides examples to help you get started',
+            'We have a comprehensive documentation that covers all the features and provides examples to help you get started',
     },
 ]
 

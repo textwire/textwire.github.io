@@ -17,9 +17,7 @@ export default function HomepageHeader(): React.ReactElement {
                 <p className="hero__subtitle">{siteConfig.tagline}</p>
 
                 <p className="hero__description">
-                    Dynamic Domain-Specific Language for Go.
-                    <br />
-                    Ideal for embedding dynamic content with Go applications
+                    Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term.
                 </p>
 
                 <div className="hero__buttons">

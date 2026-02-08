@@ -18,14 +18,14 @@ export default function HomepageFeatures(): React.ReactElement {
                             {homeViewTw}
                         </CodeBlock>
                     </TabItem>
-                    <TabItem value="book" label="Component">
-                        <CodeBlock language="textwire" showLineNumbers={true} title="templates/components/book.tw">
-                            {bookComponentTw}
-                        </CodeBlock>
-                    </TabItem>
                     <TabItem value="base" label="Layout">
                         <CodeBlock language="textwire" showLineNumbers={true} title="templates/layouts/base.tw">
                             {layoutBaseTw}
+                        </CodeBlock>
+                    </TabItem>
+                    <TabItem value="book" label="Component">
+                        <CodeBlock language="textwire" showLineNumbers={true} title="templates/components/book.tw">
+                            {bookComponentTw}
                         </CodeBlock>
                     </TabItem>
                     <TabItem value="structure" label="Structure">
