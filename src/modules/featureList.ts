@@ -2,35 +2,29 @@ import type { FeatureItem } from '@site/src/types'
 
 const featureList: FeatureItem[] = [
     {
-        title: 'Security',
-        description:
-            'Built with security-first design, Textwire prevents code injection and common vulnerabilities by default',
+        title: '🚀 Performance',
+        description: `Templates parsed at app startup, evaluated on page visit. Use Go's embed package to bundle templates in final binary`,
     },
     {
-        title: 'Flexibility',
-        description:
-            'Textwire allows you to define custom functions, components, layouts, and custom error pages, giving you the flexibility to create complex templates with ease',
+        title: '🔒 Security',
+        description: `Built with security-first design, Textwire prevents code injection and common vulnerabilities by default`,
     },
     {
-        title: 'Performance',
-        description:
-            'Textwire is fast and has a low memory footprint, making it load pages quickly. The parsing is done at application startup, so there is no overhead during runtime',
+        title: '🎨 Template Customization',
+        description: 'Define custom functions, components, layouts, and error pages with full control over template structure',
     },
     {
-        title: 'Error Handling',
-        description:
-            'Textwire provides detailed error messages with line numbers and file names, making it easier to debug your templates',
+        title: '🐛 Error Handling',
+        description: `Detailed error messages with line numbers and file names for efficient template debugging`,
     },
     {
-        title: 'Syntax Highlighting',
-        description:
-            'You get syntax highlighting and other features for Textwire using the Neovim plugin and VSCode extension',
+        title: '🖋‍ Editor Integration',
+        description: 'Neovim and VSCode extensions provide syntax highlighting and editor integration',
     },
     {
-        title: 'Perfect Docs',
-        description:
-            'We have a comprehensive documentation that covers all the features and provides examples to help you get started',
-    },
+        title: '📚 Documentation',
+        description: 'Comprehensive documentation with examples covering all features and getting started guides',
+    }
 ]
 
 export default featureList
