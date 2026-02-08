@@ -11,28 +11,35 @@ Welcome to our FAQ page, where we address the most common questions and concerns
 Here, you’ll find explanations, solutions to common problems, and best practices to make the most of your experience. If you don’t find the answer you’re looking for, feel free to reach out to us by creating an [issue on GitHub](https://github.com/textwire/textwire.github.io/issues/new) and we’ll be happy to help and update the FAQ with your question to help others.
 
 ## What exactly is Textwire?
-Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use template language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
+Textwire is a domain-specific language designed to be used with Go. Other Go's templating engines that I've used were never giving me joy and flexibility to write frontend, Textwire was created to fill that gap. It is a simple and stability driven language that needs to be used for your app. See how to [Get Started](/docs/v3/get-started) with Textwire.
 
-## How does Textwire parse text files?
-Textwire has its own lexing and parsing engine that is used to parse text files. It reads the text file line by line and converts it into a tree of nodes. Each node represents a part of the text file and can be used to generate the final output.
+## How does Textwire Parse Files?
+Textwire has its own unique chain of turning your text files into final output. We do it in 4 steps:
 
-All the non-Textwire specific parts of the text file are not parsed as HTML, XML or any other format. They are treated as plain text and are not modified in any way. Even whitespace in your text is preserved in the final output. The only parts that are parsed are the Textwire specific parts, like directives and expressions like:
+1. **Tokenizing** your Textwire template into tokens.
+2. **Parsing** turns tokens into [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) nodes.
+3. **Linking** connects related AST nodes to each-other.
+4. **Evaluating** turns connected AST nodes into final text output.
+
+All the non-Textwire specific parts of the text file are not parsed as HTML, XML or any other format. They are treated as plain text and are not modified in any way. Even whitespace in your text is preserved in the final output. Only Textwire-specific parts are processed:
 
 ```textwire
+<h1>Textwire seems cool</h1>
 {{ "Hello, World!".upper() }}
+<p>I would use it in production<p>
 ```
 
-That's why Textwire is fast and efficient, as it only parses the parts that are necessary and leaves the rest as is.
+In the example above, only `{{ "Hello, World!".upper() }}` part will be evaluated. That's why Textwire is fast, as it only parses the parts that are necessary and leaves the rest as is.
 
-## Is Textwire a templating engine?
+## Is Textwire a Templating Engine?
 Textwire is not exactly a templating engine. It is a Domain-specific language (DSL) written in Go. It is designed to be used with Go programs to provide elegant and easy to use syntax for working with front-end. It's a good alternative to other templating engines for Go since it's performant and optimized.
 
-## Why is it best to prevent visitors from seeing function output when an error occurs?
+## Prevent Visitors from Seeing Error
 When an error occurs in your function, the output may be incorrect or misleading. Displaying faulty output to users can result in confusing information, broken layouts, or unintentional exposure of sensitive data.
 
 Hiding incorrect output when errors occur ensures that visitors only see validated, correct content, maintaining both data integrity and user trust while preventing potential security risks.
 
-## What is the difference between directives and statements in Textwire?
+## The Difference Between Directives and Statements
 Directives and statements are the core of Textwire language. They are used to define the structure and behavior of your text files. However, there are some key differences between them:
 
 - All directives are statements, but not all statements are directives
