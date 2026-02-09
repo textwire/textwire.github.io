@@ -116,11 +116,11 @@ The behavior will not change, because your function will still return the same t
 
 #### Understanding the Problem
 
-Textwire v2 has a wrong [precedence](https://en.wikipedia.org/wiki/Order_of_operations) for function call operations with prefix expressions. For example, operation like `&lparen;{ !"aaa".contains("a") }}` would evaluate `!"aaa"` first and cause an error because you cannot use `!` operator on string.
+Textwire v2 has a wrong [precedence](https://en.wikipedia.org/wiki/Order_of_operations) for function call operations with prefix expressions. For example, operation like <code v-pre>{{ !"aaa".contains("a") }}</code> would evaluate `!"aaa"` first and cause an error because you cannot use `!` operator on string.
 
 #### New Precedence Behavior
 
-Textwire v3 puts higher precedence on function call and in code like this `&lparen;{ !"aaa".contains("a") }}` it would first evaluate `"aaa".contains("a")` and then apply `!` operator. Check if you use the functions with prefix expressions like `!` and `-` and make sure they returns the result you expect.
+Textwire v3 puts higher precedence on function call and in code like this <code v-pre>{{ !"aaa".contains("a") }}</code> it would first evaluate `"aaa".contains("a")` and then apply `!` operator. Check if you use the functions with prefix expressions like `!` and `-` and make sure they returns the result you expect.
 
 Here is the command that will help you to find all functions that might be affected by this change. Only functions that return boolean, integer or float could be affected by this change. See if any of them have prefix.
 
@@ -130,10 +130,10 @@ grep -r -E "\.(contains|len|rand|abs|float|ceil|floor|int|binary|then)\(" ./inte
 
 Replace `./internal` with the path to your Go code.
 
-If you found something like `&lparen;{ -numb.floor() }}`, you can fix it in two ways:
+If you found something like <code v-pre>{{ -numb.floor() }}</code>, you can fix it in two ways:
 
-1. **Keep the old behavior.** To keep the old behavior just add parenthesis like this `&lparen;{ (-numb).floor() }}`.
-2. **To get the correct behavior.** To get the correct result, you don't need to change anything, just keep `&lparen;{ -numb.floor() }}`. It will evaluate `numb.floor()` first and then prepend `-` sign to the result.
+1. **Keep the old behavior.** To keep the old behavior just add parenthesis like this <code v-pre>{{ (-numb).floor() }}</code>.
+2. **To get the correct behavior.** To get the correct result, you don't need to change anything, just keep <code v-pre>{{ -numb.floor() }}</code>. It will evaluate `numb.floor()` first and then prepend `-` sign to the result.
 
 ---
 

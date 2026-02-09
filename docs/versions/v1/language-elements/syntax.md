@@ -1,5 +1,6 @@
 ---
 title: Language Elements - v1
+outline: deep
 ---
 
 # Language Elements
@@ -9,19 +10,19 @@ Textwire is designed to be easy to use for Go developers. It has a similar synta
 Textwire has a simple syntax that is easy to learn. Here are some rules that you need to follow when writing Textwire code:
 
 - All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
-- All the Textwire code must be inside of the `&lparen;{ }}` braces, or start with `@` symbol.
+- All the Textwire code must be inside of the <code v-pre>{{ }}</code> braces, or start with `@` symbol.
 
 :::info Syntax Highlighting
 If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
 ### Braces statements
-Braces statements are special Textwire statements that start with `&lparen;{` braces and end with `}}`. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Braces statements can be placed anywhere in the file except inside of directives.
+Braces statements are special Textwire statements that start with <code v-pre>{{</code> braces and end with <code v-pre>}}</code>. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Braces statements can be placed anywhere in the file except inside of directives.
 
-- If you want multiple expressions inside `&lparen;{ }}` braces, use `;` to separate them. For example: `&lparen;{ x = 5; y = 10 }}`.
-- All the braces statements return a string. For example, `&lparen;{ x = 5 }}` will return an empty string, but `&lparen;{ 5 + 5 }}` will return "10".
-- There are special braces statements that need to be closed with `&lparen;{ end }}` keyword. For example, [if statement](/v1/language-elements/statements#if-statement) and [for statements](/v1/language-elements/statements#for-loop).
-- To escape `&lparen;{ }}` braces, you can use `\`. For example `\&lparen;{ x }}` will not be parsed as a braces statement but as HTML.
+- If you want multiple expressions inside <code v-pre>{{ }}</code> braces, use `;` to separate them. For example: <code v-pre>{{ x = 5; y = 10 }}</code>.
+- All the braces statements return a string. For example, <code v-pre>{{ x = 5 }}</code> will return an empty string, but <code v-pre>{{ 5 + 5 }}</code> will return "10".
+- There are special braces statements that need to be closed with <code v-pre>{ end }}</code> keyword. For example, [if statement](/v1/language-elements/statements#if-statement) and [for statements](/v1/language-elements/statements#for-loop).
+- To escape <code v-pre>{{ }}</code> braces, you can use `\`. For example `\&lparen;{ x }}` will not be parsed as a braces statement but as HTML.
 
 ### Directives
 Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of `&lparen;{ }}` braces.

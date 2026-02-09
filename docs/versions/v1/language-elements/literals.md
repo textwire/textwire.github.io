@@ -5,13 +5,13 @@ title: Literals - v1
 # Literals
 
 - Literals
-    - [String literals](#string-literals) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
-    - [Integer literals](#integer-literals) `{{ 123 }}` or `{{ -234 }}`
-    - [Float literals](#float-literals) `{{ 123.456 }}`
-    - [Boolean literals](#boolean-literals) `{{ true }}`
-    - [Nil literal](#nil-literal) `{{ nil }}`
-    - [Array literals](#array-literals) `{{ [1, 2, 3] }}`
-    - [Object literals](#object-literals) `{{ { "name": "John", "age": 25 } }}`
+    - [String literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
+    - [Integer literals](#integer-literals) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
+    - [Float literals](#float-literals) <code v-pre>{{ 123.456 }}</code>
+    - [Boolean literals](#boolean-literals) <code v-pre>{{ true }}</code>
+    - [Nil literal](#nil-literal) <code v-pre>{{ nil }}</code>
+    - [Array literals](#array-literals) <code v-pre>{{ [1, 2, 3] }}</code>
+    - [Object literals](#object-literals) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
 
 ## String literals
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
@@ -20,7 +20,7 @@ You can use string literals and concatenate them with other strings. You can use
 {{ "Hello" + 'World!' }}
 ```
 
-> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/v1/functions/str#raw) function on strings. Example: `{{ "<h1>Test</h1>".raw() }}`
+> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/v1/functions/str#raw) function on strings. Example: <code v-pre>{{ "Test".raw() }}</code>
 
 ## Integer literals
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
@@ -106,7 +106,7 @@ You can access values in an object by using a key. Here is an example of accessi
 ```
 
 :::tip First Character is Case-Insensitive
-**First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means `{{ user.name.first }}` and `{{ user.Name.First }}` resolve to the same result.
+**First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
 :::
 
 :::important

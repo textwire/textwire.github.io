@@ -1,5 +1,6 @@
 ---
 title: Other Information - v1
+outline: deep
 ---
 
 # Other Information
