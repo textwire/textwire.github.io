@@ -1,6 +1,7 @@
 ---
 title: "v2.4.0 Release Notes"
 description: "Get to know details about the Textwire version 2.4.0 release by reading the complete release notes"
+outline: deep
 ---
 
 #  v2.4.0 Release Notes
@@ -104,6 +105,6 @@ The `@dump` directive is used for debugging purposes. It will print the value of
 
 The output would look like something like this:
 
-<img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
+<img src="/images/dump-object.png" title="Dump object in Textwire" width="400" />
 
 It's an easy and convenient way to debug your templates and see what's going on inside of them.

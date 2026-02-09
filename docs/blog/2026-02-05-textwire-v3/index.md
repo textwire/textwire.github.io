@@ -1,6 +1,7 @@
 ---
 title: "v3 Release Notes"
 description: "Get to know details about the Textwire v3 release by reading the complete release notes"
+outline: deep
 ---
 
 # v3 Release Notes

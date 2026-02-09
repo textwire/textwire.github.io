@@ -1,6 +1,7 @@
 ---
 title: "Introducing Textwire: A Domain-Specific Language for Go"
 description: "We are very happy to introduce Textwire to help you work with templates in Go"
+outline: deep
 ---
 
 # Introducing Textwire: A Domain-Specific Language for Go

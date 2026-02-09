@@ -1,6 +1,7 @@
 ---
 title: "v2.1.0 Release Notes"
 description: "Get to know details about the Textwire version 2.1.0 release by reading the complete release notes"
+outline: deep
 ---
 
 # v2.1.0 Release Notes
@@ -53,7 +54,7 @@ Regarding improvements, I placed a strong emphasis on proper error handling. I c
 - 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](/docs/v2/guides/error-handling)
 
 #### New error page:
-![Error output in Textwire](/img/oops.png)
+![Error output in Textwire](/images/oops.png)
 
 ## Other changes
 Some very small changes were made to the Textwire that don't effect any functionality. Here are they:
