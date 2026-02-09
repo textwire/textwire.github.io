@@ -1,7 +1,5 @@
 ---
 title: Usage with Templates - v2
-sidebar_label: Usage with Templates
-sidebar_position: 2
 description: Learn how to configure and use Textwire templates in your Go applications, including importing the package, creating template instances, and more
 ---
 

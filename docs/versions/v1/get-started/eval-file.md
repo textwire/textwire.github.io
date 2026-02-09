@@ -1,7 +1,5 @@
 ---
 title: Evaluate a File - v1
-sidebar_label: Evaluate a File
-sidebar_position: 4
 ---
 
 # Evaluate a File

@@ -1,7 +1,5 @@
 ---
 title: Statements - v2
-sidebar_label: Statements
-sidebar_position: 2
 description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
 ---
 
@@ -9,7 +7,7 @@ description: Learn about different statements in Textwire, including if statemen
 
 - Statements
     - [If Statement](#if-statement) `@if(x == 1)`
-    - [Variable Declaration](#variable-declaration) `{{ x = 5 }}`
+    - [Variable Declaration](#variable-declaration) `&lparen;{ x = 5 }}`
     - [Use Statement](#use-statement) `@use("layouts/main")`
     - [Insert Statement](#insert-statement) `@insert("title", "Home")`
     - [Reserve Statement](#reserve-statement) `@reserve("title")`
@@ -105,7 +103,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 {{ x = 10 }}
 ```
 
-You cannot assign values to variables that have a different type. For example, you cannot do `{{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
+You cannot assign values to variables that have a different type. For example, you cannot do `&lparen;{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
 :::info Declaration has no output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
@@ -181,7 +179,7 @@ When defining a layout file for your template, you can reserve placeholders for 
 ```
 
 :::info Pass Variables to the Layout
-All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with `{{ title }}` and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
+All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with `&lparen;{ title }}` and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
 :::
 
 The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.

@@ -1,7 +1,5 @@
 ---
 title: Float functions - v1
-sidebar_label: Float functions
-sidebar_position: 5
 ---
 
 # Float functions

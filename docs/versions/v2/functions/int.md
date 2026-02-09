@@ -1,7 +1,5 @@
 ---
 title: Integer Functions - v2
-sidebar_label: Integer Functions
-sidebar_position: 3
 description: Explore the various integer functions available in Textwire
 ---
 

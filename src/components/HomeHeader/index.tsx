@@ -10,7 +10,7 @@ export default function HomepageHeader(): React.ReactElement {
             <div className="container">
                 <img
                     className="hero__logo"
-                    src="/img/banner.png"
+                    src="/images/banner.png"
                     alt="Textwire Logo"
                 />
 

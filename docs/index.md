@@ -8,10 +8,10 @@ hero:
     actions:
         - theme: brand
           text: Get Started →
-          link: /v3/
+          link: /v3/get-started
         - theme: alt
           text: Introduction
-          link: /v3/what-is-timeago
+          link: /v3/introduction
     image:
         src: /images/logo.png
         alt: Textwire Logo
@@ -36,3 +36,5 @@ features:
       details: "Comprehensive documentation with examples covering all features and getting started guides"
       icon: 📚
 ---
+
+<StarPopup />

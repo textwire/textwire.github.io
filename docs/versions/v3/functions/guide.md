@@ -1,7 +1,5 @@
 ---
 title: Functions Guide - v3
-sidebar_label: Functions Guide
-sidebar_position: 1
 description: Discover correct syntax for Textwire functions and learn about differences between built-in functions and global.
 ---
 

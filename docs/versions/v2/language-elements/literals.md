@@ -1,7 +1,5 @@
 ---
 title: Literals - v2
-sidebar_label: Literals
-sidebar_position: 4
 description: Learn about Textwire literals like string, int, float, bool, nil, array, objects, etc.
 ---
 

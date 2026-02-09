@@ -1,7 +1,5 @@
 ---
 title: Introduction - v2
-sidebar_label: Introduction
-sidebar_position: 1
 description: Get an overview of Textwire, a powerful template evaluator for Go developers, and learn about its features, syntax, and various use cases
 ---
 

@@ -1,7 +1,5 @@
 ---
 title: Questions - v2
-sidebar_label: Questions
-sidebar_position: 2
 description: Find answers to frequently asked questions about Textwire, including its purpose, usage, and how it differs from templating engines
 ---
 

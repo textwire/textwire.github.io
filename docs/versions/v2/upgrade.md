@@ -1,7 +1,5 @@
 ---
 title: Upgrade Guide - v2
-sidebar_label: Upgrade Guide
-sidebar_position: 7
 description: Learn how to upgrade your Textwire code from version 1 to version 2
 ---
 

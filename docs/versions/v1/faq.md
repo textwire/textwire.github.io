@@ -1,8 +1,6 @@
 ---
 title: FAQ - v1
-sidebar_label: FAQ
 description: Frequently asked questions about Textwire
-sidebar_position: 4
 ---
 
 # FAQ

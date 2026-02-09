@@ -1,7 +1,5 @@
 ---
 title: Array functions - v1
-sidebar_label: Array functions
-sidebar_position: 3
 ---
 
 # Array functions

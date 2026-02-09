@@ -50,7 +50,7 @@ export default defineVersionedConfig(
                 },
                 { text: 'Docs', link: '/v3/introduction' },
                 { text: 'Blog', link: '/blog' },
-                { text: '♥️ Support', link: '/community' },
+                { text: 'Support', link: '/community' },
                 {
                     text: 'Neovim',
                     link: 'https://github.com/textwire/textwire.nvim',
@@ -64,6 +64,7 @@ export default defineVersionedConfig(
                 '/v1/': [
                     {
                         text: 'Get Started',
+                        link: '/v1/get-started',
                         items: [
                             {
                                 text: 'Usage with Templates',

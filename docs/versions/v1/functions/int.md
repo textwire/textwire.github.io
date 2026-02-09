@@ -1,7 +1,5 @@
 ---
 title: Integer Functions - v1
-sidebar_label: Integer Functions
-sidebar_position: 4
 ---
 
 # Integer Functions

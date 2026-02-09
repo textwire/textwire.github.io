@@ -1,7 +1,5 @@
 ---
 title: Array Functions - v2
-sidebar_label: Array Functions
-sidebar_position: 1
 description: Explore the various array functions available in Textwire
 ---
 

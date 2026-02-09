@@ -1,7 +1,5 @@
 ---
 title: Built-in Functions - v2
-sidebar_label: Built-in Functions
-sidebar_position: 5
 description: Discover the built-in functions in Textwire for manipulating different types of data, and learn how to use these functions
 ---
 

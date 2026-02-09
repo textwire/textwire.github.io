@@ -1,7 +1,5 @@
 ---
 title: Literals - v1
-sidebar_label: Literals
-sidebar_position: 4
 ---
 
 # Literals

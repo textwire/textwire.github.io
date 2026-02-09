@@ -1,7 +1,5 @@
 ---
 title: Loops - v2
-sidebar_label: Loops Usage
-sidebar_position: 8
 description: Learn how to use different types of loops in Textwire, including 'each' and 'for' loops
 ---
 

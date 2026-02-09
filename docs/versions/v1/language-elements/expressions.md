@@ -1,18 +1,16 @@
 ---
 title: Expressions - v1
-sidebar_label: Expressions
-sidebar_position: 3
 ---
 
 # Expressions
 
 - Expressions
-    - [Ternary expressions](#ternary-expressions) `{{ x ? y : z }}`
-    - [Prefix expressions](#prefix-expressions) `{{ !x` or `-x }}`
-    - [Infix expressions](#infix-expressions) `{{ x * (y + 3) }}`
-    - [Postfix expressions](#postfix-expressions) `{{ x++ }}` or `{{ x-- }}`
-    - [Comparison expressions](#comparison-expressions) `{{ x == y }}` or `{{ x < y }}`
-    - [Function calls](#function-calls) `{{ name.split(" ") }}`
+    - [Ternary expressions](#ternary-expressions) `&lparen;{ x ? y : z }}`
+    - [Prefix expressions](#prefix-expressions) `&lparen;{ !x` or `-x }}`
+    - [Infix expressions](#infix-expressions) `&lparen;{ x * (y + 3) }}`
+    - [Postfix expressions](#postfix-expressions) `&lparen;{ x++ }}` or `&lparen;{ x-- }}`
+    - [Comparison expressions](#comparison-expressions) `&lparen;{ x == y }}` or `&lparen;{ x < y }}`
+    - [Function calls](#function-calls) `&lparen;{ name.split(" ") }}`
 
 ## Ternary expressions
 

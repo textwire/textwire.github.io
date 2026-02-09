@@ -1,7 +1,5 @@
 ---
 title: Get Started - v3
-sidebar_label: Get Started
-sidebar_position: 2
 description: Learn how to get started with Textwire DSL for Go, including installation instructions and quick start guide
 ---
 
