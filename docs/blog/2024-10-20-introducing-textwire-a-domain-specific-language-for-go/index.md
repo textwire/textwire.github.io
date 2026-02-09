@@ -1,16 +1,13 @@
 ---
 title: "Introducing Textwire: A Domain-Specific Language for Go"
 description: "We are very happy to introduce Textwire to help you work with templates in Go"
-authors: [serhiicho]
-image: ./cover.png
-tags: [story]
 ---
+
+# Introducing Textwire: A Domain-Specific Language for Go
 
 ![Introducing Textwire: A Domain-Specific Language for Go](./cover.png)
 
 What was the motivation to create Textwire? How does it work? What are the benefits of using it, and should you use it in your next Go project? In this article, we will answer these questions and more.
-
-<!-- truncate -->
 
 ## What's Textwire?
 

@@ -1,13 +1,11 @@
 ---
-title: 'v3 Release Notes'
-description: 'Get to know details about the Textwire v3 release by reading the complete release notes'
-authors: [serhiicho]
-tags: [release]
+title: "v3 Release Notes"
+description: "Get to know details about the Textwire v3 release by reading the complete release notes"
 ---
 
-Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the `global` variable object, a new [defined()](/docs/v3/functions/global#defined) function ([#56](https://github.com/textwire/textwire/issues/56)), the ability to register custom functions for the OBJECT type, and improvements to error handling, performance ([#61](https://github.com/textwire/textwire/issues/61) [#60](https://github.com/textwire/textwire/issues/60) [#59](https://github.com/textwire/textwire/issues/59)), and usability [#35](https://github.com/textwire/textwire/issues/35).
+# v3 Release Notes
 
-<!-- truncate -->
+Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the `global` variable object, a new [defined()](/docs/v3/functions/global#defined) function ([#56](https://github.com/textwire/textwire/issues/56)), the ability to register custom functions for the OBJECT type, and improvements to error handling, performance ([#61](https://github.com/textwire/textwire/issues/61) [#60](https://github.com/textwire/textwire/issues/60) [#59](https://github.com/textwire/textwire/issues/59)), and usability [#35](https://github.com/textwire/textwire/issues/35).
 
 If you are transitioning from Textwire v2, you can follow [this guide](/docs/v3/upgrade) for all the instructions. v3 contains several breaking changes, so make sure you don't miss any parts of the guide.
 
@@ -176,13 +174,13 @@ Fixed incorrect file path in error messages when an error occurs inside the `@in
 
 ### 3. Function `contains()`
 
-- Fixed `contains` function for strings, `{{ !"aaa".contains("a") }}` now returns correct result.
-- Fixed `contains` function for arrays, `{{ ![{}, 21].contains({age: 21}) }}` now returns correct result.
+- Fixed `contains` function for strings, `&lbrace;{ !"aaa".contains("a") }}` now returns correct result.
+- Fixed `contains` function for arrays, `&lbrace;{ ![{}, 21].contains({age: 21}) }}` now returns correct result.
   They both used to work incorrect because of incorrect precidence, which was fixed.
 
 ### 4. Replace Panic with Error
 
-Now you will get a proper error when trying to access propery on non object type like `{{ "str".nice }}`. Before, in Textwire v2 you would get a panic with weird error message and long stacktrace.
+Now you will get a proper error when trying to access propery on non object type like `&lbrace;{ "str".nice }}`. Before, in Textwire v2 you would get a panic with weird error message and long stacktrace.
 
 ## Breaking Changes
 

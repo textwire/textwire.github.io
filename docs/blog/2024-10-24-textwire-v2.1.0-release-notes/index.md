@@ -1,13 +1,11 @@
 ---
 title: "v2.1.0 Release Notes"
 description: "Get to know details about the Textwire version 2.1.0 release by reading the complete release notes"
-authors: [serhiicho]
-tags: [release]
 ---
 
-The Textwire version `v2.0.0` brought us an ability to define [custom functions](/docs/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions, improved error handling, and other improvements.
+# v2.1.0 Release Notes
 
-<!-- truncate -->
+The Textwire version `v2.0.0` brought us an ability to define [custom functions](/docs/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions, improved error handling, and other improvements.
 
 ## 15 New Built-in Functions
 ### 4 New array functions
@@ -48,7 +46,7 @@ Read more about it in the [boolean functions](/docs/v2/functions/bool) documenta
 ## Improvements
 Regarding improvements, I placed a strong emphasis on proper error handling. I cannot overstate the importance of having effective error handling in place when things go wrong. Receiving clear and detailed error messages is crucial for success. Here are the enhancements introduced in version `v2.1.0`:
 
-- 🐛 **Fixed Bug with Prefix Expression Precedence**: Resolved an issue where prefix expressions like `{{ -1.abs() }}` were not being processed correctly. Previously, the parser evaluated the expression as `{{ (-(1.abs())) }}`, resulting in an incorrect output of `-1`. Now, the parser correctly handles the precedence, evaluating it as `{{ ((-1).abs()) }}`.
+- 🐛 **Fixed Bug with Prefix Expression Precedence**: Resolved an issue where prefix expressions like `&lbrace;{ -1.abs() }}` were not being processed correctly. Previously, the parser evaluated the expression as `&lbrace;{ (-(1.abs())) }}`, resulting in an incorrect output of `-1`. Now, the parser correctly handles the precedence, evaluating it as `&lbrace;{ ((-1).abs()) }}`.
 - 🧑‍💻 **Enhanced Error Handling for Built-in Functions:** Improved error messages when an incorrect argument type is passed to a built-in function. Users will now receive clear error messages indicating the type mismatch.
 - 🧑‍💻 **Enhanced Error Handling for Custom Functions:** If a function is called on a type where it doesn’t exist, Textwire now provides a detailed error message specifying that the function is undefined for that type. For example, an error message might read: `[Textwire ERROR in /var/www/html/templates/home.tw:3]: function 'some' doesn't exist for type 'STRING'`.
 - 🧑‍💻 **Enhanced Error Handling for Division by Zero:** Improved error messages for division-by-zero cases, replacing previous vague messages with more meaningful ones.

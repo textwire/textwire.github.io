@@ -1,13 +1,11 @@
 ---
 title: "v2.4.0 Release Notes"
 description: "Get to know details about the Textwire version 2.4.0 release by reading the complete release notes"
-authors: [serhiicho]
-tags: [release]
 ---
 
-The Textwire version `v2.4.0` is an important release. The first release in 2025. It adds several convenient features and improvements to the language. This release includes Component Path Alias, introduction of new built-in functions, debugging utilities and more. Read the complete release notes to learn more about the changes.
+#  v2.4.0 Release Notes
 
-<!-- truncate -->
+The Textwire version `v2.4.0` is an important release. The first release in 2025. It adds several convenient features and improvements to the language. This release includes Component Path Alias, introduction of new built-in functions, debugging utilities and more. Read the complete release notes to learn more about the changes.
 
 ## Component Path Alias
 Component Path Alias is a small but useful feature that is useful for people who will keep their components in the `components` directory. The `~` alias can be used to reference components in the `components` directory.

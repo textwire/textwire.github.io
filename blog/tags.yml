@@ -1,8 +1,0 @@
-story:
-  label: Story
-  permalink: /story
-  description: The story behind Textwire
-release:
-  label: Version Release Notes
-  permalink: /release
-  description: The latest version release notes
