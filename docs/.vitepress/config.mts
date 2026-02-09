@@ -62,28 +62,179 @@ export default defineVersionedConfig(
             ],
             sidebar: {
                 '/v1/': [
-                    { text: 'Get Started', link: '/v1/' },
-                    { text: 'Contribute', link: '/v1/contribute' },
-                    { text: 'Configurations', link: '/v1/configurations' },
-                ],
-                '/v2/': [
                     {
-                        text: 'Docs',
+                        text: 'Get Started',
                         items: [
-                            { text: 'Get Started', link: '/v2/' },
-                            { text: 'Configurations', link: '/v2/configurations' },
-                            { text: 'Options', link: '/v2/options' },
+                            {
+                                text: 'Usage with Templates',
+                                link: '/v1/get-started/template-usage',
+                            },
+                            {
+                                text: 'Evaluating Strings',
+                                link: '/v1/guides/eval-string',
+                            },
+                            {
+                                text: 'Evaluating Files',
+                                link: '/v1/guides/eval-file',
+                            },
                         ],
                     },
                     {
-                        text: 'Information',
+                        text: 'Functions',
                         items: [
                             {
-                                text: 'What is Timeago?',
-                                link: '/v2/what-is-timeago',
+                                text: 'Functions Guide',
+                                link: '/v1/functions/guide',
                             },
-                            { text: 'Contribute', link: '/v2/contribute' },
+                            {
+                                text: 'Integer Functions',
+                                link: '/v1/functions/int',
+                            },
+                            {
+                                text: 'Float Functions',
+                                link: '/v1/functions/float',
+                            },
+                            {
+                                text: 'Array Functions',
+                                link: '/v1/functions/arr',
+                            },
+                            {
+                                text: 'String Functions',
+                                link: '/v1/functions/str',
+                            },
                         ],
+                    },
+                    {
+                        text: 'Language Elements',
+                        items: [
+                            {
+                                text: 'Syntax',
+                                link: '/v1/language-elements/syntax',
+                            },
+                            {
+                                text: 'Statements',
+                                link: '/v1/language-elements/statements',
+                            },
+                            {
+                                text: 'Expressions',
+                                link: '/v1/language-elements/expressions',
+                            },
+                            {
+                                text: 'Literals',
+                                link: '/v1/language-elements/literals',
+                            },
+                            {
+                                text: 'Other Information',
+                                link: '/v1/language-elements/other',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'FAQ',
+                        link: '/v1/faq',
+                    },
+                ],
+                '/v2/': [
+                    { text: 'Introduction', link: '/v2/introduction' },
+                    { text: 'Get Started', link: '/v2/get-started' },
+                    {
+                        text: 'Guides',
+                        items: [
+                            {
+                                text: 'Usage with Templates',
+                                link: '/v2/guides/template-usage',
+                            },
+                            {
+                                text: 'Evaluating Strings',
+                                link: '/v2/guides/eval-string',
+                            },
+                            {
+                                text: 'Evaluating Files',
+                                link: '/v2/guides/eval-file',
+                            },
+                            {
+                                text: 'Custom Functions',
+                                link: '/v2/guides/custom-functions',
+                            },
+                            {
+                                text: 'Error Handling',
+                                link: '/v2/guides/error-handling',
+                            },
+                            {
+                                text: 'Configurations',
+                                link: '/v2/guides/configurations',
+                            },
+                            {
+                                text: 'Loops Usage',
+                                link: '/v2/guides/loops',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'Language Elements',
+                        items: [
+                            {
+                                text: 'Syntax',
+                                link: '/v2/language-elements/syntax',
+                            },
+                            {
+                                text: 'Statements',
+                                link: '/v2/language-elements/statements',
+                            },
+                            {
+                                text: 'Expressions',
+                                link: '/v2/language-elements/expressions',
+                            },
+                            {
+                                text: 'Literals',
+                                link: '/v2/language-elements/literals',
+                            },
+                            {
+                                text: 'Other Information',
+                                link: '/v2/language-elements/other',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'Functions',
+                        items: [
+                            {
+                                text: 'Functions Guide',
+                                link: '/v2/functions/guide',
+                            },
+                            {
+                                text: 'Global Functions',
+                                link: '/v2/functions/global',
+                            },
+                            {
+                                text: 'Integer Functions',
+                                link: '/v2/functions/int',
+                            },
+                            {
+                                text: 'Float Functions',
+                                link: '/v2/functions/float',
+                            },
+                            {
+                                text: 'Boolean Functions',
+                                link: '/v2/functions/bool',
+                            },
+                            {
+                                text: 'Array Functions',
+                                link: '/v2/functions/arr',
+                            },
+                            {
+                                text: 'String Functions',
+                                link: '/v2/functions/str',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'FAQ',
+                        link: '/v2/faq',
+                    },
+                    {
+                        text: 'Upgrade Guide',
+                        link: '/v2/upgrade',
                     },
                 ],
                 '/v3/': [

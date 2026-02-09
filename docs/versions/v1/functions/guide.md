@@ -1,7 +1,5 @@
 ---
 title: Built-in Functions - v1
-sidebar_label: Built-in Functions
-sidebar_position: 2
 ---
 
 # Built-in Functions
