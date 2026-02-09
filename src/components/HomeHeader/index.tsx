@@ -23,14 +23,14 @@ export default function HomepageHeader(): React.ReactElement {
                 <div className="hero__buttons">
                     <Link
                         className="button button--primary button--lg"
-                        to="/docs/v3/get-started"
+                        to="/v3/get-started"
                     >
                         Get started
                     </Link>
 
                     <Link
                         className="button button--secondary button--lg"
-                        to="/docs/v3/introduction/"
+                        to="/v3/introduction/"
                     >
                         Introduction
                     </Link>

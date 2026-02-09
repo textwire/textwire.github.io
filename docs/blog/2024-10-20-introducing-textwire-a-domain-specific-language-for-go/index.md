@@ -53,4 +53,4 @@ Here are some of the key benefits of using Textwire:
 
 ## Resources
 
-For all the details on how to get started with Textwire, check out the [official documentation](/docs/v2/introduction). You can also find the source code on [GitHub](https://github.com/textwire/textwire). If you have any requests or suggestions that will help improve Textwire, feel free to open an [issue](https://github.com/textwire/textwire/issues/new) or submit a pull request.
+For all the details on how to get started with Textwire, check out the [official documentation](/v2/introduction). You can also find the source code on [GitHub](https://github.com/textwire/textwire). If you have any requests or suggestions that will help improve Textwire, feel free to open an [issue](https://github.com/textwire/textwire/issues/new) or submit a pull request.

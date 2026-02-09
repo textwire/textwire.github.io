@@ -85,4 +85,4 @@ Here is an example of using function calls:
 {{ name.split(" ") }}
 ```
 
-> You can read more detailed about built-in functions on the [Built-in Functions](/docs/v2/functions/) page.
+> You can read more detailed about built-in functions on the [Built-in Functions](/v2/functions/guide) page.

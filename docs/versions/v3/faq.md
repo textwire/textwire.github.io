@@ -9,7 +9,7 @@ Welcome to our FAQ page, where we address the most common questions and concerns
 Here, you’ll find explanations, solutions to common problems, and best practices to make the most of your experience. If you don’t find the answer you’re looking for, feel free to reach out to us by creating an [issue on GitHub](https://github.com/textwire/textwire.github.io/issues/new) and we’ll be happy to help and update the FAQ with your question to help others.
 
 ## What exactly is Textwire?
-Textwire is a domain-specific language designed to be used with Go. Unlike other Go templating engines I've used, Textwire provides the joy and flexibility needed for frontend development. It is a simple and stable language that should be used for your app. See how to [Get Started](/docs/v3/get-started) with Textwire.
+Textwire is a domain-specific language designed to be used with Go. Unlike other Go templating engines I've used, Textwire provides the joy and flexibility needed for frontend development. It is a simple and stable language that should be used for your app. See how to [Get Started](/v3/get-started) with Textwire.
 
 ## How does Textwire Parse Files?
 Textwire has its own unique chain of turning your text files into final output. We do it in 4 steps:
@@ -44,7 +44,7 @@ Directives and statements are the core of Textwire language. They are used to de
 - Directives start with the `@` symbol, while statements are a general term for parts of code that perform an action and do not return a value
 
 :::note
-You can read about statements in the [Statements](/docs/v3/language-elements/statements) section of the documentation.
+You can read about statements in the [Statements](/v3/language-elements/statements) section of the documentation.
 :::
 
 For example, `{{ x = 5 }}` is a statement that assigns the value `5` to the variable `x`. On the other hand, `@use('~main')` is a directive and a statement at the same time, as it includes the layout `main` in the current file and doesn't return a value.

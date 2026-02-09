@@ -1,6 +1,7 @@
 ---
 title: FAQ - v1
 description: Frequently asked questions about Textwire
+outline: deep
 ---
 
 # FAQ

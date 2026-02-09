@@ -6,11 +6,11 @@ outline: deep
 
 # v2.1.0 Release Notes
 
-The Textwire version `v2.0.0` brought us an ability to define [custom functions](/docs/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions, improved error handling, and other improvements.
+The Textwire version `v2.0.0` brought us an ability to define [custom functions](/v2/guides/custom-functions) and had lots of code refactoring and improvements. I'm very happy to introduce Textwire version `v2.1.0` with new built-in functions, improved error handling, and other improvements.
 
 ## 15 New Built-in Functions
 ### 4 New array functions
-Textwire is very young but it's growing. I'm happy to introduce **3 new built-in functions** for array literals. You can read more about them in the [array functions](/docs/v2/functions/arr) documentation. Here is the short overview of them:
+Textwire is very young but it's growing. I'm happy to introduce **3 new built-in functions** for array literals. You can read more about them in the [array functions](/v2/functions/arr) documentation. Here is the short overview of them:
 
 - `rand()` - Returns a random element from an array
 - `reverse()` - Reverses the elements of an array and returns a new array
@@ -18,13 +18,13 @@ Textwire is very young but it's growing. I'm happy to introduce **3 new built-in
 - `shuffle()` - Shuffles the elements of an array and returns a new array
 
 ### 2 New integer functions
-Read more about them in the [integer functions](/docs/v2/functions/int) documentation.
+Read more about them in the [integer functions](/v2/functions/int) documentation.
 
 - `abs(): int` - Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
 - `str(): str` - Converts an integer to a string and returns it
 
 ### 5 New float functions
-Read more about them in the [float functions](/docs/v2/functions/float) documentation.
+Read more about them in the [float functions](/v2/functions/float) documentation.
 
 - `abs(): float` - Returns the absolute value of a float. If the float is negative, it will return the positive value of it
 - `ceil(): int` - Returns the rounded up value of a float to the nearest integer
@@ -33,14 +33,14 @@ Read more about them in the [float functions](/docs/v2/functions/float) document
 - `str(): str` - Returns converted float to a string
 
 ### 3 New string functions
-Read more about them in the [string functions](/docs/v2/functions/str) documentation.
+Read more about them in the [string functions](/v2/functions/str) documentation.
 
 - `capitalize(): bool` - Capitalizes the first letter of a string
 - `reverse(): bool` - Reverses the characters of a string
 - `contains(substr: str): bool` - Returns `true` if a string contains a substring, otherwise `false`
 
 ### 1 New boolean function
-Read more about it in the [boolean functions](/docs/v2/functions/bool) documentation.
+Read more about it in the [boolean functions](/v2/functions/bool) documentation.
 
 - `binary(): int` - Returns an integer `1` if the receiver is true, `0` otherwise
 
@@ -51,7 +51,7 @@ Regarding improvements, I placed a strong emphasis on proper error handling. I c
 - 🧑‍💻 **Enhanced Error Handling for Built-in Functions:** Improved error messages when an incorrect argument type is passed to a built-in function. Users will now receive clear error messages indicating the type mismatch.
 - 🧑‍💻 **Enhanced Error Handling for Custom Functions:** If a function is called on a type where it doesn’t exist, Textwire now provides a detailed error message specifying that the function is undefined for that type. For example, an error message might read: `[Textwire ERROR in /var/www/html/templates/home.tw:3]: function 'some' doesn't exist for type 'STRING'`.
 - 🧑‍💻 **Enhanced Error Handling for Division by Zero:** Improved error messages for division-by-zero cases, replacing previous vague messages with more meaningful ones.
-- 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](/docs/v2/guides/error-handling)
+- 🧑‍💻 New error page while rendering a template. Instead of black screen we now get a simple error page with `Sorry! We’re having some trouble right now. Please check back shortly`. You can find more information [here](/v2/guides/error-handling)
 
 #### New error page:
 ![Error output in Textwire](/images/oops.png)

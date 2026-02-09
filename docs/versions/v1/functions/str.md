@@ -1,5 +1,6 @@
 ---
 title: String Functions - v1
+outline: 3
 ---
 
 # String Functions

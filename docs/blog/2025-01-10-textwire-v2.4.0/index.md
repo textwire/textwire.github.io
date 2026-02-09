@@ -34,7 +34,7 @@ Now you can repleace the `components/` part with `~` alias like so:
 The `~` alias will be replaced with `components/` behind the scenes.
 
 ## New `trimRight` and `trimLeft` Functions
-A couple of people suggested to add [`trimRight`](/docs/v2/functions/str#trimright) and [`trimLeft`](/docs/v2/functions/str#trimleft) functions and now they are available in the `v2.4.0` release. We already had the [`trim`](/docs/v2/functions/str#trim) function for trimming both sides of a string, but now you can trim only the left or right side of a string if that's what you need.
+A couple of people suggested to add [`trimRight`](/v2/functions/str#trimright) and [`trimLeft`](/v2/functions/str#trimleft) functions and now they are available in the `v2.4.0` release. We already had the [`trim`](/v2/functions/str#trim) function for trimming both sides of a string, but now you can trim only the left or right side of a string if that's what you need.
 
 The usage is simple:
 
@@ -57,7 +57,7 @@ You can also pass a string of characters to trim from a string:
 ```
 
 ## New `repeat` Function
-A new function [`repeat`](/docs/v2/functions/str#repeat) is added to strings. The function repeats a string a specified number of times. The function takes a single argument, the number of times to repeat the string.
+A new function [`repeat`](/v2/functions/str#repeat) is added to strings. The function repeats a string a specified number of times. The function takes a single argument, the number of times to repeat the string.
 
 ```textwire title="Example"
 <span>{{ '🤣'.repeat(5) }}</span>
@@ -68,7 +68,7 @@ A new function [`repeat`](/docs/v2/functions/str#repeat) is added to strings. Th
 ```
 
 ## New `append` and `prepend` Functions
-Two new functions [`append`](/docs/v2/functions/arr#append) and [`prepend`](/docs/v2/functions/arr#prepend) are added to arrays. The `append` function adds one or more elements to the end of an array and returns a new array. The `prepend` function adds one or more elements to the beginning of an array and returns a new array.
+Two new functions [`append`](/v2/functions/arr#append) and [`prepend`](/v2/functions/arr#prepend) are added to arrays. The `append` function adds one or more elements to the end of an array and returns a new array. The `prepend` function adds one or more elements to the beginning of an array and returns a new array.
 
 ```textwire title="Example"
 <span>{{ ["one", "two"].append("three", "four") }}</span>

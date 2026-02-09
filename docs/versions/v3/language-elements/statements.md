@@ -66,7 +66,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 ```
 
 :::info Read More about Loops
-Read more about loops in the [Loops guide](/docs/v3/guides/loops).
+Read more about loops in the [Loops guide](/v3/guides/loops).
 :::
 
 #### Example
@@ -95,7 +95,7 @@ Each statement is a special form of `for` loop that you can use to iterate over 
 ```
 
 :::info Read More about Loops
-Read more about loops in the [Loops guide](/docs/v3/guides/loops).
+Read more about loops in the [Loops guide](/v3/guides/loops).
 :::
 
 ## Variable Declaration
@@ -127,7 +127,7 @@ Here is an example of using use statement:
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
-The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/docs/v3/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/docs/v3/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
+The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v3/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v3/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
 :::info Understanding the @use Directive
 When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
@@ -239,7 +239,7 @@ If your components are located in the `components` directory, you can use the `~
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is an [object](/docs/v3/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
+The second optional argument is an [object](/v3/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
 
 ```textwire title="home.tw"
 <ul>
@@ -250,9 +250,9 @@ The second optional argument is an [object](/docs/v3/language-elements/literals#
 ```
 
 ### Imporant Notes
-1. You can include layout file into components using [`@use`](/docs/v3/language-elements/statements#use-statement) statement, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+1. You can include layout file into components using [`@use`](/v3/language-elements/statements#use-statement) statement, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 2. Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
-3. You can use [slots](/docs/v3/language-elements/statements#component-slots) in components to pass content to the component file.
+3. You can use [slots](/v3/language-elements/statements#component-slots) in components to pass content to the component file.
 
 ## Component Slots
 
@@ -305,7 +305,7 @@ In this example, both default and named slots are used within a single component
 
 ## Dump Directive
 
-The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/docs/v3/language-elements/literals#object), [arrays](/docs/v3/language-elements/literals#array), [strings](/docs/v3/language-elements/literals#string) and other data types to the screen.
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v3/language-elements/literals#object), [arrays](/v3/language-elements/literals#array), [strings](/v3/language-elements/literals#string) and other data types to the screen.
 
 Here’s an example of how to use the `@dump` directive:
 

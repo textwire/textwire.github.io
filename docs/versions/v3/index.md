@@ -14,14 +14,14 @@ If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https:/
 
 Textwire enables the integration of dynamic content into HTML files to create data-driven, responsive pages.
 
-The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/docs/v3/language-elements/) page to explore the full range of available statements and directives for your templates.
+The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/v3/language-elements/syntax) page to explore the full range of available statements and directives for your templates.
 
 ## How to use it
 
 You can use Textwire in three different ways:
-1. [As a templating engine for web applications](/docs/v3/guides/template-usage)
-2. [To embed dynamic content into strings](/docs/v3/guides/eval-string)
-3. [To embed dynamic content into files](/docs/v3/guides/eval-file)
+1. [As a templating engine for web applications](/v3/guides/template-usage)
+2. [To embed dynamic content into strings](/v3/guides/eval-string)
+3. [To embed dynamic content into files](/v3/guides/eval-file)
 
 Below is a simple example of a Textwire template:
 
@@ -71,5 +71,5 @@ Type mismatching is not supported when performing mathematical operations. For e
 
 ## Reserved Variable Names
 Textwire has two reserved variable names that you cannot use:
-1. `loop` Object that is used inside loops. [Read more](/docs/v3/guides/loops#loop-variables)
-2. `global` Global object available in all Textwire files. [Read more](/docs/v3/guides/configurations#global-data)
+1. `loop` Object that is used inside loops. [Read more](/v3/guides/loops#loop-variables)
+2. `global` Global object available in all Textwire files. [Read more](/v3/guides/configurations#global-data)

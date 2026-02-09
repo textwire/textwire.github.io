@@ -63,20 +63,16 @@ export default defineVersionedConfig(
             sidebar: {
                 '/v1/': [
                     {
-                        text: 'Get Started',
-                        link: '/v1/get-started',
+                        text: 'Usage with Templates',
+                        link: '/v1/',
                         items: [
                             {
-                                text: 'Usage with Templates',
-                                link: '/v1/get-started/template-usage',
-                            },
-                            {
                                 text: 'Evaluating Strings',
-                                link: '/v1/guides/eval-string',
+                                link: '/v1/get-started/eval-string',
                             },
                             {
                                 text: 'Evaluating Files',
-                                link: '/v1/guides/eval-file',
+                                link: '/v1/get-started/eval-file',
                             },
                         ],
                     },
@@ -136,7 +132,7 @@ export default defineVersionedConfig(
                     },
                 ],
                 '/v2/': [
-                    { text: 'Introduction', link: '/v2/introduction' },
+                    { text: 'Introduction', link: '/v2/' },
                     { text: 'Get Started', link: '/v2/get-started' },
                     {
                         text: 'Guides',
@@ -239,7 +235,7 @@ export default defineVersionedConfig(
                     },
                 ],
                 '/v3/': [
-                    { text: 'Introduction', link: '/v3/introduction' },
+                    { text: 'Introduction', link: '/v3/' },
                     { text: 'Get Started', link: '/v3/get-started' },
                     {
                         text: 'Guides',

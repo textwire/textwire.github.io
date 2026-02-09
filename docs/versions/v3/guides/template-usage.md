@@ -6,7 +6,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 # Usage with Templates
 
 ## Simple Usage
-To use Textwire as a template language, import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can either pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` parameter configures Textwire behavior. Read more about [configurations](/docs/v3/guides/configurations).
+To use Textwire as a template language, import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can either pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` parameter configures Textwire behavior. Read more about [configurations](/v3/guides/configurations).
 
 ```go title="main.go"
 import (
@@ -80,7 +80,7 @@ If your template files are not showing up after you've created them and you are 
 Defining a layout in Textwire is straightforward. Create a layout file anywhere within your `templates` directory. Many developers organize layouts in a `templates/layouts/` directory to manage different layouts such as `main.tw`, `admin.tw`, and `user.tw`.
 
 ### Reserving Space in Layouts
-The [@reserve](/docs/v3/language-elements/statements#reserve-statement) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Here is an example layout file:
+The [@reserve](/v3/language-elements/statements#reserve-statement) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Here is an example layout file:
 
 ```textwire title="templates/layouts/main.tw"
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ The [@reserve](/docs/v3/language-elements/statements#reserve-statement) directiv
 This layout reserves spaces for the page title and content. These placeholders can be populated with data from templates that extend this layout. The next section explains how to insert content into reserved spaces.
 
 ### Inserting Content into Reserved Spaces
-The [@insert](/docs/v3/language-elements/statements#insert-statement) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
+The [@insert](/v3/language-elements/statements#insert-statement) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
 
 Here is an example `templates/views/home.tw` template:
 
@@ -118,7 +118,7 @@ Here is an example `templates/views/home.tw` template:
 - Then we insert the title into the layout with the value "Home page"
 - Finally, we insert the main content into the layout with the HTML body.
 
-You can read more about [@use](/docs/v3/language-elements/statements#use-statement), [@insert](/docs/v3/language-elements/statements#insert-statement) and [@reserve](/docs/v3/language-elements/statements#reserve-statement) directives on the [statements](/docs/v3/language-elements/statements) page if you need more information about the syntax.
+You can read more about [@use](/v3/language-elements/statements#use-statement), [@insert](/v3/language-elements/statements#insert-statement) and [@reserve](/v3/language-elements/statements#reserve-statement) directives on the [statements](/v3/language-elements/statements) page if you need more information about the syntax.
 
 ## Configuration
 The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Here is an example of configuration:
@@ -154,5 +154,5 @@ func main() {
 }
 ```
 
-For detailed information about available configuration options, visit the [configurations](/docs/v3/guides/configurations) page.
+For detailed information about available configuration options, visit the [configurations](/v3/guides/configurations) page.
 

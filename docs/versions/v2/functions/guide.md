@@ -20,7 +20,7 @@ You can also chain multiple functions together to perform complex operations.
 ```
 
 :::tip Error handling
-Learn about [error handling](/docs/v2/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
+Learn about [error handling](/v2/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 :::
 
 ## Unicode friendly

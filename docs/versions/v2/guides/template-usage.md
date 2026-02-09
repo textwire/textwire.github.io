@@ -6,7 +6,7 @@ description: Learn how to configure and use Textwire templates in your Go applic
 # Usage with Templates
 
 ## Simple usage
-To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/docs/v2/guides/configurations) in Textwire.
+To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/v2/guides/configurations) in Textwire.
 
 ```go title="main.go"
 import (
@@ -69,7 +69,7 @@ If your template files are not showing up after you've created them and you are 
 Defining a layout in Textwire is very simple. You need to create a layout file anywhere inside of your `templates` directory. Many developers just create a `templates/layouts/` directory for different layouts because you might have different layouts like `main.tw`, `admin.tw`, `user.tw`.
 
 ### Reserve space in the layout
-The [reserve](/docs/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
+The [reserve](/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
 
 ```textwire title="templates/layouts/main.tw"
 <!DOCTYPE html>
@@ -107,7 +107,7 @@ Let's take a look at the example how I would define a `home.tw` and then I'll ex
 - Then we insert the title into layout with the value "Home page"
 - Then we insert the content into layout with the HTML body.
 
-You can read more about [use](/docs/v2/language-elements/statements#use-statement), [insert](/docs/v2/language-elements/statements#insert-statement) and [reserve](/docs/v2/language-elements/statements#reserve-statement) statements on the [statements](/docs/v2/language-elements/statements) page if you need more information about the syntax.
+You can read more about [use](/v2/language-elements/statements#use-statement), [insert](/v2/language-elements/statements#insert-statement) and [reserve](/v2/language-elements/statements#reserve-statement) statements on the [statements](/v2/language-elements/statements) page if you need more information about the syntax.
 
 ## Configuration
 There are a few configurations that you can pass to the `NewTemplate` function to configure the template language. The `NewTemplate` function accepts a `*config.Config` with several properties.
@@ -146,5 +146,5 @@ func main() {
 }
 ```
 
-To read more about the available configurations, visit the [configurations](/docs/v2/guides/configurations) page.
+To read more about the available configurations, visit the [configurations](/v2/guides/configurations) page.
 

@@ -13,7 +13,7 @@ Textwire offers several configuration options to customize its behavior. You can
    Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
 ## Setting Configurations
-To learn how to set configurations using `textwire.NewTemplate`, refer to the [Usage with Templates](/docs/v2/guides/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
+To learn how to set configurations using `textwire.NewTemplate`, refer to the [Usage with Templates](/v2/guides/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
 
 ```go
 import (
@@ -39,7 +39,7 @@ All the configurations in Textwire are optional, because each configuration has 
 | `TemplateDir`   | `string` | The directory where Textwire will look for template files | `"templates"` |
 | `TemplateExt`   | `string` | The extension of the template files | `".tw.html"` |
 | `ErrorPagePath` | `string` | The relative path to the custom error page. It's relative to the `TemplateDir` directory. Custom error page is displayed only when `DebugMode` is set to `false` | `""` |
-| `DebugMode`     | `bool`   | Is a flag to enable the debug mode. With this mode enabled you can see error messages in the browser. Read about the error handling [here](/docs/v2/guides/error-handling) | `false` |
+| `DebugMode`     | `bool`   | Is a flag to enable the debug mode. With this mode enabled you can see error messages in the browser. Read about the error handling [here](/v2/guides/error-handling) | `false` |
 
 :::info Recommended
 We recommend using the `TemplateExt` setting with the `.tw` extension. The `.tw.html` extension is longer and may be deprecated in future major versions of Textwire.

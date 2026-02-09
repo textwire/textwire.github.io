@@ -38,7 +38,7 @@ if err != nil {
 }
 ```
 
-The [split](/docs/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
+The [split](/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
 
 ### Common Error Handling Patterns
 
@@ -76,10 +76,10 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 - **Single File or String Evaluation**: Errors result in empty output
 - **Template System**: Errors render a custom error page instead of content
 
-The error page is fully customizable and configurable via the [configuration](/docs/v3/guides/configurations).
+The error page is fully customizable and configurable via the [configuration](/v3/guides/configurations).
 
 :::info Security Considerations
-When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/docs/v3/faq#prevent-visitors-from-seeing-error).
+When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/v3/faq#prevent-visitors-from-seeing-error).
 :::
 
 ### Error in Production
@@ -93,7 +93,7 @@ When you enable the `DebugMode` in Textwire, you can see the error message in th
 ![Debug mode error page in Textwire](/images/debug-error-page.png)
 
 ### Custom Error Pages
-Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/docs/v3/guides/configurations#available-configurations) section.
+Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/v3/guides/configurations#available-configurations) section.
 
 #### Creating a Custom Error Page
 Use layouts and Textwire syntax for your error page:

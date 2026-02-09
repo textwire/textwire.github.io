@@ -22,7 +22,7 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 ```
 
 ## decimal
-> Read about this function **[HERE](/docs/v2/functions/str#decimal)**
+> Read about this function **[HERE](/v2/functions/str#decimal)**
 
 ## float
 ```ts

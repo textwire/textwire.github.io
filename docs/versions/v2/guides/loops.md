@@ -4,7 +4,7 @@ description: Learn how to use different types of loops in Textwire, including 'e
 ---
 
 # Loops Usage
-Textwire has two types of loops: [for loop](/docs/v2/language-elements/statements#for-loop) and [each loop](/docs/v2/language-elements/statements#each-loop), you can read about them on their respective pages. Both loops are used to iterate over arrays and have special syntax. In this guide, we will show you extra features of these loops and how to use them.
+Textwire has two types of loops: [for loop](/v2/language-elements/statements#for-loop) and [each loop](/v2/language-elements/statements#each-loop), you can read about them on their respective pages. Both loops are used to iterate over arrays and have special syntax. In this guide, we will show you extra features of these loops and how to use them.
 
 ## Break and Continue
 In most programming languages, you can use `break` and `continue` statements to break or continue a loop. Textwire has similar functionality, but it is implemented as directives with the `@` symbol.

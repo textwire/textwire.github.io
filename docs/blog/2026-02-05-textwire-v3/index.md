@@ -6,9 +6,9 @@ outline: deep
 
 # v3 Release Notes
 
-Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the `global` variable object, a new [defined()](/docs/v3/functions/global#defined) function ([#56](https://github.com/textwire/textwire/issues/56)), the ability to register custom functions for the OBJECT type, and improvements to error handling, performance ([#61](https://github.com/textwire/textwire/issues/61) [#60](https://github.com/textwire/textwire/issues/60) [#59](https://github.com/textwire/textwire/issues/59)), and usability [#35](https://github.com/textwire/textwire/issues/35).
+Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the `global` variable object, a new [defined()](/v3/functions/global#defined) function ([#56](https://github.com/textwire/textwire/issues/56)), the ability to register custom functions for the OBJECT type, and improvements to error handling, performance ([#61](https://github.com/textwire/textwire/issues/61) [#60](https://github.com/textwire/textwire/issues/60) [#59](https://github.com/textwire/textwire/issues/59)), and usability [#35](https://github.com/textwire/textwire/issues/35).
 
-If you are transitioning from Textwire v2, you can follow [this guide](/docs/v3/upgrade) for all the instructions. v3 contains several breaking changes, so make sure you don't miss any parts of the guide.
+If you are transitioning from Textwire v2, you can follow [this guide](/v3/upgrade) for all the instructions. v3 contains several breaking changes, so make sure you don't miss any parts of the guide.
 
 ### Table of Contents
 
@@ -23,7 +23,7 @@ Textwire v3 brings several new features to the language. Let's explore these fea
 
 ### 1. Function `defined`
 
-Textwire v3 introduces the global function [defined()](/docs/v3/functions/global#defined) that returns a boolean value. This function should be used only with variables and allows you to check if a variable is defined to prevent Textwire from creating an error.
+Textwire v3 introduces the global function [defined()](/v3/functions/global#defined) that returns a boolean value. This function should be used only with variables and allows you to check if a variable is defined to prevent Textwire from creating an error.
 
 ```textwire title="components/header.tw"
 <header class="header">
@@ -65,11 +65,11 @@ In your templates, you can access global object like this:
 @end
 ```
 
-Read more about [Global Data](/docs/v3/guides/configurations#global-data) in our docs, or look at the [commit](https://github.com/textwire/textwire/commit/f156f3fd2175f925652d462d75dc843a396de702).
+Read more about [Global Data](/v3/guides/configurations#global-data) in our docs, or look at the [commit](https://github.com/textwire/textwire/commit/f156f3fd2175f925652d462d75dc843a396de702).
 
 ### 3. Custom Functions for Object Type
 
-In Textwire v2 you could define [custom functions](/docs/v3/guides/custom-functions) for all types except objects; in v3 you can now do that. This was added with [this commit](https://github.com/textwire/textwire/commit/a225ccacaf0fc9ca62365ebfe7e715de39b067af). Here is a simple example:
+In Textwire v2 you could define [custom functions](/v3/guides/custom-functions) for all types except objects; in v3 you can now do that. This was added with [this commit](https://github.com/textwire/textwire/commit/a225ccacaf0fc9ca62365ebfe7e715de39b067af). Here is a simple example:
 
 ```go
 err := textwire.RegisterObjFunc("_addProp", func(obj map[string]any, args ...any) any {
@@ -90,7 +90,7 @@ result, err := textwire.EvaluateString(input, nil)
 
 ### 4. Embed Templates into Binary
 
-Now, in Textwire v3 you can use Go's embedded package to embed Textwire template files into a final, compiled binary. You can read about how to use this functionality in [our docs](/docs/v3/guides/template-embedding). But it looks something like this:
+Now, in Textwire v3 you can use Go's embedded package to embed Textwire template files into a final, compiled binary. You can read about how to use this functionality in [our docs](/v3/guides/template-embedding). But it looks something like this:
 
 ```go title="main.go" showLineNumbers
 package main
@@ -127,7 +127,7 @@ func main() {
 - You'll get a proper error instead of panic when you try to use `@each(item in false)` directive on non-array type.
 - You'll get a clear error when using 2 or more `@use` statements in the same template.
 
-There are much more improvements to error handling in this release, so make sure to [upgrade](/docs/v3/upgrade) to version 3.
+There are much more improvements to error handling in this release, so make sure to [upgrade](/v3/upgrade) to version 3.
 
 ### 2. Memory Performance
 
@@ -135,7 +135,7 @@ Improve memory and performance with optimized data structures and reduced memory
 
 | Improved target                                    | Speed               | Memory usage      | Allocations        |
 | -------------------------------------------------- | ------------------- | ----------------- | ------------------ |
-| Function [arr.join()](/docs/v3/functions/arr#join) | ⚡ **18.5× faster** | 💾 **97.8% less** | 📉 **33% fewer**   |
+| Function [arr.join()](/v3/functions/arr#join) | ⚡ **18.5× faster** | 💾 **97.8% less** | 📉 **33% fewer**   |
 | Tokenizing (lexing) directives                     | ⚡ **1.24× faster** | 💾 **46.9% less** | 📉 **84.9% fewer** |
 | Parsed AST evaluation                              | **No change**       | 💾 **9.3% less**  | 📉 **2.5% fewer**  |
 
@@ -187,10 +187,10 @@ Now you will get a proper error when trying to access propery on non object type
 
 Textwire v3 introduces several breaking changes. We're implementing these changes now rather than later, as it's better to make significant updates when the user base is smaller.
 
-This transition would be much harder with tens of thousands of users than with hundreds. Thank you for choosing Textwire - we'll provide the least painful transition experience with our [detailed upgrade guide](/docs/v3/upgrade).
+This transition would be much harder with tens of thousands of users than with hundreds. Thank you for choosing Textwire - we'll provide the least painful transition experience with our [detailed upgrade guide](/v3/upgrade).
 
 :::important
-I'll discuss each breaking change briefly because they are already explained in the [Upgrade Guide](/docs/v3/upgrade), so there's no need to repeat that detailed information here.
+I'll discuss each breaking change briefly because they are already explained in the [Upgrade Guide](/v3/upgrade), so there's no need to repeat that detailed information here.
 :::
 
 ### 1. Custom Functions Return Type
@@ -228,4 +228,4 @@ Components in **Textwire v2** would pass variables to their children automatiall
 
 Fixed variable leak from template to layout non-explicitly. In Textwire v2, if you had a variable in your template, it would be accessible in your layout without passing it explicitly. In Textwire v3, this is not available anymore.
 
-Use the [Global Data](/docs/v3/guides/configurations#global-data) to pass variables into all of your Textwire files.
+Use the [Global Data](/v3/guides/configurations#global-data) to pass variables into all of your Textwire files.

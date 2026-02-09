@@ -1,5 +1,6 @@
 ---
 title: Float functions - v1
+outline: 3
 ---
 
 # Float functions

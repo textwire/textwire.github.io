@@ -20,7 +20,7 @@ Braces statements are special Textwire statements that start with `&lparen;{` br
 
 - If you want multiple expressions inside `&lparen;{ }}` braces, use `;` to separate them. For example: `&lparen;{ x = 5; y = 10 }}`.
 - All the braces statements return a string. For example, `&lparen;{ x = 5 }}` will return an empty string, but `&lparen;{ 5 + 5 }}` will return "10".
-- There are special braces statements that need to be closed with `&lparen;{ end }}` keyword. For example, [if statement](/docs/v1/language-elements/statements#if-statement) and [for statements](/docs/v1/language-elements/statements#for-loop).
+- There are special braces statements that need to be closed with `&lparen;{ end }}` keyword. For example, [if statement](/v1/language-elements/statements#if-statement) and [for statements](/v1/language-elements/statements#for-loop).
 - To escape `&lparen;{ }}` braces, you can use `\`. For example `\&lparen;{ x }}` will not be parsed as a braces statement but as HTML.
 
 ### Directives
