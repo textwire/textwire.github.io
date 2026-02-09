@@ -1,7 +1,5 @@
 ---
 title: Template Embedding - v3
-sidebar_label: Template Embedding
-sidebar_position: 9
 description: Learn how to use Go's embed package to embed Textwire templates into your Go applications for efficient template management.
 ---
 

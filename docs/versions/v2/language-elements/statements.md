@@ -289,7 +289,7 @@ Here’s an example of how to use the `@dump` directive:
 
 The output would look like something like this:
 
-<img src="/img/dump-names.png" title="Dump output in Textwire" width="150" />
+<img src="/images/dump-names.png" title="Dump output in Textwire" width="150" />
 
 ### Works with Different Types
 Similarly, you can print objects and other types of data:
@@ -307,7 +307,7 @@ Similarly, you can print objects and other types of data:
 <p>Some content</p>
 ```
 
-<img src="/img/dump-object.png" title="Dump object in Textwire" width="400" />
+<img src="/images/dump-object.png" title="Dump object in Textwire" width="400" />
 
 ### Dump Multiple Objects
 `@dump` directive can accept an endless amount arguments at once:
@@ -319,6 +319,6 @@ Similarly, you can print objects and other types of data:
 @dump(meta, user)
 ```
 
-<img src="/img/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
+<img src="/images/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
 
 It's an easy and convenient way to debug your templates and see what's going on inside of them.

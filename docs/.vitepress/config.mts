@@ -31,7 +31,7 @@ export default defineVersionedConfig(
             logo: '/images/logo.png',
             footer: {
                 message:
-                   'Release under the <a href="https://github.com/textwire/textwire/blob/master/LICENSE" target="_blank">MIT License</a>',
+                    'Release under the <a href="https://github.com/textwire/textwire/blob/master/LICENSE" target="_blank">MIT License</a>',
                 copyright:
                     'Copyright © 2023 - present <a href="https://serhiicho.com/about-me" target="_blank">Serhii Cho</a>',
             },
@@ -48,11 +48,17 @@ export default defineVersionedConfig(
                         latestVersion: 'v3',
                     },
                 },
-                { text: 'Guide', link: '/v3/' },
+                { text: 'Docs', link: '/v3/introduction' },
                 { text: 'Blog', link: '/blog' },
                 { text: '♥️ Support', link: '/community' },
-                { text: 'Neovim', link: 'https://github.com/textwire/textwire.nvim' },
-                { text: 'VSCode', link: 'https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire' },
+                {
+                    text: 'Neovim',
+                    link: 'https://github.com/textwire/textwire.nvim',
+                },
+                {
+                    text: 'VSCode',
+                    link: 'https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire',
+                },
             ],
             sidebar: {
                 '/v1/': [
@@ -62,7 +68,7 @@ export default defineVersionedConfig(
                 ],
                 '/v2/': [
                     {
-                        text: 'Guide',
+                        text: 'Docs',
                         items: [
                             { text: 'Get Started', link: '/v2/' },
                             { text: 'Configurations', link: '/v2/configurations' },
@@ -81,25 +87,110 @@ export default defineVersionedConfig(
                     },
                 ],
                 '/v3/': [
+                    { text: 'Introduction', link: '/v3/introduction' },
+                    { text: 'Get Started', link: '/v3/get-started' },
                     {
-                        text: 'Guide',
+                        text: 'Guides',
                         items: [
-                            { text: 'Installation', link: '/v3/' },
-                            { text: 'Usage Guide', link: '/v3/usage' },
-                            { text: 'Configurations', link: '/v3/configurations' },
-                            { text: 'Options', link: '/v3/options' },
-                            { text: 'Upgrade Guide', link: '/v3/upgrade' },
+                            {
+                                text: 'Usage with Templates',
+                                link: '/v3/guides/template-usage',
+                            },
+                            {
+                                text: 'Evaluating Strings',
+                                link: '/v3/guides/eval-string',
+                            },
+                            {
+                                text: 'Evaluating Files',
+                                link: '/v3/guides/eval-file',
+                            },
+                            {
+                                text: 'Custom Functions',
+                                link: '/v3/guides/custom-functions',
+                            },
+                            {
+                                text: 'Error Handling',
+                                link: '/v3/guides/error-handling',
+                            },
+                            {
+                                text: 'Configurations',
+                                link: '/v3/guides/configurations',
+                            },
+                            {
+                                text: 'Loops Usage',
+                                link: '/v3/guides/loops',
+                            },
+                            {
+                                text: 'Template Embedding',
+                                link: '/v3/guides/template-embedding',
+                            },
                         ],
                     },
                     {
-                        text: 'Information',
+                        text: 'Language Elements',
                         items: [
                             {
-                                text: 'What is Timeago?',
-                                link: '/v3/what-is-timeago',
+                                text: 'Syntax',
+                                link: '/v3/language-elements/syntax',
                             },
-                            { text: 'Contribute', link: '/v3/contribute' },
+                            {
+                                text: 'Statements',
+                                link: '/v3/language-elements/statements',
+                            },
+                            {
+                                text: 'Expressions',
+                                link: '/v3/language-elements/expressions',
+                            },
+                            {
+                                text: 'Literals',
+                                link: '/v3/language-elements/literals',
+                            },
+                            {
+                                text: 'Other Information',
+                                link: '/v3/language-elements/other',
+                            },
                         ],
+                    },
+                    {
+                        text: 'Functions',
+                        items: [
+                            {
+                                text: 'Functions Guide',
+                                link: '/v3/functions/guide',
+                            },
+                            {
+                                text: 'Global Functions',
+                                link: '/v3/functions/global',
+                            },
+                            {
+                                text: 'Integer Functions',
+                                link: '/v3/functions/int',
+                            },
+                            {
+                                text: 'Float Functions',
+                                link: '/v3/functions/float',
+                            },
+                            {
+                                text: 'Boolean Functions',
+                                link: '/v3/functions/bool',
+                            },
+                            {
+                                text: 'Array Functions',
+                                link: '/v3/functions/arr',
+                            },
+                            {
+                                text: 'String Functions',
+                                link: '/v3/functions/str',
+                            },
+                        ],
+                    },
+                    {
+                        text: 'FAQ',
+                        link: '/v3/faq',
+                    },
+                    {
+                        text: 'Upgrade Guide',
+                        link: '/v3/upgrade',
                     },
                 ],
             },

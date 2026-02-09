@@ -1,7 +1,5 @@
 ---
 title: Evaluating Files - v3
-sidebar_label: Evaluating Files
-sidebar_position: 4
 description: Learn how to evaluate files containing Textwire code in your Go applications using the EvaluateFile function
 ---
 

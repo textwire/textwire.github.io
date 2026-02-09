@@ -1,7 +1,5 @@
 ---
 title: Evaluating Strings - v3
-sidebar_label: Evaluating Strings
-sidebar_position: 3
 description: Learn how to evaluate strings containing Textwire code in your Go applications
 ---
 

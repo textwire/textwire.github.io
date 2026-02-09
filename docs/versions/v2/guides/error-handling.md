@@ -55,12 +55,12 @@ When an error occurs, we cannot serve you the output to the frontend. The wrong 
 ### Error in Production
 When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
 
-![Error output in Textwire](/img/oops.png)
+![Error output in Textwire](/images/oops.png)
 
 ### Error with Debug Mode
 When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
 
-![Error output in Textwire](/img/debug-error-page.png)
+![Error output in Textwire](/images/debug-error-page.png)
 
 ### Custom Error Page
 If you want to define your own error page, you can do so by creating a new HTML file and setting the `ErrorPagePath` configuration to the path of the HTML file. You can read about configurations in the [Available Configurations](/docs/v2/guides/configurations#available-configurations) section.

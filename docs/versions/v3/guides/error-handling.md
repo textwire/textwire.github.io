@@ -1,7 +1,5 @@
 ---
 title: Error Handling - v3
-sidebar_label: Error Handling
-sidebar_position: 6
 description: Learn how to handle errors in Textwire, enabling you to identify and resolve issues in your project
 ---
 
@@ -87,12 +85,12 @@ When errors occur, preventing output display protects against incorrect data bei
 ### Error in Production
 When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
 
-![Production error page in Textwire](/img/oops.png)
+![Production error page in Textwire](/images/oops.png)
 
 ### Error with Debug Mode
 When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
 
-![Debug mode error page in Textwire](/img/debug-error-page.png)
+![Debug mode error page in Textwire](/images/debug-error-page.png)
 
 ### Custom Error Pages
 Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/docs/v3/guides/configurations#available-configurations) section.
