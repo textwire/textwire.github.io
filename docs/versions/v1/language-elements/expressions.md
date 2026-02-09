@@ -5,12 +5,12 @@ title: Expressions - v1
 # Expressions
 
 - Expressions
-    - [Ternary expressions](#ternary-expressions) `&lparen;{ x ? y : z }}`
-    - [Prefix expressions](#prefix-expressions) `&lparen;{ !x` or `-x }}`
-    - [Infix expressions](#infix-expressions) `&lparen;{ x * (y + 3) }}`
-    - [Postfix expressions](#postfix-expressions) `&lparen;{ x++ }}` or `&lparen;{ x-- }}`
-    - [Comparison expressions](#comparison-expressions) `&lparen;{ x == y }}` or `&lparen;{ x < y }}`
-    - [Function calls](#function-calls) `&lparen;{ name.split(" ") }}`
+    - [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
+    - [Prefix expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
+    - [Infix expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
+    - [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
+    - [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code> or <code v-pre>{{ x < y }}</code>
+    - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
 
 ## Ternary expressions
 

@@ -6,7 +6,7 @@ title: Statements - v1
 
 - Statements
     - [If statement](#if-statement) `@if(x == 1)`
-    - [Variable declaration](#variable-declaration) `&lparen;{ x = 5 }}`
+    - [Variable declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
     - [Use statement](#use-statement) `@use("layouts/main")`
     - [Insert statement](#insert-statement) `@insert("title", "Home")`
     - [Reserve statement](#reserve-statement) `@reserve("title")`
@@ -87,7 +87,7 @@ The `@else` statement is optional and can be used to render content when the arr
 
 Inside of every `each` loop, you can optionally use a `loop` object to get the current index of the item or other data that is updated on every iteration.
 
-For example, `&lparen;{ loop.index }}` will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
+For example, <code v-pre>{{ loop.index }}</code> will return the current index of the item. Here is a list of all the properties of the `loop` object you can use:
 
 | Property | Type    | Description                                |
 | -------- | ------- | ------------------------------------------ |
@@ -142,7 +142,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 {{ x = 10 }}
 ```
 
-You cannot assign values to variables that have a different type. For example, you cannot do `&lparen;{ x = "Hello"; x = 3 }}` because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
+You cannot assign values to variables that have a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
 :::info Declaration has no output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
@@ -199,7 +199,7 @@ When you define a layout file for you template, you need to reserve places for d
 ```
 
 :::info Pass variables to the layout
-All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with `&lparen;{ title }}` and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
+All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
 :::
 
 Reserve statement excepts only a single argument, which the name of the reserved place. This name will be used in the [insert statement](#insert-statement) to insert content into the reserved place.
