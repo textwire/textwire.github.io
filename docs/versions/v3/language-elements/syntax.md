@@ -9,7 +9,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
 
 - **File Extensions**: All template files intended for Textwire parsing must have a `.tw` extension.
 - **Code Placement**: All Textwire code must either:
-    - Be enclosed within `&lparen;{ }}` braces, or
+    - Be enclosed within <code v-pre>{{ }}</code> braces, or
     - Start with the `@` symbol.
 
 :::info Syntax Highlighting
