@@ -93,7 +93,7 @@ Most braces statements return a string when they contain expressions.
 
 Many JavaScript frameworks and libraries use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
 
-For example, `\@if(x == 1)` and `\&lparen;{ x = 1 }}` will not be parsed as Textwire directives or braces statements.
+For example, <code v-pre>\\@if(x == 1)</code> and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or braces statements.
 
 ## Types and Literals
 

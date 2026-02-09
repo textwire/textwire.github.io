@@ -22,7 +22,7 @@ Braces statements are special Textwire statements that start with <code v-pre>{{
 - If you want multiple expressions inside <code v-pre>{{ }}</code> braces, use `;` to separate them. For example: <code v-pre>{{ x = 5; y = 10 }}</code>.
 - All the braces statements return a string. For example, <code v-pre>{{ x = 5 }}</code> will return an empty string, but <code v-pre>{{ 5 + 5 }}</code> will return "10".
 - There are special braces statements that need to be closed with <code v-pre>{ end }}</code> keyword. For example, [if statement](/v1/language-elements/statements#if-statement) and [for statements](/v1/language-elements/statements#for-loop).
-- To escape <code v-pre>{{ }}</code> braces, you can use `\`. For example `\&lparen;{ x }}` will not be parsed as a braces statement but as HTML.
+- To escape <code v-pre>{{ }}</code> braces, you can use `\`. For example <code v-pre>\\{{ x }}</code> will not be parsed as a braces statement but as HTML.
 
 ### Directives
 Directives are special Textwire statements that start with `@` symbol. They can be used to define a layout, insert content into reserved places, if statements and so on. Directives can be placed anywhere in the file except inside of <code v-pre>{{ }}</code> braces.
