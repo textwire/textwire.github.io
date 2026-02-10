@@ -204,7 +204,7 @@ Here’s a simple example of using a component:
 </div>
 ```
 
-:::warning
+:::warning Component Body Required
 Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
 :::
 

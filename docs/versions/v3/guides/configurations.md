@@ -13,7 +13,7 @@ Textwire provides configuration options to customize template behavior. You can 
 2. **Passing to `textwire.NewTemplate`:**
    Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
-:::info
+:::info Configuration Scope
 Setting configurations with `Configure` and `NewTemplate` functions is only applied when you use Textwire as templating system.
 
 For simple string evaluations with `EvaluateString` or `EvaluateFile`, configurations are ignored.

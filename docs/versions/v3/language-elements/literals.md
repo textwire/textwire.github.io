@@ -84,7 +84,7 @@ You can access values in an array by using an index. Here is an example of acces
 </ul>
 ```
 
-:::info
+:::info Array Index Returns Nil
 Accessing array on non-existant index returns `nil` instead of resulting in error.
 :::
 
@@ -136,7 +136,7 @@ You can access values in an object by using a key. Here is an example of accessi
 **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means `{{ user.name.first }}` and `{{ user.Name.First }}` resolve to the same result.
 :::
 
-:::important
+:::important Exported Fields Only
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 :::
 

@@ -46,7 +46,7 @@ In the same way you handle errors with evaluating a file or working with templat
 
 The error page is fully customizable, and you can configure its path in the [configuration](/v2/guides/configurations).
 
-:::info
+:::info Security Considerations
 When an error occurs, we cannot serve you the output to the frontend. The wrong usage of functions will lead to wrong function output, which can result in wrong data being displayed on the frontend. For better security and data integrity, the best way is to prevent the user of your site to see the output. You can read more about this [here in the FAQ section](/v2/faq/questions#why-its-best-to-prevent-visitors-of-your-site-from-seeing-the-result-of-the-function-output-when-an-error-occurs).
 :::
 

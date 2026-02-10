@@ -155,7 +155,7 @@ tpl, err = textwire.NewTemplate(&config.Config{
 
 Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't have `TemplateExt` configuration setup. In Textwire v3 `TemplateExt` is set to `.tw` by default.
 
-:::info
+:::info Custom Extensions
 You can set any extension for Textwire that you want, refer to [configurations](/v3/guides/configurations) page for more details. But we recommend using `.tw`.
 :::
 
