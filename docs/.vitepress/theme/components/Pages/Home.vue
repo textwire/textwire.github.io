@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import StarPopup from '@/components/StarPopup.vue'
 import PopupSlideTransition from '@/components/Transitions/PopupSlideTransition.vue'
-import Features from '@/components/Features/Features.vue'
+import Features from '@/components/Features.vue'
 
 const isVisible = ref<boolean>(false)
 
