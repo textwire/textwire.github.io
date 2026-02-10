@@ -19,10 +19,10 @@
 }
 
 /* Grid layout for the community page */
-.VPTeamMembers>.container {
+.VPTeamMembers > .container {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
 }
 
-.VPTeamMembers>.container .profile {
+.VPTeamMembers > .container .profile {
     padding: 25px !important;
 }
