@@ -1,4 +1,4 @@
-export const dirStructure = `templates/
+templates/
 ├── layouts/
 │   └── base.tw
 │
@@ -8,4 +8,4 @@ export const dirStructure = `templates/
 ├── views/
 │   └── home.tw
 │
-└── error-page.tw`
+└── error-page.tw

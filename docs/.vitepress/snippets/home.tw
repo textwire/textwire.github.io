@@ -1,4 +1,4 @@
-export const homeViewTw = `@use('layouts/base')
+@use('layouts/base')
 
 @insert('title', 'Book Store')
 
@@ -15,4 +15,4 @@ export const homeViewTw = `@use('layouts/base')
     @else
         <p>No books found</p>
     @end
-@end`
+@end

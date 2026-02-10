@@ -11,7 +11,8 @@ const featureList: FeatureItem[] = [
     },
     {
         title: '🎨 Template Customization',
-        description: 'Define custom functions, components, layouts, and error pages with full control over template structure',
+        description:
+            'Define custom functions, components, layouts, and error pages with full control over template structure',
     },
     {
         title: '🐛 Error Handling',
@@ -19,12 +20,14 @@ const featureList: FeatureItem[] = [
     },
     {
         title: '🖋‍ Editor Integration',
-        description: 'Neovim and VSCode extensions provide syntax highlighting and editor integration',
+        description:
+            'Neovim and VSCode extensions provide syntax highlighting and editor integration',
     },
     {
         title: '📚 Documentation',
-        description: 'Comprehensive documentation with examples covering all features and getting started guides',
-    }
+        description:
+            'Comprehensive documentation with examples covering all features and getting started guides',
+    },
 ]
 
 export default featureList
