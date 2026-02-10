@@ -10,6 +10,8 @@ export default defineVersionedConfig(
 
         markdown: {    lineNumbers: true },
 
+        cleanUrls: true,
+
         versioning: {
             latestVersion: 'v3',
         },

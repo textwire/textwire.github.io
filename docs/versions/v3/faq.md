@@ -27,7 +27,7 @@ All non-Textwire-specific parts of the text file are treated as plain text and a
 <p>I would use it in production<p>
 ```
 
-In the example above, only `{{ "Hello, World!".upper() }}` part will be evaluated. That's why Textwire is fast, as it only parses the parts that are necessary and leaves the rest as is.
+In the example above, only <code v-pre>{{ "Hello, World!".upper() }}</code> part will be evaluated. That's why Textwire is fast, as it only parses the parts that are necessary and leaves the rest as is.
 
 ## Is Textwire a Templating Engine?
 Textwire is not exactly a templating engine. It is a Domain-specific language (DSL) written in Go. It is designed to be used with Go programs to provide elegant and easy-to-use syntax for working with frontend. It's a good alternative to other templating engines for Go since it's performant and optimized.
