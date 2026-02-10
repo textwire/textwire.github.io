@@ -43,14 +43,14 @@ All Textwire configurations are optional and include sensible default values. Re
 
 ## Available Configurations
 
-| Property        | Type             | Description                                                                                                                                                                              | Default value           |
-| --------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
-| `TemplateDir`   | `string`         | The directory where Textwire searches for template files.                                                                                                                                | `"templates"`           |
+| Property        | Type             | Description                                                                                                                                                                         | Default value           |
+| --------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| `TemplateDir`   | `string`         | The directory where Textwire searches for template files.                                                                                                                           | `"templates"`           |
 | `TemplateFS`    | `fs.FS`          | Provides an optional fs.FS filesystem for template access. Use this field to embed templates into your binary using Go's embed package. [Read more](/v3/guides/template-embedding). | `os.DirFS(TemplateDir)` |
-| `TemplateExt`   | `string`         | The file extension for template files.                                                                                                                                                   | `".tw"`                 |
-| `ErrorPagePath` | `string`         | The path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false`.                                           | `""`                    |
+| `TemplateExt`   | `string`         | The file extension for template files.                                                                                                                                              | `".tw"`                 |
+| `ErrorPagePath` | `string`         | The path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false`.                                      | `""`                    |
 | `DebugMode`     | `bool`           | A flag that enables debug mode. When enabled, error messages are displayed in the browser. Read more in the [Error Handling guide](/v3/guides/error-handling).                      | `false`                 |
-| `GlobalData`    | `map[string]any` | Global data accessible in all Textwire files. [Read more](#global-data).                                                                                                                 | `map[string]any{}`      |
+| `GlobalData`    | `map[string]any` | Global data accessible in all Textwire files. [Read more](#global-data).                                                                                                            | `map[string]any{}`      |
 
 :::warning Extension Compatibility
 If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
@@ -91,4 +91,4 @@ You can access your global data in any Textwire template using the `global` obje
 @end
 ```
 
-The `global` identifier is a reserved word and cannot be used for variable names. Read more about [reserved variables](/v3/introduction#reserved-variable-names).
+The `global` identifier is a reserved word and cannot be used for variable names. Read more about [reserved variables](/v3/#reserved-variable-names).

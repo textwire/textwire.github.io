@@ -30,7 +30,7 @@ export default function HomepageHeader(): React.ReactElement {
 
                     <Link
                         className="button button--secondary button--lg"
-                        to="/v3/introduction/"
+                        to="/v3/"
                     >
                         Introduction
                     </Link>
