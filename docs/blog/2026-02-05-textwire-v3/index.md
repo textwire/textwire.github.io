@@ -186,9 +186,7 @@ Textwire v3 introduces several breaking changes. We're implementing these change
 
 This transition would be much harder with tens of thousands of users than with hundreds. Thank you for choosing Textwire - we'll provide the least painful transition experience with our [detailed upgrade guide](/v3/upgrade).
 
-:::important
 I'll discuss each breaking change briefly because they are already explained in the [Upgrade Guide](/v3/upgrade), so there's no need to repeat that detailed information here.
-:::
 
 ### 1. Custom Functions Return Type
 

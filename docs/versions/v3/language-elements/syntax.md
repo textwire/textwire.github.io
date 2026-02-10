@@ -1,6 +1,7 @@
 ---
 title: Syntax - v3
 description: Textwire has a simple syntax that is easy to learn
+outline: deep
 ---
 
 # Textwire Syntax
@@ -12,7 +13,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
     - Be enclosed within <code v-pre>{{ }}</code> braces, or
     - Start with the `@` symbol.
 
-:::info Syntax Highlighting
+:::tip Syntax Highlighting
 If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
