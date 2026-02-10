@@ -183,6 +183,6 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 2, 3
 ```
 
-:::warning No negative arguments
+:::warning No Negative Arguments
 `start` and `end` arguments cannot be negative. If you provide a negative value for `start`, it will be treated as `0`. If you provide a negative value for `end` or the value exceeds the length of the array, it will default to the last index of the array
 :::

@@ -197,7 +197,7 @@ When you define a layout file for you template, you need to reserve places for d
 </html>
 ```
 
-:::info Pass variables to the layout
+:::info Pass Variables to the Layout
 All the variables passed to the template file will be available in the layout file. It means that you can even replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, you can use variables in the layout file that are available in the template file.
 :::
 

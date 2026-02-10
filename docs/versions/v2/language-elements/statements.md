@@ -120,7 +120,7 @@ Or, you can use a path alias like this:
 @use("~main")
 ```
 
-:::info Use statement Path alias
+:::info Use Statement Path Alias
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
@@ -208,7 +208,7 @@ Here’s a simple example of using a component:
 Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
 :::
 
-:::info Component path alias
+:::info Component Path Alias
 If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 :::
 

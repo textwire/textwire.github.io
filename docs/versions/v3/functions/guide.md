@@ -16,7 +16,7 @@ You can also chain multiple functions together to perform complex operations.
 {{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
 ```
 
-:::tip Error handling
+:::tip Error Handling
 Learn about [error handling](/v3/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 :::
 

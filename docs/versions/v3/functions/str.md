@@ -63,11 +63,11 @@ Returns true if the string contains the given substring, otherwise false. The fu
 true
 ```
 
-:::tip Empty substring
+:::tip Empty Substring
 If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
 :::
 
-:::tip Ignore case
+:::tip Ignore Case
 If you want to search for a substring without considering the case, you can use the `lower` function to convert both the string and the substring to lowercase:
 
 ```textwire
