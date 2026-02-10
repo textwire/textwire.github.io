@@ -50,7 +50,7 @@ export default defineVersionedConfig(
                         latestVersion: 'v3',
                     },
                 },
-                { text: 'Docs', link: '/v3/introduction' },
+                { text: 'Docs', link: '/v3/' },
                 { text: 'Blog', link: '/blog' },
                 { text: 'Support', link: '/community' },
                 {
