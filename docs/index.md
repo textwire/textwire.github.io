@@ -12,9 +12,6 @@ hero:
         - theme: alt
           text: Introduction
           link: /v3/
-        - theme: alt
-          text: Upgrade to v3
-          link: /v3/upgrade
     image:
         src: /images/logo.png
         alt: Textwire Logo
