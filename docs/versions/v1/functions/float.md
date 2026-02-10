@@ -19,6 +19,6 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <b>5<b>
 ```

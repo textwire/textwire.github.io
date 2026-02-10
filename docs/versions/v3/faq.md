@@ -43,7 +43,7 @@ Directives and statements are the core of Textwire language. They are used to de
 - All directives are statements, but not all statements are directives
 - Directives start with the `@` symbol, while statements are a general term for parts of code that perform an action and do not return a value
 
-:::note
+:::info Read More
 You can read about statements in the [Statements](/v3/language-elements/statements) section of the documentation.
 :::
 

@@ -17,7 +17,7 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 ```
 
 #### Output
-```textwire
+```html
 5
 ```
 
@@ -37,7 +37,7 @@ Converts an integer to a float by adding a decimal part of `.0` to the number
 ```
 
 #### Output
-```textwire
+```html
 5.0
 ```
 
@@ -56,7 +56,7 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 ```
 
 #### Output
-```textwire
+```html
 5
 ```
 
@@ -73,6 +73,6 @@ Converts an integer to a string and returns it
 ```
 
 #### Output
-```textwire
+```html
 5 and -10
 ```

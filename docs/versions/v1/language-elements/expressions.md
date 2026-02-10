@@ -91,4 +91,4 @@ Here is an example of using function calls:
 {{ name.split(" ") }}
 ```
 
-> You can read more detailed about built-in functions on the [Built-in Functions](/v1/functions/guide) page.
+You can read more detailed about built-in functions on the [Built-in Functions](/v1/functions/guide) page.

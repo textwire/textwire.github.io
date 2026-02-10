@@ -19,7 +19,7 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <h1>Test</h1>
 ```
 
@@ -39,7 +39,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 #### Output
 The output will be `one,two` because when you trying to print an array, it will be join values with comma. It only happens when you are trying to print the array. For example, `{{ [1, 2, 3] }}` will be printed as `1,2,3`.
 
-```textwire
+```html
 <div>one,two</div>
 ```
 
@@ -57,7 +57,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 ```
 
 #### Output
-```textwire
+```html
 <span>Textwire</span>
 ```
 
@@ -75,7 +75,7 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <b>13</b>
 ```
 
@@ -93,7 +93,7 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <span>hello, world!</span>
 ```
 
@@ -111,6 +111,6 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <b>HELLO, WORLD!</b>
 ```

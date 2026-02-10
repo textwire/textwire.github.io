@@ -22,7 +22,7 @@ Returns the character at the given index.
 ```
 
 #### Output
-```textwire
+```html
 e
 ```
 
@@ -39,7 +39,7 @@ Capitalizes the first letter of a string
 ```
 
 #### Output
-```textwire
+```html
 Hello, world!
 ```
 
@@ -59,7 +59,7 @@ Returns true if the string contains the given substring, otherwise false. The fu
 ```
 
 #### Output
-```textwire
+```html
 true
 ```
 
@@ -95,7 +95,7 @@ Converts to a string with a decimal part by appending a decimal separator and th
 ```
 
 #### Output
-```textwire
+```html
 123.00
 ```
 
@@ -112,7 +112,7 @@ Returns the first character of a string. When the string is empty, it will retur
 ```
 
 #### Output
-```textwire
+```html
 T
 ```
 
@@ -129,7 +129,7 @@ Returns the last character of a string. When the string is empty, it will return
 ```
 
 #### Output
-```textwire
+```html
 e
 ```
 
@@ -146,7 +146,7 @@ Returns the length of the string
 ```
 
 #### Output
-```textwire
+```html
 13
 ```
 
@@ -163,7 +163,7 @@ Converts a string to lowercase
 ```
 
 #### Output
-```textwire
+```html
 hello, world!
 ```
 
@@ -180,7 +180,7 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 ```
 
 #### Output
-```textwire
+```html
 <h1>Test</h1>
 ```
 
@@ -200,7 +200,7 @@ Returns a new string consisting of count copies of the string on which it was ca
 ```
 
 #### Output
-```textwire
+```html
 HelloHelloHello
 ```
 
@@ -217,7 +217,7 @@ Returns a string with the characters reversed
 ```
 
 #### Output
-```textwire
+```html
 desserts
 ```
 
@@ -237,7 +237,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 ```
 
 #### Output
-```textwire
+```html
 <div>one, two</div>
 ```
 
@@ -257,7 +257,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 ```
 
 #### Output
-```textwire
+```html
 <span>Textwire</span>
 ```
 
@@ -277,7 +277,7 @@ Trims left side of a string from spaces and special characters like tabs, spaces
 ```
 
 #### Output
-```textwire
+```html
 <span>Textwire</span>
 ```
 
@@ -297,7 +297,7 @@ Trims right side of a string from spaces and special characters like tabs, space
 ```
 
 #### Output
-```textwire
+```html
 <span>Textwire</span>
 ```
 
@@ -318,7 +318,7 @@ Returns a string truncated to the given length with an optional ellipsis at the 
 ```
 
 #### Output
-```textwire
+```html
 Hello...
 ```
 
@@ -335,6 +335,6 @@ Converts a string to uppercase
 ```
 
 #### Output
-```textwire
+```html
 HELLO, WORLD!
 ```

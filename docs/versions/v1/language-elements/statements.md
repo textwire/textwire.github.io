@@ -50,7 +50,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-:::info Else is optional
+:::tip Else is Optional
 The `@else` statement is optional and can be used to render content when there are no iterations in the loop.
 :::
 
@@ -81,7 +81,7 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-:::info Else is optional
+:::tip Else is Optional
 The `@else` statement is optional and can be used to render content when the array is empty
 :::
 
@@ -108,7 +108,7 @@ For example, <code v-pre>{{ loop.index }}</code> will return the current index o
 ```
 
 ### Output
-```textwire
+```html
 <ul>
 
         <li>1: Anna</li>

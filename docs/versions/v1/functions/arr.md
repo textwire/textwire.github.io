@@ -19,7 +19,7 @@ None
 ```
 
 #### Output:
-```textwire
+```html
 <span>3</span>
 ```
 
@@ -37,7 +37,7 @@ Function `join` is used to join the elements of an array into a string. It takes
 ```
 
 #### Output:
-```textwire
+```html
 <span>one two</span>
 ```
 

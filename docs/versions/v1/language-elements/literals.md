@@ -20,7 +20,7 @@ You can use string literals and concatenate them with other strings. You can use
 {{ "Hello" + 'World!' }}
 ```
 
-> When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/v1/functions/str#raw) function on strings. Example: <code v-pre>{{ "Test".raw() }}</code>
+When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/v1/functions/str#raw) function on strings. Example: <code v-pre>{{ "Test".raw() }}</code>
 
 ## Integer literals
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:

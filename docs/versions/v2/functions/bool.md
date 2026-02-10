@@ -18,7 +18,7 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 ```
 
 #### Output
-```textwire
+```html
 1
 0
 ```
@@ -42,7 +42,7 @@ Returns the `consequence` if the receiver is true, otherwise returns the `altern
 ```
 
 #### Output
-```textwire
+```html
 Yes
 No
 

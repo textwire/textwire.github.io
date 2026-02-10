@@ -4,11 +4,12 @@ description: Get an overview of Textwire, a powerful template evaluator for Go d
 ---
 
 # Introduction
+
 Textwire is a domain-specific language (DSL) tailored for Go projects, designed to effortlessly embed dynamic content into text-based formats like HTML, XML, JSON or any other text-based format that you can think of.
 
 Built specifically for Go, Textwire offers a clean and intuitive syntax that makes injecting variables and logic into any text-based format simple and efficient.
 
-:::info Syntax Highlighting
+:::tip Syntax Highlighting
 If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
@@ -17,6 +18,7 @@ With Textwire, seamlessly integrate dynamic content into your HTML files, enabli
 The syntax is designed to be familiar and easy-to-learn, especially for developers with experience in other template languages. Visit the [Language Elements](/v2/language-elements/syntax) page to explore the full range of available statements and directives for your templates.
 
 You can use Textwire in three versatile ways:
+
 1. [As a templating engine for web applications](/v2/guides/template-usage)
 2. [To embed dynamic content into a string](/v2/guides/eval-string)
 3. [To embed dynamic content into a file](/v2/guides/eval-file)
@@ -43,7 +45,9 @@ Here is a simple example of a Textwire template:
 ```
 
 ## Mathematical Expressions
+
 Textwire operates similar to Go when it comes to mathematical expressions. You can use the following operators in your templates:
+
 - Addition: `+` (`a + b`)
 - Subtraction: `-` (`a - b`)
 - Multiplication: `*` (`a * b`)
@@ -63,6 +67,6 @@ Textwire operates similar to Go when it comes to mathematical expressions. You c
 - Logical AND: `&&` (`a && b`)
 - Logical OR: `||` (`a || b`)
 
-:::note
+:::warning Type Mismatching
 You cannot mismatch types when performing mathematical operations. For example, you cannot add an integer to a float directly. You need to convert one of the types to match the other using type conversion functions like `<your float>.int()`, `<your int>.float()`, etc.
 :::

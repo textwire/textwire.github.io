@@ -6,7 +6,7 @@ outline: deep
 # Other Information
 
 - Other
-    - [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code> or <code v-pre>{{ { "name": "John", "age": 25, } }}</code>
+    - [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code>
     - [Comments](#comments) <code v-pre>{{-- This is a Textwire comment --}}</code>
 
 ## Trailing Commas

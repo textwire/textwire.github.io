@@ -12,7 +12,7 @@ Textwire has a simple syntax that is easy to learn. Here are some rules that you
 - All the HTML files that you want to parse with Textwire must have a `.tw.html` extension.
 - All the Textwire code must be inside of the <code v-pre>{{ }}</code> braces, or start with `@` symbol.
 
-:::info Syntax Highlighting
+:::tip Syntax Highlighting
 If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 

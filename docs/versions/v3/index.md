@@ -65,7 +65,7 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 - Logical AND: `&&` (`a && b`)
 - Logical OR: `||` (`a || b`)
 
-:::note
+:::warning Type Mismatching
 Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as `<your float>.int()`, `<your int>.float()`, etc.
 :::
 

@@ -20,7 +20,7 @@ Adds one or more elements to the end of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 one, two, three, four
 ```
 
@@ -40,7 +40,7 @@ Returns `true` if the array contains the given element, otherwise `false`
 ```
 
 #### Output:
-```textwire
+```html
 1
 ```
 
@@ -69,7 +69,7 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 ```
 
 #### Output:
-```textwire
+```html
 one two
 ```
 
@@ -86,7 +86,7 @@ Returns the length of an array
 ```
 
 #### Output:
-```textwire
+```html
 3
 ```
 
@@ -106,7 +106,7 @@ Adds one or more elements to the beginning of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 one, two, three, four
 ```
 
@@ -123,7 +123,7 @@ Returns a random element from the array. The return type depends on the type of 
 ```
 
 #### Output:
-```textwire
+```html
 2
 ```
 
@@ -140,7 +140,7 @@ Reverses the elements of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 3, 2, 1
 ```
 
@@ -157,7 +157,7 @@ Shuffles the elements of an array and returns a new array
 ```
 
 #### Output:
-```textwire
+```html
 <!-- The order of the elements will be random -->
 2, 1, 3, 5
 ```
@@ -179,7 +179,7 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 ```
 
 #### Output:
-```textwire
+```html
 2, 3
 ```
 

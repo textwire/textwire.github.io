@@ -44,9 +44,9 @@ Follow the steps below to upgrade your Textwire code to v3.
 
 Change all the imports in your code from `github.com/textwire/textwire/v2` to `github.com/textwire/textwire/v3`
 
-```diff
-- import "github.com/textwire/textwire/v2"
-+ import "github.com/textwire/textwire/v3"
+```go
+import "github.com/textwire/textwire/v2" // [!code --]
+import "github.com/textwire/textwire/v3" // [!code ++]
 ```
 
 ### 2. Updating the Dependencies
@@ -101,9 +101,9 @@ grep -r -E "Register(Str|Int|Bool|Float|Arr)Func\(" ./internal
 
 Replace `./internal` with the path to your Go code. If you found any, just change the return type to any.
 
-```diff title="Update custom function return type"
-- err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) string {
-+ err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any {
+```go title="Update custom function return type"
+err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) string { // [!code --]
+err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any { // [!code ++]
     return s == "John Wick"
 })
 ```
@@ -163,11 +163,11 @@ You can set any extension for Textwire that you want, refer to [configurations](
 
 Components in **Textwire v2** would pass variables to their children automatially without manual passing. It was a bug. In **Textwire v3** each component has its scope. You need to pass data manually if you were using this:
 
-```diff
+```textwire
 {{ name = "Anna" }}
 
-- @component('user')
-+ @component('user', { name })
+@component('user') // [!code --]
+@component('user', { name }) // [!code ++]
 ```
 
 ### 9. Variable Leak Fix

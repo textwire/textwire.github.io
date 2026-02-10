@@ -1,6 +1,7 @@
 ---
 title: Usage with Templates - v2
 description: Learn how to configure and use Textwire templates in your Go applications, including importing the package, creating template instances, and more
+outline: deep
 ---
 
 # Usage with Templates
@@ -61,7 +62,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-:::info
+:::tip Live Reload
 If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
 :::
 

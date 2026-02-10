@@ -19,7 +19,7 @@ None
 ```
 
 #### Output
-```textwire
+```html
 <b>5.0</b>
 ```
 

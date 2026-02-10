@@ -17,7 +17,7 @@ Returns the absolute value of a float. If the float is negative, it will return 
 ```
 
 #### Output
-```textwire
+```html
 5.125
 ```
 
@@ -34,7 +34,7 @@ Returns the rounded up value of a float to the nearest integer
 ```
 
 #### Output
-```textwire
+```html
 6
 ```
 
@@ -51,7 +51,7 @@ Returns the rounded down value of a float to the nearest integer
 ```
 
 #### Output
-```textwire
+```html
 5
 ```
 
@@ -68,7 +68,7 @@ Converts a float to an integer by removing the decimal part of the number. It do
 ```
 
 #### Output
-```textwire
+```html
 5
 ```
 
@@ -85,6 +85,6 @@ Converts a float to a string. It's useful when you want to manipulate the float 
 ```
 
 #### Output
-```textwire
+```html
 5.125
 ```
