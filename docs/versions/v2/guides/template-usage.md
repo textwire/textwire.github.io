@@ -121,8 +121,7 @@ import (
     "net/http"
 
     "github.com/textwire/textwire/v2"
-    // highlight-next-line
-    "github.com/textwire/textwire/v2/config"
+    "github.com/textwire/textwire/v2/config" // [!code highlight]
 )
 
 var tpl *textwire.Template

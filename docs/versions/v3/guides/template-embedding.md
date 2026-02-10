@@ -53,8 +53,7 @@ var templateFS embed.FS
 
 func main() {
     tpl, err := textwire.NewTemplate(&config.Config{
-        // highlight-next-line
-        TemplateFS:    templateFS,
+        TemplateFS:    templateFS, // [!code highlight]
     })
 
     // other logic here ...
