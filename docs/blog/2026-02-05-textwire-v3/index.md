@@ -102,15 +102,12 @@ import (
 	"github.com/textwire/textwire/v3/config"
 )
 
-// highlight-start
-//go:embed templates/*
-var templateFS embed.FS
-// highlight-end
+//go:embed templates/* // [!code highlight]
+var templateFS embed.FS // [!code highlight]
 
 func main() {
     tpl, err := textwire.NewTemplate(&config.Config{
-        // highlight-next-line
-        TemplateFS:    templateFS,
+        TemplateFS:    templateFS, // [!code highlight]
     })
 
     // other logic here ...
@@ -217,11 +214,11 @@ In Textwire v3, the minimum supported Go version is now `1.25.0`. In Textwire v2
 
 Components in **Textwire v2** would pass variables to their children automatially without manual passing. It was a bug. In **Textwire v3** each component has its scope. You need to pass data manually:
 
-```diff
+```textwire
 {{ name = "Anna" }}
 
-- @component('user')
-+ @component('user', { name })
+@component('user') // [!code --]
+@component('user', { name }) // [!code ++]
 ```
 
 ### 7. Variable Leak Fix
