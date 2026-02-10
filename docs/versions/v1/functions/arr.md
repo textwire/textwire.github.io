@@ -13,7 +13,7 @@ Function `len` returns the length of an array.
 #### Arguments
 None
 
-#### Input example:
+#### Input Example:
 ```textwire
 <span>{{ [1, 2, 3].len() }}</span>
 ```
@@ -31,7 +31,7 @@ Function `join` is used to join the elements of an array into a string. It takes
 #### Arguments
 1. `separator` (optional) - What separator to use to join the elements. Default is comma `,`.
 
-#### Input example:
+#### Input Example:
 ```textwire
 <span>{{ ["one", "two"].join(" ") }}</span>
 ```

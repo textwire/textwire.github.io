@@ -14,7 +14,7 @@ Adds one or more elements to the end of an array and returns a new array
 #### Arguments:
 - `elem` (any) - Any amount of elements to add to the array
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ ["one", "two"].append("three", "four") }}
 ```
@@ -34,7 +34,7 @@ Returns `true` if the array contains the given element, otherwise `false`
 #### Arguments:
 1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ ["one", "two"].contains("two") }}
 ```
@@ -63,7 +63,7 @@ Joins the elements of an array into a string and returns it. It takes an optiona
 #### Arguments:
 1. `separator` (str) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ ["one", "two"].join(" ") }}
 ```
@@ -80,7 +80,7 @@ arr.len(): int
 
 Returns the length of an array
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ [1, 2, 3].len() }}
 ```
@@ -100,7 +100,7 @@ Adds one or more elements to the beginning of an array and returns a new array
 #### Arguments:
 - `elem` (any) - Any amount of elements to add to the array
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ ["three", "four"].prepend("one", "two") }}
 ```
@@ -117,7 +117,7 @@ arr.rand(): any
 
 Returns a random element from the array. The return type depends on the type of elements in the array.
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ [1, 2, 3].rand() }}
 ```
@@ -134,7 +134,7 @@ arr.reverse(): arr
 
 Reverses the elements of an array and returns a new array
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ [1, 2, 3].reverse() }}
 ```
@@ -151,7 +151,7 @@ arr.shuffle(): arr
 
 Shuffles the elements of an array and returns a new array
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ [1, 2, 3, 5].shuffle() }}
 ```
@@ -173,7 +173,7 @@ Returns a portion of an array. The `start` argument is the index at which to beg
 1. `start` (int) - The index at which to begin the slice
 2. `end` (int) (optional) - The index at which to end the slice
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ [1, 2, 3, 4, 5].slice(1, 3) }}
 ```

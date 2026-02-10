@@ -202,10 +202,6 @@ export default defineVersionedConfig(
                                 link: '/v2/functions/guide',
                             },
                             {
-                                text: 'Global Functions',
-                                link: '/v2/functions/global',
-                            },
-                            {
                                 text: 'Integer Functions',
                                 link: '/v2/functions/int',
                             },

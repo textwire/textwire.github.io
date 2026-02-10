@@ -23,7 +23,7 @@ You can also chain multiple functions together to perform complex operations.
 Learn about [error handling](/v2/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 :::
 
-## Unicode friendly
+## Unicode Friendly
 Textwire is designed to be Unicode friendly to satisfy the needs of developers from different countries. All built-in functions handle Unicode characters and strings without any issues.
 
 All the built-in functions in Textwire are Unicode friendly, which means they can handle Unicode characters and strings without any issues. You can use these functions to manipulate strings in any language. For example:

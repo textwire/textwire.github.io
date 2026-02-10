@@ -16,7 +16,7 @@ Textwire has a simple syntax that is easy to learn. Here are some rules that you
 If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
-### Braces statements
+### Braces Statements
 Braces statements are special Textwire statements that start with <code v-pre>{{</code> braces and end with <code v-pre>}}</code>. They can be used to define variables, perform arithmetic operations, conditionally render content and so on. Braces statements can be placed anywhere in the file except inside of directives.
 
 - If you want multiple expressions inside <code v-pre>{{ }}</code> braces, use `;` to separate them. For example: <code v-pre>{{ x = 5; y = 10 }}</code>.

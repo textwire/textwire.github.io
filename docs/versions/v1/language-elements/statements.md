@@ -4,16 +4,16 @@ title: Statements - v1
 
 # Statements
 
-- [If statement](#if-statement) `@if(x == 1)`
-- [Variable declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
-- [Use statement](#use-statement) `@use("layouts/main")`
-- [Insert statement](#insert-statement) `@insert("title", "Home")`
-- [Reserve statement](#reserve-statement) `@reserve("title")`
-- [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
-- [Each loop](#each-loop) `@each(name in names)`
+- [If Statement](#if-statement) `@if(x == 1)`
+- [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
+- [Use Statement](#use-statement) `@use("layouts/main")`
+- [Insert Statement](#insert-statement) `@insert("title", "Home")`
+- [Reserve Statement](#reserve-statement) `@reserve("title")`
+- [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
+- [Each Loop](#each-loop) `@each(name in names)`
 - [Component](#component) `@component("components/post-card")`
 
-## If statement
+## If Statement
 You can use if statements to conditionally render content. Here is an example of using if statements:
 
 ```textwire
@@ -34,7 +34,7 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
-## For loop
+## For Loop
 You can use regular for loops to iterate over an array or a range of numbers.
 
 This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
@@ -67,7 +67,7 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 </ul>
 ```
 
-## Each loop
+## Each Loop
 Each statement is a special for loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
 ```textwire
@@ -133,7 +133,7 @@ You can also use `@break`, `@breakIf()`, `@continue` and `@continueIf()` directi
 </ul>
 ```
 
-## Variable declaration
+## Variable Declaration
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
 ```textwire
@@ -147,7 +147,7 @@ You cannot assign values to variables that have a different type. For example, y
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 ::::
 
-## Use statement
+## Use Statement
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:
 
 ```textwire
@@ -160,7 +160,7 @@ Use statement excepts a string literal as an argument. The string literal should
 When you use the `@use` directive, only the content inside `@insert` directives will be rendered, while the rest of the file’s content will be ignored. This is because the `@use` directive instructs the program to apply a layout file instead of rendering the current file directly. In this process, all reserved placeholders in the layout file are filled with the content specified within your `@insert` directives.
 :::
 
-## Insert statement
+## Insert Statement
 You can use insert statement to insert content into reserved places. You cannot use `insert` without defining a layout with Use statement in the same file. Here is an example of using insert statement in 2 ways, with content body and without it:
 
 ```textwire
@@ -180,7 +180,7 @@ Insert statement excepts 2 arguments, the name of the reserved place and the opt
 
 All the `insert` statements will be transferred to the layout file and will be placed into reserved places defined by a [reserve statement](#reserve-statement).
 
-## Reserve statement
+## Reserve Statement
 When you define a layout file for you template, you need to reserve places for dynamic content. You can reserve a place for a title, content, sidebar, footer and so on. Here is an example of using reserve statement:
 
 ```textwire
@@ -206,7 +206,7 @@ Reserve statement excepts only a single argument, which the name of the reserved
 ## Component
 One of the best features of Textwire is the ability to use components. You can create a directory `components` in your templates and put all your components there. Then you can use the `@component` directive to include a component in your template. Let's see a simple example of a component:
 
-### Example of a component `components/post-card.tw.html`
+### Example of a Component `components/post-card.tw.html`
 ```textwire
 <div class="post">
     <h1>{{ post.title }}</h1>
@@ -214,7 +214,7 @@ One of the best features of Textwire is the ability to use components. You can c
 </div>
 ```
 
-### Example of using a component in a template `home.tw.html`
+### Example of Using a Component in a Template `home.tw.html`
 ```textwire
 <div class="posts">
     @each(post in posts)
@@ -237,7 +237,7 @@ The second optional argument is a [Textwire object](/v1/language-elements/litera
 
 You can also use slots in components to pass content to the component. Read about slots [in the next section](#component-slots)
 
-## Component slots
+## Component Slots
 Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:

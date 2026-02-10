@@ -141,7 +141,7 @@ Textwire automatically converts Go structs to objects, but **only exported field
 :::
 
 
-#### Shorthand property notation
+#### Shorthand Property Notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
 ```textwire

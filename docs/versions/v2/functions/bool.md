@@ -11,7 +11,7 @@ binary(): int
 
 Returns an integer `1` if the receiver is true, `0` otherwise
 
-#### Input example
+#### Input Example
 ```textwire
 {{ true.binary() }}
 {{ false.binary() }}
@@ -34,7 +34,7 @@ Returns the `consequence` if the receiver is true, otherwise returns the `altern
 1. `consequence` (any) - The value to return if the receiver is true
 2. `alternative` (any) - The value to return if the receiver is false. Default is `nil`, which will be converted to an empty string when rendered in the template
 
-#### Input example
+#### Input Example
 ```textwire
 {{ true.then("Yes", "No") }}
 {{ false.then("Yes", "No") }}

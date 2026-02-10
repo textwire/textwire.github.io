@@ -73,7 +73,7 @@ All supported operators are listed in the table below:
 | `<=`     | Less or equal    |
 
 
-## Function calls
+## Function Calls
 You can use function calls to call functions. Textwire has a few built-in functions that you can use in your templates.
 
 Functions in Textwire are type-specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.

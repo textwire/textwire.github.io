@@ -4,15 +4,15 @@ title: Literals - v1
 
 # Literals
 
-- [String literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
-- [Integer literals](#integer-literals) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
-- [Float literals](#float-literals) <code v-pre>{{ 123.456 }}</code>
-- [Boolean literals](#boolean-literals) <code v-pre>{{ true }}</code>
-- [Nil literal](#nil-literal) <code v-pre>{{ nil }}</code>
-- [Array literals](#array-literals) <code v-pre>{{ [1, 2, 3] }}</code>
-- [Object literals](#object-literals) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
+- [String Literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
+- [Integer Literals](#integer-literals) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
+- [Float Literals](#float-literals) <code v-pre>{{ 123.456 }}</code>
+- [Boolean Literals](#boolean-literals) <code v-pre>{{ true }}</code>
+- [Nil Literal](#nil-literal) <code v-pre>{{ nil }}</code>
+- [Array Literals](#array-literals) <code v-pre>{{ [1, 2, 3] }}</code>
+- [Object Literals](#object-literals) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
 
-## String literals
+## String Literals
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
 
 ```textwire
@@ -21,14 +21,14 @@ You can use string literals and concatenate them with other strings. You can use
 
 When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the a [raw()](/v1/functions/str#raw) function on strings. Example: <code v-pre>{{ "Test".raw() }}</code>
 
-## Integer literals
+## Integer Literals
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
 
 ```textwire
 <span>{{ 1 + 2 }}</span>
 ```
 
-## Nil literal
+## Nil Literal
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
 ```textwire
@@ -37,14 +37,14 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 @end
 ```
 
-## Float literals
+## Float Literals
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
 ```textwire
 <span>{{ 1.5 + 2.5 }}</span>
 ```
 
-## Boolean literals
+## Boolean Literals
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
 ```textwire
@@ -53,7 +53,7 @@ You can use boolean literals to check if a variable is true or false. Here is an
 @end
 ```
 
-## Array literals
+## Array Literals
 Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
 
 ```textwire
@@ -79,7 +79,7 @@ You can access values in an array by using an index. Here is an example of acces
 </ul>
 ```
 
-## Object literals
+## Object Literals
 Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
 
 ```textwire
@@ -112,7 +112,7 @@ You can access values in an object by using a key. Here is an example of accessi
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 :::
 
-### Shorthand property notation
+### Shorthand Property Notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
 ```textwire

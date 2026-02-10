@@ -18,7 +18,7 @@ defined(arg: any...): bool
 
 If you pass more than 1 variable, the function will return `true` if all variables are defined.
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ defined(actors) ? 'Defined' : 'Missing' }}
 ```

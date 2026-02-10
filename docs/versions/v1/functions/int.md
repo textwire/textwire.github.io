@@ -13,7 +13,7 @@ The `float` function is used to convert an integer to a float.
 ##### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 <b>{{ 5.float() }}</b>
 ```

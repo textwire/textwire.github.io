@@ -6,14 +6,14 @@ outline: deep
 
 # Expressions
 
-- [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
-- [Prefix expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
-- [Infix expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
-- [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
-- [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code> or <code v-pre>{{ x < y }}</code>
-- [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
+- [Ternary Expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
+- [Prefix Expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
+- [Infix Expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
+- [Postfix Expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
+- [Comparison Expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code> or <code v-pre>{{ x < y }}</code>
+- [Function Calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
 
-## Ternary expressions
+## Ternary Expressions
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
 
 ```textwire
@@ -22,7 +22,7 @@ You can use ternary expressions to conditionally render content. Here is an exam
 
 The advantage of a "ternary expression" over "if statement" is that it can be use inside of any other expressions.
 
-## Prefix expressions
+## Prefix Expressions
 You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
 
 ```textwire
@@ -30,7 +30,7 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 <span>{{ -x }}</span>
 ```
 
-## Infix expressions
+## Infix Expressions
 You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
 
 ```textwire
@@ -44,7 +44,7 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 </ul>
 ```
 
-## Postfix expressions
+## Postfix Expressions
 You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
 
 ```textwire
@@ -52,7 +52,7 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 <span>{{ x-- }}</span> <!-- Decrement -->
 ```
 
-## Comparison expressions
+## Comparison Expressions
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
 ```textwire

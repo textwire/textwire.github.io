@@ -117,7 +117,7 @@ You can access values in an object by using a key. Here is an example of accessi
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 :::
 
-#### Shorthand property notation
+#### Shorthand Property Notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
 ```textwire

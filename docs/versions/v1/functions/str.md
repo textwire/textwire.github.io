@@ -13,7 +13,7 @@ Function `raw` is used to render a string as raw HTML. This is useful when you w
 #### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 {{ "<h1>Test</h1>".raw() }}
 ```
@@ -31,7 +31,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 #### Arguments
 1. `separator` (optional) - What separator to use to split the string. Default is " " (space).
 
-#### Input example
+#### Input Example
 ```textwire
 <div>{{ "one two".split(" ") }}</div>
 ```
@@ -51,7 +51,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 #### Arguments
 1. `chars` (optional) - A string of characters to trim from a string. Default is `\t \n\r`.
 
-#### Input example
+#### Input Example
 ```textwire
 <span>{{ " Textwire ".trim() }}</span>
 ```
@@ -69,7 +69,7 @@ The `len` function returns the length of a string.
 #### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 <b>{{ "Hello, World!".len() }}</b>
 ```
@@ -87,7 +87,7 @@ The `lower` function converts a string to lowercase.
 #### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 <span>{{ "Hello, World!".lower() }}<span>
 ```
@@ -105,7 +105,7 @@ The `upper` function converts a string to uppercase.
 #### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 <b>{{ "Hello, World!".upper() }}</b>
 ```

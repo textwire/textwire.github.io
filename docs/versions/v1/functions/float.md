@@ -13,7 +13,7 @@ Function `int` is used to convert a float to an integer by removing the decimal 
 ##### Arguments
 None
 
-#### Input example
+#### Input Example
 ```textwire
 <b>{{ 5.5.int() }}<b>
 ```

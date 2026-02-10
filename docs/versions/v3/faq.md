@@ -8,10 +8,10 @@ Welcome to our FAQ page, where we address the most common questions and concerns
 
 Here, you’ll find explanations, solutions to common problems, and best practices to make the most of your experience. If you don’t find the answer you’re looking for, feel free to reach out to us by creating an [issue on GitHub](https://github.com/textwire/textwire.github.io/issues/new) and we’ll be happy to help and update the FAQ with your question to help others.
 
-## What exactly is Textwire?
+## What Exactly is Textwire?
 Textwire is a domain-specific language designed to be used with Go. Unlike other Go templating engines I've used, Textwire provides the joy and flexibility needed for frontend development. It is a simple and stable language that should be used for your app. See how to [Get Started](/v3/get-started) with Textwire.
 
-## How does Textwire Parse Files?
+## How Does Textwire Parse Files?
 Textwire has its own unique chain of turning your text files into final output. We do it in 4 steps:
 
 1. **Tokenizing** your Textwire template into tokens.

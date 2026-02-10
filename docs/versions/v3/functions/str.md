@@ -16,7 +16,7 @@ Returns the character at the given index.
 #### Arguments:
 1. `index` (int) - The index of the character to return. Default is `0`, which returns the first character of the string
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Textwire".at(1) }}
 ```
@@ -33,7 +33,7 @@ str.capitalize(): str
 
 Capitalizes the first letter of a string
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "hello, world!".capitalize() }}
 ```
@@ -53,7 +53,7 @@ Returns true if the string contains the given substring, otherwise false. The fu
 #### Arguments:
 1. `substr` (str) - The substring to search for
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello, World!".contains("World") }}
 ```
@@ -89,7 +89,7 @@ Converts to a string with a decimal part by appending a decimal separator and th
 1. `separator` (str) (optional) - The separator to use for the decimal. Default is `"."`
 2. `decimals` (int) (optional) - The number of decimal places to add to the number. Default is `2`
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "123".decimal() }}
 ```
@@ -106,7 +106,7 @@ str.first(): str
 
 Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Textwire".first() }}
 ```
@@ -123,7 +123,7 @@ str.last(): str
 
 Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Textwire".last() }}
 ```
@@ -140,7 +140,7 @@ str.len(): int
 
 Returns the length of the string
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello, World!".len() }}
 ```
@@ -157,7 +157,7 @@ str.lower(): str
 
 Converts a string to lowercase
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello, World!".lower() }}
 ```
@@ -174,7 +174,7 @@ str.raw(): str
 
 Function `raw` is used to render a string as raw HTML. This is useful when you want to render HTML tags from a string. By default, HTML tags in a string are escaped to prevent XSS attacks
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "<h1>Test</h1>".raw() }}
 ```
@@ -194,7 +194,7 @@ Returns a new string consisting of count copies of the string on which it was ca
 #### Arguments:
 1. `times` (int) - The number of times to repeat the string
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello".repeat(3) }}
 ```
@@ -211,7 +211,7 @@ str.reverse(): str
 
 Returns a string with the characters reversed
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "stressed".reverse() }}
 ```
@@ -231,7 +231,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 #### Arguments:
 1. `separator` (str) (optional) - What separator to use to split the string. Default is `" "` (space)
 
-#### Input example:
+#### Input Example:
 ```textwire
 <div>{{ "one two".split(" ") }}</div>
 ```
@@ -251,7 +251,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 #### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example:
+#### Input Example:
 ```textwire
 <span>{{ " Textwire ".trim() }}</span>
 ```
@@ -271,7 +271,7 @@ Trims left side of a string from spaces and special characters like tabs, spaces
 #### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example:
+#### Input Example:
 ```textwire
 <span>{{ " Textwire".trimLeft() }}</span>
 ```
@@ -291,7 +291,7 @@ Trims right side of a string from spaces and special characters like tabs, space
 #### Arguments:
 1. `chars` (str) (optional) - A string of characters to trim from a string. Default is `"\t \n\r"`
 
-#### Input example:
+#### Input Example:
 ```textwire
 <span>{{ "Textwire ".trimRight() }}</span>
 ```
@@ -312,7 +312,7 @@ Returns a string truncated to the given length with an optional ellipsis at the 
 1. `length` (int) - The length to truncate the string to
 2. `ellipsis` (str) (optional) - The ellipsis to append to the truncated string. Default is `"..."`
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello, World!".truncate(5) }}
 ```
@@ -329,7 +329,7 @@ str.upper(): str
 
 Converts a string to uppercase
 
-#### Input example:
+#### Input Example:
 ```textwire
 {{ "Hello, World!".upper() }}
 ```

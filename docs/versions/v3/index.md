@@ -16,7 +16,7 @@ Textwire enables the integration of dynamic content into HTML files to create da
 
 The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/v3/language-elements/syntax) page to explore the full range of available statements and directives for your templates.
 
-## How to use it
+## How to Use It
 
 You can use Textwire in three different ways:
 1. [As a templating engine for web applications](/v3/guides/template-usage)

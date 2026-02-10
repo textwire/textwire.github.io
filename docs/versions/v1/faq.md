@@ -8,7 +8,7 @@ outline: deep
 
 ## Information
 
-### What exactly is Textwire?
+### What Exactly is Textwire?
 Textwire is a programming language designed to be used with Go programs. Since Go doesn't have a simple and easy to use templating language, Textwire was created to fill that gap. It is a simple and easy to use language that can be used with any text files.
 
 
@@ -17,7 +17,7 @@ Textwire is not exactly a templating engine. It is a Domain-specific language (D
 
 ## Usage
 
-### How do I use Textwire directives that start with @ symbol?
+### How Do I Use Textwire Directives That Start With @ Symbol?
 Textwire has several directives that you can use anywhere directly in your text files except for `{{ }}` curly braces. Here is the example of `@if` directive:
 
 ```textwire

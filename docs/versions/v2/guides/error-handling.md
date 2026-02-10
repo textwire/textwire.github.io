@@ -21,7 +21,7 @@ Errors in Textwire can arise from a variety of situations. For instance, calling
 
 Textwire will return detailed error messages in each of these scenarios, helping you quickly identify and resolve issues in your project.
 
-## Handling errors in Textwire
+## Handling Errors in Textwire
 Handling errors in Textwire are handled in you Go code. Let's say you are evaluating a string that contains Textwire code with an incorrect function usage:
 
 ```go
