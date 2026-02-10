@@ -3,7 +3,7 @@ layout: home
 
 hero:
     name: Textwire
-    text: Templating Language
+    text: Templating for Go
     tagline: Prioritizing stability and performance over new features
     actions:
         - theme: brand

@@ -32,6 +32,7 @@ a {
     cursor: pointer;
     transition: opacity 0.2s;
     text-align: center;
+    text-decoration: none;
 }
 
 button:hover,

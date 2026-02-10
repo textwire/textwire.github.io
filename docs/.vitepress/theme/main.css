@@ -5,25 +5,17 @@
     --vp-button-brand-hover-bg: var(--vp-c-brand-2) !important;
     --vp-home-hero-name-color: transparent !important;
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #f5cb23, #bb9a18) !important;
-
     --popup-bg: rgb(244, 243, 220);
 }
 
 .dark {
-    --vp-c-brand-1: #59aebd !important;
-    --vp-c-brand-2: #7bcedc !important;
-    --vp-button-brand-bg: #74cddc !important;
-    --vp-button-brand-hover-bg: #5fb4c3 !important;
+    --vp-c-brand-1: #f5cb23 !important;
+    --vp-c-brand-2: #eac11b !important;
     --vp-button-brand-text: black !important;
     --vp-button-brand-hover-text: black !important;
     --vp-home-hero-name-color: transparent !important;
-    --vp-home-hero-name-background: -webkit-linear-gradient(120deg,
-            #0d6f80,
-            #ccf5fc) !important;
-
-    --popup-bg: rgb(48 43 64);
-    --popup-btn1: #1e1635;
-    --popup-btn2: #221f2d;
+    --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #ffd429, #d7b42b) !important;
+    --popup-bg: rgb(62, 62, 59);
 }
 
 /* Grid layout for the community page */
@@ -33,12 +25,4 @@
 
 .VPTeamMembers>.container .profile {
     padding: 25px !important;
-}
-
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-    --ifm-color-primary: #f4cb23;
-    --ifm-color-primary-dark: #eac11b;
-    --ifm-color-primary-darker: #c6a213;
-    --ifm-color-primary-darkest: #a4860e;
 }
