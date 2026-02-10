@@ -42,9 +42,9 @@ features:
 
 ::: code-group
 
-<<< .vitepress/snippets/home.tw [Home page]
-<<< .vitepress/snippets/base.tw [Layout]
-<<< .vitepress/snippets/book.tw [Component]
+<<< .vitepress/snippets/home.tw{textwire} [Home page]
+<<< .vitepress/snippets/base.tw{textwire} [Layout]
+<<< .vitepress/snippets/book.tw{textwire} [Component]
 <<< .vitepress/snippets/structure.txt [Structure]
 <<< .vitepress/snippets/main.go [Go code]
 

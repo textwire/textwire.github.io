@@ -1,5 +1,8 @@
 import defineVersionedConfig from 'vitepress-versioning-plugin'
 import { resolve } from 'path'
+import fs from 'fs'
+
+const twLang = JSON.parse(fs.readFileSync('./docs/.vitepress/textwire.tmLanguage.json', 'utf8'))
 
 export default defineVersionedConfig(
     {
@@ -9,7 +12,7 @@ export default defineVersionedConfig(
         description:
             'Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term',
 
-        markdown: { lineNumbers: true },
+        markdown: { lineNumbers: true, languages: ['html', twLang] },
 
         vite: {
             resolve: {
