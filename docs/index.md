@@ -40,4 +40,4 @@ features:
       icon: 📚
 ---
 
-<StarPopup />
+<Home />
