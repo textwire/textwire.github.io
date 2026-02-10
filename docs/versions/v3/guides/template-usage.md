@@ -137,11 +137,9 @@ var tpl *textwire.Template
 func main() {
     var err error
 
-    // highlight-start
-    tpl, err = textwire.NewTemplate(&config.Config{
-        TemplateDir: "src/templates",
-    })
-    // highlight-end
+    tpl, err = textwire.NewTemplate(&config.Config{ // [!code highlight]
+        TemplateDir: "src/templates", // [!code highlight]
+    }) // [!code highlight]
 
     if err != nil {
         fmt.Println(err)

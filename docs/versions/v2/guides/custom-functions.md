@@ -31,17 +31,15 @@ import (
 )
 
 func main() {
-    // highlight-start
-    err := textwire.RegisterStrFunc("_upperLast", func(s string, args ...interface{}) string {
-        runes := []rune(s)
+    err := textwire.RegisterStrFunc("_upperLast", func(s string, args ...interface{}) string { // [!code highlight]
+        runes := []rune(s) // [!code highlight]
 
-        if len(runes) > 0 {
-            runes[len(runes)-1] = unicode.ToUpper(runes[len(runes)-1])
-        }
+        if len(runes) > 0 { // [!code highlight]
+            runes[len(runes)-1] = unicode.ToUpper(runes[len(runes)-1]) // [!code highlight]
+        } // [!code highlight]
 
-        return string(runes)
-    })
-    // highlight-end
+        return string(runes) // [!code highlight]
+    }) // [!code highlight]
 
     if err != nil {
         log.Fatal(err)
@@ -84,15 +82,13 @@ func main() {
         log.Fatal(err)
     }
 
-    // highlight-start
-    twCode := "<h1>{{ 'hello'._upperLast() }}</h1>"
-    output, err := textwire.EvaluateString(twCode, nil)
+    twCode := "<h1>{{ 'hello'._upperLast() }}</h1>" // [!code highlight]
+    output, err := textwire.EvaluateString(twCode, nil) // [!code highlight]
 
-    if err != nil {
-        log.Fatal(err)
-    }
+    if err != nil { // [!code highlight]
+        log.Fatal(err) // [!code highlight]
+    } // [!code highlight]
 
-    fmt.Println(output) // Output: <h1>hellO</h1>
-    // highlight-end
+    fmt.Println(output) // Output: <h1>hellO</h1> // [!code highlight]
 }
 ```

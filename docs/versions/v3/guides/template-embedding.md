@@ -46,10 +46,8 @@ import (
 	"github.com/textwire/textwire/v3/config"
 )
 
-// highlight-start
-//go:embed templates/*
-var templateFS embed.FS
-// highlight-end
+//go:embed templates/* // [!code highlight]
+var templateFS embed.FS // [!code highlight]
 
 func main() {
     tpl, err := textwire.NewTemplate(&config.Config{
