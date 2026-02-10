@@ -1,6 +1,7 @@
 ---
 title: Usage with Templates - v3
 description: Learn how to configure and use Textwire templates in your Go applications, including importing the package, creating template instances, and more
+outline: deep
 ---
 
 # Usage with Templates
@@ -72,7 +73,7 @@ out, failure := tpl.String("views/home", map[string]any{
 
 Note that `tpl.String()` does not return a standard `error`. Instead, it returns `*fail.Error`, which is Textwire's error wrapper that provides additional context such as line numbers and file paths.
 
-:::info
+:::tip Live Reload
 If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
 :::
 
