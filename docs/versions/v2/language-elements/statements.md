@@ -1,21 +1,21 @@
 ---
 title: Statements - v2
 description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
+outline: deep
 ---
 
 # Statements
 
-- Statements
-    - [If Statement](#if-statement) `@if(x == 1)`
-    - [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
-    - [Use Statement](#use-statement) `@use("layouts/main")`
-    - [Insert Statement](#insert-statement) `@insert("title", "Home")`
-    - [Reserve Statement](#reserve-statement) `@reserve("title")`
-    - [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
-    - [Each Loop](#each-loop) `@each(name in names)`
-    - [Component](#component) `@component("components/post-card")`
-    - [Component Slots](#component-slots) `@slot('footer')`
-    - [Dump Directive](#dump-directive) `@dump(users, page)`
+- [If Statement](#if-statement) `@if(x == 1)`
+- [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
+- [Use Statement](#use-statement) `@use("layouts/main")`
+- [Insert Statement](#insert-statement) `@insert("title", "Home")`
+- [Reserve Statement](#reserve-statement) `@reserve("title")`
+- [For Loop](#for-loop) `@for(i = 0; i < 2; i++)`
+- [Each Loop](#each-loop) `@each(name in names)`
+- [Component](#component) `@component("components/post-card")`
+- [Component Slots](#component-slots) `@slot('footer')`
+- [Dump Directive](#dump-directive) `@dump(users, page)`
 
 ## If Statement
 You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
@@ -64,9 +64,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-:::info Read More about Loops
 Read more about loops in the [Loops guide](/v2/guides/loops).
-:::
 
 #### Example
 ```textwire
@@ -91,9 +89,7 @@ Each statement is a special for loop that you can use to iterate over an array. 
 @end
 ```
 
-:::info Read More about Loops
 Read more about loops in the [Loops guide](/v2/guides/loops).
-:::
 
 ## Variable Declaration
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
@@ -105,7 +101,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-:::info Declaration has no output
+:::tip Declaration Has No Output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 :::
 

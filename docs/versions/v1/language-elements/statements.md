@@ -4,15 +4,14 @@ title: Statements - v1
 
 # Statements
 
-- Statements
-    - [If statement](#if-statement) `@if(x == 1)`
-    - [Variable declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
-    - [Use statement](#use-statement) `@use("layouts/main")`
-    - [Insert statement](#insert-statement) `@insert("title", "Home")`
-    - [Reserve statement](#reserve-statement) `@reserve("title")`
-    - [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
-    - [Each loop](#each-loop) `@each(name in names)`
-    - [Component](#component) `@component("components/post-card")`
+- [If statement](#if-statement) `@if(x == 1)`
+- [Variable declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
+- [Use statement](#use-statement) `@use("layouts/main")`
+- [Insert statement](#insert-statement) `@insert("title", "Home")`
+- [Reserve statement](#reserve-statement) `@reserve("title")`
+- [For loop](#for-loop) `@for(i = 0; i < 2; i++)`
+- [Each loop](#each-loop) `@each(name in names)`
+- [Component](#component) `@component("components/post-card")`
 
 ## If statement
 You can use if statements to conditionally render content. Here is an example of using if statements:
@@ -144,9 +143,9 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-:::info Declaration has no output
+:::tip Declaration Has No Output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
-:::
+::::
 
 ## Use statement
 You have a "use statement" to define a layout for your template. Here is an example of using use statement:

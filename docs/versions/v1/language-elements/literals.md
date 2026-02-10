@@ -4,14 +4,13 @@ title: Literals - v1
 
 # Literals
 
-- Literals
-    - [String literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
-    - [Integer literals](#integer-literals) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
-    - [Float literals](#float-literals) <code v-pre>{{ 123.456 }}</code>
-    - [Boolean literals](#boolean-literals) <code v-pre>{{ true }}</code>
-    - [Nil literal](#nil-literal) <code v-pre>{{ nil }}</code>
-    - [Array literals](#array-literals) <code v-pre>{{ [1, 2, 3] }}</code>
-    - [Object literals](#object-literals) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
+- [String literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
+- [Integer literals](#integer-literals) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
+- [Float literals](#float-literals) <code v-pre>{{ 123.456 }}</code>
+- [Boolean literals](#boolean-literals) <code v-pre>{{ true }}</code>
+- [Nil literal](#nil-literal) <code v-pre>{{ nil }}</code>
+- [Array literals](#array-literals) <code v-pre>{{ [1, 2, 3] }}</code>
+- [Object literals](#object-literals) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
 
 ## String literals
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:

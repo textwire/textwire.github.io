@@ -65,9 +65,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-:::info Read More about Loops
 Read more about loops in the [Loops guide](/v3/guides/loops).
-:::
 
 #### Example
 
@@ -94,9 +92,7 @@ Each statement is a special form of `for` loop that you can use to iterate over 
 @end
 ```
 
-:::info Read More about Loops
 Read more about loops in the [Loops guide](/v3/guides/loops).
-:::
 
 ## Variable Declaration
 
@@ -109,7 +105,7 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables of a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-:::info Declaration has no output
+:::tip Declaration Has No Output
 Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 :::
 

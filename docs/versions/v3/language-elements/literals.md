@@ -5,14 +5,13 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 
 # Literals
 
-- Literals
-    - [String](#string) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
-    - [Integer](#integer) `{{ 123 }}` or `{{ -234 }}`
-    - [Float](#float) `{{ 123.456 }}`
-    - [Boolean](#boolean) `{{ true }}`
-    - [Nil Literal](#nil) `{{ nil }}`
-    - [Array](#array) `{{ [1, 2, 3] }}`
-    - [Object](#object) `{{ { "name": "John", "age": 25 } }}`
+- [String](#string) `{{ "Hello, World!" }}` or ``{{ `Hello, World!` }}``
+- [Integer](#integer) `{{ 123 }}` or `{{ -234 }}`
+- [Float](#float) `{{ 123.456 }}`
+- [Boolean](#boolean) `{{ true }}`
+- [Nil Literal](#nil) `{{ nil }}`
+- [Array](#array) `{{ [1, 2, 3] }}`
+- [Object](#object) `{{ { "name": "John", "age": 25 } }}`
 
 ## String
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:

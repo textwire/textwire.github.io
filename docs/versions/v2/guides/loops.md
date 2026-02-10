@@ -1,6 +1,7 @@
 ---
 title: Loops - v2
 description: Learn how to use different types of loops in Textwire, including 'each' and 'for' loops
+outline: deep
 ---
 
 # Loops Usage
@@ -23,7 +24,7 @@ When the condition is `false`, the directive does nothing. When the condition is
 ## Loop Variables
 Inside of every `each` and `for` loop, you have an access to a `loop` object. It allows you to get the current iteration index or other data that is updated on every iteration.
 
-For example, `{{ loop.index }}` will return the current iteration index starting from `0`. `{{ loop.first }}` will return `true` if it is the first iteration. Here is a list of all the properties of the `loop` object you can use:
+For example, <code v-pre>{{ loop.index }}</code> will return the current iteration index starting from `0`. <code v-pre>{{ loop.first }}</code> will return `true` if it is the first iteration. Here is a list of all the properties of the `loop` object you can use:
 
 | Property | Type    | Description                                |
 | -------- | ------- | ------------------------------------------ |
@@ -44,7 +45,7 @@ For example, `{{ loop.index }}` will return the current iteration index starting
 ```
 
 ### Output
-```textwire
+```html
 <ul>
 
         <li>1. Anna</li>

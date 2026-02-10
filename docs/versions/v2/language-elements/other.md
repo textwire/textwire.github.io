@@ -5,9 +5,8 @@ description: Learn about trailing commas and comments in Textwire, including how
 
 # Other Information
 
-- Other
-    - [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code>
-    - [Comments](#comments) <code v-pre>{{-- This is a Textwire comment --}}</code>
+- [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code>
+- [Comments](#comments) <code v-pre>{{-- This is a Textwire comment --}}</code>
 
 ## Trailing Commas
 

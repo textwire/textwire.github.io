@@ -4,13 +4,12 @@ title: Expressions - v1
 
 # Expressions
 
-- Expressions
-    - [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
-    - [Prefix expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
-    - [Infix expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
-    - [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
-    - [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code> or <code v-pre>{{ x < y }}</code>
-    - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
+- [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
+- [Prefix expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
+- [Infix expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
+- [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
+- [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code> or <code v-pre>{{ x < y }}</code>
+- [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
 
 ## Ternary expressions
 

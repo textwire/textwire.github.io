@@ -5,9 +5,8 @@ outline: deep
 
 # Other Information
 
-- Other
-    - [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code>
-    - [Comments](#comments) <code v-pre>{{-- This is a Textwire comment --}}</code>
+- [Trailing commas](#trailing-commas) <code v-pre>{{ [1, 2, 3,] }}</code>
+- [Comments](#comments) <code v-pre>{{-- This is a Textwire comment --}}</code>
 
 ## Trailing Commas
 You can use trailing commas in arrays, objects and function arguments. Here is an example of using trailing commas:

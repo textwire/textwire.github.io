@@ -12,14 +12,10 @@ You can attach custom functions to any data type in Textwire and invoke them on 
 
 Custom functions can take any number of arguments and return a value of any type. They can be used to perform any operations and return any value of any type.
 
-:::info
-Custom function were introduced in Textwire `v2.0.0` by suggestion from [\@joeyjurjens](https://github.com/joeyjurjens) in the [issue #48](https://github.com/textwire/textwire/issues/18)
-:::
-
 ## Defining custom functions
 To define a custom function, you need to create a function in your Go code. Here is an example of defining an `_upperLast` function that converts the last character of a string to uppercase:
 
-```go
+```go {12-20}
 package main
 
 import (
@@ -31,15 +27,15 @@ import (
 )
 
 func main() {
-    err := textwire.RegisterStrFunc("_upperLast", func(s string, args ...interface{}) string { // [!code highlight]
-        runes := []rune(s) // [!code highlight]
+    err := textwire.RegisterStrFunc("_upperLast", func(s string, args ...interface{}) string {
+        runes := []rune(s)
+ 
+        if len(runes) > 0 {
+            runes[len(runes)-1] = unicode.ToUpper(runes[len(runes)-1])
+        }
 
-        if len(runes) > 0 { // [!code highlight]
-            runes[len(runes)-1] = unicode.ToUpper(runes[len(runes)-1]) // [!code highlight]
-        } // [!code highlight]
-
-        return string(runes) // [!code highlight]
-    }) // [!code highlight]
+        return string(runes)
+    })
 
     if err != nil {
         log.Fatal(err)
@@ -49,14 +45,14 @@ func main() {
 
 You can now use the `_upperLast` function anywhere in your Textwire code.
 
-:::warning Prefix custom functions
-To avoid conflicts with built-in functions, it’s recommended to prefix your custom functions with an underscore (_). Since built-in functions take precedence over custom ones, defining a custom function with the same name as a built-in function will cause the built-in function to be used. By adding an underscore prefix, you can prevent these conflicts. For example: `{{ name._upperLast() }}`
+:::warning Prefix Custom Functions
+To avoid conflicts with built-in functions, it’s recommended to prefix your custom functions with an underscore (_). Since built-in functions take precedence over custom ones, defining a custom function with the same name as a built-in function will cause the built-in function to be used. By adding an underscore prefix, you can prevent these conflicts. For example: <code v-pre>{{ name._upperLast() }}</code>
 :::
 
 ## Using custom functions
 Here is the example of using the `_upperLast` function in Textwire after defining it:
 
-```go
+```go {26-33}
 package main
 
 import (
@@ -82,13 +78,13 @@ func main() {
         log.Fatal(err)
     }
 
-    twCode := "<h1>{{ 'hello'._upperLast() }}</h1>" // [!code highlight]
-    output, err := textwire.EvaluateString(twCode, nil) // [!code highlight]
+    twCode := "<h1>{{ 'hello'._upperLast() }}</h1>"
+    output, err := textwire.EvaluateString(twCode, nil)
 
-    if err != nil { // [!code highlight]
-        log.Fatal(err) // [!code highlight]
-    } // [!code highlight]
+    if err != nil {
+        log.Fatal(err)
+    }
 
-    fmt.Println(output) // Output: <h1>hellO</h1> // [!code highlight]
+    fmt.Println(output) // Output: <h1>hellO</h1>
 }
 ```
