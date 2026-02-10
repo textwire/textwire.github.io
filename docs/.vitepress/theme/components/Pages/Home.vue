@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import StarPopup from '@/components/StarPopup.vue'
 import PopupSlideTransition from '@/components/Transitions/PopupSlideTransition.vue'
+import Features from '@/components/Features/Features.vue'
 
 const isVisible = ref<boolean>(false)
 
@@ -20,9 +21,17 @@ const closePopup = (): void => {
 </script>
 
 <template>
-    <div>
+    <div class="home-page">
+        <Features />
+
         <PopupSlideTransition>
             <StarPopup v-if="isVisible" @close="closePopup" />
         </PopupSlideTransition>
     </div>
 </template>
+
+<style>
+.home-page {
+    margin-top: 50px;
+}
+</style>
