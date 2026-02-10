@@ -20,8 +20,8 @@ defineProps<Props>()
 button,
 a {
     width: 100%;
-    background-color: var(--popup-btn2);
-    color: var(--vp-custom-block-text);
+    background-color: var(--vp-c-brand-1);
+    color: var(--vp-button-brand-text) !important;
     display: flex;
     align-items: center;
     gap: 7px;
@@ -36,6 +36,6 @@ a {
 
 button:hover,
 a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 </style>

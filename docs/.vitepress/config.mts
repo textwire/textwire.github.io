@@ -5,7 +5,7 @@ export default defineVersionedConfig(
     {
         lang: 'en-US',
         title: 'Textwire',
-        head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+        head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
         description:
             'Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term',
 

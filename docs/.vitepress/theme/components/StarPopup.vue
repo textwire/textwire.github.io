@@ -10,10 +10,7 @@ const emit = defineEmits<{ (e: 'close'): void }>()
         <span>Star Textwire on GitHub to keep us going</span>
 
         <div class="popup__buttons">
-            <PopupBtn
-                href="https://github.com/textwire/textwire"
-                style="background-color: var(--popup-btn1)"
-            >
+            <PopupBtn href="https://github.com/textwire/textwire">
                 <StarIcon width="20" height="20" /> Okay
             </PopupBtn>
 
@@ -33,6 +30,7 @@ const emit = defineEmits<{ (e: 'close'): void }>()
     z-index: 100;
     color: var(--vp-custom-block-tip-text);
     transition: transform 0.4s;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, .1);
 }
 
 .popup__buttons {
