@@ -82,56 +82,47 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 :::
 
+:::danger Don't Double-Handle Errors
+When `tpl.Response()` returns an error, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML. Just log the error:
+
+```go
+if err := tpl.Response(w, "views/home", data); err != nil {
+    log.Printf("Template error: %v", err)  // [!code highlight]
+}
+```
+:::
+
 You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v3/guides/error-handling#custom-error-pages).
 
 ## Error Pages
 
-### Error Behavior
+### Debug Mode (Development)
 
-- **Single File or String Evaluation**: Errors result in empty output
-- **Template System**: Errors render a custom error page instead of content
-
-The error page is fully customizable and configurable via the [configuration](/v3/guides/configurations).
-
-:::info Security Considerations
-When errors occur, preventing output display protects against incorrect data being shown to users. This maintains data integrity and security. Read more in the [FAQ section](/v3/faq#prevent-visitors-from-seeing-error).
-:::
-
-### Error in Production
-
-When something goes wrong with your Textwire code, you'll get pre-defined HTML with the static message displayed. This is what people would see when your app is in production:
-
-![Production error page in Textwire](/images/oops.png)
-
-### Error with Debug Mode
-
-When you enable the `DebugMode` in Textwire, you can see the error message in the browser. This is useful when you are developing your application and want to see the error message in the browser. This is what you would see when the `DebugMode` is set to `true`:
+When you enable `DebugMode` in Textwire, detailed error messages display in the browser. This helps during development:
 
 ![Debug mode error page in Textwire](/images/debug-error-page.png)
 
-### Custom Error Pages
+### Production Errors
 
-Create custom error pages by setting the `ErrorPagePath` configuration. Read more in the [Available Configurations](/v3/guides/configurations#available-configurations) section.
+When `DebugMode` is `false`, Textwire shows user-friendly error pages instead of detailed error messages.
 
-#### Creating a Custom Error Page
+#### Default Behavior
 
-Use layouts and Textwire syntax for your error page:
+Without custom configuration, Textwire displays a pre-defined static HTML page:
 
-```textwire
-@use('~main')
+![Production error page in Textwire](/images/oops.png)
 
-@insert('title', 'About Us')
+#### Custom Error Pages
 
-@insert('content')
-    <h1>Oops!</h1>
-    <p>Something went wrong.</p>
-    <p><a href="/">Go back to home</a></p>
-@end
-```
+You can replace the default error page with your own design.
 
-Save this file in your `templates` directory, preferably as `error-page.tw` or any other name you prefer.
+:::warning Debug Mode Only
+Custom error pages only appear when `DebugMode` is `false`. Debug mode always shows detailed error information. Don't forget to disable debug mode in production.
+:::
 
-#### Configuration Example
+##### Configuration
+
+Set `ErrorPagePath` in your configuration:
 
 ```go
 import (
@@ -148,11 +139,32 @@ func main() {
 }
 ```
 
-With default `TemplateDir` of `"templates"`, the error page will be loaded from `templates/error-page.tw`. If your `TemplateDir` is set to something like `src`, then Textwire will search for `src/error-page.tw`.
+With default `TemplateDir` of `"templates"`, the error page loads from `templates/error-page.tw`. If your `TemplateDir` is set to something like `src`, Textwire searches for `src/error-page.tw`.
 
-:::warning Debug Mode Behavior
-Custom error pages render only when `DebugMode` is `false`. Debug mode shows detailed error information instead. Don't forget to set `DebugMode` to `false` in production.
+##### Creating a Custom Error Page
+
+Use layouts and Textwire syntax. You can access [global data](/v3/guides/configurations#global-data) variables:
+
+```textwire
+@use('~main')
+
+@insert('title', 'Error')
+
+@insert('content')
+    <h1>Oops!</h1>
+    <p>Something went wrong.</p>
+    <p>&copy; {{ global.year }} My Company</p>
+    <p><a href="/">Go back to home</a></p>
+@end
+```
+
+Save this file in your templates directory (e.g., `templates/error-page.tw`).
+
+:::info Security Considerations
+Hiding detailed errors in production protects against information disclosure. This maintains data integrity and security. Read more in the [FAQ section](/v3/faq#prevent-visitors-from-seeing-error).
 :::
+
+If the custom error page is missing or has errors, Textwire falls back to the default production error page.
 
 ## Best Practices
 
@@ -160,4 +172,4 @@ Custom error pages render only when `DebugMode` is `false`. Debug mode shows det
 2. **Log errors appropriately** for debugging and monitoring
 3. **Use custom error pages** in production for better user experience
 4. **Enable debug mode** only during development with `os.Getenv("APP_DEBUG")` or something similar
-5. **Handle web errors gracefully** without exposing internal details
+5. **Handle web errors gracefully** without exposing internal details to users
