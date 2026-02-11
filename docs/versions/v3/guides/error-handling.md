@@ -33,12 +33,11 @@ Error handling in Textwire occurs in your Go code. Most functions return standar
 ```go
 inp := "{{ name.split(1) }}"
 
-result, err := textwire.EvaluateString(inp, map[string]any{
+out, err := textwire.EvaluateString(inp, map[string]any{
     "name": "Amy Adams",
 })
 
 if err != nil {
-    // Handle error
     log.Printf("String evaluation failed: %v", err)
 }
 ```
@@ -47,34 +46,43 @@ The [split](/v3/functions/str#split) function requires a string argument, not an
 
 ### Common Error Handling Patterns
 
-```go
-// Function registration
-if err := textwire.RegisterStrFunc("_func", fn); err != nil {
-    log.Fatal(err)
+::: code-group
+
+```go [Func register] :no-line-numbers
+lowerFn := func(s string, args ...any) any {
+    return strings.ToLower(s)
 }
 
-// Template creation
+if err := textwire.RegisterStrFunc("_lower", lowerFn); err != nil {
+    log.Fatal(err)
+}
+```
+
+```go [Template create] :no-line-numbers
 tpl, err := textwire.NewTemplate(config)
 if err != nil {
     log.Fatal(err)
 }
+```
 
-// Template evaluation
-result, err := textwire.EvaluateString(input, data)
+```go [Template eval] :no-line-numbers
+out, err := textwire.EvaluateString(input, data)
 if err != nil {
     log.Printf("Evaluation error: %v", err)
 }
+```
 
-// Web handler
+```go [Web handler] :no-line-numbers
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-    err := tpl.Response(w, "home", data)
-    if err != nil {
-        http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+    if err := tpl.Response(w, "views/home", data); err != nil {
         log.Printf("Template error: %v", err)
-        return
     }
 }
 ```
+
+:::
+
+You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v3/guides/error-handling#custom-error-pages).
 
 ## Error Pages
 
@@ -121,23 +129,29 @@ Use layouts and Textwire syntax for your error page:
 @end
 ```
 
-Save this file in your `templates` directory, preferably as `error-page.tw`.
+Save this file in your `templates` directory, preferably as `error-page.tw` or any other name you prefer.
 
 #### Configuration Example
 
 ```go
+import (
+	"os"
+	"github.com/textwire/textwire/v3"
+	"github.com/textwire/textwire/v3/config"
+)
+
 func main() {
-    tpl, err = textwire.NewTemplate(&config.Config{
+    tpl, err := textwire.NewTemplate(&config.Config{
         ErrorPagePath: "error-page",
-        DebugMode:     false,
+        DebugMode:     os.Getenv("ENV") == "development",
     })
 }
 ```
 
-With default `TemplateDir` of `"templates"`, the error page will be loaded from `templates/error-page.tw`.
+With default `TemplateDir` of `"templates"`, the error page will be loaded from `templates/error-page.tw`. If your `TemplateDir` is set to something like `src`, then Textwire will search for `src/error-page.tw`.
 
-:::info Debug Mode Behavior
-Custom error pages render only when `DebugMode` is `false`. Debug mode shows detailed error information instead.
+:::warning Debug Mode Behavior
+Custom error pages render only when `DebugMode` is `false`. Debug mode shows detailed error information instead. Don't forget to set `DebugMode` to `false` in production.
 :::
 
 ## Best Practices

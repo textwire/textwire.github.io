@@ -55,9 +55,8 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
         "names":     []string{"John", "Jane", "Jack", "Jill"},
         "showNames": true,
     })
-
     if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
+        log.Printf("Template error: %v", err)
     }
 }
 ```

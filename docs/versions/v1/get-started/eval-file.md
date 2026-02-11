@@ -9,11 +9,10 @@ Evaluating a file can be done with the `EvaluateFile` function. The `EvaluateFil
 ```go
 path := "path/to/file.tw.html"
 
-result, err := textwire.EvaluateFile(path, map[string]interface{}{
+out, err := textwire.EvaluateFile(path, map[string]interface{}{
     "name": "Anna",
     "age":  25,
 })
-
 if err != nil {
     log.Fatal(err)
 }

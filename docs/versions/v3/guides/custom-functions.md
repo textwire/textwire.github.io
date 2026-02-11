@@ -73,32 +73,32 @@ err := textwire.RegisterObjFunc("_addProp", func(obj map[string]any, args ...any
 ```go
 // String
 input := "{{ 'John Wick'._isCool() }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "1" because true is converted to string
 
 // Integer  
 input := "{{ 3._double() }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "6"
 
 // Float
 input := "{{ 3.5._double() }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "7.0"
 
 // Boolean
 input := "{{ true._negate() }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "0"
 
 // Array
 input := "{{ [1, 2]._addNumber(3) }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "1, 2, 3"
 
 // Object
 input := `{{ obj = {name: "Anna"}; obj = obj._addProp("age", 25); obj.age }}`
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: "25"
 ```
 
@@ -116,7 +116,7 @@ err := textwire.RegisterStrFunc("_format", func(s string, args ...any) any {
 })
 
 input := "{{ 'hello'._format('>>', '<<') }}"
-result, err := textwire.EvaluateString(input, nil)
+out, err := textwire.EvaluateString(input, nil)
 // Result: ">>hello<<"
 ```
 

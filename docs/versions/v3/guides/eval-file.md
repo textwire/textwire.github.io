@@ -46,7 +46,7 @@ The function can return errors for various reasons:
 Always check the error value before using the result string:
 
 ```go
-result, err := textwire.EvaluateFile("template.tw", data)
+out, err := textwire.EvaluateFile("template.tw", data)
 if err != nil {
     // handle error here
 }

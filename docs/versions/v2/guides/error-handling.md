@@ -27,10 +27,9 @@ Handling errors in Textwire are handled in you Go code. Let's say you are evalua
 ```go
 inp := "{{ name.split(1) }}"
 
-result, err := textwire.EvaluateString(inp, map[string]interface{}{
-    "name": "Serhii Cho",
+out, err := textwire.EvaluateString(inp, map[string]interface{}{
+    "name": "Amy Adams",
 })
-
 if err != nil {
     // handle the error
 }

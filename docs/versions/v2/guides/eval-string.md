@@ -12,11 +12,10 @@ This is useful when you want to inject variables into an email template or any o
 ```go
 inp := `Hello <b>{{ name }}</b>! Congratulations on your {{ age }}th birthday!`
 
-result, err := textwire.EvaluateString(inp, map[string]interface{}{
+out, err := textwire.EvaluateString(inp, map[string]interface{}{
     "name": "Serhii",
     "age": 33
 })
-
 if err != nil {
     log.Fatal(err)
 }
