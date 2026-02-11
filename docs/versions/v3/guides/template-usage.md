@@ -62,7 +62,7 @@ The examples above use `tpl.Response()` to write directly to the HTTP response. 
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-    err := tpl.Response(w, "views/home", map[string]interface{}{
+    err := tpl.Response(w, "views/home", map[string]any{
         "title":     "Home page",
         "names":     []string{"John", "Jane", "Jack", "Jill"},
         "showNames": true,

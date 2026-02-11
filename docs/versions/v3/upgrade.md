@@ -89,7 +89,7 @@ Replace `./internal` with the path to your Go code. If you found any values that
 
 ### 5. Return Type for Custom Functions
 
-In Textwire v2, custom functions would return the receiver type. For example, if you define a custom function for strings, it would return string. In Textwire v3, custom functions for all types return type `any`, which is an alias to `interface{}`. Check if you have custom functions defined in your Go code.
+In Textwire v2, custom functions would return the receiver type. For example, if you define a custom function for strings, it would return string. In Textwire v3, custom functions for all types return type `any`. Check if you have custom functions defined in your Go code.
 
 :::warning Breaking Change
 All custom functions must now return `any` instead of their specific type. This affects `RegisterStrFunc`, `RegisterIntFunc`, `RegisterBoolFunc`, `RegisterFloatFunc`, and `RegisterArrFunc`.
