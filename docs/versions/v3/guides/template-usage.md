@@ -7,11 +7,11 @@ outline: deep
 # Usage with Templates
 
 ## Simple Usage
-To use Textwire as a template language, import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can either pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` parameter configures Textwire behavior. Read more about [configurations](/v3/guides/configurations).
+Import `github.com/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/guides/configurations).
 
-You can initiate template in 2 ways:
-1. Global - template is available everywhere in main package
-2. Local - template is passed to handlers
+Choose one of these initialization patterns:
+1. **Global** — `tpl` is a package variable accessible from any handler
+2. **Local** — `tpl` is created in `main()` and injected into handlers
 
 ::: code-group
 
@@ -55,19 +55,10 @@ func homeHandler(tpl *textwire.Template) http.HandlerFunc {
 
 :::
 
-There is no right or wrong way to initiate the template. It depends on your project structure and preferences. The global approach is simpler and more straightforward, while the local approach provides better encapsulation and testability.
-
-### `NewTemplate` Function
-
-None of the configurations are required, as each configuration has a default value. The `NewTemplate` function returns two values:
-
-1. `*textwire.Template` - a struct that holds parsed templates and provides methods to evaluate them
-2. `error` - an error that might occur during any stage of template parsing
-
-After calling `NewTemplate`, you receive a `Template` instance that can be used to evaluate parsed templates.
+Both patterns work—use global for simplicity, local for testability. Call `NewTemplate` only once at startup; it parses all templates into memory.
 
 ## Writing Responses to the Client
-Use the `Response` method on a `Template` instance to write the evaluated template to the HTTP client. The `Response` method accepts an `http.ResponseWriter` object, the template file name, and a map of variables to inject into the template. Here is an example:
+The examples above use `tpl.Response()` to write directly to the HTTP response. Here's the full signature with error handling:
 
 ```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {

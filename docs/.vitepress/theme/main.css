@@ -1,21 +1,29 @@
 :root {
-    --vp-c-brand-1: #c9a928 !important;
+    /* Custom variables */
+    --tw-main: #f5cb23 !important;
+    --tw-main-2: #eac11b !important;
+    --tw-popup-bg: rgb(244, 243, 220);
+
+    /* Vitepress variables */
+    --vp-c-brand-1: rgb(148, 123, 28) !important;
     --vp-c-brand-2: #b69a2c !important;
     --vp-button-brand-bg: var(--vp-c-brand-1) !important;
     --vp-button-brand-hover-bg: var(--vp-c-brand-2) !important;
     --vp-home-hero-name-color: transparent !important;
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #f5cb23, #bb9a18) !important;
-    --popup-bg: rgb(244, 243, 220);
 }
 
 .dark {
+    /* Custom variables */
+    --tw-popup-bg: rgb(62, 62, 59);
+
+    /* Vitepress variables */
     --vp-c-brand-1: #f5cb23 !important;
     --vp-c-brand-2: #eac11b !important;
     --vp-button-brand-text: black !important;
     --vp-button-brand-hover-text: black !important;
     --vp-home-hero-name-color: transparent !important;
     --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #ffd429, #d7b42b) !important;
-    --popup-bg: rgb(62, 62, 59);
 }
 
 /* Grid layout for the community page */
@@ -29,4 +37,14 @@
 
 .VPHome {
     margin-bottom: 70px !important;
+}
+
+.VPButton.brand {
+    background-color: var(--tw-main) !important;
+    color: black !important;
+    transition: background-color 300ms !important;
+}
+
+.VPButton.brand:hover {
+    background-color: var(--tw-main-2) !important;
 }

@@ -24,7 +24,7 @@ const emit = defineEmits<{ (e: 'close'): void }>()
     position: fixed;
     bottom: 15px;
     right: 10px;
-    background-color: var(--popup-bg);
+    background-color: var(--tw-popup-bg);
     padding: 1em;
     border-radius: 0.7em;
     z-index: 100;
