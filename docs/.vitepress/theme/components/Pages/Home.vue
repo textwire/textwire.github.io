@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
+import { features } from '@/modules/features'
+import { VPFeatures } from 'vitepress/theme'
 import StarPopup from '@/components/StarPopup.vue'
 import PopupSlideTransition from '@/components/Transitions/PopupSlideTransition.vue'
-import Features from '@/components/Features.vue'
 
 const isVisible = ref<boolean>(false)
 
@@ -22,7 +23,7 @@ const closePopup = (): void => {
 
 <template>
     <div class="home-page">
-        <Features />
+        <VPFeatures :features />
 
         <PopupSlideTransition>
             <StarPopup v-if="isVisible" @close="closePopup" />
