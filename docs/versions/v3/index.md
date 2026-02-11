@@ -1,9 +1,11 @@
 ---
 title: Introduction - v3
 description: Get an overview of Textwire, a powerful template evaluator for Go developers, and learn about its features, syntax, and various use cases
+outline: deep
 ---
 
 # Introduction
+
 Textwire is a domain-specific language (DSL) tailored for Go projects as a templating language, designed to embed dynamic content into text-based formats like HTML, XML, JSON, or any other format.
 
 Built specifically for Go, Textwire offers a clean and intuitive syntax that simplifies the injection of variables and logic into any text-based format.
@@ -19,6 +21,7 @@ The syntax is designed to be familiar and easy-to-learn, particularly for develo
 ## How to Use It
 
 You can use Textwire in three different ways:
+
 1. [As a templating engine for web applications](/v3/guides/template-usage)
 2. [To embed dynamic content into strings](/v3/guides/eval-string)
 3. [To embed dynamic content into files](/v3/guides/eval-file)
@@ -44,8 +47,42 @@ Below is a simple example of a Textwire template:
 @end
 ```
 
+## Unicode Support
+
+Textwire fully embraces Unicode, making it ideal for international applications and multilingual content. Whether you're building websites in Chinese, Russian, Arabic, or mixing multiple languages, Textwire handles it seamlessly.
+
+### String Functions
+
+All built-in functions properly handle Unicode characters. They count characters correctly (not bytes) and support any language:
+
+```textwire :no-line-numbers
+{{ "我喜欢中国".len() }} <!-- output: 5 (characters, not bytes) -->
+{{ "привет".at(2) }} <!-- output: и -->
+```
+
+Keep in mind that with emojis it could be tricky, because some emojis are represented by multiple Unicode code points. The example below shows that the string "👋🏽🌍" has a length of 3, because the waving hand emoji with medium skin tone (👋🏽) is represented by two code points, while the globe emoji (🌍) is represented by one code point:
+
+```textwire :no-line-numbers
+{{ "👋🏽🌍".len() }} <!-- output: 3 -->
+```
+
+### File Names
+
+Directives that accept file names—like `@component`, `@use`, `@insert`, `@reserve`, and `@slot`—fully support Unicode paths:
+
+```textwire :no-line-numbers
+@component('书', { name })
+@use('♥️/главная')
+```
+
+:::warning No Unicode for Identifiers
+Unicode characters cannot be used in variable names, function names, or object fields. Only ASCII letters (a-z, A-Z), digits (0-9), and underscores are allowed. For example, `user_name` is valid, but `用户名` and `имя` are not.
+:::
+
 ## Mathematical Expressions
+
 Textwire operates similarly to Go when it comes to mathematical expressions. You can use the following operators in your templates:
+
 - Addition: `+` (`a + b`)
 - Subtraction: `-` (`a - b`)
 - Multiplication: `*` (`a * b`)
@@ -70,6 +107,8 @@ Type mismatching is not supported when performing mathematical operations. For e
 :::
 
 ## Reserved Variable Names
+
 Textwire has two reserved variable names that you cannot use:
+
 1. `loop` Object that is used inside loops. [Read more](/v3/guides/loops#loop-variables)
 2. `global` Global object available in all Textwire files. [Read more](/v3/guides/configurations#global-data)
