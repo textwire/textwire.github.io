@@ -31,7 +31,7 @@ Defined
 ### When to Use It?
 You can use it inside of your components when you need to check if variable was passed to the component or not. Here is the example when the `book` variable is required but `author` is optional.
 
-```textwire title="components/book.tw"
+```textwire
 <div class="book">
     <h1>{{ book.title }}</h1>
     <p>{{ book.description }}</p>

@@ -60,7 +60,7 @@ If you are using VSCode and change the `TemplateExt` setting to anything other t
 
 Global data allows you to share values from your Go code across all Textwire templates. This is useful for environment variables, authenticated user data, and similar global information. Use the `GlobalData` configuration for this purpose. Here is an example:
 
-```go title="main.go"
+```go
 import (
     "os"
     "github.com/textwire/textwire/v3"
@@ -79,7 +79,7 @@ tpl, err = textwire.NewTemplate(&config.Config{
 
 You can access your global data in any Textwire template using the `global` object. Here is an example:
 
-```textwire title="home.tw"
+```textwire
 @if(global.env == "development")
     <p>You are in development mode</p>
 @end

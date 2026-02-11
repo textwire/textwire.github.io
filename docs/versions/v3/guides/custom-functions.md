@@ -8,7 +8,7 @@ description: Learn how to define and use custom functions in Textwire, enabling 
 ## Introduction
 Custom functions are user-defined functions in your Go code that extend Textwire's capabilities beyond built-in functions. They were introduced in Textwire `v2.0.0` and allow you to create type-specific operations invoked using the dot operator `.` followed by the function name.
 
-```textwire
+```textwire :no-line-numbers
 {{ "John Wick"._isCool() }}`
 ```
 

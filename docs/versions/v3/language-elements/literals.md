@@ -16,7 +16,7 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 ## String
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
 
-```textwire
+```textwire :no-line-numbers
 {{ "Hello" + 'World!' }}
 ```
 
@@ -25,14 +25,14 @@ You can use string literals and concatenate them with other strings. You can use
 ## Integer
 You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
 
-```textwire
+```textwire :no-line-numbers
 <span>{{ 1 + 2 }}</span>
 ```
 
 ## Nil
 You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
 
-```textwire
+```textwire :no-line-numbers
 @if(nil)
     <p>It will not be displayed</p>
 @end
@@ -41,7 +41,7 @@ You can use nil literal to check if a variable is nil. Here is an example of usi
 ## Float
 You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
 
-```textwire
+```textwire :no-line-numbers
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
@@ -52,7 +52,7 @@ Most languages (including Textwire) use **IEEE 754 standard** for floating-point
 ## Boolean
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
 
-```textwire
+```textwire :no-line-numbers
 @if(true)
     <p>Is tall</p>
 @end
@@ -110,13 +110,13 @@ Always check array access with index for `nil` before using it to prevent using 
 ## Object
 Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
 
-```textwire
+```textwire :no-line-numbers
 {{ person = {"name": "John", "age": 25} }}
 ```
 
 You can also use key names without quotes if your keys are valid identifiers:
 
-```textwire
+```textwire :no-line-numbers
 {{ person = { name: "John", age: 25 } }}
 ```
 
@@ -144,7 +144,7 @@ Textwire automatically converts Go structs to objects, but **only exported field
 #### Shorthand Property Notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
 
-```textwire
+```textwire :no-line-numbers
 {{ name = "John"; age = 25 }}
 {{ person = { name, age } }}
 ```

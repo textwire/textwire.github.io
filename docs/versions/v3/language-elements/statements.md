@@ -21,7 +21,7 @@ description: Learn about different statements in Textwire, including if statemen
 You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
 Here is an example of using if statements:
 
-```textwire
+```textwire :no-line-numbers
 @if(name == "Anna")
     <p>Her name is Anna</p>
 @end
@@ -98,7 +98,7 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 
 You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
 
-```textwire
+```textwire :no-line-numbers
 {{ x = 5 }}
 {{ x = 10 }}
 ```
@@ -115,7 +115,7 @@ Variable declaration statements are not expressions! They don't return any value
 
 Here is an example of using use statement:
 
-```textwire
+```textwire :no-line-numbers
 @use("layouts/main")
 ```
 
@@ -133,14 +133,14 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
 
 1. Only **one** `@use` statement is allowed per template file. Defining multiple layouts will cause an error.
 
-    ```textwire
+    ```textwire :no-line-numbers
     @use('~main')
     @use('~user')  <!-- ❌ Error -->
     ```
 
 2. You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
 
-    ```textwire
+    ```textwire :no-line-numbers
     @use('~base') <!-- ✅ Recommended -->
 
     @insert('title', 'Home Page')
@@ -155,7 +155,7 @@ The `@insert` statement lets you insert (inject) content into placeholders defin
 
 Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
 
-```textwire title="home.tw"
+```textwire
 @use("layouts/main")
 
 <!-- Without a content body -->
@@ -182,7 +182,7 @@ All `@insert` statements are evaluated within the template file first, and next,
 
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
 
-```textwire title="layouts/main.tw"
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -212,7 +212,7 @@ Here’s a simple example of using a component:
 
 ### Example of a Component
 
-```textwire title="components/post-card.tw"
+```textwire
 <div class="post">
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
@@ -221,7 +221,7 @@ Here’s a simple example of using a component:
 
 ### Example of Using a Template
 
-```textwire title="home.tw"
+```textwire
 <div class="posts">
     @each(post in posts)
         @component("components/post-card", { post })
@@ -237,7 +237,7 @@ The first argument of the `@component` directive is a path to the component file
 
 The second optional argument is an [object](/v3/language-elements/literals#object) that you want to pass to the component. Here is another example of using a component with a second argument:
 
-```textwire title="home.tw"
+```textwire
 <ul>
     @each(book in books)
         @component("parts/book", { completed: book.completed })
@@ -261,7 +261,7 @@ There are 2 types of slots in Textwire: default slots and named slots.
 
 Here’s an example of how to use slots in a component. Consider this component:
 
-```textwire title="components/book.tw"
+```textwire
 <div class="book">
     @slot
 
@@ -274,7 +274,7 @@ Here’s an example of how to use slots in a component. Consider this component:
 
 We can now use `book.tw` component in our Textwire files like this:
 
-```textwire title="views/home.tw"
+```textwire
 @each(book in books)
     @component("~book", { book })
         <!-- default slot -->
@@ -305,7 +305,7 @@ The `@dump` directive is primarily used for debugging purposes. This directive o
 
 Here’s an example of how to use the `@dump` directive:
 
-```textwire
+```textwire :no-line-numbers
 {{ names = ["John", "Jane", "Jack", "Jill"] }}
 
 @dump(names)
@@ -313,7 +313,7 @@ Here’s an example of how to use the `@dump` directive:
 
 The output would look like something like this:
 
-<img src="/images/dump-names.png" title="Dump output in Textwire" width="150" />
+<img src="/images/dump-names.png" width="150" />
 
 ### Works with Different Types
 
@@ -332,19 +332,19 @@ Similarly, you can print objects and other types of data:
 <p>Some content</p>
 ```
 
-<img src="/images/dump-object.png" title="Dump object in Textwire" width="400" />
+<img src="/images/dump-object.png" width="400" />
 
 ### Dump Multiple Objects
 
 `@dump` directive can accept an endless amount arguments at once:
 
-```textwire
+```textwire :no-line-numbers
 {{ meta = [1, 2.23, true, false, nil] }}
 {{ user = { name: "John", age: 25 } }}
 
 @dump(meta, user)
 ```
 
-<img src="/images/dump-multiple.png" title="Dump multiple object in Textwire" width="300" />
+<img src="/images/dump-multiple.png" width="300" />
 
 It's an easy and convenient way to debug your templates and see what's going on inside of them.

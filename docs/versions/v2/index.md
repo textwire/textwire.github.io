@@ -25,7 +25,7 @@ You can use Textwire in three versatile ways:
 
 Here is a simple example of a Textwire template:
 
-```textwire title="home.tw"
+```textwire
 @use('~main')
 
 @insert('title', 'Welcome to Home Page')

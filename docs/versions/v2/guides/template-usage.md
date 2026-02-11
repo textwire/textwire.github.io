@@ -9,7 +9,7 @@ outline: deep
 ## Simple Usage
 To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/v2/guides/configurations) in Textwire.
 
-```go title="main.go"
+```go
 import (
     "fmt"
     "net/http"
@@ -48,7 +48,7 @@ In return from the `NewTemplate` function, we get a `Template` object that can b
 ## Write Response to the Client
 You can use the `Response` method on `Template` object to write the evaluated template to the client. The `Response` method accepts a `http.ResponseWriter` object, the name of the template file, and a map of variables that you want to inject into the template. Here is an example:
 
-```go title="main.go"
+```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "home", map[string]interface{}{
         "title":     "Home page",
@@ -72,7 +72,7 @@ Defining a layout in Textwire is very simple. You need to create a layout file a
 ### Reserve Space in the Layout
 The [reserve](/v2/language-elements/statements#reserve-statement) statement (also called directive) is used to reserve a place for dynamic content that you can insert later in the layout. For example, you can reserve a place for the title of the page and then insert it later from `about-me.tw` or `contact-us.tw`. Here is an example of a layout file:
 
-```textwire title="templates/layouts/main.tw"
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,7 +93,7 @@ The `insert` statement (directive) is used to insert content into reserved place
 
 Let's take a look at the example how I would define a `home.tw` and then I'll explain each part of it:
 
-```textwire title="templates/home.tw"
+```textwire
 @use("layouts/main")
 
 @insert("title", "Home page")
@@ -115,7 +115,7 @@ There are a few configurations that you can pass to the `NewTemplate` function t
 
 There are cases when you want to override the default file format or the directory where the template files are stored. Here is an example of how you can configure the template language:
 
-```go title="main.go"
+```go
 import (
     "fmt"
     "net/http"

@@ -12,6 +12,6 @@ Textwire has an elegant and easy-to-use syntax that is designed to be familiar t
 
 Install the Textwire package in your Go environment. You can do this by running the following command:
 
-```bash
+```bash :no-line-numbers
 go get -u github.com/textwire/textwire
 ```

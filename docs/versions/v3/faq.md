@@ -21,7 +21,7 @@ Textwire has its own unique chain of turning your text files into final output. 
 
 All non-Textwire-specific parts of the text file are treated as plain text and are not parsed as HTML, XML, or any other format. They remain unmodified in the final output, including whitespace preservation. Only Textwire-specific parts are processed:
 
-```textwire
+```textwire :no-line-numbers
 <h1>Textwire seems cool</h1>
 {{ "Hello, World!".upper() }}
 <p>I would use it in production<p>

@@ -16,7 +16,7 @@ What was the motivation to create Textwire? How does it work? What are the benef
 
 Here’s a quick example of what a basic Textwire template looks like:
 
-```textwire title="index.tw"
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -9,7 +9,7 @@ outline: deep
 ## Simple Usage
 To use Textwire as a template language, import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can either pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` parameter configures Textwire behavior. Read more about [configurations](/v3/guides/configurations).
 
-```go title="main.go"
+```go
 import (
     "fmt"
     "net/http"
@@ -47,7 +47,7 @@ After calling `NewTemplate`, you receive a `Template` instance that can be used 
 ## Writing Responses to the Client
 Use the `Response` method on a `Template` instance to write the evaluated template to the HTTP client. The `Response` method accepts an `http.ResponseWriter` object, the template file name, and a map of variables to inject into the template. Here is an example:
 
-```go title="main.go"
+```go
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "views/home", map[string]interface{}{
         "title":     "Home page",
@@ -83,7 +83,7 @@ Defining a layout in Textwire is straightforward. Create a layout file anywhere 
 ### Reserving Space in Layouts
 The [@reserve](/v3/language-elements/statements#reserve-statement) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Here is an example layout file:
 
-```textwire title="templates/layouts/main.tw"
+```textwire
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,7 +104,7 @@ The [@insert](/v3/language-elements/statements#insert-statement) directive inser
 
 Here is an example `templates/views/home.tw` template:
 
-```textwire title="templates/views/home.tw"
+```textwire
 @use("layouts/main")
 
 @insert("title", "Home page")
@@ -124,7 +124,7 @@ You can read more about [@use](/v3/language-elements/statements#use-statement), 
 ## Configuration
 The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Here is an example of configuration:
 
-```go title="main.go"
+```go
 import (
     "fmt"
     "net/http"

@@ -61,13 +61,13 @@ It all depends on your use case.
 
 To include other files with `@component` or `@use` directive you need to specify a relative path to the file you want to include relative to the `templates` directory. For example if your template file is `templates/views/home.tw` and you want to use a component `templates/components/navbar.tw`, you should do this:
 
-```textwire
+```textwire :no-line-numbers
 @component('components/navbar')
 ```
 
 Or, as an alias to `components/` you can use `~` symbol like this:
 
-```textwire
+```textwire :no-line-numbers
 @component('~navbar')
 ```
 
@@ -79,7 +79,7 @@ Braces statements are special Textwire constructs that begin with <code v-pre>{{
 
 Use a semicolon (`;`) to separate multiple expressions inside braces. For example:
 
-```textwire
+```textwire :no-line-numbers
 {{ x = 5; y = 10 }}
 ```
 
