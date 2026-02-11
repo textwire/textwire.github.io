@@ -58,33 +58,38 @@ func homeHandler(tpl *textwire.Template) http.HandlerFunc {
 Both patterns work—use global for simplicity, local for testability. Call `NewTemplate` only once at startup; it parses all templates into memory.
 
 ## Writing Responses to the Client
-The examples above use `tpl.Response()` to write directly to the HTTP response. Here's the full signature with error handling:
 
-```go
+Choose how to output your rendered template:
+
+::: code-group
+
+```go [Response - Direct HTTP Output]
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "views/home", map[string]any{
-        "title":     "Home page",
-        "names":     []string{"John", "Jane", "Jack", "Jill"},
-        "showNames": true,
+        "title": "Home page",
     })
-
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
 ```
 
-If you prefer not to write directly to the response, use the `String()` method to obtain the final string:
-
-```go
-out, failure := tpl.String("views/home", map[string]any{
-    "names":     []string{"John", "Jane", "Jack", "Jill"},
-    "showNames": true,
-    "books":     books,
-})
+```go [String - Get Rendered Output]
+func generateEmail() (string, error) {
+    out, failure := tpl.String("emails/welcome", map[string]any{
+        "name": user.Name,
+    })
+    if failure != nil {
+        return "", failure.Error()
+    }
+    return out, nil
+}
 ```
 
-Note that `tpl.String()` does not return a standard `error`. Instead, it returns `*fail.Error`, which is Textwire's error wrapper that provides additional context such as line numbers and file paths.
+:::
+
+- **`Response()`** — Writes directly to HTTP response. Returns standard `error`.
+- **`String()`** — Returns rendered string and `*fail.Error` with detailed info (line, filepath, message). Call `failure.Error()` to convert to standard `error`.
 
 :::tip Live Reload
 If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
