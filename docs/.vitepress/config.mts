@@ -17,6 +17,10 @@ export default defineVersionedConfig(
         markdown: {
             lineNumbers: true,
             languages: ['html', twLang],
+            theme: {
+                light: 'github-light',
+                dark: 'catppuccin-mocha',
+            },
         },
 
         vite: {

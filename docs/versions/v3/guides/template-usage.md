@@ -9,7 +9,13 @@ outline: deep
 ## Simple Usage
 To use Textwire as a template language, import the `github.com/textwire/textwire/v3` package and create a new Template instance. You can either pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` parameter configures Textwire behavior. Read more about [configurations](/v3/guides/configurations).
 
-```go
+You can initiate template in 2 ways:
+1. Global - template is available everywhere in main package
+2. Local - template is passed to handlers
+
+::: code-group
+
+```go [Global Template]
 import (
     "fmt"
     "net/http"
@@ -21,21 +27,53 @@ import (
 var tpl *textwire.Template
 
 func main() {
-    var err error
+    tpl = startTextwire()
+    http.HandleFunc("/", homeHandler)
+    http.ListenAndServe(":8080", nil)
+}
 
-    tpl, err = textwire.NewTemplate(&config.Config{
+func startTextwire() *textwire.Template {
+    tpl, err := textwire.NewTemplate(&config.Config{
         DebugMode:   true,
     })
-
     if err != nil {
         fmt.Println(err)
     }
-
-    http.HandleFunc("/", homeHandler)
-
-    http.ListenAndServe(":8080", nil)
+    return tpl
 }
 ```
+
+```go [Local Template]
+import (
+    "fmt"
+    "net/http"
+
+    "github.com/textwire/textwire/v3"
+    "github.com/textwire/textwire/v3/config"
+)
+
+func main() {
+    tpl := startTextwire()
+    http.HandleFunc("/", homeHandler(tpl))
+    http.ListenAndServe(":8080", nil)
+}
+
+func startTextwire() *textwire.Template {
+    tpl, err := textwire.NewTemplate(&config.Config{
+        DebugMode:   true,
+    })
+    if err != nil {
+        fmt.Println(err)
+    }
+    return tpl
+}
+```
+
+:::
+
+There is no right or wrong way to initiate the template. It depends on your project structure and preferences. The global approach is simpler and more straightforward, while the local approach provides better encapsulation and testability.
+
+### `NewTemplate` Function
 
 None of the configurations are required, as each configuration has a default value. The `NewTemplate` function returns two values:
 
