@@ -1,89 +1,105 @@
 # Textwire Documentation
-Docs build with [Docusaurus](https://docusaurus.io/).
+
+Documentation website for [Textwire](https://github.com/textwire/textwire) templating language for Go (Golang) written with [VitePress](https://vitepress.dev/)
 
 ## Contribute
-### NPM Commands
-#### Install Dependencies
-```bash
-npm install
-```
 
-#### Watch File Changes
-```bash
-npm start
-```
+### Build an Image
 
-Navigate to `http://localhost:3000` to see your documentation.
-
-### With Container Engine
-#### Build an Image
 To build an image, navigate to the root of the project and run this command.
 
-For Podman:
+With Podman:
+
 ```bash
 podman-compose build
 ```
 
-For Docker:
+With Docker:
+
 ```bash
 docker compose build
 ```
 
-#### Create `node_modules`
+### Create `node_modules`
+
 Run this command to install npm packages and generate a `node_modules` directory on your local machine.
 
-For Podman:
+With Podman:
+
 ```bash
 podman-compose run --rm app npm i
 ```
 
-For Docker:
+With Docker:
+
 ```bash
 docker compose run --rm app npm i
 ```
 
-#### Run the Container
+### Run the Container
+
 To run a container, navigate to the root of the project and run this command.
 
-For Podman:
+With Podman:
+
 ```bash
-podman-compose up -d
+podman-compose up
 ```
 
-For Docker:
+With Docker:
+
 ```bash
-docker compose up -d
+docker compose up
 ```
 
-You can visit `http://localhost:3000` to see your documentation. Your files will be auto-compiled to plain JavaScript as you change them.
+You can visit [localhost:3000](http://localhost:3000) to see your documentation.
 
-#### Enter the Container
+### Enter the Container
+
 To enter inside of the container, run this command.
 
-For Podman:
+With Podman:
+
 ```bash
-podman-compose exec app sh
+podman-compose app sh
 ```
 
-For Docker:
+With Docker:
+
 ```bash
-docker compose exec app sh
+docker compose app sh
 ```
 
 You'll be able to run NPM commands inside of the container.
 
-> [!TIP]
-> You don't need to run `npm start` because it's already running after you created a container.
+### Remove the Container
 
-#### Delete the Container
-After you are done working on a project, you can cleanup by stopping and removing all the running containers for this project.
+After you are done working on a project, you can cleanup by removing running containers.
 
-For Podman:
+With Podman:
+
 ```bash
 podman-compose down
 ```
 
-For Docker:
+With Docker:
+
 ```bash
 docker compose down
 ```
+
+## NPM Commands
+
+### Install Dependencies
+
+```bash
+npm i
+```
+
+### Watch File Changes
+
+```bash
+npm run dev
+```
+
+Navigate to [localhost:5173](http://localhost:5173) to see your documentation if you run this project locally. With container engines it's going to be [localhost:3000](http://localhost:3000).

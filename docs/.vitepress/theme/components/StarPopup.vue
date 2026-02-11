@@ -1,0 +1,41 @@
+<script setup lang="ts">
+import StarIcon from '@/components/Icons/StarIcon.vue'
+import PopupBtn from '@/components/PopupBtn.vue'
+
+const emit = defineEmits<{ (e: 'close'): void }>()
+</script>
+
+<template>
+    <div class="popup">
+        <span>Star Textwire on GitHub to keep us going</span>
+
+        <div class="popup__buttons">
+            <PopupBtn href="https://github.com/textwire/textwire">
+                <StarIcon width="20" height="20" /> Okay
+            </PopupBtn>
+
+            <PopupBtn @click="emit('close')">Already did</PopupBtn>
+        </div>
+    </div>
+</template>
+
+<style scoped>
+.popup {
+    position: fixed;
+    bottom: 15px;
+    right: 10px;
+    background-color: var(--popup-bg);
+    padding: 1em;
+    border-radius: 0.7em;
+    z-index: 100;
+    color: var(--vp-custom-block-tip-text);
+    transition: transform 0.4s;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, .1);
+}
+
+.popup__buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+</style>

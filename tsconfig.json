@@ -1,8 +1,16 @@
 {
-    "extends": "@docusaurus/tsconfig",
     "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
         "baseUrl": ".",
-        "jsx": "react-jsx",
-        "ignoreDeprecations": "6.0"
-    }
+        "paths": {
+            "@/*": ["./docs/.vitepress/theme/*"],
+            "@site/*": ["./*"]
+        }
+    },
+    "include": ["docs/.vitepress/**/*"]
 }

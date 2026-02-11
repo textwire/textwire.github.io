@@ -1,7 +1,0 @@
-@import "_variables";
-@import "home/_index";
-@import "community/_index";
-
-button.clean-btn[aria-label="Toggle word wrap"] {
-    display: none;
-}
