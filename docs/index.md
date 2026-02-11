@@ -27,6 +27,4 @@ hero:
 
 :::
 
-<Teleport defer to=".VPHome">
-    <Home />
-</Teleport>
+<Home />
