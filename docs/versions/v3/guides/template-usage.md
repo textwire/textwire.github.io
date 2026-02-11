@@ -17,55 +17,39 @@ You can initiate template in 2 ways:
 
 ```go [Global Template]
 import (
-    "fmt"
     "net/http"
-
     "github.com/textwire/textwire/v3"
-    "github.com/textwire/textwire/v3/config"
 )
 
 var tpl *textwire.Template
 
 func main() {
-    tpl = startTextwire()
+    tpl, _ = textwire.NewTemplate(nil)
     http.HandleFunc("/", homeHandler)
     http.ListenAndServe(":8080", nil)
 }
 
-func startTextwire() *textwire.Template {
-    tpl, err := textwire.NewTemplate(&config.Config{
-        DebugMode:   true,
-    })
-    if err != nil {
-        fmt.Println(err)
-    }
-    return tpl
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+    tpl.Response(w, "views/home", nil)
 }
 ```
 
 ```go [Local Template]
 import (
-    "fmt"
-    "net/http"
-
-    "github.com/textwire/textwire/v3"
-    "github.com/textwire/textwire/v3/config"
+	"net/http"
+	"github.com/textwire/textwire/v3"
 )
 
 func main() {
-    tpl := startTextwire()
-    http.HandleFunc("/", homeHandler(tpl))
-    http.ListenAndServe(":8080", nil)
+	tpl, _ := textwire.NewTemplate(nil)
+	http.HandleFunc("/", homeHandler(tpl))
+	http.ListenAndServe(":8080", nil)
 }
 
-func startTextwire() *textwire.Template {
-    tpl, err := textwire.NewTemplate(&config.Config{
-        DebugMode:   true,
-    })
-    if err != nil {
-        fmt.Println(err)
-    }
-    return tpl
+func homeHandler(tpl *textwire.Template) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		tpl.Response(w, "views/home", nil)
+	}
 }
 ```
 
