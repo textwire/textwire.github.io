@@ -5,17 +5,17 @@ description: Learn about different directives in Textwire, including @if, @each,
 
 # Directives
 
-- [If](#if) `@if(x == 1)`
-- [Use](#use) `@use("layouts/main")`
-- [Insert](#insert) `@insert("title", "Home")`
-- [Reserve](#reserve) `@reserve("title")`
-- [For](#for) `@for(i = 0; i < 2; i++)`
-- [Each](#each) `@each(name in names)`
-- [Component](#component) `@component("components/post-card")`
-- [Slots](#slots) `@slot('footer')`
-- [Dump](#dump) `@dump(users, page)`
+- [@if](#if) `@if(x == 1)`
+- [@use](#use) `@use("layouts/main")`
+- [@insert](#insert) `@insert("title", "Home")`
+- [@reserve](#reserve) `@reserve("title")`
+- [@for](#for) `@for(i = 0; i < 2; i++)`
+- [@each](#each) `@each(name in names)`
+- [@component](#component) `@component("components/post-card")`
+- [@slot](#slot) `@slot('footer')`
+- [@dump](#dump) `@dump(users, page)`
 
-## If
+## @if
 
 You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives.
 Here is an example of using if directives:
@@ -48,7 +48,7 @@ If you pass `nil` or an empty string to the `@if` directive, it will be treated 
 @end
 ```
 
-## For
+## @for
 
 You can use regular for loops to iterate over an array or a range of numbers.
 
@@ -79,7 +79,7 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 </ul>
 ```
 
-## Each
+## @each
 
 Each directive is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
@@ -93,7 +93,7 @@ Each directive is a special form of `for` loop that you can use to iterate over 
 
 Read more about loops in the [Loops guide](/v3/guides/loops).
 
-## Use
+## @use
 
 `@use` directives allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
 
@@ -103,7 +103,7 @@ Here is an example of using use directive:
 @use("layouts/main")
 ```
 
-:::info Use Path Alias
+:::info @use Path Alias
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
@@ -133,7 +133,7 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 
 3. Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
-## Insert
+## @insert
 
 The `@insert` directive lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve) directive in your layout file. This feature enables flexible template structuring and reusability.
 
@@ -162,7 +162,7 @@ All `@insert` directives are evaluated within the template file first, and next,
 2. You cannot define multiple `@insert` directives with the same name in a single file. It will result in error.
 3. If you define `@insert` directive without defining `@use` directive first, you'll get an error.
 
-## Reserve
+## @reserve
 
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` directive:
 
@@ -186,7 +186,7 @@ All variables passed to the template file are also available in the layout file.
 
 The `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
 
-## Component
+## @component
 
 The `@component` directive allows you to include reusable components within your templates. Components help organize and structure templates by encapsulating reusable parts of your UI.
 
@@ -232,9 +232,9 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 ### Imporant Notes
 1. You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 2. Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
-3. You can use [slots](/v3/language-elements/directives#slots) in components to pass content to the component file.
+3. You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
 
-## Slots
+## @slot
 
 Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
 
@@ -283,7 +283,7 @@ In this example, both default and named slots are used within a single component
 2. Defining multiple default slots in a single component will result in an error.
 3. If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 
-## Dump
+## @dump
 
 The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v3/language-elements/literals#object), [arrays](/v3/language-elements/literals#array), [strings](/v3/language-elements/literals#string) and other data types to the screen.
 
