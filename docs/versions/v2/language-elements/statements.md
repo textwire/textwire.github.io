@@ -271,7 +271,7 @@ Defining multiple slots with the same name, or defining 2 default slots in a sin
 :::
 
 ## Dump Directive
-The `@dump` directive will feel familiar to [Laravel](https://laravel.com/) and [Symfony](https://symfony.com/) users. It is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v2/language-elements/literals#object), [arrays](/v2/language-elements/literals#array), [strings](/v2/language-elements/literals#string) and other data types to the screen.
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v2/language-elements/literals#object), [arrays](/v2/language-elements/literals#array), [strings](/v2/language-elements/literals#string) and other data types to the screen.
 
 Here’s an example of how to use the `@dump` directive:
 

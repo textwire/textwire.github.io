@@ -11,6 +11,7 @@ description: You can find here all the information about expressions in Textwire
 - [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
 - [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code>
 - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
+- [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
 
 ## Ternary Expressions
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
@@ -85,3 +86,18 @@ Here is an example of using function calls:
 ```
 
 > You can read more detail about built-in functions on the [Built-in Functions](/v3/functions/guide) page.
+
+## Variable Declaration
+
+You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
+
+```textwire :no-line-numbers
+{{ x = 5 }}
+{{ x = 10 }}
+```
+
+You cannot assign values to variables of a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
+
+:::tip Declaration Has No Output
+Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
+:::

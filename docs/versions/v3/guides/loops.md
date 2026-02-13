@@ -6,7 +6,7 @@ outline: deep
 
 # Loops Usage
 
-Textwire provides two types of loops: [for loop](/v3/language-elements/statements#for-statement) and [each loop](/v3/language-elements/statements#each-statement). Both loops iterate over arrays with special syntax and additional features. This guide covers loop functionality and usage patterns.
+Textwire provides two types of loops: [for loop](/v3/language-elements/directives#for) and [each loop](/v3/language-elements/directives#each). Both loops iterate over arrays with special syntax and additional features. This guide covers loop functionality and usage patterns.
 
 ## For Loops
 

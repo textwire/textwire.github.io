@@ -303,8 +303,8 @@ export default defineVersionedConfig(
                                 link: '/v3/language-elements/syntax',
                             },
                             {
-                                text: 'Statements',
-                                link: '/v3/language-elements/statements',
+                                text: 'Directives',
+                                link: '/v3/language-elements/directives',
                             },
                             {
                                 text: 'Expressions',

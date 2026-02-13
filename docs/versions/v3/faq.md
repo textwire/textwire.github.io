@@ -44,7 +44,7 @@ Directives and statements are the core of Textwire language. They are used to de
 - Directives start with the `@` symbol, while statements are a general term for parts of code that perform an action and do not return a value
 
 :::info Read More
-You can read about statements in the [Statements](/v3/language-elements/statements) section of the documentation.
+You can read about statements in the [Statements](/v3/language-elements/directives) section of the documentation.
 :::
 
 For example, `{{ x = 5 }}` is a statement that assigns the value `5` to the variable `x`. On the other hand, `@use('~main')` is a directive and a statement at the same time, as it includes the layout `main` in the current file and doesn't return a value.

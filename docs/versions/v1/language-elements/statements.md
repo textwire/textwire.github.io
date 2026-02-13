@@ -238,7 +238,7 @@ The second optional argument is a [Textwire object](/v1/language-elements/litera
 You can also use slots in components to pass content to the component. Read about slots [in the next section](#component-slots)
 
 ## Component Slots
-Component slots is a very common feature in most template languages and frameworks like Vue.js or Laravel Blade. Textwire has named and default slots that you can use to pass content to a component.
+Component slots is a very common feature in most template languages and frameworks. Textwire has named and default slots that you can use to pass content to a component.
 
 There are 2 types of slots in Textwire, default and named slots. To pass and define a default slot you use `@slot` directive. To pass and define a named slot you use `@slot("some-name")` directive. Let's see an example of using slots in a component:
 

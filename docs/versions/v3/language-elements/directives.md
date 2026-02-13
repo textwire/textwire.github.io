@@ -1,25 +1,24 @@
 ---
-title: Statements - v3
-description: Learn about different statements in Textwire, including if statements, variable declarations, use statements, insert statements, for loops, etc.
+title: Directives - v3
+description: Learn about different directives in Textwire, including @if, @each, @for, @insert, @declare and more
 ---
 
-# Statements
+# Directives
 
-- [If Statement](#if-statement) `@if(x == 1)`
-- [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
-- [Use Statement](#use-statement) `@use("layouts/main")`
-- [Insert Statement](#insert-statement) `@insert("title", "Home")`
-- [Reserve Statement](#reserve-statement) `@reserve("title")`
-- [For Statement](#for-statement) `@for(i = 0; i < 2; i++)`
-- [Each Statement](#each-statement) `@each(name in names)`
+- [If](#if) `@if(x == 1)`
+- [Use](#use) `@use("layouts/main")`
+- [Insert](#insert) `@insert("title", "Home")`
+- [Reserve](#reserve) `@reserve("title")`
+- [For](#for) `@for(i = 0; i < 2; i++)`
+- [Each](#each) `@each(name in names)`
 - [Component](#component) `@component("components/post-card")`
-- [Component Slots](#component-slots) `@slot('footer')`
-- [Dump Directive](#dump-directive) `@dump(users, page)`
+- [Slots](#slots) `@slot('footer')`
+- [Dump](#dump) `@dump(users, page)`
 
-## If Statement
+## If
 
-You can use if statements to conditionally render content. You can construct `@if` statement using the `@if`, `@elseif`, `@else` and `@end` directives.
-Here is an example of using if statements:
+You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives.
+Here is an example of using if directives:
 
 ```textwire :no-line-numbers
 @if(name == "Anna")
@@ -27,7 +26,7 @@ Here is an example of using if statements:
 @end
 ```
 
-You can also use `else` and `elseif` statements:
+You can also use `else` and `elseif` directives:
 
 ```textwire
 @if(x == 1)
@@ -39,7 +38,7 @@ You can also use `else` and `elseif` statements:
 @end
 ```
 
-If you pass `nil` or an empty string to the `@if` statement, it will be treated as `false`.
+If you pass `nil` or an empty string to the `@if` directive, it will be treated as `false`.
 
 ```textwire
 {{ name = nil }}
@@ -49,11 +48,11 @@ If you pass `nil` or an empty string to the `@if` statement, it will be treated 
 @end
 ```
 
-## For Statement
+## For
 
 You can use regular for loops to iterate over an array or a range of numbers.
 
-This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
+This is a basic for loop that you can use. It has a declaration, condition and post directive. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -80,9 +79,9 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 </ul>
 ```
 
-## Each Statement
+## Each
 
-Each statement is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
+Each directive is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -94,44 +93,29 @@ Each statement is a special form of `for` loop that you can use to iterate over 
 
 Read more about loops in the [Loops guide](/v3/guides/loops).
 
-## Variable Declaration
+## Use
 
-You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
+`@use` directives allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
 
-```textwire :no-line-numbers
-{{ x = 5 }}
-{{ x = 10 }}
-```
-
-You cannot assign values to variables of a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
-
-:::tip Declaration Has No Output
-Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
-:::
-
-## Use Statement
-
-`@use` statements allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
-
-Here is an example of using use statement:
+Here is an example of using use directive:
 
 ```textwire :no-line-numbers
 @use("layouts/main")
 ```
 
-:::info Use Statement Path Alias
+:::info Use Path Alias
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
-The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v3/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v3/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
+The `@use` directive accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v3/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v3/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout directive like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
 :::info Understanding the @use Directive
-When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
+When you use the `@use` directive, only the content inside [`@insert`](#insert) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert) directives.
 :::
 
 ### Important Notes
 
-1. Only **one** `@use` statement is allowed per template file. Defining multiple layouts will cause an error.
+1. Only **one** `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
 
     ```textwire :no-line-numbers
     @use('~main')
@@ -149,11 +133,11 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert-s
 
 3. Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
-## Insert Statement
+## Insert
 
-The `@insert` statement lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
+The `@insert` directive lets you insert (inject) content into placeholders defined by the [`@reserve`](#reserve) directive in your layout file. This feature enables flexible template structuring and reusability.
 
-Below is an example demonstrating two scenarios for the `@insert` statement with a content body and without:
+Below is an example demonstrating two scenarios for the `@insert` directive with a content body and without:
 
 ```textwire
 @use("layouts/main")
@@ -168,19 +152,19 @@ Below is an example demonstrating two scenarios for the `@insert` statement with
 @end
 ```
 
-The `@insert` statement is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
+The `@insert` directive is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
 
-All `@insert` statements are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statements in the layout file.
+All `@insert` directives are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file.
 
 ### Important Notes
 
-1. Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
-2. You cannot define multiple `@insert` statements with the same name in a single file. It will result in error.
-3. If you define `@insert` statement without defining `@use` statement first, you'll get an error.
+1. Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve) will result in an error.
+2. You cannot define multiple `@insert` directives with the same name in a single file. It will result in error.
+3. If you define `@insert` directive without defining `@use` directive first, you'll get an error.
 
-## Reserve Statement
+## Reserve
 
-When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
+When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` directive:
 
 ```textwire
 <!DOCTYPE html>
@@ -200,7 +184,7 @@ When defining a layout file for your template, you can reserve placeholders for 
 All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
 :::
 
-The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
+The `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
 
 ## Component
 
@@ -246,11 +230,11 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 ```
 
 ### Imporant Notes
-1. You can include layout file into components using [`@use`](/v3/language-elements/statements#use-statement) statement, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+1. You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 2. Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
-3. You can use [slots](/v3/language-elements/statements#component-slots) in components to pass content to the component file.
+3. You can use [slots](/v3/language-elements/directives#slots) in components to pass content to the component file.
 
-## Component Slots
+## Slots
 
 Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
 
@@ -299,7 +283,7 @@ In this example, both default and named slots are used within a single component
 2. Defining multiple default slots in a single component will result in an error.
 3. If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 
-## Dump Directive
+## Dump
 
 The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v3/language-elements/literals#object), [arrays](/v3/language-elements/literals#array), [strings](/v3/language-elements/literals#string) and other data types to the screen.
 
