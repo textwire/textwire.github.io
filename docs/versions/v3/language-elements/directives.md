@@ -5,6 +5,8 @@ description: Learn about different directives in Textwire, including @if, @each,
 
 # Directives
 
+Textwire directives provide powerful control over your templates through commands that begin with `@`. These directives enable you to conditionally display content, iterate over data, create reusable layouts, and build modular components. Each directive serves a specific purpose in the template rendering process, allowing you to write dynamic and maintainable templates without mixing complex logic into your presentation layer.
+
 - [@if](#if) `@if(x == 1)`
 - [@use](#use) `@use("layouts/main")`
 - [@insert](#insert) `@insert("title", "Home")`
