@@ -1,15 +1,17 @@
 ---
 title: Usage with Templates - v3
 description: Learn how to configure and use Textwire templates in your Go applications, including importing the package, creating template instances, and more
-outline: deep
+outline: [2, 3]
 ---
 
 # Usage with Templates
 
 ## Simple Usage
+
 Import `github.com/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/guides/configurations).
 
 Choose one of these initialization patterns:
+
 1. **Global** — `tpl` is a package variable accessible from any handler
 2. **Local** — `tpl` is created in `main()` and injected into handlers
 
@@ -96,10 +98,14 @@ If your template files are not showing up after you've created them and you are 
 :::
 
 ## Layouts
-Defining a layout in Textwire is straightforward. Create a layout file anywhere within your `templates` directory. Many developers organize layouts in a `templates/layouts/` directory to manage different layouts such as `main.tw`, `admin.tw`, and `user.tw`.
+
+Layouts are reusable templates that define the overall structure of a page. They allow you to maintain a consistent look and feel across your website while enabling you to insert dynamic content into specific reserved places. You can define a base layout which will be used by multiple pages.
+
+To define a layout in Textwire you need to create a file anywhere within your `templates` directory. **We recommend to store it in `templates/layouts` directory.** This way, all of your layouts could go in there.
 
 ### Reserving Space in Layouts
-The [@reserve](/v3/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
+
+The [@reserve](/v3/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
 
 ```textwire
 <!DOCTYPE html>
@@ -107,17 +113,31 @@ The [@reserve](/v3/language-elements/directives#reserve) directive reserves plac
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@reserve("title")</title>
+    <title>@reserve('title')</title>
+    <meta name="description" content="@reserve('description')">
 </head>
 <body>
-    @reserve("content")
+    <main id="main-app">
+        @reserve('content')
+    </main>
 </body>
 </html>
 ```
 
-This layout reserves spaces for the page title and content. These placeholders can be populated with data from templates that extend this layout. The next section explains how to insert content into reserved spaces.
+This layout reserves spaces for the title, description and content. These placeholders can be populated with data from templates that use this layout. The next section explains how to insert content into reserved spaces.
+
+#### Important Notes
+
+- The `@reserve` directive can only be used inside layout file. Using it in templates and components will result in error.
+- If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v3/language-elements/directives#slot). Example:
+    ```textwire :no-line-numbers
+    @component('header')
+        @slot('title')@reserve('title')@end
+    @end
+    ```
 
 ### Inserting Content into Reserved Spaces
+
 The [@insert](/v3/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
 
 Example `templates/views/home.tw` template:
@@ -140,6 +160,7 @@ Example `templates/views/home.tw` template:
 You can read more about [@use](/v3/language-elements/directives#use), [@insert](/v3/language-elements/directives#insert) and [@reserve](/v3/language-elements/directives#reserve) directives on [this](/v3/language-elements/directives) page if you need more information about the syntax.
 
 ## Configuration
+
 The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Example:
 
 ```go
@@ -171,4 +192,3 @@ func main() {
 ```
 
 For detailed information about available configuration options, visit the [configurations](/v3/guides/configurations) page.
-

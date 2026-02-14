@@ -5,7 +5,7 @@ description: Learn about different directives in Textwire, including @if, @each,
 
 # Directives
 
-Textwire directives provide powerful control over your templates through commands that begin with `@`. These directives enable you to conditionally display content, iterate over data, create reusable layouts, and build modular components. Each directive serves a specific purpose in the template rendering process, allowing you to write dynamic and maintainable templates without mixing complex logic into your presentation layer.
+Textwire directives provide control over your templates through commands that begin with `@`. These directives enable you to conditionally display content, iterate over data, create reusable layouts, and build modular components. Each directive serves a specific purpose in the template rendering process, allowing you to write dynamic and maintainable templates without mixing complex logic into your presentation layer.
 
 - [@if](#if) `@if(x == 1)`
 - [@use](#use) `@use("layouts/main")`
@@ -116,23 +116,19 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 
 ### Important Notes
 
-1. Only **one** `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
-
+- Only **one** `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
     ```textwire :no-line-numbers
     @use('~main')
     @use('~user')  {{-- ❌ Error --}}
     ```
-
-2. You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
-
+- You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
     ```textwire :no-line-numbers
     @use('~base') {{-- ✅ Recommended --}}
 
     @insert('title', 'Home Page')
     @insert('description', 'This is a books example template with Textwire')
     ```
-
-3. Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
+- Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
 ## @insert
 
@@ -159,9 +155,9 @@ All `@insert` directives are evaluated within the template file first, and next,
 
 ### Important Notes
 
-1. Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve) will result in an error.
-2. You cannot define multiple `@insert` directives with the same name in a single file. It will result in error.
-3. If you define `@insert` directive without defining `@use` directive first, you'll get an error.
+- Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve) will result in an error.
+- You cannot define multiple `@insert` directives with the same name in a single file. It will result in error.
+- If you define `@insert` directive without defining `@use` directive first, you'll get an error.
 
 ## @reserve
 
@@ -189,13 +185,12 @@ The `@reserve` directive accepts a single argument: the name of the reserved pla
 
 ## @component
 
-The `@component` directive allows you to include reusable components within your templates. Components help organize and structure templates by encapsulating reusable parts of your UI.
+The `@component` directive allows you to include reusable code within your templates. Components help organize and structure templates by encapsulating reusable parts of your UI.
 
-To use components in Textwire, create a `components` directory inside your templates and store your component files there. You can then include a component in your template using the `@component` directive.
+To use components in Textwire, create a `components` directory inside your templates and store your component files there. You can then include a component in your template using the `@component` directive. Example:
 
-Here’s a simple example of using a component:
-
-### Example of a Component
+### Example of a Component File
+Define a component file in `templates/components` directory.
 
 ```textwire
 <div class="post">
@@ -204,7 +199,8 @@ Here’s a simple example of using a component:
 </div>
 ```
 
-### Example of Using a Template
+### Example of Using a Component
+To include your component use `@component` directive with first argument being the path to your component relative to `templates` directory.
 
 ```textwire
 <div class="posts">
@@ -213,10 +209,6 @@ Here’s a simple example of using a component:
     @end
 </div>
 ```
-
-:::info Component path alias
-If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
-:::
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
@@ -231,9 +223,15 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 ```
 
 ### Imporant Notes
-1. You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
-2. Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
-3. You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
+
+- You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+- Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
+- You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
+- If your components are located in the `components` directory, you can use the `~` alias to reference them. Behind the scenes, the `~` alias will be replaced with `components/`. Example:
+    ```textwire :no-line-numbers
+    @component("components/post-card", { post }) {{-- no alias --}}
+    @component("~post-card", { post })           {{-- with alias--}}
+    ```
 
 ## @slot
 

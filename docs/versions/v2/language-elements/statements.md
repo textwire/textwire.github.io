@@ -152,10 +152,10 @@ The `@insert` statement is optional and accepts two arguments: the name of the r
 
 All `@insert` statements are evaluated within the layout file, where they are matched to placeholders defined by the [`@reserve`](#reserve-statement) statement.
 
-:::info Important Notes
+### Important Notes
+
 - Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve-statement) will result in an error.
 - You cannot define multiple `@insert` statements with the same name in a single file.
-:::
 
 ## Reserve Statement
 When defining a layout file for your template, you can reserve placeholders for dynamic content. These placeholders can be used for elements such as the title, content, sidebar, footer, and more. Below is an example of how to use the `@reserve` statement:
