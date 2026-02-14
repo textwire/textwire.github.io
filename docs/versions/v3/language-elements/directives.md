@@ -175,10 +175,6 @@ When defining a layout file for your template, you can reserve placeholders for 
 </html>
 ```
 
-:::info Pass Variables to the Layout
-All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
-:::
-
 ### Important notes
 
 - **Takes one argument.** `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
