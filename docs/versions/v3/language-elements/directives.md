@@ -175,11 +175,29 @@ When defining a layout file for your template, you can reserve placeholders for 
 </html>
 ```
 
+### Fallback Argument
+
+As a second argument, `@reserve` can also take a fallback value that will be used if no corresponding `@insert` is defined in the template. Example:
+
+```textwire
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@reserve("title", "Welcome to Textwire")</title>
+</head>
+<body>
+    @reserve("content", "There is nothing here")
+</body>
+</html>
+```
+
 ### Important notes
 
-- **Takes one argument.** `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
+- **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v3.1.0](https://github.com/textwire/textwire/pull/68).
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v3/language-elements/directives#slot). Example:
     ```textwire :no-line-numbers
     @component('header')
@@ -285,6 +303,7 @@ In this example, both default and named slots are used within a single component
 - **Duplicate names not allowed.** Defining multiple default slots or named slots with the same name in a single component will result in an error.
 - **Empty string is default slot.** If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 - **Slots have current context.** Slots have the context of the same file where they are defined. It means you can dinamically modify the content of a slot before it get rendered in the component file.
+- **Optional.** External slots that live inside the component file are optional. If you don't provide content for a slot, it will be rendered as an empty string.
 
 ## @dump
 
