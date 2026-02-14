@@ -149,15 +149,13 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 @end
 ```
 
-The `@insert` directive is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
-
-All `@insert` directives are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file.
-
 ### Important Notes
 
-- Defining an `@insert` for a placeholder that is not declared in the layout file using [`@reserve`](#reserve) will result in an error.
-- You cannot define multiple `@insert` directives with the same name in a single file. It will result in error.
-- If you define `@insert` directive without defining `@use` directive first, you'll get an error.
+- `@insert` is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
+- All inserts are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file. It means they have the context of the file where they are defined.
+- If you define an insert without having a matching reserve, it will result in error. Such inserts are considered unused.
+- You cannot define multiple inserts with the same name in a single file. It will result in error.
+- If you define `@insert` without defining `@use` directive first, you'll get an error.
 
 ## @reserve
 
@@ -181,7 +179,17 @@ When defining a layout file for your template, you can reserve placeholders for 
 All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
 :::
 
-The `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
+### Important notes
+
+- `@reserve` directive accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert) directive to insert content into the corresponding placeholder.
+- `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
+- `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
+- If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v3/language-elements/directives#slot). Example:
+    ```textwire :no-line-numbers
+    @component('header')
+        @slot('title')@reserve('title')@end
+    @end
+    ```
 
 ## @component
 
@@ -280,6 +288,7 @@ In this example, both default and named slots are used within a single component
 
 - Defining multiple default slots or named slots with the same name in a single component will result in an error.
 - If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
+- Slots have the context of the same file where they are defined. It means you can dinamically modify the content of a slot before it get rendered in the component file.
 
 ## @dump
 

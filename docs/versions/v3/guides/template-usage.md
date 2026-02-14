@@ -126,19 +126,11 @@ The [@reserve](/v3/language-elements/directives#reserve) directive reserves plac
 
 This layout reserves spaces for the title, description and content. These placeholders can be populated with data from templates that use this layout. The next section explains how to insert content into reserved spaces.
 
-#### Important Notes
-
-- The `@reserve` directive can only be used inside layout file. Using it in templates and components will result in error.
-- If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v3/language-elements/directives#slot). Example:
-    ```textwire :no-line-numbers
-    @component('header')
-        @slot('title')@reserve('title')@end
-    @end
-    ```
+Learn about [@reserve](/v3/language-elements/directives#reserve) directive.
 
 ### Inserting Content into Reserved Spaces
 
-The [@insert](/v3/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
+The [@insert](/v3/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a block. In the following example, we insert "title" and "description" without a block, and "content" with a block.
 
 Example `templates/views/home.tw` template:
 
@@ -146,6 +138,7 @@ Example `templates/views/home.tw` template:
 @use("layouts/main")
 
 @insert("title", "Home page")
+@insert("description", "Go community loves Textwire")
 
 @insert("content")
     <h1>Hello, World!</h1>
@@ -153,11 +146,13 @@ Example `templates/views/home.tw` template:
 @end
 ```
 
-- First, we specify which layout to use by providing the layout path
-- Then we insert the title into the layout with the value "Home page"
-- Finally, we insert the main content into the layout with the HTML body.
+**Explanation:**
+1. Specify which layout to use by providing the layout path.
+2. Insert the title into the layout.
+3. Insert the description into the layout.
+4. Insert the main content into the layout with the HTML block.
 
-You can read more about [@use](/v3/language-elements/directives#use), [@insert](/v3/language-elements/directives#insert) and [@reserve](/v3/language-elements/directives#reserve) directives on [this](/v3/language-elements/directives) page if you need more information about the syntax.
+Learn about [@insert](/v3/language-elements/directives#insert) directive.
 
 ## Configuration
 
