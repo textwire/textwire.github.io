@@ -1,7 +1,6 @@
 ---
 title: Literals - v3
 description: Learn about Textwire literals like string, int, float, bool, nil, array, objects, etc.
-outline: [2, 3]
 ---
 
 # Literals
