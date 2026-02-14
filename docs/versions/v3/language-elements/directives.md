@@ -281,9 +281,8 @@ In this example, both default and named slots are used within a single component
 
 ### Important Notes
 
-1. Defining multiple slots with the same name in a single component will result in an error.
-2. Defining multiple default slots in a single component will result in an error.
-3. If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
+- Defining multiple default slots or named slots with the same name in a single component will result in an error.
+- If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 
 ## @dump
 

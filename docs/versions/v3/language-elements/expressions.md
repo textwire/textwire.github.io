@@ -5,15 +5,14 @@ description: You can find here all the information about expressions in Textwire
 
 # Expressions
 
-- [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
-- [Prefix expressions](#prefix-expressions) <code v-pre>{{ !x` or `-x }}</code>
-- [Infix expressions](#infix-expressions) <code v-pre>{{ x * (y + 3) }}</code>
-- [Postfix expressions](#postfix-expressions) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
-- [Comparison expressions](#comparison-expressions) <code v-pre>{{ x == y }}</code>
+- [Ternary](#ternary) <code v-pre>{{ x ? y : z }}</code>
+- [Prefix](#prefix) <code v-pre>{{ !x` or `-x }}</code>
+- [Infix](#infix) <code v-pre>{{ x * (y + 3) }}</code>
+- [Postfix](#postfix) <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
+- [Comparison](#comparison) <code v-pre>{{ x == y }}</code>
 - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
-- [Variable Declaration](#variable-declaration) <code v-pre>{{ x = 5 }}</code>
 
-## Ternary Expressions
+## Ternary
 You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
 
 ```textwire :no-line-numbers
@@ -22,7 +21,7 @@ You can use ternary expressions to conditionally render content. Here is an exam
 
 The advantage of a "ternary expression" over an "if statement" is that it can be used inside of any other expressions.
 
-## Prefix Expressions
+## Prefix
 You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
 
 ```textwire :no-line-numbers
@@ -30,7 +29,7 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 <span>{{ -x }}</span>
 ```
 
-## Infix Expressions
+## Infix
 You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
 
 ```textwire
@@ -44,7 +43,7 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 </ul>
 ```
 
-## Postfix Expressions
+## Postfix
 You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
 
 ```textwire :no-line-numbers
@@ -52,7 +51,7 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 <span>{{ x-- }}</span> <!-- Decrement -->
 ```
 
-## Comparison Expressions
+## Comparison
 Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
 
 ```textwire :no-line-numbers
@@ -85,19 +84,4 @@ Here is an example of using function calls:
 {{ name.split(" ") }}
 ```
 
-> You can read more detail about built-in functions on the [Built-in Functions](/v3/functions/guide) page.
-
-## Variable Declaration
-
-You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
-
-```textwire :no-line-numbers
-{{ x = 5 }}
-{{ x = 10 }}
-```
-
-You cannot assign values to variables of a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
-
-:::tip Declaration Has No Output
-Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
-:::
+You can read more detail about built-in functions on the [Functions Guide](/v3/functions/guide) page.
