@@ -11,7 +11,7 @@ description: Learn about trailing commas and comments in Textwire, including how
 
 ## Trailing Commas
 
-You can use trailing commas in arrays, objects, and function arguments. Here is an example of using trailing commas:
+You can use trailing commas in arrays, objects, and function arguments. Example:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack",] }}
@@ -25,7 +25,7 @@ You can use trailing commas in arrays, objects, and function arguments. Here is 
 
 ## Comments
 
-You can use comments in Textwire to write notes or to comment out code. Here is an example of using comments:
+You can use comments in Textwire to write notes or to comment out code. Example:
 
 ```textwire
 {{-- This is a Textwire comment --}}
@@ -38,7 +38,7 @@ HTML comment will be displayed in the final HTML output, but Textwire comment wi
 
 ## Variable Declaration
 
-You can assign and declare variables by using the `=` operator. Here is an example of declaring variables:
+You can assign and declare variables by using the `=` operator. Example:
 
 ```textwire :no-line-numbers
 {{ x = 5 }}

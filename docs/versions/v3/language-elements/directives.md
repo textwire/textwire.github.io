@@ -19,8 +19,7 @@ Textwire directives provide powerful control over your templates through command
 
 ## @if
 
-You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives.
-Here is an example of using if directives:
+You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives. Example:
 
 ```textwire :no-line-numbers
 @if(name == "Anna")
@@ -54,7 +53,7 @@ If you pass `nil` or an empty string to the `@if` directive, it will be treated 
 
 You can use regular for loops to iterate over an array or a range of numbers.
 
-This is a basic for loop that you can use. It has a declaration, condition and post directive. `for <declaration>; <condition>; <post>`. They are all optional. Here is an example of using for loop:
+This is a basic for loop that you can use. It has a declaration, condition and post directive. `for <declaration>; <condition>; <post>`. They are all optional. Example:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -83,7 +82,7 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 
 ## @each
 
-Each directive is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Here is an example of using each loop:
+Each directive is a special form of `for` loop that you can use to iterate over an array. It has a declaration and an array. `@each(<declaration> in <array>)`. Example:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -99,7 +98,7 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 
 `@use` directives allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
 
-Here is an example of using use directive:
+Example:
 
 ```textwire :no-line-numbers
 @use("layouts/main")

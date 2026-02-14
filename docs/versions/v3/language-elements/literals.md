@@ -1,6 +1,7 @@
 ---
 title: Literals - v3
 description: Learn about Textwire literals like string, int, float, bool, nil, array, objects, etc.
+outline: [2, 3]
 ---
 
 # Literals
@@ -14,7 +15,8 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 - [Object](#object) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
 
 ## String
-You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Here is an example of using string literals:
+
+You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Example:
 
 ```textwire :no-line-numbers
 {{ "Hello" + 'World!' }}
@@ -27,23 +29,30 @@ When you print a string, it will be automatically escaped. If you want to print 
 ```
 
 ## Integer
-You can use integer literals and perform arithmetic operations with them. Here is an example of using integer literals:
+
+You can use integer literals and perform arithmetic operations with them. Example:
 
 ```textwire :no-line-numbers
 <span>{{ 1 + 2 }}</span>
 ```
 
 ## Nil
-You can use nil literal to check if a variable is nil. Here is an example of using nil literal:
+
+Unlike Go, Textwire converts `nil` to `false` in boolean context. This means that `nil` is considered falsy in Textwire. Example:
 
 ```textwire :no-line-numbers
-@if(nil)
-    <p>It will not be displayed</p>
+{{ authUser = nil }}
+
+@if(!authUser)
+    <p>You are not logged in!</p>
 @end
 ```
 
+Printing `nil` results in an empty string.
+
 ## Float
-You can use float literals and perform arithmetic operations with them. Here is an example of using float literals:
+
+You can use float literals and perform arithmetic operations with them. Example:
 
 ```textwire :no-line-numbers
 <span>{{ 1.534 + 2.5 }}</span>
@@ -54,7 +63,8 @@ Most languages (including Textwire) use **IEEE 754 standard** for floating-point
 :::
 
 ## Boolean
-You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
+
+You can use boolean literals to check if a variable is true or false. Example:
 
 ```textwire :no-line-numbers
 @if(true)
@@ -63,7 +73,8 @@ You can use boolean literals to check if a variable is true or false. Here is an
 ```
 
 ## Array
-Defining an array in Textwire is done is a similar way as in other languages. Here is an example of defining an array:
+
+Defining an array in Textwire is done is a similar way as in other languages. Example:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack"] }}
@@ -75,7 +86,7 @@ Defining an array in Textwire is done is a similar way as in other languages. He
 </ul>
 ```
 
-You can access values in an array by using an index. Here is an example of accessing values in an array:
+You can access values in an array by using an index. Example:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack"] }}
@@ -88,31 +99,25 @@ You can access values in an array by using an index. Here is an example of acces
 </ul>
 ```
 
-:::info Array Index Returns Nil
-Accessing array on non-existant index returns `nil` instead of resulting in error.
-:::
+### Important Notes
 
-### Best Practices
-Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Here are 2 ways of performing this check:
-
-#### If Statement 
-```textwire
-{{ names = [] }}
-
-@if(names[0] != nil)
-    {{ names[0].upper() }}
-@end
-```
-
-#### Ternary Expression
-```textwire
-{{ names = [] }}
-
-{{ names[0] == nil ? '' : names[0].upper() }}
-```
+- Accessing array on non-existant index returns `nil` instead of resulting in error.
+- Printing array will convert it to comma seperated values. Example:
+   ```textwire :no-line-numbers
+   <span>{{ [1, 2, 3] }}</span>
+   ```
+   ```html :no-line-numbers
+   <span>1, 2, 3</span> <!-- Output -->
+   ```
+- Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Example:
+    ```textwire :no-line-numbers
+    {{ names = [] }}
+    {{ names[0] ? names[0].upper() : '' }}
+    ```
 
 ## Object
-Objects in Textwire are very similar to JavaScript object with key-value pairs. Here is an example of defining an object:
+
+Objects in Textwire are very similar to JavaScript object with key-value pairs. Example:
 
 ```textwire :no-line-numbers
 {{ person = {"name": "John", "age": 25} }}
@@ -124,7 +129,7 @@ You can also use key names without quotes if your keys are valid identifiers:
 {{ person = { name: "John", age: 25 } }}
 ```
 
-You can access values in an object by using a key. Here is an example of accessing values in an object:
+You can access values in an object by using a key. Example:
 
 ```textwire
 {{ user = {age: 25, name: {first: "Anna", last: "Cho"}} }}
@@ -144,9 +149,9 @@ You can access values in an object by using a key. Here is an example of accessi
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 :::
 
-
 #### Shorthand Property Notation
-Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:
+
+Similar to objects in JavaScript, you can use shorthand property notation to define an object. Example:
 
 ```textwire :no-line-numbers
 {{ name = "John"; age = 25 }}

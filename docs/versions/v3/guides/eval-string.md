@@ -6,7 +6,7 @@ description: Learn how to evaluate strings containing Textwire code in your Go a
 # Evaluating Strings
 Use the `EvaluateString` function to evaluate a string containing Textwire code. The function accepts a string template and a map of variables to inject. After evaluation, it returns the processed string and any error encountered.
 
-This approach is ideal for dynamic content generation such as email templates, configuration files, or any scenario requiring template-based string processing without file-based templates. Here is an example:
+This approach is ideal for dynamic content generation such as email templates, configuration files, or any scenario requiring template-based string processing without file-based templates. Example:
 
 ```go
 inp := `Hello <b>{{ name }}</b>! Congratulations on your {{ age }} birthday!`

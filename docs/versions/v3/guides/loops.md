@@ -110,7 +110,7 @@ It's a useful feature that eliminates the need for additional variables to track
 
 ## Else Statement
 
-Use `@else` to render content when arrays are empty. This works with both `@for` and `@each` loops. Here is an example:
+Use `@else` to render content when arrays are empty. This works with both `@for` and `@each` loops. Example:
 
 ```textwire
 @each(name in [])

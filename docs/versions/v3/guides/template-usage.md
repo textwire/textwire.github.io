@@ -99,7 +99,7 @@ If your template files are not showing up after you've created them and you are 
 Defining a layout in Textwire is straightforward. Create a layout file anywhere within your `templates` directory. Many developers organize layouts in a `templates/layouts/` directory to manage different layouts such as `main.tw`, `admin.tw`, and `user.tw`.
 
 ### Reserving Space in Layouts
-The [@reserve](/v3/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Here is an example layout file:
+The [@reserve](/v3/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
 
 ```textwire
 <!DOCTYPE html>
@@ -120,7 +120,7 @@ This layout reserves spaces for the page title and content. These placeholders c
 ### Inserting Content into Reserved Spaces
 The [@insert](/v3/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a body. In the following example, we insert content for "title" without a body and for "content" with a body.
 
-Here is an example `templates/views/home.tw` template:
+Example `templates/views/home.tw` template:
 
 ```textwire
 @use("layouts/main")
@@ -140,7 +140,7 @@ Here is an example `templates/views/home.tw` template:
 You can read more about [@use](/v3/language-elements/directives#use), [@insert](/v3/language-elements/directives#insert) and [@reserve](/v3/language-elements/directives#reserve) directives on [this](/v3/language-elements/directives) page if you need more information about the syntax.
 
 ## Configuration
-The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Here is an example of configuration:
+The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Example:
 
 ```go
 import (

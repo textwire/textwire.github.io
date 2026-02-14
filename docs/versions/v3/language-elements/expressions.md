@@ -13,7 +13,7 @@ description: You can find here all the information about expressions in Textwire
 - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
 
 ## Ternary
-You can use ternary expressions to conditionally render content. Here is an example of using ternary expressions:
+You can use ternary expressions to conditionally render content. Example:
 
 ```textwire :no-line-numbers
 <span>{{ x == 1 ? "yes" : "no" }}</span>
@@ -22,7 +22,7 @@ You can use ternary expressions to conditionally render content. Here is an exam
 The advantage of a "ternary expression" over an "if statement" is that it can be used inside of any other expressions.
 
 ## Prefix
-You can use prefix expressions to negate or invert a boolean value. Here is an example of using prefix expressions:
+You can use prefix expressions to negate or invert a boolean value. Example:
 
 ```textwire :no-line-numbers
 <span>{{ !isTall ? "Not tall" : "Is tall" }}</span>
@@ -30,7 +30,7 @@ You can use prefix expressions to negate or invert a boolean value. Here is an e
 ```
 
 ## Infix
-You can use infix expressions to perform arithmetic operations. Here is an example of using infix expressions:
+You can use infix expressions to perform arithmetic operations. Example:
 
 ```textwire
 <ul>
@@ -44,7 +44,7 @@ You can use infix expressions to perform arithmetic operations. Here is an examp
 ```
 
 ## Postfix
-You can use postfix expressions to increment or decrement a variable. Here is an example of using postfix expressions:
+You can use postfix expressions to increment or decrement a variable. Example:
 
 ```textwire :no-line-numbers
 <span>{{ x++ }}</span> <!-- Increment -->
@@ -52,7 +52,7 @@ You can use postfix expressions to increment or decrement a variable. Here is an
 ```
 
 ## Comparison
-Comparison expressions produce a boolean value. Here is an example of using comparison expressions:
+Comparison expressions produce a boolean value. Example:
 
 ```textwire :no-line-numbers
 @if(x == 1)
@@ -78,7 +78,7 @@ You can use function calls to call functions. Textwire has a few built-in functi
 
 Functions in Textwire are type-specific, which means that you can't call a function on a variable that is not of the same type as the function. For example, you can't call a `split` function on an integer variable.
 
-Here is an example of using function calls:
+Example:
 
 ```textwire :no-line-numbers
 {{ name.split(" ") }}
