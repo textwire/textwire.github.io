@@ -100,8 +100,8 @@ You can access values in an array by using an index. Example:
 
 ### Important Notes
 
-- Accessing array on non-existant index returns `nil` instead of resulting in error.
-- Printing array will convert it to comma seperated values. Example:
+- **Out of bounds returns nil.** Accessing array on non-existant index returns `nil` instead of resulting in error.
+- **Prints as comma-separated.** Printing array will convert it to comma seperated values. Example:
     ```textwire :no-line-numbers
     <span>{{ [1, 2, 3] }}</span>
     ```
@@ -109,7 +109,7 @@ You can access values in an array by using an index. Example:
     <span>1, 2, 3</span>
     <!-- Output -->
     ```
-- Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Example:
+- **Check for nil first.** Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Example:
     ```textwire :no-line-numbers
     {{ names = [] }}
     {{ names[0] ? names[0].upper() : '' }}
@@ -144,7 +144,7 @@ You can access values in an object by using a key. Example:
 ### Important Notes
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
-- Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
+- **Only exported fields are converted.** Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 - **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
     ```textwire :no-line-numbers
     {{ name = "John"; age = 25 }}
