@@ -303,7 +303,7 @@ In this example, both default and named slots are used within a single component
 - **Duplicate names not allowed.** Defining multiple default slots or named slots with the same name in a single component will result in an error.
 - **Empty string is default slot.** If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 - **Slots have current context.** Slots have the context of the same file where they are defined. It means you can dinamically modify the content of a slot before it get rendered in the component file.
-- **Optional.** External slots that live inside the component file are optional. If you don't provide content for a slot, it will be rendered as an empty string.
+- **Slots are optional.** If you don't provide content for a slot, it will be rendered as an empty string.
 
 ## @dump
 
