@@ -104,14 +104,14 @@ Example:
 @use("layouts/main")
 ```
 
-:::info @use Path Alias
+:::tip @use Path Alias
 If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 :::
 
 The `@use` directive accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v3/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v3/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout directive like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
-:::info Understanding the @use Directive
-When you use the `@use` directive, only the content inside [`@insert`](#insert) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert) directives.
+:::tip Understanding the @use Directive
+When you use the `@use` directive, only the content inside [`@insert`](#insert) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` takes the layout file as a base instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your inserts.
 :::
 
 ### Important Notes
