@@ -71,7 +71,7 @@ If the `substr` argument is an empty string, the function will always return `tr
 If you want to search for a substring without considering the case, you can use the `lower` function to convert both the string and the substring to lowercase:
 
 ```textwire
-{{ "Hello, World!".lower().contains("world") }} <!-- true -->
+{{ "Hello, World!".lower().contains("world") }} {{-- true --}}
 ```
 :::
 

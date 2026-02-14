@@ -120,13 +120,13 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 
     ```textwire :no-line-numbers
     @use('~main')
-    @use('~user')  <!-- ❌ Error -->
+    @use('~user')  {{-- ❌ Error --}}
     ```
 
 2. You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
 
     ```textwire :no-line-numbers
-    @use('~base') <!-- ✅ Recommended -->
+    @use('~base') {{-- ✅ Recommended --}}
 
     @insert('title', 'Home Page')
     @insert('description', 'This is a books example template with Textwire')
@@ -143,10 +143,10 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 ```textwire
 @use("layouts/main")
 
-<!-- Without a content body -->
+{{-- Without a content body --}}
 @insert("title", "Home page")
 
-<!-- With a content body -->
+{{-- With a content body --}}
 @insert("content")
     <h1>Hello, World!</h1>
     <p>This is a home page.</p>
@@ -262,12 +262,12 @@ We can now use `book.tw` component in our Textwire files like this:
 ```textwire
 @each(book in books)
     @component("~book", { book })
-        <!-- default slot -->
+        {{-- default slot --}}
         @slot
             <img src="{{ book.image }}" alt="{{ book.title }}">
         @end
 
-        <!-- named slot -->
+        {{-- named slot --}}
         @slot('footer')
             <small>published by {{ book.author }}</small>
             <button>Read more</button>

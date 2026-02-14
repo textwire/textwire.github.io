@@ -56,14 +56,14 @@ Textwire fully embraces Unicode, making it ideal for international applications 
 All built-in functions properly handle Unicode characters. They count characters correctly (not bytes) and support any language:
 
 ```textwire :no-line-numbers
-{{ "我喜欢中国".len() }} <!-- output: 5 (characters, not bytes) -->
-{{ "привет".at(2) }} <!-- output: и -->
+{{ "我喜欢中国".len() }} {{-- output: 5 (characters, not bytes) --}}
+{{ "привет".at(2) }} {{-- output: и --}}
 ```
 
 Keep in mind that with emojis it could be tricky, because some emojis are represented by multiple Unicode code points. The example below shows that the string "👋🏽🌍" has a length of 3, because the waving hand emoji with medium skin tone (👋🏽) is represented by two code points, while the globe emoji (🌍) is represented by one code point:
 
 ```textwire :no-line-numbers
-{{ "👋🏽🌍".len() }} <!-- output: 3 -->
+{{ "👋🏽🌍".len() }} {{-- output: 3 --}}
 ```
 
 ### File Names

@@ -8,13 +8,13 @@ description: Discover correct syntax for Textwire functions and learn about diff
 Each function is attached to a specific data type. For example, the `len` function is used to get the length of an array, and the `trim` function is used to remove characters from both sides of the string. You can call a function on a value by using the dot operator (`.`) followed by the function name.
 
 ```textwire
-{{ "Textwire".len() }} <!-- output: 8 -->
+{{ "Textwire".len() }} {{-- output: 8 --}}
 ```
 
 You can also chain multiple functions together to perform complex operations.
 
 ```textwire
-{{ "  Textwire  ".trim().len() }} <!-- output: 8 -->
+{{ "  Textwire  ".trim().len() }} {{-- output: 8 --}}
 ```
 
 Learn about [error handling](/v3/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments

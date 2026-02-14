@@ -48,13 +48,13 @@ You can use it inside of your components when you need to check if variable was 
 The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
 ```textwire
-{{ defined("") ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined(0) ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined(nil) ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined(false) ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined(true) ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined({}) ? 'Yes' : 'No' }} <!-- Output: Yes -->
-{{ defined([]) ? 'Yes' : 'No' }} <!-- Output: Yes -->
+{{ defined("") ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined(0) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined(nil) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined(false) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined(true) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined({}) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+{{ defined([]) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 ```
 
 :::tip Best Practice

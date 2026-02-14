@@ -34,12 +34,12 @@ You can use infix expressions to perform arithmetic operations. Example:
 
 ```textwire
 <ul>
-    <li>{{ x + y }}</li> <!-- Addition -->
-    <li>{{ x - y }}</li> <!-- Subtraction -->
-    <li>{{ x * y }}</li> <!-- Multiplication -->
-    <li>{{ x / y }}</li> <!-- Division -->
-    <li>{{ x % y }}</li> <!-- Modulo -->
-    <li>{{ (x + 2) / (y * (4 - c)) }}</li> <!-- Grouped expressions -->
+    <li>{{ x + y }}</li> {{-- Addition --}}
+    <li>{{ x - y }}</li> {{-- Subtraction --}}
+    <li>{{ x * y }}</li> {{-- Multiplication --}}
+    <li>{{ x / y }}</li> {{-- Division --}}
+    <li>{{ x % y }}</li> {{-- Modulo --}}
+    <li>{{ (x + 2) / (y * (4 - c)) }}</li> {{-- Grouped expressions --}}
 </ul>
 ```
 
@@ -47,8 +47,8 @@ You can use infix expressions to perform arithmetic operations. Example:
 You can use postfix expressions to increment or decrement a variable. Example:
 
 ```textwire :no-line-numbers
-<span>{{ x++ }}</span> <!-- Increment -->
-<span>{{ x-- }}</span> <!-- Decrement -->
+<span>{{ x++ }}</span> {{-- Increment --}}
+<span>{{ x-- }}</span> {{-- Decrement --}}
 ```
 
 ## Comparison
