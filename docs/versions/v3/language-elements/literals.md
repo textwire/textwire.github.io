@@ -102,12 +102,13 @@ You can access values in an array by using an index. Example:
 
 - Accessing array on non-existant index returns `nil` instead of resulting in error.
 - Printing array will convert it to comma seperated values. Example:
-   ```textwire :no-line-numbers
-   <span>{{ [1, 2, 3] }}</span>
-   ```
-   ```html :no-line-numbers
-   <span>1, 2, 3</span> <!-- Output -->
-   ```
+    ```textwire :no-line-numbers
+    <span>{{ [1, 2, 3] }}</span>
+    ```
+    ```html :no-line-numbers
+    <span>1, 2, 3</span>
+    <!-- Output -->
+    ```
 - Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Example:
     ```textwire :no-line-numbers
     {{ names = [] }}
@@ -140,19 +141,12 @@ You can access values in an object by using a key. Example:
 </ul>
 ```
 
-:::tip First Character is Case-Insensitive
-**First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
-:::
+### Important Notes
 
-:::warning Exported Fields Only
-Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
-:::
-
-#### Shorthand Property Notation
-
-Similar to objects in JavaScript, you can use shorthand property notation to define an object. Example:
-
-```textwire :no-line-numbers
-{{ name = "John"; age = 25 }}
-{{ person = { name, age } }}
-```
+- **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
+- Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
+- **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
+    ```textwire :no-line-numbers
+    {{ name = "John"; age = 25 }}
+    {{ person = { name, age } }}
+    ```
