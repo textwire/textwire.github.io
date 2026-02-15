@@ -75,7 +75,7 @@ if err != nil {
 ```go [Web handler] :no-line-numbers
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     if err := tpl.Response(w, "views/home", data); err != nil {
-        log.Printf("Template error: %v", err)
+        log.Println(err)
     }
 }
 ```
@@ -83,11 +83,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 :::
 
 :::danger Don't Double-Handle Errors
-When `tpl.Response()` returns an error, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML. Just log the error:
+When `tpl.Response()` returns an error, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML **exposing error message in production**. Just log the error to the console, not browser:
 
 ```go
 if err := tpl.Response(w, "views/home", data); err != nil {
-    log.Printf("Template error: %v", err)  // [!code highlight]
+    log.Println(err)  // [!code highlight]
 }
 ```
 :::
