@@ -112,3 +112,29 @@ Textwire has two reserved variable names that you cannot use:
 
 1. `loop` Object that is used inside loops. [Read more](/v3/guides/loops#loop-variables)
 2. `global` Global object available in all Textwire files. [Read more](/v3/guides/configurations#global-data)
+
+## Truthy and Falsy Values
+
+Textwire evaluates values as truthy or falsy based on their type when they are used as BOOLEAN:
+
+| Type    | Truthy Value     | Falsy Value         |
+| ------- | ---------------- | ------------------- |
+| BOOLEAN | `true`           | `false`             |
+| STRING  | Non-empty string | Empty string (`""`) |
+| INTEGER | Non-zero integer | `0`                 |
+| FLOAT   | Non-zero float   | `0.0`               |
+| ARRAY   | always `true`    | always `true`       |
+| OBJECT  | always `true`    | always `true`       |
+| NIL     | always `false`   | always `false`      |
+
+This means you can use any literal value in logical expressions:
+
+```textwire
+{{ "nice" && 13 ? "Yes" : "No" }}
+```
+
+In the example above, the result is `"Yes"` because:
+
+- `"nice"` is a non-empty string, so it's truthy
+- `13` is a non-zero integer, so it's truthy
+- Both values are truthy, so the logical AND returns the last truthy value (`13`), which evaluates to `true` in the ternary expression
