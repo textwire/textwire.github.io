@@ -22,7 +22,21 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 ```
 
 ## decimal
-> Read about this function **[HERE](/v3/functions/str#decimal)**
+```ts
+int.decimal(separator?: str = ".", decimals?: int = 2): str
+```
+
+<!--@include: @/.vitepress/parts/funcs/decimal.md-->
+
+#### Input Example:
+```textwire
+{{ 123.decimal() }}
+```
+
+#### Output:
+```html
+123.00
+```
 
 ## float
 ```ts
