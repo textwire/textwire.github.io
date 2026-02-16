@@ -1,4 +1,6 @@
-export const sidebarV3 = [
+import { DefaultTheme } from 'vitepress'
+
+export const sidebarV3: DefaultTheme.SidebarItem[] = [
     { text: 'Introduction', link: '/v3/' },
     { text: 'Get Started', link: '/v3/get-started' },
     { text: 'Syntax & Types', link: '/v3/syntax' },

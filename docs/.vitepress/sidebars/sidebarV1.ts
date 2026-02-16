@@ -1,4 +1,6 @@
-export const sidebarV1 = [
+import { DefaultTheme } from 'vitepress'
+
+export const sidebarV1: DefaultTheme.SidebarItem[] = [
     {
         text: 'Usage with Templates',
         link: '/v1/',
