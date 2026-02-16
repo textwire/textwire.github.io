@@ -257,6 +257,7 @@ export default defineVersionedConfig(
                 '/v3/': [
                     { text: 'Introduction', link: '/v3/' },
                     { text: 'Get Started', link: '/v3/get-started' },
+                    { text: 'Syntax & Types', link: '/v3/syntax' },
                     {
                         text: 'Guides',
                         items: [
@@ -301,10 +302,6 @@ export default defineVersionedConfig(
                     {
                         text: 'Language Elements',
                         items: [
-                            {
-                                text: 'Syntax',
-                                link: '/v3/language-elements/syntax',
-                            },
                             {
                                 text: 'Directives',
                                 link: '/v3/language-elements/directives',

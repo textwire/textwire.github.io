@@ -24,5 +24,5 @@ go get -u github.com/textwire/textwire/v3
 Now that you have Textwire installed, explore these resources:
 
 - [Guides](/v3/guides/template-usage) - Discover advanced usage patterns and best practices
-- [Language Elements](/v3/language-elements/syntax) - Learn about Textwire syntax and features
+- [Directive](/v3/language-elements/directives) - Learn about Textwire directives
 - [Functions](/v3/functions/guide) - Explore built-in functions available in templates

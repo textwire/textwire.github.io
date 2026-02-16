@@ -16,7 +16,7 @@ If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https:/
 
 Textwire enables the integration of dynamic content into HTML files to create data-driven, responsive pages.
 
-The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/v3/language-elements/syntax) page to explore the full range of available statements and directives for your templates.
+The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/v3/syntax) page to explore the full range of available statements and directives for your templates.
 
 ## How to Use It
 
