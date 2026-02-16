@@ -96,9 +96,15 @@ You don't need to crash the program in your handlers because Textwire will rende
 
 ## Error Pages
 
+### Debug Mode
+
+When you enable `DebugMode` in Textwire, detailed error messages display in the browser. This helps during development:
+
+![Debug mode error page in Textwire](/images/debug-error-page.png)
+
 ### Production Errors
 
-When `DebugMode` is `false`, Textwire shows user-friendly error pages instead of detailed error messages. Read more about [Debug Mode](/v3/guides/development#debug-mode).
+When `DebugMode` is `false`, Textwire shows user-friendly error pages instead of detailed error messages.
 
 #### Default Behavior
 
@@ -108,7 +114,11 @@ Without custom configuration, Textwire displays a pre-defined static HTML page:
 
 #### Custom Error Pages
 
-You can replace the default error page with your own design. Custom error pages only appear when `DebugMode` is `false`. Don't forget to [disable debug mode in production](/v3/guides/development#debug-mode).
+You can replace the default error page with your own design.
+
+:::warning Debug Mode Only
+Custom error pages only appear when `DebugMode` is `false`. Debug mode always shows detailed error information. Don't forget to disable debug mode in production.
+:::
 
 ##### Configuration
 
@@ -161,5 +171,5 @@ If the custom error page is missing or has errors, Textwire falls back to the de
 1. **Always check errors** from Textwire functions
 2. **Log errors appropriately** for debugging and monitoring
 3. **Use custom error pages** in production for better user experience
-4. **[Enable debug mode](/v3/guides/development#debug-mode)** only during development
+4. **Enable debug mode** only during development with `os.Getenv("APP_DEBUG")` or something similar
 5. **Handle web errors gracefully** without exposing internal details to users
