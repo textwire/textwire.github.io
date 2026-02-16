@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-VitePress documentation site for Textwire.
+VitePress documentation site for Textwire templating engine for Go programming language.
 
 ## Directory Structure
 
@@ -16,4 +16,8 @@ VitePress documentation site for Textwire.
 ## Development
 
 - No tests needed
-- Build: `npm run build`
+- Build: `npm run build` (only if you really need it because it's a slow process)
+
+## Important
+
+If you write inline code examples with `{{` and `}}` braces that Textwire uses, wrap them in <code v-pre></code> HTML tags instead. Intead of `{{ x = 5}}` Textwire example, you should write <code v-pre>{{ x = 5 }}</code>. It's because if you write it with backtics, Vue will execute them since `{{ }}` braces are also used in Vue.js.
