@@ -1,6 +1,5 @@
 ---
 title: Array functions - v1
-outline: 3
 ---
 
 # Array functions

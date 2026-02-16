@@ -292,6 +292,10 @@ export default defineVersionedConfig(
                                 text: 'Template Embedding',
                                 link: '/v3/guides/template-embedding',
                             },
+                            {
+                                text: 'Development',
+                                link: '/v3/guides/development',
+                            },
                         ],
                     },
                     {

@@ -1,6 +1,5 @@
 ---
 title: Integer Functions - v1
-outline: 3
 ---
 
 # Integer Functions

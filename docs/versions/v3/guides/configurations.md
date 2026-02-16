@@ -52,7 +52,7 @@ All Textwire configurations are optional and include sensible default values. Re
 | `DebugMode`       | A flag that enables debug mode. When enabled, error messages are displayed in the browser. [Read more](/v3/guides/error-handling).<br><br>- Type: `bool`<br>- Default: `false`                              |
 | `GlobalData`      | Global data accessible in all Textwire files. [Read more](#global-data).<br><br>- Type: `map[string]any`<br>- Default: `map[string]any{}`                                                                                                        |
 | `FileWatcher`     | Enables Files Watcher to watch Textwire files for changes and refresh the content. [Read more](/v3/guides/development#file-watcher).<br><br>- Type: `bool`<br>- Default: `false`                                                                |
-| `WatcherInterval` | Change how frequently your want to make the File Watcher check for changes in your templates. You cannot set the value lower than a second. [Read more](/v3/guides/development#file-watcher).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
+| `WatcherInterval` | Change how frequently your want to make the File Watcher check for changes in your templates. You cannot set the value lower than a second. [Read more](/v3/guides/development#watcher-interval).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
 
 :::warning Extension Compatibility
 If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.

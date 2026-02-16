@@ -64,7 +64,7 @@ It prevents you from getting an error when trying to get propery on `NIL` type i
 
 ### How it Works with Literal Types
 
-The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
+The function `defined` is designed to work with variables and object properties, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
 ```textwire
 {{ defined("") ? 'Yes' : 'No' }} {{-- Output: Yes --}}
