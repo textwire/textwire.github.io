@@ -15,11 +15,13 @@ This global function should be used only with variables. It allows you to check 
 defined(arg: any...): bool
 ```
 
+Function `defined` checks if variables and properties inside are defined. It doesn't care about `true`, `false`, `nil`, or any other literal type, it only tells you if the variable is defined and if the propery on an object defined or not.
+
 #### Arguments:
 
 1. `arg` (any) - Any amount of arguments
 
-If you pass more than 1 variable, the function will return `true` if all variables are defined.
+If you pass more than 1 variable, the function will return `true` if all variables or properties are defined.
 
 #### Input Example:
 
@@ -30,7 +32,7 @@ If you pass more than 1 variable, the function will return `true` if all variabl
 #### Output:
 
 ```html
-Defined
+Missing
 ```
 
 ### When to Use It?
@@ -50,11 +52,21 @@ You can use it inside of your components when you need to check if variable was 
 </div>
 ```
 
+Another good usecase is for object properties, you can do something like this:
+
+```textwire :no-line-numbers
+@if(defined(user.address.street.number)) {
+    {{ user.address.street.number }}
+}
+```
+
+It prevents you from getting an error when trying to get propery on `NIL` type if your `address` or `street` is undefined.
+
 ### How it Works with Literal Types
 
 The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
-```textwire
+```textwire :no-line-numbers
 {{ defined("") ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined(0) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined(nil) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
@@ -62,12 +74,6 @@ The function `defined` is designed to work with variables, but if you try to cal
 {{ defined(true) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined({}) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined([]) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
-```
-
-Function `defined` always searches for the first error in your expression, it means that if you try to access functions on undefined variables, it will not result in error because the function is already convinced that `name` is undefined. Example:
-
-```textwire :no-line-numbers
-{{ defined(name.upper()) }} {{-- Returns false --}}
 ```
 
 :::tip Best Practice

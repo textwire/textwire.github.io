@@ -15,7 +15,6 @@ export default defineVersionedConfig(
             'Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term',
 
         markdown: {
-            lineNumbers: true,
             languages: ['html', twLang],
             theme: {
                 light: 'github-light',
