@@ -21,7 +21,7 @@ Learn about [error handling](/v3/api/error-handling) in Textwire when you call a
 
 ## Unicode Support
 
-Textwire's built-in functions fully support Unicode characters and strings. Whether you're working with emojis, accented characters, or non-Latin scripts, all functions work correctly. Learn more in the [Unicode](/v3/#unicode) section.
+Textwire's built-in functions fully support Unicode characters and strings. Whether you're working with emojis, accented characters, or non-Latin scripts, all functions work correctly. Learn more in the [Unicode](/v3/language-elements/unicode) section.
 
 ## Suggest a new function
 

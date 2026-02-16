@@ -10,11 +10,7 @@ Textwire provides a simple and user-friendly API, but errors can still occur dur
 
 ## Common Error Scenarios
 
-Textwire returns detailed error messages to help identify and resolve issues quickly.
-
-### Common Error Cases
-
-Here are several common error types:
+Textwire returns detailed error messages to help identify and resolve issues quickly. Here are several common error types:
 
 - **Incorrect Argument Types**: Passing wrong type arguments to functions (e.g., INTEGER to STRING function)
 - **Division by Zero**: Attempting division by zero

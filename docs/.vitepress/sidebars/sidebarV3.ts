@@ -20,6 +20,7 @@ export const sidebarV3: DefaultTheme.SidebarItem[] = [
         text: 'Language Elements',
         items: [
             { text: 'Syntax & Types', link: '/v3/language-elements/syntax' },
+            { text: 'Unicode Support', link: '/v3/language-elements/unicode' },
             { text: 'Loops', link: '/v3/language-elements/loops' },
             { text: 'Directives', link: '/v3/language-elements/directives' },
             { text: 'Expressions', link: '/v3/language-elements/expressions' },
