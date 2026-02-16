@@ -17,7 +17,7 @@ You can also chain multiple functions together to perform complex operations.
 {{ "  Textwire  ".trim().len() }} {{-- output: 8 --}}
 ```
 
-Learn about [error handling](/v3/guides/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
+Learn about [error handling](/v3/api/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 
 ## Unicode Support
 

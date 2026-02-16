@@ -156,7 +156,7 @@ tpl, err = textwire.NewTemplate(&config.Config{
 Rename Textwire file extensions from `.tw.html` to `.tw` and make sure you don't have `TemplateExt` configuration setup. In Textwire v3 `TemplateExt` is set to `.tw` by default.
 
 :::info Custom Extensions
-You can set any extension for Textwire that you want, refer to [configurations](/v3/guides/configurations) page for more details. But we recommend using `.tw`.
+You can set any extension for Textwire that you want, refer to [configurations](/v3/api/configurations) page for more details. But we recommend using `.tw`.
 :::
 
 ### 8. Components Scope Fix
@@ -174,4 +174,4 @@ Components in **Textwire v2** would pass variables to their children automatiall
 
 Fixed variable leak from template to layout non-explicitly. In Textwire v2, if you had a variable in your template, it would be accessible in your layout without passing it explicitly. In Textwire v3, this is not available anymore.
 
-If you were utilizing this behavior, you can fix it by using [Global Data](/v3/guides/configurations#global-data). Use it to pass variables into all of your Textwire files.
+If you were utilizing this behavior, you can fix it by using [Global Data](/v3/api/configurations#global-data). Use it to pass variables into all of your Textwire files.

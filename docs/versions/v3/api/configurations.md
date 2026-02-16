@@ -21,7 +21,7 @@ For simple string evaluations with `EvaluateString` or `EvaluateFile`, configura
 
 ## Setting Configurations
 
-For detailed instructions on using `textwire.NewTemplate`, refer to the [Usage with Templates](/v3/guides/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
+For detailed instructions on using `textwire.NewTemplate`, refer to the [Usage with Templates](/v3/api/template-usage) guide. Below is a basic example of setting configurations with `textwire.Configure`:
 
 ```go
 import (
@@ -46,13 +46,13 @@ All Textwire configurations are optional and include sensible default values. Re
 | Property          | Description                                                                                                                                                                                                         |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TemplateDir`     | The directory where Textwire searches for template files.<br><br>- Type: `string`<br>- Default: `"templates"`                                                                                                                          |
-| `TemplateFS`      | Provides an optional fs.FS filesystem for template access. Use this field to embed templates into your binary using Go's embed package. [Read more](/v3/guides/template-embedding).<br><br>- Type: `fs.FS`<br>- Default: `os.DirFS(TemplateDir)` |
+| `TemplateFS`      | Provides an optional fs.FS filesystem for template access. Use this field to embed templates into your binary using Go's embed package. [Read more](/v3/api/template-embedding).<br><br>- Type: `fs.FS`<br>- Default: `os.DirFS(TemplateDir)` |
 | `TemplateExt`     | The file extension for template files.<br><br>- Type: `string`<br>- Default: `".tw"`                                                                                                                                                    |
 | `ErrorPagePath`   | The path to the custom error page, relative to the `TemplateDir` directory. Custom error pages are displayed only when `DebugMode` is `false`.<br><br>- Type: `string`<br>- Default: `""`                                               |
-| `DebugMode`       | A flag that enables debug mode. When enabled, error messages are displayed in the browser. [Read more](/v3/guides/error-handling).<br><br>- Type: `bool`<br>- Default: `false`                              |
+| `DebugMode`       | A flag that enables debug mode. When enabled, error messages are displayed in the browser. [Read more](/v3/api/error-handling).<br><br>- Type: `bool`<br>- Default: `false`                              |
 | `GlobalData`      | Global data accessible in all Textwire files. [Read more](#global-data).<br><br>- Type: `map[string]any`<br>- Default: `map[string]any{}`                                                                                                        |
-| `FileWatcher`     | Enables Files Watcher to watch Textwire files for changes and refresh the content. [Read more](/v3/guides/development#file-watcher).<br><br>- Type: `bool`<br>- Default: `false`                                                                |
-| `WatcherInterval` | Change how frequently your want to make the File Watcher check for changes in your templates. You cannot set the value lower than a second. [Read more](/v3/guides/development#watcher-interval).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
+| `FileWatcher`     | Enables Files Watcher to watch Textwire files for changes and refresh the content. [Read more](/v3/api/development#file-watcher).<br><br>- Type: `bool`<br>- Default: `false`                                                                |
+| `WatcherInterval` | Change how frequently your want to make the File Watcher check for changes in your templates. You cannot set the value lower than a second. [Read more](/v3/api/development#watcher-interval).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
 
 :::warning Extension Compatibility
 If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.

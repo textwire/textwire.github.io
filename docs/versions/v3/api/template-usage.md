@@ -8,7 +8,7 @@ outline: [2, 3]
 
 ## Simple Usage
 
-Import `github.com/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/guides/configurations).
+Import `github.com/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/api/configurations).
 
 Choose one of these initialization patterns:
 
@@ -186,4 +186,4 @@ func main() {
 }
 ```
 
-For detailed information about available configuration options, visit the [configurations](/v3/guides/configurations) page.
+For detailed information about available configuration options, visit the [configurations](/v3/api/configurations) page.

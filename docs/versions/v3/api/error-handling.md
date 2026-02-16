@@ -92,7 +92,7 @@ if err := tpl.Response(w, "views/home", data); err != nil {
 ```
 :::
 
-You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v3/guides/error-handling#custom-error-pages).
+You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v3/api/error-handling#custom-error-pages).
 
 ## Error Pages
 
@@ -143,7 +143,7 @@ With default `TemplateDir` of `"templates"`, the error page loads from `template
 
 ##### Creating a Custom Error Page
 
-Use layouts and Textwire syntax. You can access [global data](/v3/guides/configurations#global-data) variables:
+Use layouts and Textwire syntax. You can access [global data](/v3/api/configurations#global-data) variables:
 
 ```textwire
 @use('~main')
