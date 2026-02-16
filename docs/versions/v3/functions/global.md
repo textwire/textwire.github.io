@@ -13,14 +13,14 @@ This global function should be used only with variables and object properties. I
 ## defined
 
 ```ts
-defined(arg: any...): bool
+defined(arg: ANY...): BOOLEAN
 ```
 
 Function `defined` checks if variables and properties are defined. It doesn't care about `true`, `false`, `nil`, or any other literal type, it only tells you if the variable is defined and if the property on an object is defined or not.
 
 #### Arguments:
 
-1. `arg` (any) - Any amount of arguments
+1. `arg` (ANY) - Any amount of arguments
 
 If you pass more than 1 variable, the function will return `true` if all variables or properties are defined.
 

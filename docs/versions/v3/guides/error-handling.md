@@ -16,7 +16,7 @@ Textwire returns detailed error messages to help identify and resolve issues qui
 
 Here are several common error types:
 
-- **Incorrect Argument Types**: Passing wrong type arguments to functions (e.g., integer to string function)
+- **Incorrect Argument Types**: Passing wrong type arguments to functions (e.g., INTEGER to STRING function)
 - **Division by Zero**: Attempting division by zero
 - **Undefined Functions**: Using non-existent functions
 - **Undefined Variables**: Referencing undefined variables
@@ -42,7 +42,7 @@ if err != nil {
 }
 ```
 
-The [split](/v3/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
+The [split](/v3/functions/str#split) function requires a STRING argument, not an INTEGER. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'STRING' must be a STRING`.
 
 ### Common Error Handling Patterns
 

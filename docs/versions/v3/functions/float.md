@@ -6,7 +6,7 @@ description: Explore the various float functions available in Textwire
 # Float Functions
 ## abs
 ```ts
-float.abs(): float
+float.abs(): FLOAT
 ```
 
 Returns the absolute value of a float. If the float is negative, it will return its positive value
@@ -23,7 +23,7 @@ Returns the absolute value of a float. If the float is negative, it will return 
 
 ## ceil
 ```ts
-float.ceil(): int
+float.ceil(): INTEGER
 ```
 
 Returns the rounded up value of a float to the nearest integer
@@ -40,7 +40,7 @@ Returns the rounded up value of a float to the nearest integer
 
 ## floor
 ```ts
-float.floor(): int
+float.floor(): INTEGER
 ```
 
 Returns the rounded down value of a float to the nearest integer
@@ -57,7 +57,7 @@ Returns the rounded down value of a float to the nearest integer
 
 ## int
 ```ts
-float.int(): int
+float.int(): INTEGER
 ```
 
 Converts a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part
@@ -74,7 +74,7 @@ Converts a float to an integer by removing the decimal part of the number. It do
 
 ## str
 ```ts
-float.str(): str
+float.str(): STRING
 ```
 
 Converts a float to a string. It's useful when you want to manipulate the float as a string. For displaying the float, you don't need to use this function, as Textwire automatically converts the float to a string when displaying it

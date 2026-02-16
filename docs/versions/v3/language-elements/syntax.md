@@ -102,12 +102,12 @@ Textwire has a different type system than Go. When you pass a variable to Textwi
 
 | Textwire type | Equivalent Go types                                                                                                                                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Str`         | `string`                                                                                                                                                            |
-| `Bool`        | `bool`                                                                                                                                                              |
-| `Int`         | `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`                                                                             |
-| `Float`       | `float32`, `float64`                                                                                                                                                |
-| `Nil`         | `nil`                                                                                                                                                               |
-| `Array`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32`         |
-| `Object`      | any struct type, including empty structs `struct{}`, typed structs like `User{}` with any fields, or map types such as `map[string]string` and other map variations |
+| `STRING`      | `string`                                                                                                                                                            |
+| `BOOLEAN`     | `bool`                                                                                                                                                              |
+| `INTEGER`     | `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`                                                                             |
+| `FLOAT`       | `float32`, `float64`                                                                                                                                                |
+| `NIL`         | `nil`                                                                                                                                                               |
+| `ARRAY`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32`         |
+| `OBJECT`      | any struct type, including empty structs `struct{}`, typed structs like `User{}` with any fields, or map types such as `map[string]string` and other map variations |
 
 The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: <code v-pre>{{ "hello world".split(" ") }}</code> to get an array of strings `["hello", "world"]`.
