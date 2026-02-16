@@ -54,7 +54,7 @@ You can use it inside of your components when you need to check if variable was 
 
 Another good usecase is for object properties, you can do something like this:
 
-```textwire :no-line-numbers
+```textwire
 @if(defined(user.address.street.number)) {
     {{ user.address.street.number }}
 }
@@ -66,7 +66,7 @@ It prevents you from getting an error when trying to get propery on `NIL` type i
 
 The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
-```textwire :no-line-numbers
+```textwire
 {{ defined("") ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined(0) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined(nil) ? 'Yes' : 'No' }} {{-- Output: Yes --}}

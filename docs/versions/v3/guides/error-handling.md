@@ -48,7 +48,7 @@ The [split](/v3/functions/str#split) function requires a string argument, not an
 
 ::: code-group
 
-```go [Func register] :no-line-numbers
+```go [Func register]
 lowerFn := func(s string, args ...any) any {
     return strings.ToLower(s)
 }
@@ -58,21 +58,21 @@ if err := textwire.RegisterStrFunc("_lower", lowerFn); err != nil {
 }
 ```
 
-```go [Template create] :no-line-numbers
+```go [Template create]
 tpl, err := textwire.NewTemplate(config)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-```go [Template eval] :no-line-numbers
+```go [Template eval]
 out, err := textwire.EvaluateString(input, data)
 if err != nil {
     log.Printf("Evaluation error: %v", err)
 }
 ```
 
-```go [Web handler] :no-line-numbers
+```go [Web handler]
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     if err := tpl.Response(w, "views/home", data); err != nil {
         log.Println(err)

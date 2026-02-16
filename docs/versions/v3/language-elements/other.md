@@ -40,7 +40,7 @@ HTML comment will be displayed in the final HTML output, but Textwire comment wi
 
 You can assign and declare variables by using the `=` operator. Example:
 
-```textwire :no-line-numbers
+```textwire
 {{ x = 5 }}
 {{ x = 10 }}
 ```

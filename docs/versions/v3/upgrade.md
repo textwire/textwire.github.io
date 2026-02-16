@@ -44,7 +44,7 @@ Follow the steps below to upgrade your Textwire code to v3.
 
 Change all the imports in your code from `github.com/textwire/textwire/v2` to `github.com/textwire/textwire/v3`
 
-```go :no-line-numbers
+```go
 import "github.com/textwire/textwire/v2" // [!code --]
 import "github.com/textwire/textwire/v3" // [!code ++]
 ```
@@ -53,7 +53,7 @@ import "github.com/textwire/textwire/v3" // [!code ++]
 
 Run the command `go mod tidy` to update the dependencies in your `go.mod` file
 
-```bash :no-line-numbers
+```bash
 go mod tidy
 ```
 
@@ -73,13 +73,13 @@ If you have any defined variables called `global`, rename it to something else b
 Using `global` as a variable name will cause compilation errors in v3. This variable name is now reserved for internal use.
 :::
 
-```bash :no-line-numbers
+```bash
 grep -r "global" ./templates
 ```
 
 Replace `./templates` with the path to your Textwire files. It will show you all the files that you need to modify. If you found any, prefix them with underscore like `_global` and search for `"global"` in your Go files, in the parts that pass that variable through to Textwire.
 
-```bash :no-line-numbers
+```bash
 grep -r '"global"' ./internal
 ```
 
@@ -95,13 +95,13 @@ In Textwire v2, custom functions would return the receiver type. For example, if
 All custom functions must now return `any` instead of their specific type. This affects `RegisterStrFunc`, `RegisterIntFunc`, `RegisterBoolFunc`, `RegisterFloatFunc`, and `RegisterArrFunc`.
 :::
 
-```bash :no-line-numbers
+```bash
 grep -r -E "Register(Str|Int|Bool|Float|Arr)Func\(" ./internal
 ```
 
 Replace `./internal` with the path to your Go code. If you found any, just change the return type to any.
 
-```go :no-line-numbers
+```go
 err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) string { // [!code --]
 err = textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any { // [!code ++]
     return s == "John Wick"
@@ -124,7 +124,7 @@ Textwire v3 puts higher precedence on function call and in code like this <code 
 
 Here is the command that will help you to find all functions that might be affected by this change. Only functions that return boolean, integer or float could be affected by this change. See if any of them have prefix.
 
-```bash :no-line-numbers
+```bash
 grep -r -E "\.(contains|len|rand|abs|float|ceil|floor|int|binary|then)\(" ./internal
 ```
 
@@ -145,7 +145,7 @@ Textwire v2 is using `.tw.html` file extension by default, in v3 this file defau
 
 The easy solution would be to find your `textwire.NewTemplate()` or `textwire.Configure()` (depending on how you set configurations), and add `TemplateExt: ".tw.html"` configuration like this:
 
-```go :no-line-numbers
+```go
 tpl, err = textwire.NewTemplate(&config.Config{
     TemplateExt: ".tw.html",
 })
@@ -163,7 +163,7 @@ You can set any extension for Textwire that you want, refer to [configurations](
 
 Components in **Textwire v2** would pass variables to their children automatially without manual passing. It was a bug. In **Textwire v3** each component has its scope. You need to pass data manually if you were using this:
 
-```textwire :no-line-numbers
+```textwire
 {{ name = "Anna" }}
 
 @component('user') // [!code --]

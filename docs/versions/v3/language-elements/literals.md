@@ -17,13 +17,13 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 
 You can use string literals and concatenate them with other strings. You can use double or single quotes for strings. Example:
 
-```textwire :no-line-numbers
+```textwire
 {{ "Hello" + 'World!' }}
 ```
 
 When you print a string, it will be automatically escaped. If you want to print a string without escaping it, you can use the [raw()](/v3/functions/str#raw) function on strings. Example:
 
-```textwire :no-line-numbers
+```textwire
 {{ "<h1>Test</h1>".raw() }}
 ```
 
@@ -38,7 +38,7 @@ When you print a string, it will be automatically escaped. If you want to print 
 
 You can use integer literals and perform arithmetic operations with them. Example:
 
-```textwire :no-line-numbers
+```textwire
 <span>{{ 1 + 2 }}</span>
 ```
 
@@ -54,7 +54,7 @@ You can use integer literals and perform arithmetic operations with them. Exampl
 
 In Textwire, `nil` is treated as `false` in boolean contexts, making it easy to check for missing values:
 
-```textwire :no-line-numbers
+```textwire
 {{ user = nil }}
 
 @if(!user)
@@ -72,7 +72,7 @@ In Textwire, `nil` is treated as `false` in boolean contexts, making it easy to 
 
 You can use float literals and perform arithmetic operations with them. Example:
 
-```textwire :no-line-numbers
+```textwire
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
@@ -86,7 +86,7 @@ You can use float literals and perform arithmetic operations with them. Example:
 
 Booleans represent truth values and can be either `true` or `false`. They are essential for controlling program flow with conditional statements.
 
-```textwire :no-line-numbers
+```textwire
 {{ isAdmin = true }}
 
 @if(isAdmin)
@@ -132,15 +132,15 @@ You can access values in an array by using an index. Example:
 
 - **Out of bounds returns nil.** Accessing array on non-existant index returns `nil` instead of resulting in error.
 - **Prints as comma-separated.** Printing array will convert it to comma seperated values. Example:
-    ```textwire :no-line-numbers
+    ```textwire
     <span>{{ [1, 2, 3] }}</span>
     ```
-    ```html :no-line-numbers
+    ```html
     <span>1, 2, 3</span>
     <!-- Output -->
     ```
 - **Check for nil first.** Always check array access with index for `nil` before using it to prevent using functions on `nil` errors. Example:
-    ```textwire :no-line-numbers
+    ```textwire
     {{ names = [] }}
     {{ names[0] ? names[0].upper() : '' }}
     ```
@@ -149,13 +149,13 @@ You can access values in an array by using an index. Example:
 
 Objects in Textwire are very similar to JavaScript object with key-value pairs. Example:
 
-```textwire :no-line-numbers
+```textwire
 {{ person = {"name": "John", "age": 25} }}
 ```
 
 You can also use key names without quotes if your keys are valid identifiers:
 
-```textwire :no-line-numbers
+```textwire
 {{ person = { name: "John", age: 25 } }}
 ```
 
@@ -177,7 +177,7 @@ You can access values in an object by using a key. Example:
 - **Only exported fields are converted.** Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 - **Missing object properties cause errors.** Unlike arrays, accessing missing object properties results in an error.
 - **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
-    ```textwire :no-line-numbers
+    ```textwire
     {{ name = "John"; age = 25 }}
     {{ person = { name, age } }}
     ```

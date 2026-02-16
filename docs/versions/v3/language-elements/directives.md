@@ -21,7 +21,7 @@ Textwire directives provide control over your templates through commands that be
 
 You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives. Example:
 
-```textwire :no-line-numbers
+```textwire
 @if(name == "Anna")
     <p>Her name is Anna</p>
 @end
@@ -100,7 +100,7 @@ Read more about loops in the [Loops guide](/v3/guides/loops).
 
 Example:
 
-```textwire :no-line-numbers
+```textwire
 @use("layouts/main")
 ```
 
@@ -117,12 +117,12 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 ### Important Notes
 
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
-    ```textwire :no-line-numbers
+    ```textwire
     @use('~main')
     @use('~user')  {{-- ❌ Error --}}
     ```
 - **Recommended at the beginning.** You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
-    ```textwire :no-line-numbers
+    ```textwire
     @use('~base') {{-- ✅ Recommended --}}
 
     @insert('title', 'Home Page')
@@ -199,7 +199,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
 - **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v3.1.0](https://github.com/textwire/textwire/pull/68).
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v3/language-elements/directives#slot). Example:
-    ```textwire :no-line-numbers
+    ```textwire
     @component('header')
         @slot('title')@reserve('title')@end
     @end
@@ -250,7 +250,7 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 - Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
 - You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
 - If your components are located in the `components` directory, you can use the `~` alias to reference them. Behind the scenes, the `~` alias will be replaced with `components/`. Example:
-    ```textwire :no-line-numbers
+    ```textwire
     @component("components/post-card", { post }) {{-- no alias --}}
     @component("~post-card", { post })           {{-- with alias--}}
     ```
@@ -311,7 +311,7 @@ The `@dump` directive is primarily used for debugging purposes. This directive o
 
 Here’s an example of how to use the `@dump` directive:
 
-```textwire :no-line-numbers
+```textwire
 {{ names = ["John", "Jane", "Jack", "Jill"] }}
 
 @dump(names)
@@ -344,7 +344,7 @@ Similarly, you can print objects and other types of data:
 
 `@dump` directive can accept an endless amount arguments at once:
 
-```textwire :no-line-numbers
+```textwire
 {{ meta = [1, 2.23, true, false, nil] }}
 {{ user = { name: "John", age: 25 } }}
 
