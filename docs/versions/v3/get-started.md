@@ -18,11 +18,3 @@ Install the Textwire package in your Go environment:
 ```bash
 go get -u github.com/textwire/textwire/v3
 ```
-
-## Next Steps
-
-Now that you have Textwire installed, explore these resources:
-
-- [Guides](/v3/api/template-usage) - Discover advanced usage patterns and best practices
-- [Directive](/v3/language-elements/directives) - Learn about Textwire directives
-- [Functions](/v3/functions/guide) - Explore built-in functions available in templates
