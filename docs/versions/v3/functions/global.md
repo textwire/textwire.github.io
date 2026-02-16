@@ -4,31 +4,37 @@ description: Explore global functions available in Textwire
 ---
 
 # Global Functions
+
 Global functions are not attached to any specific type like strings or integers, they are globally available everywhere. They are similar to Golang `len()`, `cap()` functions.
 
 This global function should be used only with variables. It allows you to check if the variable is defined or not to prevent Textwire from creating an error.
 
 ## defined
+
 ```ts
 defined(arg: any...): bool
 ```
 
 #### Arguments:
+
 1. `arg` (any) - Any amount of arguments
 
 If you pass more than 1 variable, the function will return `true` if all variables are defined.
 
 #### Input Example:
+
 ```textwire
 {{ defined(actors) ? 'Defined' : 'Missing' }}
 ```
 
 #### Output:
+
 ```html
 Defined
 ```
 
 ### When to Use It?
+
 You can use it inside of your components when you need to check if variable was passed to the component or not. Here is the example when the `book` variable is required but `author` is optional.
 
 ```textwire
@@ -45,6 +51,7 @@ You can use it inside of your components when you need to check if variable was 
 ```
 
 ### How it Works with Literal Types
+
 The function `defined` is designed to work with variables, but if you try to call it on any literal type it will always return `true`. Here is the example:
 
 ```textwire
@@ -55,6 +62,12 @@ The function `defined` is designed to work with variables, but if you try to cal
 {{ defined(true) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined({}) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
 {{ defined([]) ? 'Yes' : 'No' }} {{-- Output: Yes --}}
+```
+
+Function `defined` always searches for the first error in your expression, it means that if you try to access functions on undefined variables, it will not result in error because the function is already convinced that `name` is undefined. Example:
+
+```textwire :no-line-numbers
+{{ defined(name.upper()) }} {{-- Returns false --}}
 ```
 
 :::tip Best Practice
