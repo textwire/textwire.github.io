@@ -9,7 +9,7 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 - [Integer](#integer) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
 - [Float](#float) <code v-pre>{{ 123.456 }}</code>
 - [Boolean](#boolean) <code v-pre>{{ true }}</code>
-- [Nil Literal](#nil) <code v-pre>{{ nil }}</code>
+- [Nil](#nil) <code v-pre>{{ nil }}</code>
 - [Array](#array) <code v-pre>{{ [1, 2, 3] }}</code>
 - [Object](#object) <code v-pre>{{ { "name": "John", "age": 25 } }}</code>
 
@@ -27,6 +27,13 @@ When you print a string, it will be automatically escaped. If you want to print 
 {{ "<h1>Test</h1>".raw() }}
 ```
 
+### Important Notes
+
+- **Auto-escaped on output.** All strings are automatically HTML-escaped when printed to prevent XSS attacks.
+- **Use `.raw()` for unescaped output.** Call the `raw()` method when you need to output HTML without escaping.
+- **Concatenation with `+`.** Use the `+` operator to join strings together.
+- **Quote flexibility.** Single and double quotes are interchangeable for string literals.
+
 ## Integer
 
 You can use integer literals and perform arithmetic operations with them. Example:
@@ -35,19 +42,31 @@ You can use integer literals and perform arithmetic operations with them. Exampl
 <span>{{ 1 + 2 }}</span>
 ```
 
+### Important Notes
+
+- **Arithmetic operators.** Support `+`, `-`, `*`, `/`, `%` operations.
+- **Division returns float.** Even integer division like `4 / 2` returns `2.0` (float).
+- **Negative numbers.** Prefix with `-` for negative integers (e.g., `-42`).
+
 ## Nil
 
-Unlike Go, Textwire converts `nil` to `false` in boolean context. This means that `nil` is considered falsy in Textwire. Example:
+`nil` represents the absence of a value. It is commonly used to indicate that a variable has no value assigned or that something doesn't exist.
+
+In Textwire, `nil` is treated as `false` in boolean contexts, making it easy to check for missing values:
 
 ```textwire :no-line-numbers
-{{ authUser = nil }}
+{{ user = nil }}
 
-@if(!authUser)
-    <p>You are not logged in!</p>
+@if(!user)
+    <p>No user found</p>
 @end
 ```
 
-Printing `nil` results in an empty string.
+### Important Notes
+
+- **Converts to `false` in conditions.** `nil` is falsy in boolean contexts.
+- **Prints as empty string.** Outputting `nil` displays nothing.
+- **Array out-of-bounds returns `nil`.** Accessing non-existent array indices returns `nil` instead of error.
 
 ## Float
 
@@ -57,19 +76,30 @@ You can use float literals and perform arithmetic operations with them. Example:
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
-:::warning Precision Limit
-Most languages (including Textwire) use **IEEE 754 standard** for floating-point numbers. These floating-point types have a finite precision and are unable to accurately represent more than approximately 15-17 digits. For example `1234567890.1234567890` will be rounded to `1234567890.1234567` in Textwire because of the precision limit of floating-point numbers. If you need to work with large numbers, you can keep them as strings.
-:::
+### Important Notes
+
+- **Precision limit (IEEE 754).** Floating-point numbers have ~15-17 digit precision. For example, `1234567890.1234567890` rounds to `1234567890.1234567`.
+- **Large numbers as strings.** Keep large numbers as strings if you need exact precision.
+- **Division always returns float.** Integer division like `4 / 2` returns `2.0`.
 
 ## Boolean
 
-You can use boolean literals to check if a variable is true or false. Example:
+Booleans represent truth values and can be either `true` or `false`. They are essential for controlling program flow with conditional statements.
 
 ```textwire :no-line-numbers
-@if(true)
-    <p>Is tall</p>
+{{ isAdmin = true }}
+
+@if(isAdmin)
+    <button>Delete User</button>
+@else
+    <p>You don't have permission</p>
 @end
 ```
+
+### Important Notes
+
+- **Truthy values.** Non-empty strings, non-zero numbers (including negatives), arrays, and objects are truthy. Arrays and objects are always truthy regardless of being empty.
+- **Falsy values.** Only `false`, `nil`, `0`, and empty strings `""` are falsy.
 
 ## Array
 
@@ -145,6 +175,7 @@ You can access values in an object by using a key. Example:
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
 - **Only exported fields are converted.** Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
+- **Missing object properties cause errors.** Unlike arrays, accessing missing object properties results in an error.
 - **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
     ```textwire :no-line-numbers
     {{ name = "John"; age = 25 }}
