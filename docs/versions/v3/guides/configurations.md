@@ -60,7 +60,7 @@ If you are using VSCode and change the `TemplateExt` setting to anything other t
 
 Global data allows you to share values from your Go code across all Textwire templates. This is useful for environment variables, authenticated user data, and similar global information. Use the `GlobalData` configuration for this purpose. Example:
 
-```go
+```go :line-numbers
 import (
     "os"
     "github.com/textwire/textwire/v3"

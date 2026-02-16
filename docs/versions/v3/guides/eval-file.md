@@ -8,7 +8,7 @@ Use the `EvaluateFile` function to evaluate a file containing Textwire code. The
 
 Example:
 
-```go
+```go :line-numbers
 path := "templates/email-template.tw"
 
 result, err := textwire.EvaluateFile(path, map[string]any{

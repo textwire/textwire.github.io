@@ -28,7 +28,7 @@ You can use Textwire in three different ways:
 
 Below is a simple example of a Textwire template:
 
-```textwire
+```textwire :line-numbers
 @use('~main')
 
 @insert('title', 'Welcome to Home Page')

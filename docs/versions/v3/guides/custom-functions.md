@@ -37,7 +37,7 @@ err := textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any {
 ```
 
 ### Other Function Types
-```go
+```go :line-numbers
 // Integer
 err := textwire.RegisterIntFunc("_double", func(num int, args ...any) any {
     return num * 2
@@ -70,7 +70,7 @@ err := textwire.RegisterObjFunc("_addProp", func(obj map[string]any, args ...any
 
 ## Using Custom Functions
 ### Usage Examples
-```go
+```go :line-numbers
 // String
 input := "{{ 'John Wick'._isCool() }}"
 out, err := textwire.EvaluateString(input, nil)

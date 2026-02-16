@@ -279,7 +279,7 @@ Here’s an example of how to use slots in a component. Consider this component:
 
 We can now use `book.tw` component in our Textwire files like this:
 
-```textwire
+```textwire :line-numbers
 @each(book in books)
     @component("~book", { book })
         {{-- default slot --}}

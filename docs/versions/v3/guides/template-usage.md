@@ -17,7 +17,7 @@ Choose one of these initialization patterns:
 
 ::: code-group
 
-```go [Global Template]
+```go [Global Template] :line-numbers
 import (
     "net/http"
     "github.com/textwire/textwire/v3"
@@ -36,7 +36,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-```go [Local Template]
+```go [Local Template] :line-numbers
 import (
 	"net/http"
 	"github.com/textwire/textwire/v3"
@@ -107,7 +107,7 @@ To define a layout in Textwire you need to create a file anywhere within your `t
 
 The [@reserve](/v3/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
 
-```textwire
+```textwire :line-numbers
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,7 +158,7 @@ Learn about [@insert](/v3/language-elements/directives#insert) directive.
 
 The `NewTemplate` function accepts a `*config.Config` parameter with several properties to customize template behavior. Common use cases include overriding the default file format or specifying the template directory. Example:
 
-```go
+```go :line-numbers
 import (
     "fmt"
     "net/http"

@@ -41,7 +41,7 @@ project/
 
 Just create a variable `templateFS` with the Go's type `embed.FS` and add comment `//go:embed templates/*` which should point to your Textwire templates.
 
-```go showLineNumbers
+```go :line-numbers
 package main
 
 import (
