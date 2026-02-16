@@ -67,6 +67,7 @@ In Textwire, `nil` is treated as `false` in boolean contexts, making it easy to 
 - **Converts to `false` in conditions.** `nil` is falsy in boolean contexts.
 - **Prints as empty string.** Outputting `nil` displays nothing.
 - **Array out-of-bounds returns `nil`.** Accessing non-existent array indices returns `nil` instead of error.
+- **Accessing object property `nil`.** Accessing a property that doesn't exist on object returns `nil` instead of error.
 
 ## Float
 
@@ -175,7 +176,7 @@ You can access values in an object by using a key. Example:
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
 - **Only exported fields are converted.** Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
-- **Missing object properties cause errors.** Unlike arrays, accessing missing object properties results in an error.
+- **Accessing missing object properties returns `nil`.** Similar to arrays, trying to access a property that doesn't exist on an object returns `nil` rather than throwing an error. However, this only applies to the first undefined property—attempting to access a property on `nil` itself will result in an error.
 - **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
     ```textwire
     {{ name = "John"; age = 25 }}
