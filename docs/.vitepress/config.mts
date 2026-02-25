@@ -69,10 +69,11 @@ export default defineVersionedConfig(
                     _render(src, env, md) {
                         const html = md.render(src, env)
 
-                        const startsWithV1 = env.relativePath.startsWith('versions/v1')
-                        const startsWithV2 = env.relativePath.startsWith('versions/v2')
+                        const withV1 = env.relativePath.startsWith('versions/v1')
+                        const withV2 = env.relativePath.startsWith('versions/v2')
+                        const withBlog = env.relativePath.startsWith('blog')
 
-                        if (startsWithV1 || startsWithV2) {
+                        if (withV1 || withV2 || withBlog) {
                             return ''
                         }
 
