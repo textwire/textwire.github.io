@@ -96,3 +96,33 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 :::tip Best Practice
 Use `defined()` when working with optional variables in components to avoid runtime errors when the variable is not passed to the template.
 :::
+
+## hasValue
+
+```ts
+hasValue(arg: any...): boolean
+```
+
+Function `hasValue` checks if variables and properties are defined and [non-nullable](/v3/language-elements/syntax#nullable-types). Unlike function [defined](/v3/functions/global#defined), `hasValue` checks if the variable is not only defined but also has a non-nullable value. For example, if you have a variable `x` that is defined but has a value of `0`, the function `hasValue(x)` will return `false`.
+
+#### Arguments:
+
+1. `arg` (any) - Any amount of arguments
+
+If you pass more than 1 variable, the function will return `true` if all variables or properties have value.
+
+#### Input Example:
+
+```textwire
+{{ actors = []; hasValue(actors) ? 'Has value' : 'No value' }}
+```
+
+#### Output:
+
+```html
+No value
+```
+
+:::tip Best Practice
+Use `hasValue()` when you need to know for sure that the variable is defined and contains [non-zero value](/v3/language-elements/syntax#nullable-types).
+:::
