@@ -65,6 +65,20 @@ export default defineVersionedConfig(
 
             search: {
                 provider: 'local',
+                options: {
+                    _render(src, env, md) {
+                        const html = md.render(src, env)
+
+                        const startsWithV1 = env.relativePath.startsWith('versions/v1')
+                        const startsWithV2 = env.relativePath.startsWith('versions/v2')
+
+                        if (startsWithV1 || startsWithV2) {
+                            return ''
+                        }
+
+                        return html
+                    },
+                },
             },
 
             nav: [
