@@ -29,14 +29,14 @@ Textwire provides six registration methods for different data types. All custom 
 All registration methods return an `error`.
 
 ## Defining Custom Functions
-### Example: String Function
+**Example: String Function**
 ```go
 err := textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any {
     return s == "John Wick"
 })
 ```
 
-### Other Function Types
+**Other Function Types**
 ```go :line-numbers
 // Integer
 err := textwire.RegisterIntFunc("_double", func(num int, args ...any) any {
