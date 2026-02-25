@@ -4,7 +4,7 @@ export const blogPosts: BlogPost[] = [
     {
         url: '/blog/2026-02-05-textwire-v3',
         title: 'Version 3 Release Notes',
-        intro: `Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the <code>global</code> variable object, a new <a href="/docs/v3/functions/global#defined">global</a> function <a href="https://github.com/textwire/textwire/issues/56">#56</a>, the ability to register custom functions for the OBJECT type, and improvements to error handling, performance <a href="https://github.com/textwire/textwire/issues/61">#61</a> <a href="https://github.com/textwire/textwire/issues/60">#60</a> <a href="https://github.com/textwire/textwire/issues/59">#59</a>, and usability <a href="https://github.com/textwire/textwire/issues/35">#35</a>.`,
+        intro: `Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the <code>global</code> variable object, a new <a href="/docs/v3/functions/global#defined">global</a> function <a href="https://github.com/textwire/textwire/issues/56">#56</a>, the ability to register custom functions for the object type, and improvements to error handling, performance <a href="https://github.com/textwire/textwire/issues/61">#61</a> <a href="https://github.com/textwire/textwire/issues/60">#60</a> <a href="https://github.com/textwire/textwire/issues/59">#59</a>, and usability <a href="https://github.com/textwire/textwire/issues/35">#35</a>.`,
     },
     {
         url: '/blog/2025-01-10-textwire-v2.4.0',

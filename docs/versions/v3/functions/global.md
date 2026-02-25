@@ -13,14 +13,14 @@ This global function should be used only with variables and object properties. I
 ## defined
 
 ```ts
-defined(arg: ANY...): BOOLEAN
+defined(arg: any...): boolean
 ```
 
 Function `defined` checks if variables and properties are defined. It doesn't care about `true`, `false`, `nil`, or any other literal type, it only tells you if the variable is defined and if the property on an object is defined or not.
 
 #### Arguments:
 
-1. `arg` (ANY) - Any amount of arguments
+1. `arg` (any) - Any amount of arguments
 
 If you pass more than 1 variable, the function will return `true` if all variables or properties are defined.
 
@@ -61,7 +61,7 @@ Another good usecase is for object properties, you can do something like this:
 }
 ```
 
-It prevents you from getting an error when trying to get propery on `NIL` type if your `address` or `street` is undefined.
+It prevents you from getting an error when trying to get propery on `nil` type if your `address` or `street` is undefined.
 
 ### How it Works with Literal Types
 
@@ -90,7 +90,7 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 
 ```textwire
 {{ name = "john"; defined(name.somemethod()) }}
-{{-- Error: method 'somemethod' does not exist on type 'STRING' --}}
+{{-- Error: method 'somemethod' does not exist on type 'string' --}}
 ```
 
 :::tip Best Practice

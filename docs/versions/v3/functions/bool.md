@@ -6,7 +6,7 @@ description: Explore the various boolean functions available in Textwire
 # Boolean Functions
 ## binary
 ```ts
-bool.binary(): INTEGER
+bool.binary(): integer
 ```
 
 Returns an integer `1` if the receiver is true, `0` otherwise
@@ -25,14 +25,14 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 
 ## then
 ```ts
-bool.then(ifCase: ANY, elseCase?: ANY = NIL): ANY
+bool.then(ifCase: any, elseCase?: any = nil): any
 ```
 
-Returns the `ifCase` if the receiver is true, otherwise returns the `elseCase`. The `elseCase` is optional and defaults to `NIL`
+Returns the `ifCase` if the receiver is true, otherwise returns the `elseCase`. The `elseCase` is optional and defaults to `nil`
 
 #### Arguments:
-1. `ifCase` (ANY) - The value to return if the receiver is true
-2. `elseCase` (ANY) - The value to return if the receiver is false. Default is `NIL`, which will be converted to an empty string when rendered in the template
+1. `ifCase` (any) - The value to return if the receiver is true
+2. `elseCase` (any) - The value to return if the receiver is false. Default is `nil`, which will be converted to an empty string when rendered in the template
 
 #### Input Example:
 ```textwire

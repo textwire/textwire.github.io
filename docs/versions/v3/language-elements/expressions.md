@@ -107,4 +107,4 @@ You can use logical OR (`||`) and logical AND (`&&`) expressions to combine bool
 @end
 ```
 
-Logical expression accepts any literal value and converts it to BOOLEAN. Read about [Truthy and Falsy Values](/v3/#truthy-and-falsy-values).
+Logical expression accepts any literal value and converts it to boolean. Read about [Truthy and Falsy Values](/v3/#truthy-and-falsy-values).

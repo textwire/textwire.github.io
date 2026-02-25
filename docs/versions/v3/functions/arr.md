@@ -6,13 +6,13 @@ description: Explore the various array functions available in Textwire
 # Array Functions
 ## append
 ```ts
-arr.append(elem: ANY...): ARRAY
+arr.append(elem: any...): array
 ```
 
 Adds one or more elements to the end of an array and returns a new array
 
 #### Arguments:
-- `elem` (ANY) - Any amount of elements to add to the array
+- `elem` (any) - Any amount of elements to add to the array
 
 #### Input Example:
 ```textwire
@@ -26,13 +26,13 @@ one, two, three, four
 
 ## contains
 ```ts
-arr.contains(elem?: ANY): BOOLEAN
+arr.contains(elem?: any): boolean
 ```
 
 Returns `true` if the array contains the given element, otherwise `false`
 
 #### Arguments:
-1. `elem` (ANY) - The element to search for in the array. Can be ANY type, including OBJECTS and ARRAYS
+1. `elem` (any) - The element to search for in the array. Can be any type, including objects and arrays
 
 #### Input Example:
 ```textwire
@@ -55,13 +55,13 @@ Keep in mind that the order of object's fields doesn't matter in the comparison,
 
 ## join
 ```ts
-arr.join(separator?: STRING = ","): STRING
+arr.join(separator?: string = ","): string
 ```
 
 Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
 
 #### Arguments:
-1. `separator` (STRING) (optional) - What separator to use to join the elements. Default is `","` (comma)
+1. `separator` (string) (optional) - What separator to use to join the elements. Default is `","` (comma)
 
 #### Input Example:
 ```textwire
@@ -75,7 +75,7 @@ one two
 
 ## len
 ```ts
-arr.len(): INTEGER
+arr.len(): integer
 ```
 
 Returns the length of an array
@@ -92,13 +92,13 @@ Returns the length of an array
 
 ## prepend
 ```ts
-arr.prepend(elem: ANY...): ARRAY
+arr.prepend(elem: any...): array
 ```
 
 Adds one or more elements to the beginning of an array and returns a new array
 
 #### Arguments:
-- `elem` (ANY) - Any amount of elements to add to the array
+- `elem` (any) - Any amount of elements to add to the array
 
 #### Input Example:
 ```textwire
@@ -112,7 +112,7 @@ one, two, three, four
 
 ## rand
 ```ts
-arr.rand(): ANY
+arr.rand(): any
 ```
 
 Returns a random element from the array. The return type depends on the type of elements in the array.
@@ -129,7 +129,7 @@ Returns a random element from the array. The return type depends on the type of 
 
 ## reverse
 ```ts
-arr.reverse(): ARRAY
+arr.reverse(): array
 ```
 
 Reverses the elements of an array and returns a new array
@@ -146,7 +146,7 @@ Reverses the elements of an array and returns a new array
 
 ## shuffle
 ```ts
-arr.shuffle(): ARRAY
+arr.shuffle(): array
 ```
 
 Shuffles the elements of an array and returns a new array
@@ -164,14 +164,14 @@ Shuffles the elements of an array and returns a new array
 
 ## slice
 ```ts
-arr.slice(start: INTEGER, end?: INTEGER): ARRAY
+arr.slice(start: integer, end?: integer): array
 ```
 
 Returns a portion of an array. The `start` argument is the index at which to begin the slice. The `end` argument is the index at which to end the slice. If `end` is not provided, it slices to the end of the array
 
 #### Arguments:
-1. `start` (INTEGER) - The index at which to begin the slice
-2. `end` (INTEGER) (optional) - The index at which to end the slice
+1. `start` (integer) - The index at which to begin the slice
+2. `end` (integer) (optional) - The index at which to end the slice
 
 #### Input Example:
 ```textwire

@@ -83,17 +83,17 @@ Textwire has two reserved variable names that you cannot use:
 
 ## Truthy and Falsy Values
 
-Textwire evaluates values as truthy or falsy based on their type when they are used as BOOLEAN:
+Textwire evaluates values as truthy or falsy based on their type when they are used as boolean:
 
 | Type    | Truthy Value     | Falsy Value         |
 | ------- | ---------------- | ------------------- |
-| BOOLEAN | `true`           | `false`             |
-| STRING  | Non-empty string | Empty string (`""`) |
-| INTEGER | Non-zero integer | `0`                 |
-| FLOAT   | Non-zero float   | `0.0`               |
-| ARRAY   | always `true`    | always `true`       |
-| OBJECT  | always `true`    | always `true`       |
-| NIL     | always `false`   | always `false`      |
+| boolean | `true`           | `false`             |
+| string  | Non-empty string | Empty string (`""`) |
+| integer | Non-zero integer | `0`                 |
+| float   | Non-zero float   | `0.0`               |
+| array   | always `true`    | always `true`       |
+| object  | always `true`    | always `true`       |
+| nil     | always `false`   | always `false`      |
 
 This means you can use any literal value in logical expressions:
 

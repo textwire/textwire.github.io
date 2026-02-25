@@ -6,7 +6,7 @@ description: Explore the various integer functions available in Textwire
 # Integer Functions
 ## abs
 ```ts
-int.abs(): INTEGER
+int.abs(): integer
 ```
 
 Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
@@ -23,7 +23,7 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 
 ## decimal
 ```ts
-int.decimal(separator?: STRING = ".", decimals?: INTEGER = 2): STRING
+int.decimal(separator?: string = ".", decimals?: integer = 2): string
 ```
 
 <!--@include: @/.vitepress/parts/funcs/decimal.md-->
@@ -40,7 +40,7 @@ int.decimal(separator?: STRING = ".", decimals?: INTEGER = 2): STRING
 
 ## float
 ```ts
-int.float(): FLOAT
+int.float(): float
 ```
 
 Converts an integer to a float by adding a decimal part of `.0` to the number
@@ -59,7 +59,7 @@ The value `0` will be converted to `0.0`.
 
 ## len
 ```ts
-int.len(): INTEGER
+int.len(): integer
 ```
 
 Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
@@ -76,7 +76,7 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 
 ## str
 ```ts
-int.str(): STRING
+int.str(): string
 ```
 
 Converts an integer to a string and returns it
