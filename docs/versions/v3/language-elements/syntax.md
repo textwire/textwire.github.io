@@ -64,3 +64,17 @@ Textwire has a different type system that Go. When you pass a variable to Textwi
 | `object`      | `struct{}`, `User{}`, `map[string]string`, any struct or map                                                                                                |
 
 The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: <code v-pre>{{ "hello world".split(" ") }}</code> to get an array of strings `["hello", "world"]`.
+
+## Nullable Types
+
+Like in Go, each type in Textwire has its nullable version. Here is the table of nullable types:
+
+| Type      | Empty Literal | Description   |
+| --------- | ------------- | ------------- |
+| `string`  | `""`          | Empty string  |
+| `integer` | `0`, `-0`     | Zero integer  |
+| `float`   | `0.0`, `-0.0` | Zero float    |
+| `boolean` | `false`       | False boolean |
+| `array`   | `[]`          | Empty array   |
+| `object`  | `{}`          | Empty object  |
+| `nil`     | `nil`         | Nil value     |
