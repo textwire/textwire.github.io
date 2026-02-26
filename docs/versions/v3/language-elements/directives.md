@@ -193,7 +193,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 </html>
 ```
 
-### Important notes
+### Important Notes
 
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
