@@ -40,11 +40,11 @@ Textwire provides multiple loop control directives:
 
 ### Conditional Break and Continue
 
-Use `@breakIf()` and `@continueIf()` with a single condition argument.
+Use `@breakif()` and `@continueif()` with a single condition argument.
 
 ```textwire
 @each(num in [0, 1])
-    @breakIf(num == 1)
+    @breakif(num == 1)
     <p>{{ name }}</p>
 @end
 ```
