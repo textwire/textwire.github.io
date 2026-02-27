@@ -74,7 +74,7 @@ Read more about loops in the [Loops guide](/v3/language-elements/loops).
 
 <ul>
     @for(i = 0; i < names.len(); i++)
-        @continueIf(names[i] == "Serhii")
+        @continueif(names[i] == "Serhii")
         <li>{{ names[i] }}</li>
     @end
 </ul>
