@@ -15,6 +15,7 @@ Textwire directives provide control over your templates through commands that be
 - [@each](#each) `@each(name in names)`
 - [@component](#component) `@component("components/post-card")`
 - [@slot](#slot) `@slot('footer')`
+- [@slotif](#slotif) `@slotif(true, 'ooter')`
 - [@dump](#dump) `@dump(users, page)`
 
 ## @if
@@ -116,6 +117,7 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 
 ### Important Notes
 
+- **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
     ```textwire
     @use('~main')
@@ -151,6 +153,7 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 
 ### Important Notes
 
+- **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Takes two arguments.** `@insert` is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
 - **Evaluated in template context.** All inserts are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file. It means they have the context of the file where they are defined.
 - **Requires matching reserve.** If you define an insert without having a matching reserve, it will result in error. Such inserts are considered unused.
@@ -195,6 +198,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 
 ### Important Notes
 
+- **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
 - **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v3.1.0](https://github.com/textwire/textwire/pull/68).
@@ -246,6 +250,7 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 
 ### Imporant Notes
 
+- **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 - Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
 - You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
@@ -304,6 +309,41 @@ In this example, both default and named slots are used within a single component
 - **Empty string is default slot.** If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
 - **Slots have current context.** Slots have the context of the same file where they are defined. It means you can dinamically modify the content of a slot before it get rendered in the component file.
 - **Slots are optional.** If you don't provide content for a slot, it will be rendered as an empty string.
+- **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
+
+## @slotif
+
+`@sloif` directive combines `@slot` and `@if` directives making it possible to conditionally render a slot. It takes a condition as the first argument and a slot name as the second argument. If the condition is truthy, the content of the slot will be rendered; otherwise, it will be ignored.
+
+There are 2 types of conditional slots in Textwire: default slots and named slots.
+
+1. **Default Slots**: Use the `@slotif(true)` directive to define and pass content to a default slot.
+2. **Named Slots**: Use the `@slotif(true, "name")` directive to define and pass content to a named slot.
+
+Here’s an example of how to use conditional slots in a component. Example:
+
+```textwire :line-numbers
+@each(book in books)
+    @component("~book", { book })
+        {{-- default slotif --}}
+        @slotif(hasImage)
+            <img src="{{ book.image }}" alt="{{ book.title }}">
+        @end
+
+        {{-- named slotif --}}
+        @slotif(hasFooter, 'footer')
+            <small>published by {{ book.author }}</small>
+            <button>Read more</button>
+        @end
+    @end
+@end
+```
+
+### Important Notes
+
+- **Same rules.** All the rules from [@slot](/v3/language-elements/directives#slot) apply to `@slotif`.
+- **Only inside components** Conditional slots can only be local (used inside component directive).
+
 
 ## @dump
 
