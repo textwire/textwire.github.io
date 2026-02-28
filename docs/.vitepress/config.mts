@@ -1,13 +1,17 @@
 import defineVersionedConfig from 'vitepress-versioning-plugin'
 import { resolve } from 'path'
-import fs from 'fs'
 import { sidebarV1 } from './sidebars/sidebarV1'
 import { sidebarV2 } from './sidebars/sidebarV2'
 import { sidebarV3 } from './sidebars/sidebarV3'
 
-const twLang = JSON.parse(
-    fs.readFileSync('./docs/.vitepress/textwire.tmLanguage.json', 'utf8'),
-)
+const TM_GRAMMAR_URL = 'https://raw.githubusercontent.com/textwire/vscode-textwire/refs/heads/master/syntaxes/textwire.tmLanguage.json'
+
+async function fetchTextwireGrammar() {
+    const resp = await fetch(TM_GRAMMAR_URL)
+    const twLang = await resp.json()
+    twLang.name = twLang.name.toLowerCase()
+    return twLang
+}
 
 export default defineVersionedConfig(
     {
@@ -18,7 +22,7 @@ export default defineVersionedConfig(
             'Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term',
 
         markdown: {
-            languages: ['html', twLang],
+            languages: ['html', await fetchTextwireGrammar()],
             theme: {
                 light: 'github-light',
                 dark: 'catppuccin-mocha',
