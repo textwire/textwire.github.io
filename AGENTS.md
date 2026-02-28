@@ -1,5 +1,7 @@
 # Textwire Documentation
 
+USE PODMAN!!!!
+
 ## Project Overview
 
 VitePress documentation site for Textwire templating engine for Go programming language.
@@ -16,7 +18,7 @@ VitePress documentation site for Textwire templating engine for Go programming l
 ## Development
 
 - No tests needed
-- Build: `npm run build` (only if you really need it because it's a slow process)
+- Build: `podman-compose exec app npm run build` (only if you really need it because it's a slow process)
 
 ## Important
 
