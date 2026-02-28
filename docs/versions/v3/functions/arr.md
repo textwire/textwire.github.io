@@ -63,6 +63,26 @@ You can do deep comparison with objects and arrays as well
 
 Keep in mind that the order of object's fields doesn't matter in the comparison, but the order of array elements does matter, because each element has a unique index. `[1, 2]` and `[2, 1]` are different arrays.
 
+## json
+
+```ts
+arr.json(): string
+```
+
+Converts array to a JSON string and returns it.
+
+#### Input Example:
+
+```textwire
+{{ ["one", "two", false, 10].json() }}
+```
+
+#### Output:
+
+```json
+["one","two",false,10]
+```
+
 ## join
 
 ```ts

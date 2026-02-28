@@ -177,6 +177,7 @@ You can access values in an object by using a key. Example:
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
 - **Only exported fields are converted.** Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 - **Accessing missing object properties returns `nil`.** Similar to arrays, trying to access a property that doesn't exist on an object returns `nil` rather than throwing an error. However, this only applies to the first undefined property—attempting to access a property on `nil` itself will result in an error.
+- **Sorted keys when printed.** Objects in Textwire maintain the order of keys in alphabetical order when printed or in JSON string if you do `{{ myObj.json() }}`.
 - **Shorthand Property Notation.** Similar to objects in JavaScript, you can use shorthand property notation to define an object.
     ```textwire
     {{ name = "John"; age = 25 }}

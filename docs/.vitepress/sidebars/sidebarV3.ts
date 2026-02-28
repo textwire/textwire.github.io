@@ -38,6 +38,7 @@ export const sidebarV3: DefaultTheme.SidebarItem[] = [
             { text: 'Boolean Functions', link: '/v3/functions/bool' },
             { text: 'Array Functions', link: '/v3/functions/arr' },
             { text: 'String Functions', link: '/v3/functions/str' },
+            { text: 'Object Functions', link: '/v3/functions/obj' },
         ],
     },
     { text: 'FAQ', link: '/v3/faq' },
