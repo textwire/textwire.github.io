@@ -56,9 +56,9 @@ You can use it inside of your components when you need to check if variable was 
 Another good usecase is for object properties, you can do something like this:
 
 ```textwire
-@if(defined(user.address.street.number)) {
+@if(defined(user.address.street.number))
     {{ user.address.street.number }}
-}
+@end
 ```
 
 It prevents you from getting an error when trying to get propery on `nil` type if your `address` or `street` is undefined.
