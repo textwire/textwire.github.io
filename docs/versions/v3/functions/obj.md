@@ -5,6 +5,26 @@ description: Explore several object functions available in Textwire
 
 # Object Functions
 
+## camel
+
+```ts
+obj.camel(): object
+```
+
+Converts object keys to camel case and returns it. Useful when you need to pass data to JavaScript and want to convert keys before calling [json](/v3/functions/obj#json) function.
+
+#### Input Example:
+
+```textwire
+{{ { First_Name: "Serhii", LastName: "Cho" }.camel() }}
+```
+
+#### Output:
+
+```json
+{firstName: "Serhii", lastName: "Cho"}
+```
+
 ## json
 
 ```ts
