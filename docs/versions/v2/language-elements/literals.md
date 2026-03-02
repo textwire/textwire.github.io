@@ -109,10 +109,6 @@ You can access values in an object by using a key. Here is an example of accessi
 </ul>
 ```
 
-:::tip First Character is Case-Insensitive
-**First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
-:::
-
 :::tip Structs to Objects
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 :::
