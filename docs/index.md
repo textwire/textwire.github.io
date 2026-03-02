@@ -3,8 +3,8 @@ layout: home
 
 hero:
     name: Textwire
-    text: Templating for Go
-    tagline: Prioritizing stability and performance over new features
+    text: Zero-dependency
+    tagline: Prioritizing runtime performance and long-term stability for Go developers
     actions:
         - theme: brand
           text: Get Started →
