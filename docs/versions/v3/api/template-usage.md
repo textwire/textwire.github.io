@@ -93,10 +93,6 @@ func generateEmail() (string, error) {
 - **`Response()`** — Writes directly to HTTP response. Returns standard `error`.
 - **`String()`** — Returns rendered string and `*fail.Error` with detailed info (line, filepath, message). Call `failure.Error()` to convert to standard `error`.
 
-:::tip Live Reload
-If your template files are not showing up after you've created them and you are using live-reloading libraries like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them. Also, don't forget to add `.tw` files to trigger live-reloading.
-:::
-
 ## Layouts
 
 Layouts are reusable templates that define the overall structure of a page. They allow you to maintain a consistent look and feel across your website while enabling you to insert dynamic content into specific reserved places. You can define a base layout which will be used by multiple pages.
@@ -187,3 +183,11 @@ func main() {
 ```
 
 For detailed information about available configuration options, visit the [configurations](/v3/api/configurations) page.
+
+## Important Notes
+
+- **Single initialization.** Call `NewTemplate` only once at startup; it parses all templates into memory. Re-initializing for each request causes significant performance degradation.
+- **Live reload.** If your template files are not showing up after creation and you're using live-reload tools like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them and add `.tw` files to the watch list.
+- **Layout organization.** Store layout files in `templates/layouts` directory for better organization and consistency across your project.
+- **Error handling differences.** `Response()` returns standard `error`, while `String()` returns `*fail.Error` with detailed info (line number, filepath, message). Call `failure.Error()` to convert to standard `error`.
+- **Use path alias.** If your views are located in the `views` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v3/faq#what-are-the-path-aliases).

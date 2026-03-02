@@ -105,10 +105,6 @@ Example:
 @use("layouts/main")
 ```
 
-:::tip @use Path Alias
-If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
-:::
-
 The `@use` directive accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v3/api/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v3/api/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout directive like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
 :::tip Understanding the @use Directive
@@ -118,18 +114,9 @@ When you use the `@use` directive, only the content inside [`@insert`](#insert) 
 ### Important Notes
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
+- **Use path alias.** If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v3/faq#what-are-the-path-aliases).
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
-    ```textwire
-    @use('~main')
-    @use('~user')  {{-- ❌ Error --}}
-    ```
 - **Recommended at the beginning.** You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
-    ```textwire
-    @use('~base') {{-- ✅ Recommended --}}
-
-    @insert('title', 'Home Page')
-    @insert('description', 'This is a books example template with Textwire')
-    ```
 - **Not allowed in layouts.** Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
 
 ## @insert
@@ -251,14 +238,10 @@ The second optional argument is an [object](/v3/language-elements/literals#objec
 ### Imporant Notes
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
-- You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
-- Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
-- You can use [slots](/v3/language-elements/directives#slot) in components to pass content to the component file.
-- If your components are located in the `components` directory, you can use the `~` alias to reference them. Behind the scenes, the `~` alias will be replaced with `components/`. Example:
-    ```textwire
-    @component("components/post-card", { post }) {{-- no alias --}}
-    @component("~post-card", { post })           {{-- with alias--}}
-    ```
+- **Layout for components.** You can include layout file into components using [`@use`](/v3/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+- **No empty body.** Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
+- **Use slots to pass data.** You can use [slot](/v3/language-elements/directives#slot) and [slotif](/v3/language-elements/directives#slotif) in components to pass content to the component file.
+- **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v3/faq#what-are-the-path-aliases).
 
 ## @slot
 
