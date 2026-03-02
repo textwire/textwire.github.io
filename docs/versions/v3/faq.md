@@ -56,3 +56,42 @@ Directives and statements are fundamental elements of the Textwire language. Bot
 :::info Learn More
 See the [Directives](/v3/language-elements/directives) section for a complete reference.
 :::
+
+## What are the Path Aliases?
+
+If you are following Textwire documentation recommendations and keep your files in the suggested directory structure, you can use optional path aliases to simplify your references. This allows you to write cleaner and more concise code when including layouts, components, or views.
+
+For example, Textwire expects your layout files are stores in `templates/layouts/` directory, so you can use the `~` alias to reference them. Instead of writing `@use("layouts/main")`, you can simply write `@use("~main")`. The `~` alias will be automatically replaced with `layouts/` during processing.
+
+This alias adapts to the type of file you are referencing:
+
+### Available path aliases
+
+| Alias Usage                           | Converted To                               |
+| ------------------------------------- | ------------------------------------------ |
+| `@use('~main')`                       | `@use('layouts/main')`                     |
+| `@component('~user')`                 | `@use('components/user')`                  |
+| `textwire.Response(w, "~home", data)` | `textwire.Response(w, "views/home", data)` |
+
+### Example usage
+
+Usage with layouts:
+
+```textwire
+@use("layouts/base") // [!code --]
+@use("~base") // [!code ++]
+```
+
+Usage with components:
+
+```textwire
+@component("components/post-card", { post }) // [!code --]
+@component("~post-card", { post }) // [!code ++]
+```
+
+Usage with views:
+
+```go
+err := textwire.Response(w, "views/about-me", data) // [!code --]
+err := textwire.Response(w, "~about-me", data) // [!code ++]
+```
