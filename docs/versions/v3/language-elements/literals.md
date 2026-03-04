@@ -132,7 +132,7 @@ You can access values in an array by using an index. Example:
 ### Important Notes
 
 - **Out of bounds returns nil.** Accessing array on non-existant index returns `nil` instead of resulting in error.
-- **Indexing strings.** You cannot use `[number]` to access string character, instead, use [at()](v3/functions/str#at) function.
+- **Indexing strings.** You cannot use `[number]` to access string character, instead, use [at()](/v3/functions/str#at) function.
 - **Prints as comma-separated.** Printing array will convert it to comma seperated values. Example:
     ```textwire
     <span>{{ [1, 2, 3] }}</span>
