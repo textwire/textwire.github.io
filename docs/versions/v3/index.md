@@ -71,7 +71,7 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 - Logical OR: `||` (`a || b`)
 
 :::warning Type Mismatching
-Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as `{{ 3 * 2.3.int() }}`, `{{ 3.3 + 2.float() }}`, etc.
+Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as <code v-pre>{{ 3 * 2.3.int() }}</code>, <code v-pre>{{ 3.3 + 2.float() }}</code>, etc.
 :::
 
 ## Reserved Variable Names
