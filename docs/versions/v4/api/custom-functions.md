@@ -26,7 +26,7 @@ Textwire provides six registration methods for different data types. All custom 
 | `RegisterArrFunc` | `func(arr []any, args ...any) any` |
 | `RegisterObjFunc` | `func(obj map[string]any, args ...any) any` |
 
-All registration methods return an `error`.
+All registration methods return `*fail.Error`.
 
 ## Defining Custom Functions
 **Example: String Function**

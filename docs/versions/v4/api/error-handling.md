@@ -22,7 +22,7 @@ Textwire returns detailed error messages to help identify and resolve issues qui
 
 ## Error Handling in Go
 
-Error handling in Textwire occurs in your Go code. Most functions return standard Go `error` types that you handle with typical Go error checking patterns.
+Error handling in Textwire occurs in your Go code. All functions return `*fail.Error` (Textwire's custom error type) that you handle with typical Go error checking patterns.
 
 ### Basic Error Handling
 

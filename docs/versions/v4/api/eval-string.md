@@ -31,7 +31,7 @@ if err != nil {
 The `EvaluateString` function returns two values:
 
 1. `string` - The evaluated template with all variables substituted
-2. `error` - Any error that occurred during compilation or evaluation
+2. `*fail.Error` - Any error that occurred during compilation or evaluation
 
 ## Error Handling
 The function can return errors for various reasons:

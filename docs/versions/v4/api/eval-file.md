@@ -32,7 +32,7 @@ if err != nil {
 The `EvaluateFile` function returns two values:
 
 1. `string` - The evaluated template with all variables substituted and Textwire code processed
-2. `error` - Any error that occurred during file reading, compilation, or evaluation
+2. `*fail.Error` - Any error that occurred during file reading, compilation, or evaluation
 
 ## Error Handling
 The function can return errors for various reasons:
