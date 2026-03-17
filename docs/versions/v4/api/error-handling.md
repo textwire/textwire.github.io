@@ -27,14 +27,16 @@ Error handling in Textwire occurs in your Go code. Most functions return standar
 ### Basic Error Handling
 
 ```go
-inp := "{{ name.split(1) }}"
+func evalTextwire() error {
+    inp := "{{ name.split(1) }}"
 
-out, err := textwire.EvaluateString(inp, map[string]any{
-    "name": "Amy Adams",
-})
+    out, err := textwire.EvaluateString(inp, map[string]any{
+        "name": "Amy Adams",
+    })
 
-if err != nil {
-    log.Printf("String evaluation failed: %v", err)
+    if err != nil {
+        return err.Error()
+    }
 }
 ```
 
@@ -50,28 +52,24 @@ lowerFn := func(s string, args ...any) any {
 }
 
 if err := textwire.RegisterStrFunc("_lower", lowerFn); err != nil {
-    log.Fatal(err)
+    err.FatalOnError()
 }
 ```
 
 ```go [Template create]
 tpl, err := textwire.NewTemplate(config)
-if err != nil {
-    log.Fatal(err)
-}
+err.FatalOnError()
 ```
 
 ```go [Template eval]
 out, err := textwire.EvaluateString(input, data)
-if err != nil {
-    log.Printf("Evaluation error: %v", err)
-}
+err.PrintOnError()
 ```
 
 ```go [Web handler]
 func homeHandler(w http.ResponseWriter, r *http.Request) {
     if err := tpl.Response(w, "views/home", data); err != nil {
-        log.Println(err)
+        err.PrintOnError()
     }
 }
 ```
@@ -79,11 +77,11 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 :::
 
 :::danger Don't Double-Handle Errors
-When `tpl.Response()` returns an error, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML **exposing error message in production**. Just log the error to the console, not browser:
+When `tpl.Response()` returns `*fail.Error`, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML **exposing error message in production**. Just log the error to the console, not browser:
 
 ```go
 if err := tpl.Response(w, "views/home", data); err != nil {
-    log.Println(err)  // [!code highlight]
+    err.PrintOnError() // [!code highlight]
 }
 ```
 :::

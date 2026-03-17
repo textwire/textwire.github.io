@@ -70,19 +70,18 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
     err := tpl.Response(w, "views/home", map[string]any{
         "title": "Home page",
     })
-    if err != nil {
-        log.Printf("Template error: %v", err)
-    }
+
+    err.PrintOnError()
 }
 ```
 
 ```go [String - Get Rendered Output]
 func generateEmail() (string, error) {
-    out, failure := tpl.String("emails/welcome", map[string]any{
+    out, err := tpl.String("emails/welcome", map[string]any{
         "name": user.Name,
     })
-    if failure != nil {
-        return "", failure.Error()
+    if err != nil {
+        return "", err.Error()
     }
     return out, nil
 }
@@ -90,8 +89,8 @@ func generateEmail() (string, error) {
 
 :::
 
-- **`Response()`** — Writes directly to HTTP response. Returns standard `error`.
-- **`String()`** — Returns rendered string and `*fail.Error` with detailed info (line, filepath, message). Call `failure.Error()` to convert to standard `error`.
+- **`Response()`** — Writes directly to HTTP response and returns `*fail.Error` with detailed info (line, filepath, message)
+- **`String()`** — Returns rendered string and `*fail.Error` with detailed info (line, filepath, message)
 
 ## Layouts
 
@@ -160,21 +159,20 @@ import (
     "net/http"
 
     "github.com/textwire/textwire/v4"
+    "github.com/textwire/textwire/v4/fail"
     "github.com/textwire/textwire/v4/config" // [!code highlight]
 )
 
 var tpl *textwire.Template
 
 func main() {
-    var err error
+    var err *fail.Error
 
     tpl, err = textwire.NewTemplate(&config.Config{ // [!code highlight]
         TemplateDir: "src/templates", // [!code highlight]
     }) // [!code highlight]
 
-    if err != nil {
-        fmt.Println(err)
-    }
+    err.FatalOnError()
 
     http.HandleFunc("/", homeHandler)
 
@@ -189,5 +187,5 @@ For detailed information about available configuration options, visit the [confi
 - **Single initialization.** Call `NewTemplate` only once at startup; it parses all templates into memory. Re-initializing for each request causes significant performance degradation.
 - **Live reload.** If your template files are not showing up after creation and you're using live-reload tools like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them and add `.tw` files to the watch list.
 - **Layout organization.** Store layout files in `templates/layouts` directory for better organization and consistency across your project.
-- **Error handling differences.** `Response()` returns standard `error`, while `String()` returns `*fail.Error` with detailed info (line number, filepath, message). Call `failure.Error()` to convert to standard `error`.
+- **Error handling.** `Response()` and `String()` return `*fail.Error` with detailed info (line number, filepath, message). Call `failure.Error()` to convert to standard `error`.
 - **Use path alias.** If your views are located in the `views` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v4/faq#what-are-the-path-aliases).
