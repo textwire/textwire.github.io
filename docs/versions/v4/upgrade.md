@@ -6,108 +6,155 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading Textwire from v3 to v4 shoud be very simple. There are only 3 breaking changes and you might not be effected by them. Still, follow this guide to see all the steps that you need to make to migrate to Textwire 4.
+Upgrading from Textwire v3 to v4 should be straightforward. This guide covers the breaking changes and provides step-by-step migration instructions.
 
-## Steps
+For a complete overview of v4 features and changes, read the [Textwire v4 Release Blog Post](/blog/2026-03-20-textwire-v4).
 
-Follow the steps below to upgrade your Textwire project to v4.
+## 1. Update Import Path
 
-### 1. New Import Path
-
-Change all the imports in your code from `github.com/textwire/textwire/v3` to `github.com/textwire/textwire/v4`
+Replace all v3 imports with v4:
 
 ```go
 import "github.com/textwire/textwire/v3" // [!code --]
 import "github.com/textwire/textwire/v4" // [!code ++]
 ```
 
-### 2. Updating the Dependencies
-
-Run the command `go mod tidy` to update the dependencies in your `go.mod` file
+After updating imports, run:
 
 ```bash
 go mod tidy
 ```
 
-### 3. Add correct error handling
+## 2. Error Handling Changes
 
-Several Textwire functions changed return value from a standard `error` to `*fail.Error` object. Here is the list of functions that were effected:
+**The biggest change in v4:** All Textwire functions now return `*fail.Error` instead of Go's standard `error` type.
 
-| Name                | Old return           | New return                 |
+### Affected Functions
+
+| Function            | Old Return           | New Return                 |
 | ------------------- | -------------------- | -------------------------- |
 | `NewTemplate`       | `(*Template, error)` | `(*Template, *fail.Error)` |
 | `EvaluateString`    | `(string, error)`    | `(string, *fail.Error)`    |
 | `EvaluateFile`      | `(string, error)`    | `(string, *fail.Error)`    |
+| `tpl.String()`      | `(string, error)`    | `(string, *fail.Error)`    |
+| `tpl.Response()`    | `error`              | `*fail.Error`              |
 | `RegisterStrFunc`   | `error`              | `*fail.Error`              |
-| `RegisterStrFunc`   | `error`              | `*fail.Error`              |
-| `RegisterArrFunc`   | `error`              | `*fail.Error`              |
-| `RegisterObjFunc`   | `error`              | `*fail.Error`              |
 | `RegisterIntFunc`   | `error`              | `*fail.Error`              |
 | `RegisterFloatFunc` | `error`              | `*fail.Error`              |
 | `RegisterBoolFunc`  | `error`              | `*fail.Error`              |
-| `Response`          | `error`              | `*fail.Error`              |
+| `RegisterArrFunc`   | `error`              | `*fail.Error`              |
+| `RegisterObjFunc`   | `error`              | `*fail.Error`              |
 
-If you are returning Textwire `error` like that:
+### Migration Example
+
+If you're returning Textwire errors from your functions, you'll need to convert them:
+
+**Before (v3):**
 
 ```go
-import "github.com/textwire/textwire/v4"
-
-func initTpl() (*textwire.Template, error) {
-	tpl, err := textwire.NewTemplate(nil)
-	if err != nil {
-		return nil, err // [!code highlight]
-	}
-	return tpl, nil
+func initTemplate() (*textwire.Template, error) {
+    tpl, err := textwire.NewTemplate(nil)
+    if err != nil {
+        return nil, err // Works in v3
+    }
+    return tpl, nil
 }
 ```
 
-You'll get a compilation error: `cannot use err (variable of type *fail.Error) as error value in return statement: *fail.Error does not implement error (wrong type for method Error)`. To fix it, call `Error` method on `*fail.Error`. Example:
+**After (v4):**
 
 ```go
-import "github.com/textwire/textwire/v4"
-
-func initTpl() (*textwire.Template, error) {
-	tpl, err := textwire.NewTemplate(nil)
-	if err != nil {
-		return nil, err // [!code --]
-        return nil, err.Error() // [!code ++]
-	}
-	return tpl, nil
+func initTemplate() (*textwire.Template, error) {
+    tpl, err := textwire.NewTemplate(nil)
+    if err != nil {
+        return nil, err.Error() // [!code highlight]
+    }
+    return tpl, nil
 }
 ```
 
-### 4. Rename `@continueIf` and `@breakIf`
+### Alternative: Use `*fail.Error` Throughout
 
-If you are using `@continueIf` or `@breakIf` directives, change them to be lowercase.
+If you prefer, update your function signatures to use `*fail.Error` directly:
 
-| Old Name      | New name      |
+```go
+import (
+    "github.com/textwire/textwire/v4"
+    "github.com/textwire/textwire/v4/pkg/fail"
+)
+
+func initTemplate() (*textwire.Template, *fail.Error) {
+    return textwire.NewTemplate(nil)
+}
+```
+
+## 3. Rename Directives
+
+Two directives changed from camelCase to lowercase:
+
+| Old Name      | New Name      |
 | ------------- | ------------- |
 | `@breakIf`    | `@breakif`    |
-| `@continueIf` | `@continueIf` |
+| `@continueIf` | `@continueif` |
 
-### 4. Check Postfix Statement Usage
+**Find and replace in your templates:**
 
-In Textwire 4, incrementing and decrementing a variable has changed from expression to a statement. It means that this `n++` or `n--` cannot be used as an expression and it doesn't return a value.
+```textwire
+@breakIf(condition)    // [!code --]
+@breakif(condition)    // [!code ++]
 
-In Textwire 3, this <code v-pre>{{ n = 0; n++ }}</code> would print `1` because `n++` expression was evaluated to `1`.
+@continueIf(condition) // [!code --]
+@continueif(condition) // [!code ++]
+```
 
-In version 4, we follow Go's approach and make it behave the same way. <code v-pre>{{ n = 0; n++ }}</code> will evaluated to nothing because `n++` is a statement that re-assigns `n` to a new value. You can read more about [postfix statement here](/v4/language-elements/statements#postfix-operations).
+## 4. Postfix Statement Changes
 
-So, if you do use postfix as an expression, change `n++` to `n + 1`. Keep in mind that it doesn't apply to `@for` directives header. It will still work the same way as before. Except when you expect increment to print value. Example:
+In v4, `++` and `--` are statements, not expressions. They don't return values.
+
+**Before (v3):**
+
+```textwire
+{{ n = 0; n++ }} {{-- Would output "1" --}}
+```
+
+**After (v4):**
+
+```textwire
+{{ n = 0; n++ }}  {{-- Outputs nothing (just increments) --}}
+{{ n = 0; n + 1 }} {{-- Use this to output value --}}
+```
+
+**Note:** The `i++` in `@for` headers still works as expected:
 
 ```textwire
 @for(i = 0; i < items.len(); i++)
-    {{ i++ }}
+    // This is fine
 @end
 ```
 
-In this case, change it to this:
+Just don't use postfix operators where you need their return value:
 
 ```textwire
 @for(i = 0; i < items.len(); i++)
-    {{ i++ }} // [!code --]
-    {{ i + 1 }} // [!code ++]
+    {{ i++ }}   {{-- Don't do this --}} // [!code --]
+    {{ i + 1 }} {{-- Do this instead --}} // [!code ++]
 @end
 ```
 
-But `i++` in loop header still works the same way.
+## Verification Checklist
+
+After completing the migration:
+
+1. <input type="checkbox"> All imports changed from `v3` to `v4`
+2. <input type="checkbox"> `go mod tidy` runs without errors
+3. <input type="checkbox"> All `@breakIf` renamed to `@breakif`
+4. <input type="checkbox"> All `@continueIf` renamed to `@continueif`
+5. <input type="checkbox"> Postfix operators used correctly (not as expressions)
+6. <input type="checkbox"> Error handling updated for `*fail.Error`
+7. <input type="checkbox"> Project compiles successfully
+
+## Need Help?
+
+- Review the [Error Handling Guide](/v4/api/error-handling) for details on `*fail.Error`
+- Check the [Statements Reference](/v4/language-elements/statements#postfix-operations) for postfix operator usage
+- Open [GitHub Issue](https://github.com/textwire/textwire/issues) and we will help

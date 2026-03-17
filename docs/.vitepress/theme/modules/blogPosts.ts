@@ -2,6 +2,11 @@ import type { BlogPost } from '@/types'
 
 export const blogPosts: BlogPost[] = [
     {
+        url: '/blog/2026-03-20-textwire-v4',
+        title: 'Version 4 Release Notes',
+        intro: `Textwire 4 is a major release that introduces error handling improvements and no feature additions.`,
+    },
+    {
         url: '/blog/2026-02-05-textwire-v3',
         title: 'Version 3 Release Notes',
         intro: `Textwire v3 is one of the most important releases, introducing several significant features and improvements. This release includes the introduction of the <code>global</code> variable object, a new <a href="/docs/v3/functions/global#defined">global</a> function <a href="https://github.com/textwire/textwire/issues/56">#56</a>, the ability to register custom functions for the object type, and improvements to error handling, performance <a href="https://github.com/textwire/textwire/issues/61">#61</a> <a href="https://github.com/textwire/textwire/issues/60">#60</a> <a href="https://github.com/textwire/textwire/issues/59">#59</a>, and usability <a href="https://github.com/textwire/textwire/issues/35">#35</a>.`,
