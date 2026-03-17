@@ -6,6 +6,8 @@ outline: deep
 
 # Upgrade Guide
 
+Upgrading Textwire from v3 to v4 shoud be very simple. There are only 3 breaking changes and you might not be effected by them. Still, follow this guide to see all the steps that you need to make to migrate to Textwire 4.
+
 ## Steps
 
 Follow the steps below to upgrade your Textwire project to v4.
@@ -73,3 +75,39 @@ func initTpl() (*textwire.Template, error) {
 	return tpl, nil
 }
 ```
+
+### 4. Rename `@continueIf` and `@breakIf`
+
+If you are using `@continueIf` or `@breakIf` directives, change them to be lowercase.
+
+| Old Name      | New name      |
+| ------------- | ------------- |
+| `@breakIf`    | `@breakif`    |
+| `@continueIf` | `@continueIf` |
+
+### 4. Check Postfix Statement Usage
+
+In Textwire 4, incrementing and decrementing a variable has changed from expression to a statement. It means that this `n++` or `n--` cannot be used as an expression and it doesn't return a value.
+
+In Textwire 3, this <code v-pre>{{ n = 0; n++ }}</code> would print `1` because `n++` expression was evaluated to `1`.
+
+In version 4, we follow Go's approach and make it behave the same way. <code v-pre>{{ n = 0; n++ }}</code> will evaluated to nothing because `n++` is a statement that re-assigns `n` to a new value. You can read more about [postfix statement here](/v4/language-elements/statements#postfix-operations).
+
+So, if you do use postfix as an expression, change `n++` to `n + 1`. Keep in mind that it doesn't apply to `@for` directives header. It will still work the same way as before. Except when you expect increment to print value. Example:
+
+```textwire
+@for(i = 0; i < items.len(); i++)
+    {{ i++ }}
+@end
+```
+
+In this case, change it to this:
+
+```textwire
+@for(i = 0; i < items.len(); i++)
+    {{ i++ }} // [!code --]
+    {{ i + 1 }} // [!code ++]
+@end
+```
+
+But `i++` in loop header still works the same way.
