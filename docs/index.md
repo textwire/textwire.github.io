@@ -8,10 +8,10 @@ hero:
     actions:
         - theme: brand
           text: Get Started →
-          link: /v3/get-started
+          link: /v4/get-started
         - theme: alt
           text: Introduction
-          link: /v3/
+          link: /v4/
     image:
         src: /images/logo.png
         alt: Textwire Logo
