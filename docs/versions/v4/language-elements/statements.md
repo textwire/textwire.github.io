@@ -8,8 +8,8 @@ outline: 2-3
 
 Statements in Textwire perform actions but do not return values. Unlike expressions, statements cannot be nested within other expressions and do not produce output directly.
 
-- **[Assignment](#assignment)** — <code v-pre>{{ x = 5 }}</code>
-- **[Postfix Operations](#postfix-operations)** — <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
+- **[Assignment](#assignment)** <code v-pre>{{ x = 5 }}</code>
+- **[Postfix Operations](#postfix-operations)** <code v-pre>{{ x++ }}</code> or <code v-pre>{{ x-- }}</code>
 
 ---
 
@@ -20,7 +20,7 @@ The assignment statement declares variables and assigns values using the `=` ope
 ### Syntax
 
 ```textwire
-{{ variableName = value }}
+{{ myVar = value }}
 ```
 
 ### Examples
