@@ -4,7 +4,7 @@ export const blogPosts: BlogPost[] = [
     {
         url: '/blog/2026-03-20-textwire-v4',
         title: 'Version 4 Release Notes',
-        intro: `Textwire 4 is a major release that introduces error handling improvements and no feature additions.`,
+        intro: `Textwire 4 is a major release that introduces error handling improvements and consistency improvements. Most of the work was internal and will not effect the API, but there are still things you need to pay attention.`,
     },
     {
         url: '/blog/2026-02-05-textwire-v3',
