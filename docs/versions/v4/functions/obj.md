@@ -22,7 +22,7 @@ Converts object keys to camel case and returns it. Useful when you need to pass 
 #### Output:
 
 ```json
-{firstName: "Serhii", lastName: "Cho"}
+{ "firstName": "Serhii", "lastName": "Cho" }
 ```
 
 ## json
@@ -41,9 +41,21 @@ Converts object to a JSON string and returns it.
 
 #### Output:
 
-```json
-{"name":"Chiori","element":"Geo"}
+```html
+{&#34;element&#34;:&#34;Geo&#34;,&#34;name&#34;:&#34;Chiori&#34;}
 ```
+
+### Important Notes
+
+- **Raw (non-encoded) JSON.** To get non-encoded JSON, use [raw](/v4/functions/str#raw) function:
+    ```textwire
+    {{ myObj.json().raw() }}
+    {{-- Ouput: {"name":"Chiori","element":"Geo"} --}}
+    ```
+- **Pass to JavaScript through props.** Look at this Vue.js example showing how to pass JSON object from Textwire to JavaScript frameworks using props:
+    ```textwire
+    <post-likes :post="{{ post.camel().json() }}" />
+    ```
 
 ## get
 

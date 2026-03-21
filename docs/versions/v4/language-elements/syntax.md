@@ -49,6 +49,14 @@ Many JavaScript frameworks and libraries use the `@` symbol or <code v-pre>{{ }}
 
 For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or braces statements.
 
+### Passing JSON through props
+
+When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/v4/functions/obj#camel) function to convert object keys to camel case and [json](/v4/functions/obj#json) function to convert the object to a JSON string. Example:
+
+```textwire
+<post-likes :post="{{ post.camel().json() }}" />
+```
+
 ## Types and Literals
 
 Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
