@@ -12,11 +12,21 @@ This guide shows you how to escape Textwire code when needed and how to pass dat
 
 ## Escaping
 
-JavaScript frameworks often use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
+JavaScript frameworks often use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`. Escape Textwire code by prefixing it with a backslash (`\`). For example:
 
-For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or embedded code. Textwire will remove the backslash and output `@if(x == 1)` and <code v-pre>{{ x = 1 }}</code> as-is in the final HTML, allowing JavaScript frameworks to handle them.
+```textwire
+<p>\{{ posts.length }}</p>
+<p>\@use("~base")</p>
+```
 
-## Passing JSON through props
+will be rendered as:
+
+```html
+<p>{{ posts.length }}</p>
+<p>@use("~base")</p>
+```
+
+## Passing JSON to JavaScript
 
 When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/v4/functions/obj#camel) function to convert object keys to camel case and [json](/v4/functions/obj#json) function to convert the object to a JSON string. Example:
 
