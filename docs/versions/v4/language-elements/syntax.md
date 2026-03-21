@@ -7,8 +7,8 @@ description: Textwire has a simple syntax that is easy to learn
 
 Textwire’s syntax is straightforward and easy to learn. Below are the key rules for writing Textwire code:
 
-- **File Extensions**: All HTML files intended for Textwire parsing must have a `.tw` extension.
-- **Code Placement**: All Textwire code must either:
+- **File Extensions:** All HTML files intended for Textwire parsing must have a `.tw` extension.
+- **Code Placement:** All Textwire code must either:
     - Be enclosed within <code v-pre>{{ }}</code> braces, or
     - Start with the `@` symbol.
 
@@ -27,6 +27,22 @@ Directives are Textwire statements that begin with the `@` symbol. They define l
 
 Read about directives on [Directives](/v4/language-elements/directives) page.
 
+## Escaping
+
+Escape Textwire code by prefixing it with a backslash (`\`). For example:
+
+```textwire
+<p>\{{ not code }}</p>
+<p>\@use("~base")</p>
+```
+
+will be rendered as:
+
+```html
+<p>{{ not code }}</p>
+<p>@use("~base")</p>
+```
+
 ## Embedded
 
 Embedded code begins with <code v-pre>{{</code> and end with <code v-pre>}}</code>. It is used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Embedded code can be placed anywhere in the file, except within directives.
@@ -42,20 +58,6 @@ Embedded code begins with <code v-pre>{{</code> and end with <code v-pre>}}</cod
 - **Return Values**: All embedded code returns a string.
 - Defining a variable like <code v-pre>{{ x = 5 }}</code> doesn't return anything.
 - Expressions like <code v-pre>{{ 5 + 5 }}</code> will return a result. In this case, it's `"10"`.
-
-## Textwire with JavaScript
-
-JavaScript frameworks often use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
-
-For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or embedded code.
-
-### Passing JSON through props
-
-When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/v4/functions/obj#camel) function to convert object keys to camel case and [json](/v4/functions/obj#json) function to convert the object to a JSON string. Example:
-
-```textwire
-<post-likes :post="{{ post.camel().json() }}" />
-```
 
 ## Types and Literals
 

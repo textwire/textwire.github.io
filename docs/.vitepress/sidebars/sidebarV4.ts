@@ -14,6 +14,7 @@ export const sidebarV4: DefaultTheme.SidebarItem[] = [
             { text: 'Configurations', link: '/v4/api/configurations' },
             { text: 'Template Embedding', link: '/v4/api/template-embedding' },
             { text: 'Development', link: '/v4/api/development' },
+            { text: 'JavaScript', link: '/v4/api/javascript' },
         ],
     },
     {
