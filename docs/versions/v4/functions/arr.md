@@ -79,9 +79,21 @@ Converts array to a JSON string and returns it.
 
 #### Output:
 
-```json
-["one","two",false,10]
+```html
+[&#34;one&#34;,&#34;two&#34;,false,10]
 ```
+
+### Important Notes
+
+- **Raw (non-encoded) JSON.** To get non-encoded JSON, use [raw](/v4/functions/str#raw) function:
+    ```textwire
+    {{ myArr.json().raw() }}
+    {{-- Ouput: ["one","two",false,10] --}}
+    ```
+- **Pass to JavaScript through props.** Look at this Vue.js example showing how to pass JSON array from Textwire to JavaScript frameworks using props:
+    ```textwire
+    <post-likes :post="{{ likes.json() }}" />
+    ```
 
 ## join
 

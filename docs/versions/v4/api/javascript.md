@@ -21,7 +21,23 @@ For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be par
 When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/v4/functions/obj#camel) function to convert object keys to camel case and [json](/v4/functions/obj#json) function to convert the object to a JSON string. Example:
 
 ```textwire
+{{ post = {
+    Title: "Securing Your Digital Life: A Programmer's Action Plan",
+    URL: "https://serhiicho.com/posts/securing-your-digital-life-a-programmers-action-plan",
+    CreatedAt: "Sep 18, 2025",
+} }}
+
 <post-likes :post="{{ post.camel().json() }}" />
+```
+
+In your JavaScript, you'll get this JSON:
+
+```json
+{
+    "title": "Securing Your Digital Life: A Programmer's Action Plan",
+    "url": "https://serhiicho.com/posts/securing-your-digital-life-a-programmers-action-plan",
+    "createdAt": "Sep 18, 2025"
+}
 ```
 
 If you don't use `camel` function, your JSON keys will be in snake case, which may not work well with JavaScript frameworks that expect camel case. By using `camel` and `json` together, you ensure that your data is properly formatted for JavaScript consumption.
