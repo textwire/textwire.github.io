@@ -1,5 +1,5 @@
 ---
-title: Syntax & Types - v2
+title: Syntax & Types - v3
 description: Textwire has a simple syntax that is easy to learn
 ---
 

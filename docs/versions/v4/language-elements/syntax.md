@@ -1,5 +1,5 @@
 ---
-title: Syntax & Types - v2
+title: Syntax & Types - v4
 description: Textwire has a simple syntax that is easy to learn
 ---
 
@@ -13,23 +13,23 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
     - Start with the `@` symbol.
 
 :::tip Syntax Highlighting
-If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+If you use Neovim or VSCode, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 :::
 
 ## Directives
 
-Directives are special Textwire statements that begin with the `@` symbol. They are used to define layouts, insert content into reserved placeholders, and perform logical operations such as conditionals and loops. Directives can only be placed within HTML code and are not allowed inside braces statements (<code v-pre>{{</code> and <code v-pre>}}</code>).
+Directives are Textwire statements that begin with the `@` symbol. They define layouts, insert content into placeholders, and perform logical operations like conditionals and loops. Directives can only be placed within HTML and cannot be used inside braces statements (<code v-pre>{{</code> and <code v-pre>}}</code>).
 
 ### Important Notes
 
-- **Expressions and Variables**: Directives support Textwire expressions and variables, e.g., `@if(x == 1)` or `@use(layoutName)`.
-- **Closing Directives**: Directives with a body, such as `@if`, `@for`, `@each`, and `@component`, must be closed using the `@end` keyword.
+- **Expressions and Variables**: Directives support expressions and variables, such as `@if(x == 1)` or `@use(layoutName)`.
+- **Closing Directives**: Directives with a body (like `@if`, `@for`, `@each`, and `@component`) must be closed with the `@end` keyword.
 
 Read about directives on [Directives](/v4/language-elements/directives) page.
 
-## Braces Statements
+## Embedded
 
-Braces statements are special Textwire constructs that begin with <code v-pre>{{</code> and end with <code v-pre>}}</code>. They are used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Braces statements can be placed anywhere in the file, except within directives.
+Embedded code begins with <code v-pre>{{</code> and end with <code v-pre>}}</code>. It is used for defining variables, performing arithmetic operations, conditionally rendering content, and more. Embedded code can be placed anywhere in the file, except within directives.
 
 ### Important Notes
 
@@ -41,13 +41,13 @@ Braces statements are special Textwire constructs that begin with <code v-pre>{{
 
 - **Return Values**: All braces statements return a string.
 - Defining a variable like <code v-pre>{{ x = 5 }}</code> doesn't return anything.
-- Expressions like <code v-pre>{{ 5 + 5 }}</code> will return result. In this example it's `"10"`.
+- Expressions like <code v-pre>{{ 5 + 5 }}</code> will return a result. In this case, it's `"10"`.
 
 ## Textwire with JavaScript
 
-Many JavaScript frameworks and libraries use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
+JavaScript frameworks often use the `@` symbol or <code v-pre>{{ }}</code> for their own purposes. To avoid conflicts, you escape it with a backslash `\`.
 
-For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or braces statements.
+For example, `\@if(x == 1)` and <code v-pre>\\{{ x = 1 }}</code> will not be parsed as Textwire directives or embedded code.
 
 ### Passing JSON through props
 
@@ -59,7 +59,7 @@ When you need to pass a JSON object from Textwire to JavaScript frameworks using
 
 ## Types and Literals
 
-Textwire has a different type system that Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
+Textwire has a different type system from Go. When you pass a variable to Textwire, it will be automatically converted to a Textwire type. Here is a list of supported types that you can pass to Textwire or define in Textwire:
 
 | Textwire type | Equivalent Go types                                                                                                                                         |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -75,7 +75,7 @@ The biggest difference in types and type literals between Textwire and Go is tha
 
 ## Nullable Types
 
-Like in Go, each type in Textwire has its nullable version. Here is the table of nullable types:
+Like Go, each type in Textwire has a nullable version. Here is the table of nullable types:
 
 | Type      | Empty Literal | Description   |
 | --------- | ------------- | ------------- |
