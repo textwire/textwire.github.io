@@ -18,7 +18,7 @@ If you use Neovim or VSCode, you can use our [Neovim plugin](https://github.com/
 
 ## Directives
 
-Directives are Textwire statements that begin with the `@` symbol. They define layouts, insert content into placeholders, and perform logical operations like conditionals and loops. Directives can only be placed within HTML and cannot be used inside braces statements (<code v-pre>{{</code> and <code v-pre>}}</code>).
+Directives are Textwire statements that begin with the `@` symbol. They define layouts, insert content into placeholders, and perform logical operations like conditionals and loops. Directives can only be placed within HTML and cannot be used inside braces (<code v-pre>{{</code> and <code v-pre>}}</code>).
 
 ### Important Notes
 
@@ -33,13 +33,13 @@ Embedded code begins with <code v-pre>{{</code> and end with <code v-pre>}}</cod
 
 ### Important Notes
 
-- **Multiple Expressions**: Use a semicolon (`;`) to separate multiple expressions inside braces. For example:
+- **Multiple Expressions**: Use a semicolon (`;`) to separate multiple statements/expressions inside braces. For example:
 
     ```textwire
-    {{ x = 5; y = 10 }}
+    {{ x = 5; x++; x }}
     ```
 
-- **Return Values**: All braces statements return a string.
+- **Return Values**: All embedded code returns a string.
 - Defining a variable like <code v-pre>{{ x = 5 }}</code> doesn't return anything.
 - Expressions like <code v-pre>{{ 5 + 5 }}</code> will return a result. In this case, it's `"10"`.
 
