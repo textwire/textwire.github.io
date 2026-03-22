@@ -159,9 +159,8 @@ You'll get the same output as before:
 
 If you are just printing strings to your HTML, nothing will change because `&#34;` entity is the valid double quote character in HTML, and `&#39;` is the valid single quote character. However, if you were relying on unencoded quotes for some reason (e.g., in JavaScript attributes), you may need to update your templates to use `raw()` where necessary.
 
-:::danger
-Be careful with `raw()` function as it can introduce XSS vulnerabilities if used with untrusted input. Always ensure that any data passed to `raw()` is properly sanitized. Don't print user input with `raw()` unless you are sure it's safe.
-:::
+> [!CAUTION] Be careful with `raw()` function
+> Be careful with `raw()` function as it can introduce XSS vulnerabilities if used with untrusted input. Always ensure that any data passed to `raw()` is properly sanitized. Don't print user input with `raw()` unless you are sure it's safe.
 
 ## Verification Checklist
 

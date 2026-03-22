@@ -10,9 +10,8 @@ Textwire is a domain-specific language (DSL) tailored for Go projects as a templ
 
 Built specifically for Go, Textwire offers a clean and intuitive syntax that simplifies the injection of variables and logic into any text-based format.
 
-:::tip Syntax Highlighting
-If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
-:::
+> [!TIP] Syntax Highlighting
+> If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 
 Textwire enables the integration of dynamic content into HTML files to create data-driven, responsive pages.
 
@@ -70,9 +69,8 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 - Logical AND: `&&` (`a && b`)
 - Logical OR: `||` (`a || b`)
 
-:::warning Type Mismatching
-Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as <code v-pre>{{ 3 * 2.3.int() }}</code>, <code v-pre>{{ 3.3 + 2.float() }}</code>, etc.
-:::
+> [!WARNING] Type Mismatching
+> Type mismatching is not supported when performing mathematical operations. For example, you cannot add an integer to a float directly. Type conversion is required to match types using conversion functions such as <code v-pre>{{ 3 * 2.3.int() }}</code>, <code v-pre>{{ 3.3 + 2.float() }}</code>, etc.
 
 ## Reserved Variable Names
 

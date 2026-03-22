@@ -13,11 +13,10 @@ Textwire provides configuration options to customize template behavior. You can 
 2. **Passing to `textwire.NewTemplate`:**
    Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
 
-:::info Configuration Scope
-Setting configurations with `Configure` and `NewTemplate` functions is only applied when you use Textwire as templating system.
-
-For simple string evaluations with `EvaluateString` or `EvaluateFile`, configurations are ignored.
-:::
+> [!NOTE] Configuration Scope
+> Setting configurations with `Configure` and `NewTemplate` functions is only applied when you use Textwire as templating system.
+>
+> For simple string evaluations with `EvaluateString` or `EvaluateFile`, configurations are ignored.
 
 ## Setting Configurations
 
@@ -54,9 +53,8 @@ All Textwire configurations are optional and include sensible default values. Re
 | `FileWatcher`     | Enables Files Watcher to watch Textwire files for changes and refresh the content. [Read more](/v4/api/development#file-watcher).<br><br>- Type: `bool`<br>- Default: `false`                                                                |
 | `WatcherInterval` | Change how frequently your want to make the File Watcher check for changes in your templates. You cannot set the value lower than a second. [Read more](/v4/api/development#watcher-interval).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
 
-:::warning Extension Compatibility
-If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
-:::
+> [!WARNING] Extension Compatibility
+> If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
 
 ## Global Data
 

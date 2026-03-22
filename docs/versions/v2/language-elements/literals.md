@@ -45,9 +45,8 @@ You can use float literals and perform arithmetic operations with them. Here is 
 <span>{{ 1.534 + 2.5 }}</span>
 ```
 
-:::warning Precision Limit
-Most languages (including Textwire) use **IEEE 754 standard** for floating-point numbers. These floating-point types have a finite precision and are unable to accurately represent more than approximately 15-17 digits. For example `1234567890.1234567890` will be rounded to `1234567890.1234567` in Textwire because of the precision limit of floating-point numbers. If you need to work with large numbers, you can keep them as strings.
-:::
+> [!WARNING] Precision Limit
+> Most languages (including Textwire) use **IEEE 754 standard** for floating-point numbers. These floating-point types have a finite precision and are unable to accurately represent more than approximately 15-17 digits. For example `1234567890.1234567890` will be rounded to `1234567890.1234567` in Textwire because of the precision limit of floating-point numbers. If you need to work with large numbers, you can keep them as strings.
 
 ## Boolean
 You can use boolean literals to check if a variable is true or false. Here is an example of using boolean literals:
@@ -109,9 +108,8 @@ You can access values in an object by using a key. Here is an example of accessi
 </ul>
 ```
 
-:::tip Structs to Objects
-Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
-:::
+> [!TIP] Structs to Objects
+> Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 
 #### Shorthand Property Notation
 Similar to objects in JavaScript, you can use shorthand property notation to define an object. Here is an example of using shorthand property notation:

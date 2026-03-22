@@ -143,6 +143,5 @@ err = textwire.RegisterStrFunc("_duplicate", func(s string, args ...any) any {
 4. **Validate arguments** before processing
 5. **Use descriptive names** for clarity
 
-:::warning Naming Conflicts
-To avoid conflicts with built-in functions, always prefix your custom functions with an underscore (_). Built-in functions take precedence over custom ones, so defining a custom function with the same name as a built-in function will cause the built-in function to be used.
-:::
+> [!WARNING] Naming Conflicts
+> To avoid conflicts with built-in functions, always prefix your custom functions with an underscore (_). Built-in functions take precedence over custom ones, so defining a custom function with the same name as a built-in function will cause the built-in function to be used.

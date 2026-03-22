@@ -101,9 +101,8 @@ You can assign and declare variables by using the `=` operator. Here is an examp
 
 You cannot assign values to variables that have a different type. For example, you cannot do <code v-pre>{{ x = "Hello"; x = 3 }}</code> because `x` is a string and then you are trying to assign an integer to it. In Textwire, you don't need to declare type of a variable, it will be automatically inferred from the value that you assign to it.
 
-:::tip Declaration Has No Output
-Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
-:::
+> [!TIP] Declaration Has No Output
+> Variable declaration statements are not expressions! They don't return any value and can't be used inside of other expressions. Therefore, they don't print anything to the output.
 
 ## Use Statement
 `@use` statements allow you to specify a layout file that will be used to render the current template. This feature is useful for creating reusable layouts that can be applied to multiple templates.
@@ -120,15 +119,13 @@ Or, you can use a path alias like this:
 @use("~main")
 ```
 
-:::info Use Statement Path Alias
-If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
-:::
+> [!NOTE] Use Statement Path Alias
+> If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. For example, `@use("~main")` instead of `@use("layouts/main")`. Behind the scenes, the `~` alias will be replaced with `layouts/`.
 
 The `@use` statement accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v2/guides/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v2/guides/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout statement like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
-:::info Understanding the @use Directive
-When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
-:::
+> [!NOTE] Understanding the @use Directive
+> When you use the `@use` directive, only the content inside [`@insert`](#insert-statement) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` directive applies a layout file instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your [`@insert`](#insert-statement) directives.
 
 ## Insert Statement
 The `@insert` statement lets you inject content into placeholders defined by the [`@reserve`](#reserve-statement) statement in your layout file. This feature enables flexible template structuring and reusability.
@@ -174,9 +171,8 @@ When defining a layout file for your template, you can reserve placeholders for 
 </html>
 ```
 
-:::info Pass Variables to the Layout
-All variables passed to the template file are also available in the layout file. This means you can replace `@reserve("title")` with <code v-pre>{{ title }}</code> and define the `title` variable in each template file. In other words, variables available in the template file can be seamlessly used within the layout file.
-:::
+> [!NOTE] Pass Variables to the Layout
+> When you use `@use` directive in your template, you can pass variables to the layout file by using the second argument of the `@use` directive. For example, `@use("layouts/main", { title: "Home" })` will pass the `title` variable to the layout file. The layout file can access this variable using the `$title` variable. Learn more about [passing variables to layouts](/v2/guides/template-usage#passing-data-to-layouts).
 
 The `@reserve` statement accepts a single argument: the name of the reserved placeholder. This name will be used in the [`@insert`](#insert-statement) statement to insert content into the corresponding placeholder.
 
@@ -204,13 +200,11 @@ Here’s a simple example of using a component:
 </div>
 ```
 
-:::warning Component Body Required
-Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
-:::
+> [!WARNING] Component Body Required
+> Component cannot have empty body and be like `@component("components/post-card", { post })@end`. In this situations it's important to remove `@end` token.
 
-:::info Component Path Alias
-If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
-:::
+> [!NOTE] Component Path Alias
+> If your components are located in the `components` directory, you can use the `~` alias to reference them. For example, `@component("~post-card", { post })` instead of `@component("components/post-card", { post })`. Behind the scenes, the `~` alias will be replaced with `components/`.
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
@@ -266,9 +260,8 @@ We can now use `book.tw` component in our Textwire files like this:
 
 In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
 
-:::info Important Note
-Defining multiple slots with the same name, or defining 2 default slots in a single component will result in an error.
-:::
+> [!NOTE] Important Note
+> If you are using the `@use` directive in the same file where you define components, keep in mind that the `@use` directive replaces the entire content of the file. Therefore, your component definitions should be placed in a separate file, and not in the same file as the `@use` directive.
 
 ## Dump Directive
 The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v2/language-elements/literals#object), [arrays](/v2/language-elements/literals#array), [strings](/v2/language-elements/literals#string) and other data types to the screen.

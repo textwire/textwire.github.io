@@ -12,9 +12,8 @@ This guide covers development features to make building with Textwire faster.
 
 File Watcher watches all of your template files for changes and automatically reparses them when they are modified. It doesn't work with `TemplateFS` configuration enabled! Disable it to use file refresh functionality.
 
-:::warning Only For Development
-This is intended for development use only and should not be enabled in production due to performance implications.
-:::
+> [!WARNING] Only For Development
+> This is intended for development use only and should not be enabled in production due to performance implications.
 
 ### Configuration Example
 

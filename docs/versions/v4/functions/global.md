@@ -93,9 +93,8 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 {{-- Error: method 'somemethod' does not exist on type 'string' --}}
 ```
 
-:::tip Best Practice
-Use `defined()` when working with optional variables in components to avoid runtime errors when the variable is not passed to the template.
-:::
+> [!TIP] Best Practice
+> Use `defined()` when working with optional variables in components to avoid runtime errors when the variable is not passed to the template.
 
 ## hasValue
 
@@ -123,6 +122,5 @@ If you pass more than 1 variable, the function will return `true` if all variabl
 No value
 ```
 
-:::tip Best Practice
-Use `hasValue()` when you need to know for sure that the variable is defined and contains [non-zero value](/v4/language-elements/syntax#nullable-types).
-:::
+> [!TIP] Best Practice
+> Use `hasValue()` when you need to know for sure that the variable is defined and contains [non-zero value](/v4/language-elements/syntax#nullable-types).

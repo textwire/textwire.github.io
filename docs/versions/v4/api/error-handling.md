@@ -76,15 +76,14 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 :::
 
-:::danger Don't Double-Handle Errors
-When `tpl.Response()` returns `*fail.Error`, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML **exposing error message in production**. Just log the error to the console, not browser:
-
-```go
-if err := tpl.Response(w, "views/home", data); err != nil {
-    err.PrintOnError() // [!code highlight]
-}
-```
-:::
+> [!CAUTION] Don't Double-Handle Errors
+> When `tpl.Response()` returns `*fail.Error`, Textwire has already rendered an error page. Don't call `http.Error()` as it will inject plain text and corrupt the HTML **exposing error message in production**. Just log the error to the console, not browser:
+>
+> ```go
+> if err := tpl.Response(w, "views/home", data); err != nil {
+>     err.PrintOnError() // [!code highlight]
+> }
+> ```
 
 You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v4/api/error-handling#custom-error-pages).
 
@@ -110,9 +109,8 @@ Without custom configuration, Textwire displays a pre-defined static HTML page:
 
 You can replace the default error page with your own design.
 
-:::warning Debug Mode Only
-Custom error pages only appear when `DebugMode` is `false`. Debug mode always shows detailed error information. Don't forget to disable debug mode in production.
-:::
+> [!WARNING] Debug Mode Only
+> Custom error pages only appear when `DebugMode` is `false`. Debug mode always shows detailed error information. Don't forget to disable debug mode in production.
 
 ##### Configuration
 
@@ -154,9 +152,8 @@ Use layouts and Textwire syntax. You can access [global data](/v4/api/configurat
 
 Save this file in your templates directory (e.g., `templates/error-page.tw`).
 
-:::info Security Considerations
-Hiding detailed errors in production protects against information disclosure. This maintains data integrity and security. Read more in the [FAQ section](/v4/faq#prevent-visitors-from-seeing-error).
-:::
+> [!NOTE] Security Considerations
+> Error objects may contain sensitive information like file paths or internal details. Never expose full error details to end users in production environments.
 
 If the custom error page is missing or has errors, Textwire falls back to the default production error page.
 

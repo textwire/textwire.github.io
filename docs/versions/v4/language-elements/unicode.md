@@ -32,7 +32,6 @@ Directives that accept file names—like `@component`, `@use`, `@insert`, `@rese
 @use('♥️/главная')
 ```
 
-:::warning No Unicode for Identifiers
-Unicode characters cannot be used in variable names, function names, or object fields. Only ASCII letters (a-z, A-Z), digits (0-9), and underscores are allowed. For example, `user_name` is valid, but `用户名` and `имя` are not.
-:::
+> [!WARNING] No Unicode for Identifiers
+> Unicode characters cannot be used in variable names, function names, or object fields. Only ASCII letters (a-z, A-Z), digits (0-9), and underscores are allowed. For example, `user_name` is valid, but `用户名` and `имя` are not.
 

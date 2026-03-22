@@ -53,9 +53,8 @@ Directives and statements are fundamental elements of the Textwire language. Bot
 - **Directives** start with the `@` symbol (e.g., `@use`, `@if`, `@for`)
 - **Statements** are expressions that perform an action but don't return a value (e.g., <code v-pre>{{ x = 5 }}</code>)
 
-:::info Learn More
-See the [Directives](/v3/language-elements/directives) section for a complete reference.
-:::
+> [!NOTE] Learn More
+> See the [Directives](/v3/language-elements/directives) section for a complete reference.
 
 ## What are the Path Aliases?
 
