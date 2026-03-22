@@ -141,6 +141,28 @@ Just don't use postfix operators where you need their return value:
 @end
 ```
 
+## 5. Improved String Encoding
+
+Textwire was always encoding printed strings since the first version release, the only exception was that single and double quotes weren't encoded with HTML entities. In v4, all quotes are now properly encoded, which may affect how your templates render if you were relying on unencoded quotes.
+
+We did it this for security reasons, to prevent XSS vulnerabilities in your templates. If you need to output unencoded quotes, you can use the [raw](/v4/functions/str#raw) function as before:
+
+```textwire
+<span>{{ "\"double\" and 'single' quotes".raw() }}</span>
+```
+
+You'll get the same output as before:
+
+```html
+<span>"double" and 'single' quotes</span>
+```
+
+If you are just printing strings to your HTML, nothing will change because `&#34;` entity is the valid double quote character in HTML, and `&#39;` is the valid single quote character. However, if you were relying on unencoded quotes for some reason (e.g., in JavaScript attributes), you may need to update your templates to use `raw()` where necessary.
+
+:::danger
+Be careful with `raw()` function as it can introduce XSS vulnerabilities if used with untrusted input. Always ensure that any data passed to `raw()` is properly sanitized. Don't print user input with `raw()` unless you are sure it's safe.
+:::
+
 ## Verification Checklist
 
 After completing the migration:
@@ -152,6 +174,7 @@ After completing the migration:
 5. <input type="checkbox"> Postfix operators used correctly (not as expressions)
 6. <input type="checkbox"> Error handling updated for `*fail.Error`
 7. <input type="checkbox"> Project compiles successfully
+8. <input type="checkbox"> Project prints proper strings
 
 ## Need Help?
 
