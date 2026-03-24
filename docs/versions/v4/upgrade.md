@@ -164,6 +164,22 @@ In v4, single and double quotes are now HTML-encoded. Previously, only `<> &` we
 > [!WARNING] XSS Risk
 > If you need unencoded output, use `raw()` with extreme caution. Never use `raw()` with user input - only for trusted hardcoded strings.
 
+## 6. `time.Time` Handling Changes
+
+In v4, `time.Time` values from Go are now automatically converted to datetime strings using `2006-01-02 15:04:05` layout. Previously, they were converted to empty objects <code v-pre>{}</code>.
+
+**Before (v3 output):**
+
+```textwire
+{{ createdAt }} {{-- Outputs: {} --}}
+```
+
+**After (v4 output):**
+
+```textwire
+{{ createdAt }} {{-- Outputs: 1990-12-23 11:22:33 --}}
+```
+
 ## Verification Checklist
 
 After completing the migration:
@@ -174,8 +190,9 @@ After completing the migration:
 4. <input type="checkbox"> All `@continueIf` renamed to `@continueif`
 5. <input type="checkbox"> Postfix operators used correctly (not as expressions)
 6. <input type="checkbox"> Error handling updated for `*fail.Error`
-7. <input type="checkbox"> Project compiles successfully
-8. <input type="checkbox"> Project prints proper strings
+7. <input type="checkbox"> `time.Time` values display correctly as datetime strings
+8. <input type="checkbox"> Project compiles successfully
+9. <input type="checkbox"> Project prints proper strings
 
 ## Need Help?
 
