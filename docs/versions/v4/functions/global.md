@@ -96,6 +96,32 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 > [!TIP] Best Practice
 > Use `defined()` when working with optional variables in components to avoid runtime errors when the variable is not passed to the template.
 
+## formatDate
+
+```ts
+formatDate(date: string|integer, layout: string): string
+```
+
+Function `formatDate` converts given string date or integer timestamp to a formatted date string using Go's [format layout](https://pkg.go.dev/time#Layout). It accepts two arguments, the first one is the date you want to format and the second one is the layout you want to use for formatting. The function returns a formatted date string.
+
+#### Arguments:
+
+1. `date` (string|integer) - Date string or timestamp
+2. `layout` (string) - Layout from Go's `time.Time` package. Read [here](https://pkg.go.dev/time#Layout).
+
+#### Input Example:
+
+```textwire
+{{ myDate = "2026-03-24 13:03:25" }}
+{{ formatDate(myDate, "15:04:05") }}
+```
+
+#### Output:
+
+```html
+13:03:25
+```
+
 ## hasValue
 
 ```ts
