@@ -10,7 +10,7 @@ description: Learn how to define and use custom functions in Textwire, enabling 
 Custom functions are user-defined functions in your Go code that extend Textwire's capabilities beyond built-in functions. They were introduced in Textwire `v2.0.0` and allow you to create type-specific operations invoked using the dot operator `.` followed by the function name.
 
 ```textwire
-{{ "John Wick"._isCool() }}`
+{{ "Arlecchino"._isCool() }}`
 ```
 
 Custom functions can accept variadic arguments and return values of any type, enabling you to perform custom operations on Textwire data types.
@@ -32,12 +32,37 @@ All registration methods return `*fail.Error`.
 
 ## Defining Custom Functions
 
-**Example: String Function**
+> [!WARNING] Naming Conflicts
+> To avoid conflicts with built-in functions, always prefix your custom functions with an underscore (\_). Built-in functions take precedence over custom ones, so defining a custom function with the same name as a built-in function will cause the built-in function to be used.
+
+**Example: Register String Function**
+
+Here is a useful example for registering function that converts string date to human-readable time ago format:
 
 ```go
-err := textwire.RegisterStrFunc("_isCool", func(s string, args ...any) any {
-    return s == "John Wick"
-})
+import (
+	"fmt"
+
+	"github.com/SerhiiCho/timeago/v3"
+	"github.com/textwire/textwire/v4"
+)
+
+func main() {
+	textwire.RegisterStrFunc("_timeago", func(s string, args ...any) any {
+		out, err := timeago.Parse(s)
+		if err != nil {
+			fmt.Println(err)
+			return ""
+		}
+		return out
+	})
+}
+```
+
+In your Textwire you can now use it like that:
+
+```textwire
+{{ post.CreatedDate._timeago() }} {{-- 14 days ago --}}
 ```
 
 **Other Function Types**
@@ -134,7 +159,7 @@ Registration fails if a custom function name already exists:
 
 ```go
 err := textwire.RegisterStrFunc("_duplicate", func(s string, args ...any) any {
-    return s
+    return s + "2"
 })
 
 // Second registration fails
@@ -151,6 +176,3 @@ err = textwire.RegisterStrFunc("_duplicate", func(s string, args ...any) any {
 3. **Handle edge cases** (empty strings, nil arguments)
 4. **Validate arguments** before processing
 5. **Use descriptive names** for clarity
-
-> [!WARNING] Naming Conflicts
-> To avoid conflicts with built-in functions, always prefix your custom functions with an underscore (\_). Built-in functions take precedence over custom ones, so defining a custom function with the same name as a built-in function will cause the built-in function to be used.
