@@ -166,7 +166,7 @@ In v4, single and double quotes are now HTML-encoded. Previously, only `<> &` we
 
 ## 6. `time.Time` Handling Changes
 
-In v4, `time.Time` values from Go are now automatically converted to datetime strings using `2006-01-02 15:04:05` layout. Previously, they were converted to empty objects <code v-pre>{}</code>.
+In v4, `time.Time` values from Go are now automatically converted to datetime strings using `2006-01-02 15:04:05` layout. Previously, they were converted to empty objects `{}`.
 
 **Before (v3 output):**
 
@@ -179,6 +179,8 @@ In v4, `time.Time` values from Go are now automatically converted to datetime st
 ```textwire
 {{ createdAt }} {{-- Outputs: 1990-12-23 11:22:33 --}}
 ```
+
+If you need custom formatting, use [formatDate](/v4/functions/global#formatdate) global function.
 
 ## Verification Checklist
 
