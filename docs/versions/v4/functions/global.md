@@ -99,21 +99,29 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 ## formatDate
 
 ```ts
-formatDate(date: string|integer, layout: string): string
+formatDate(date: string, layout: string): string
 ```
 
-Function `formatDate` converts given string date or integer timestamp to a formatted date string using Go's [format layout](https://pkg.go.dev/time#Layout). It accepts two arguments, the first one is the date you want to format and the second one is the layout you want to use for formatting. The function returns a formatted date string.
+Function `formatDate` converts given string date to a formatted date string using Go's [format layout](https://pkg.go.dev/time#pkg-constants). It accepts two arguments, the first one is the date you want to format and the second one is the layout you want to use for formatting. The function returns a formatted date string.
 
 #### Arguments:
 
-1. `date` (string|integer) - Date string or timestamp
-2. `layout` (string) - Layout from Go's `time.Time` package. Read [here](https://pkg.go.dev/time#Layout).
+1. `date` (string) - Date string. Can be one of 3 formats.
+2. `layout` (string) - Layout from Go's `time.Time` package. Read [here](https://pkg.go.dev/time#pkg-constants).
+
+#### Available Date Formats:
+
+| Name     | Format                | Example               |
+| -------- | --------------------- | --------------------- |
+| Datetime | `YYYY-MM-DD HH:mm:ss` | `2026-03-24 13:03:25` |
+| Date     | `YYYY-MM-DD`          | `2026-03-24`          |
+| Time     | `HH:mm:ss`            | `13:03:25`            |
 
 #### Input Example:
 
 ```textwire
-{{ myDate = "2026-03-24 13:03:25" }}
-{{ formatDate(myDate, "15:04:05") }}
+{{ createdAt = "2026-03-24 13:03:25" }}
+{{ formatDate(createdAt, "15:04:05") }}
 ```
 
 #### Output:
@@ -121,6 +129,18 @@ Function `formatDate` converts given string date or integer timestamp to a forma
 ```html
 13:03:25
 ```
+
+> [!NOTE] Go's Layout Format
+> Go uses reference time `Mon Jan 2 15:04:05 MST 2006` for layouts instead of placeholders like `HH:mm:ss`. For example, `"January 2, 2006"` produces `March 24, 2026`.
+
+```textwire
+{{ createdAt = "2026-03-24 13:03:25" }}
+{{ formatDate(createdAt, "January 2, 2006 at 3:04 PM") }}
+{{-- Output: March 24, 2026 at 1:03 PM --}}
+```
+
+> [!WARNING] Error Handling
+> If the date doesn't match one of the supported formats, you'll get an error: `global function formatDate() doesn't support date format '%s'`
 
 ## hasValue
 
