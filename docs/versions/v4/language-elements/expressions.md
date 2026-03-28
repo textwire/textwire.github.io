@@ -116,11 +116,11 @@ You can use logical OR (`||`) and logical AND (`&&`) expressions to combine bool
 
 ```textwire
 @if(admin || owner)
-    @component('admin-popup')
+    @component('admin-popup')@end
 @end
 
 @if(isSunny && isWarm)
-    @component('good-weather-widget')
+    @component('good-weather-widget')@end
 @end
 ```
 

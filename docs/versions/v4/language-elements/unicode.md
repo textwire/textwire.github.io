@@ -28,7 +28,7 @@ Keep in mind that with emojis it could be tricky, because some emojis are repres
 Directives that accept file names—like `@component`, `@use`, `@insert`, `@reserve`, and `@slot`—fully support Unicode paths:
 
 ```textwire
-@component('书', { name })
+@component('书', { name })@end
 @use('♥️/главная')
 ```
 
