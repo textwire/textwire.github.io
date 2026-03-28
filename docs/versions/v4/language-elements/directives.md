@@ -282,7 +282,17 @@ Here's an example of how to pass default and named content into a component file
 @end
 ```
 
-In this example, component file `components/book.tw` will receive <code v-pre><img src="{{ book.image }}" alt="{{ book.title }}"></code> for default `@slot` and <code v-pre><small>published by {{ book.author }}</small></code> for named `@slot('footer')`.
+In this example, component file `components/book.tw` will receive code for default `@slot`:
+
+```textwire
+<img src="{{ book.image }}" alt="{{ book.title }}">
+```
+
+and code below for the named `@slot('footer')`:
+
+```textwire
+<small>published by {{ book.author }}</small>
+```
 
 ### Important Notes
 
