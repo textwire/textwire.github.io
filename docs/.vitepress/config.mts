@@ -6,6 +6,7 @@ import { sidebarV3 } from './sidebars/sidebarV3'
 import { sidebarV4 } from './sidebars/sidebarV4'
 
 const EXCLUDE_SEARCH_PREFIXES = ['versions/v1', 'versions/v2', 'versions/v3', 'blog']
+const EXCLUDE_SITEMAP_PREFIXES = ['v1/', 'v2/', 'v3/']
 const VERSIONS = ['v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
 const TM_GRAMMAR_URL =
     'https://raw.githubusercontent.com/textwire/vscode-textwire/refs/heads/master/syntaxes/textwire.tmLanguage.json'
@@ -23,7 +24,6 @@ async function fetchTextwireGrammar() {
     twLang.name = twLang.name.toLowerCase()
     return twLang
 }
-
 
 export default defineVersionedConfig(
     {
