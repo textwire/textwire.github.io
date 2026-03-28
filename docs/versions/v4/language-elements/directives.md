@@ -13,7 +13,7 @@ Textwire directives provide control over your templates through commands that be
 - [@reserve](#reserve) `@reserve("title")`
 - [@for](#for) `@for(i = 0; i < 2; i++)`
 - [@each](#each) `@each(name in names)`
-- [@component](#component) `@component("components/post-card")`
+- [@component](#component) `@component("components/post-card")@end`
 - [@slot](#slot) `@slot('footer')`
 - [@slotif](#slotif) `@slotif(true, 'ooter')`
 - [@dump](#dump) `@dump(users, page)`
@@ -188,10 +188,12 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reseve`, it will fallback to an empty string.
 - **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v4.1.0](https://github.com/textwire/textwire/pull/68).
-- **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [slots](/v4/language-elements/directives#slot). Example:
+- **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/v4/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
-        @slot('title')@reserve('title')@end
+        @pass('title')
+            @reserve('title')
+        @end
     @end
     ```
 
@@ -217,7 +219,7 @@ To include your component use `@component` directive with first argument being t
 ```textwire
 <div class="posts">
     @each(post in posts)
-        @component("components/post-card", { post })
+        @component("components/post-card", { post })@end
     @end
 </div>
 ```
@@ -229,27 +231,25 @@ The second optional argument is an [object](/v4/language-elements/literals#objec
 ```textwire
 <ul>
     @each(book in books)
-        @component("parts/book", { completed: book.completed })
+        @component("parts/book", { completed: book.completed })@end
     @end
 </ul>
 ```
 
-### Imporant Notes
+### Important Notes
 
+- **Always must be closed.** Component directive always requires to be closed with the `@end` directive.
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Layout for components.** You can include layout file into components using [`@use`](/v4/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
-- **No empty body.** Component cannot have empty body and be like `@component("post", { post })@end`. In this situations it's important to remove `@end` token to avoid parsing errors.
 - **Use slots to pass data.** You can use [slot](/v4/language-elements/directives#slot) and [slotif](/v4/language-elements/directives#slotif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v4/faq#what-are-the-path-aliases).
 
 ## @slot
 
-Component slots are a common feature in many template languages and frameworks. Textwire supports both named and default slots, allowing you to pass content into components flexibly.
-
 There are 2 types of slots in Textwire: default slots and named slots.
 
-1. **Default Local Slots**: Use the `@slot` directive to define and pass content to a default slot.
-2. **Named Local Slots**: Use the `@slot("name")` directive to define and pass content to a named slot.
+1. **Default pass**: All of the component's content that is not wrapped in a named slot will be passed to the default slot.
+2. **Named pass**: Use the `@pass("name")@end` directive to define and pass content to a named slot.
 
 Here’s an example of how to use slots in a component. Consider this component:
 
@@ -264,56 +264,44 @@ Here’s an example of how to use slots in a component. Consider this component:
 </div>
 ```
 
-We can now use `book.tw` component in our Textwire files like this:
+## @pass
+
+Passes are a common feature in many template languages and frameworks. Textwire supports both named and default passes, allowing you to pass content into component files.
+
+Here's an example of how to pass default and named content into a component file:
 
 ```textwire :line-numbers
 @each(book in books)
     @component("~book", { book })
-        {{-- default slot --}}
-        @slot
-            <img src="{{ book.image }}" alt="{{ book.title }}">
-        @end
+        <img src="{{ book.image }}" alt="{{ book.title }}">
 
-        {{-- named slot --}}
-        @slot('footer')
+        @pass('footer')
             <small>published by {{ book.author }}</small>
-            <button>Read more</button>
         @end
     @end
 @end
 ```
 
-In this example, both default and named slots are used within a single component. You can include as many slots as needed in a single component, provided that all named slots have unique names.
+In this example, component file `components/book.tw` will receive <code v-pre><img src="{{ book.image }}" alt="{{ book.title }}"></code> for default `@slot` and <code v-pre><small>published by {{ book.author }}</small></code> for named `@slot('footer')`.
 
 ### Important Notes
 
-- **Duplicate names not allowed.** Defining multiple default slots or named slots with the same name in a single component will result in an error.
-- **Empty string is default slot.** If you provide an empty string as a slot name, it will act as default slot. `@slot` and `@slot('')` act the same.
-- **Slots have current context.** Slots have the context of the same file where they are defined. It means you can dinamically modify the content of a slot before it get rendered in the component file.
-- **Slots are optional.** If you don't provide content for a slot, it will be rendered as an empty string.
+- **Duplicate names not allowed.** Defining multiple passes with the same name in a single component will result in an error.
+- **Cannot use empty string as a name.** If you provide an empty string as a name for `@pass` or `@passif`, you'll get an error.
+- **Passes have current context.** Passes have the context of the same file where they are defined. It means you can dynamically modify the content of a pass before it get rendered in the component file.
+- **Passes are optional.** If you don't provide content for a default or named `@slot` in your component file, it will be rendered as an empty string.
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 
-## @slotif
+## @passif
 
-`@sloif` directive combines `@slot` and `@if` directives making it possible to conditionally render a slot. It takes a condition as the first argument and a slot name as the second argument. If the condition is truthy, the content of the slot will be rendered; otherwise, it will be ignored.
+`@passif` directive combines `@pass` and `@if` directives making it possible to conditionally render content. It takes a condition as the first argument and a pass name as the second argument. If the condition is truthy, the content of the pass will be rendered; otherwise, it will be ignored.
 
-There are 2 types of conditional slots in Textwire: default slots and named slots.
-
-1. **Default Slots**: Use the `@slotif(true)` directive to define and pass content to a default slot.
-2. **Named Slots**: Use the `@slotif(true, "name")` directive to define and pass content to a named slot.
-
-Here’s an example of how to use conditional slots in a component. Example:
+Here’s an example of how to use conditional passes in a component. Example:
 
 ```textwire :line-numbers
 @each(book in books)
     @component("~book", { book })
-        {{-- default slotif --}}
-        @slotif(hasImage)
-            <img src="{{ book.image }}" alt="{{ book.title }}">
-        @end
-
-        {{-- named slotif --}}
-        @slotif(hasFooter, 'footer')
+        @passif(hasFooter, 'footer')
             <small>published by {{ book.author }}</small>
             <button>Read more</button>
         @end
@@ -323,9 +311,8 @@ Here’s an example of how to use conditional slots in a component. Example:
 
 ### Important Notes
 
-- **Same rules.** All the rules from [@slot](/v4/language-elements/directives#slot) apply to `@slotif`.
-- **Only inside components** Conditional slots can only be local (used inside component directive).
-
+- **Same rules.** All the rules from [@pass](/v4/language-elements/directives#pass) apply to `@passif`.
+- **Only inside components** Conditional passes can only be local (used inside component directive).
 
 ## @dump
 

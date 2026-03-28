@@ -70,7 +70,7 @@ This alias adapts to the type of file you are referencing:
 | Alias Usage                           | Converted To                               |
 | ------------------------------------- | ------------------------------------------ |
 | `@use('~main')`                       | `@use('layouts/main')`                     |
-| `@component('~user')`                 | `@use('components/user')`                  |
+| `@component('~user')@end`             | `@use('components/user')@end`              |
 | `textwire.Response(w, "~home", data)` | `textwire.Response(w, "views/home", data)` |
 
 ### Example usage
@@ -85,8 +85,8 @@ Usage with layouts:
 Usage with components:
 
 ```textwire
-@component("components/post-card", { post }) // [!code --]
-@component("~post-card", { post }) // [!code ++]
+@component("components/post-card", { post })@end // [!code --]
+@component("~post-card", { post })@end // [!code ++]
 ```
 
 Usage with views:

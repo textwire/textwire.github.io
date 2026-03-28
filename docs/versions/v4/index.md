@@ -34,11 +34,11 @@ Below is a simple example of a Textwire template:
 
 @insert('content')
     <h1>Welcome to Textwire</h1>
-        <p>Our team, along with {{ user.name }}, is pleased to welcome you!</p>
+    <p>Our team, along with {{ user.name }}, is pleased to welcome you!</p>
 
     <div>
         @each(book in books)
-            @component('~book', { book })
+            @component('~book', { book })@end
         @else
             <h2>No books found</h2>
         @end

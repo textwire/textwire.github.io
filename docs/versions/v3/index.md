@@ -38,7 +38,7 @@ Below is a simple example of a Textwire template:
 
     <div>
         @each(book in books)
-            @component('~book', { book })
+            @component('~book', { book })@end
         @else
             <h2>No books found</h2>
         @end
