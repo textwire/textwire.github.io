@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from Textwire v3 to v4 should be straightforward. This guide covers the breaking changes and provides step-by-step migration instructions.
+Textwire 4 is a major update with breaking changes that not only changes the way to work with components but also the way blocks are processed by the parser. This update focuses on making Textwire more mature and flexible for production use, while also improving error handling for directives. This guide covers the breaking changes and provides step-by-step migration instructions.
 
 For a complete overview of v4 features and changes, read the [Textwire v4 Release Blog Post](/blog/2026-03-20-textwire-v4).
 
@@ -182,6 +182,80 @@ In v4, `time.Time` values from Go are now automatically converted to datetime st
 
 If you need custom formatting, use [formatDate](/v4/functions/global#formatdate) global function.
 
+## 7. New Syntax for Components
+### 1. No Default `@slot` For Components
+
+The way you were passing default slots from components into component files was like this:
+
+```textwire
+@component('user')
+    @slot
+        <h2>This is a user</h2>
+    @end
+@end
+```
+
+You had to wrap default content with `@slot` directive. In version 4, you don't need to do it. You can just do it like that:
+
+```textwire
+@component('user')
+    <h2>This is a user</h2>
+@end
+```
+
+That's the only way of passing default slot right now. Check your codebase for `@component(` and see if you are using `@slot` for default value passing. Don't confuse them with `@slot` directive inside of your component files. Here is a bash command that will help you to find all `@slot` occurrences assuming that your templates in `templates/` directory.
+
+```bash
+grep -r '@slot' templates/
+```
+
+### 2. Directive `@slot` is now `@pass`
+
+We renamed slots that are used to pass content into component files from `@slot` and `@slotif` to `@pass` and `@passif` to prevent interference with slots inside of `components` directive. So if you have something like this:
+
+```textwire
+@component('user')
+    @slot('header')
+        <h2>This is a user</h2>
+    @end
+    @slotif(true, 'footer')
+        <footer>content</footer>
+    @end
+@end
+```
+You need to change it to:
+
+```textwire
+@component('user')
+    @pass('header')
+        <h2>This is a user</h2>
+    @end
+    @passif(true, 'footer')
+        <footer>content</footer>
+    @end
+@end
+```
+
+You can use this bash command to search for your named slots
+
+```bash
+grep -r '@slot(' templates/
+```
+
+Don't rename slots that are placeholders in your component files, they should keep being `@slot('name')`.
+
+## 8. Blocks are Trimmed by Default
+
+All blocks in Textwire are now left and right trimmed, it should not effect your HTML because HTML ignores whitespace, but it can effect your string outputs. If you have something like this:
+
+```textwire
+@insert('content')
+    <h1>Header</h1>
+@end
+```
+
+This insert block has `\n    <h1>Header</h1>\n` content. In previous versions, your reserve would receive exactly that, but in v4, the content is trimmed to `<h1>Header</h1>`. It applies to blocks for `@component`, `@insert`, `@pass`, `@passif` `@if`, `@each` and `@for` loops.
+
 ## Verification Checklist
 
 After completing the migration:
@@ -193,8 +267,10 @@ After completing the migration:
 5. <input type="checkbox"> Postfix operators used correctly (not as expressions)
 6. <input type="checkbox"> Error handling updated for `*fail.Error`
 7. <input type="checkbox"> `time.Time` values display correctly as datetime strings
-8. <input type="checkbox"> Project compiles successfully
-9. <input type="checkbox"> Project prints proper strings
+8. <input type="checkbox"> Project prints proper strings with `{{ }}` braces
+9. <input type="checkbox"> For passing default slots, we don't use `@slot` directive, we just passing them inside of a component's block (body)
+10. <input type="checkbox"> All `@slot('name')<some content>@end` directives inside of a component block (body) are renamed to `@pass('name')<some content>@end`
+11. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
