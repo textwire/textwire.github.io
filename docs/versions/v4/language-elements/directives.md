@@ -243,7 +243,7 @@ The second optional argument is an [object](/v4/language-elements/literals#objec
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Argument must be an object literal.** Second argument for components must be an object literal. If you provide a non-object literal, it will result in an error.
 - **Layout for components.** You can include layout file into components using [`@use`](/v4/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
-- **Use slots to pass data.** You can use [slot](/v4/language-elements/directives#slot) and [slotif](/v4/language-elements/directives#slotif) in components to pass content to the component file.
+- **Use passes to pass data.** You can use [@pass](/v4/language-elements/directives#pass) and [@passif](/v4/language-elements/directives#passif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v4/faq#what-are-the-path-aliases).
 
 ## @slot

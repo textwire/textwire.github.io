@@ -244,6 +244,22 @@ grep -r '@slot(' templates/
 
 Don't rename slots that are placeholders in your component files, they should keep being `@slot('name')`.
 
+### 3. Closing Component is Required
+
+In Textwire v4, you should always close your components even if they don't have any content. This is to avoid confusion and make the syntax more consistent. In previous versions, you could write:
+
+```textwire
+@component('components/icons/book')
+```
+
+Starting from version 4, you need to write this instead:
+
+```textwire
+@component('components/icons/book')@end
+```
+
+Just search for `@component(` and make sure all of your components are closed.
+
 ## 8. Blocks are Trimmed by Default
 
 All blocks in Textwire are now left and right trimmed, it should not effect your HTML because HTML ignores whitespace, but it can effect your string outputs. If you have something like this:
@@ -270,7 +286,8 @@ After completing the migration:
 8. <input type="checkbox"> Project prints proper strings with `{{ }}` braces
 9. <input type="checkbox"> For passing default slots, we don't use `@slot` directive, we just passing them inside of a component's block (body)
 10. <input type="checkbox"> All `@slot('name')<some content>@end` directives inside of a component block (body) are renamed to `@pass('name')<some content>@end`
-11. <input type="checkbox"> Project compiles successfully
+11. <input type="checkbox"> All components have a closing directive, even with empty body
+12. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
