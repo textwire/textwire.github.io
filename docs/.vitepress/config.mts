@@ -4,10 +4,17 @@ import { sidebarV1 } from './sidebars/sidebarV1'
 import { sidebarV2 } from './sidebars/sidebarV2'
 import { sidebarV3 } from './sidebars/sidebarV3'
 import { sidebarV4 } from './sidebars/sidebarV4'
+import { sidebarV5 } from './sidebars/sidebarV5'
 
-const EXCLUDE_SEARCH_PREFIXES = ['versions/v1', 'versions/v2', 'versions/v3', 'blog']
-const EXCLUDE_SITEMAP_PREFIXES = ['v1/', 'v2/', 'v3/']
-const VERSIONS = ['v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
+const EXCLUDE_SEARCH_PREFIXES = [
+    'versions/v1',
+    'versions/v2',
+    'versions/v3',
+    'versions/v4',
+    'blog',
+]
+const EXCLUDE_SITEMAP_PREFIXES = ['v1/', 'v2/', 'v3/', 'v4']
+const VERSIONS = ['v5', 'v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
 const TM_GRAMMAR_URL =
     'https://raw.githubusercontent.com/textwire/vscode-textwire/refs/heads/master/syntaxes/textwire.tmLanguage.json'
 
@@ -16,6 +23,7 @@ const SIDEBAR: Versioned.Sidebar = {
     '/v2/': sidebarV2,
     '/v3/': sidebarV3,
     '/v4/': sidebarV4,
+    '/v5/': sidebarV5,
 }
 
 async function fetchTextwireGrammar() {
