@@ -10,6 +10,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
 - **File Extensions:** All HTML files intended for Textwire parsing must have a `.tw` extension.
 - **Code Placement:** All Textwire code must either:
     - Be enclosed within <code v-pre>{{ }}</code> braces, or
+    - Be enclosed within <code v-pre>{!! !!}</code> braces, or
     - Start with the `@` symbol.
 
 > [!TIP] Syntax Highlighting
@@ -40,6 +41,15 @@ will be rendered as:
 ```html
 <p>{{ not code }}</p>
 <p>@use("~base")</p>
+```
+
+## Raw Unescaped Output
+
+All of your outputs in Textwire using <code v-pre>{{ }}</code> are HTML-encoded. But there are cases when you want to output raw HTML, XML or JSON. To do that, you can use the <code v-pre>{!! !!}</code> braces. For example:
+
+```textwire
+{!! "<p>This is raw, unescaped HTML</p>" !!}
+{{-- Output: <p>This is raw, unescaped HTML</p> --}}
 ```
 
 ## Embedded
