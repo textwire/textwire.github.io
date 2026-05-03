@@ -19,3 +19,29 @@ In Textwire v5, [raw](https://textwire.github.io/v4/functions/str#raw) function 
 ```
 
 We did it because `raw` function was causing a lot of issues where a string could be escaped multiple times causing the wrong output.
+
+## Steps
+
+### 1. Update Import Path
+
+Replace all v4 imports with v5:
+
+```go
+import "github.com/textwire/textwire/v4" // [!code --]
+import "github.com/textwire/textwire/v5" // [!code ++]
+```
+
+After updating imports, run:
+
+```bash
+go mod tidy
+```
+
+### 2. Replace `raw` Function
+
+If you use `raw` function in your code, replace it's usage with new syntax:
+
+```textwire
+{{ post.description.raw() }} // [!code --]
+{!! post.description !!} // [!code ++]
+```
