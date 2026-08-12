@@ -22,5 +22,5 @@ You can also chain multiple functions together to perform complex operations.
 ```
 
 :::tip Suggest New Functions
-New functions are added in new version of Textwire when there is a need for them. If you have a suggestion for a new function, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub and we will consider adding it in the next version.
+New functions are added in new version of Textwire when there is a need for them. If you have a suggestion for a new function, please open [an issue](https://codeberg.org/textwire/textwire/issues/new) on Codeberg and we will consider adding it in the next version.
 :::

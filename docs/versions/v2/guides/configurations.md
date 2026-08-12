@@ -17,8 +17,8 @@ To learn how to set configurations using `textwire.NewTemplate`, refer to the [U
 
 ```go
 import (
-    "github.com/textwire/textwire/v2"
-    "github.com/textwire/textwire/v2/config"
+    "codeberg.org/textwire/textwire/v2"
+    "codeberg.org/textwire/textwire/v2/config"
 )
 
 func main() {

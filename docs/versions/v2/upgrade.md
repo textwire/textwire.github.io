@@ -9,11 +9,11 @@ description: Learn how to upgrade your Textwire code from version 1 to version 2
 Going from version 1 to version 2 is a simple process. Follow the steps below to upgrade your Textwire code to version 2.
 
 ### 1. Change the import path
-Change all the imports in your code from `github.com/textwire/textwire` to `github.com/textwire/textwire/v2`
+Change all the imports in your code from `codeberg.org/textwire/textwire` to `codeberg.org/textwire/textwire/v2`
 
 ```go
-import "github.com/textwire/textwire" // [!code highlight]
-import "github.com/textwire/textwire/v2" // [!code ++]
+import "codeberg.org/textwire/textwire" // [!code highlight]
+import "codeberg.org/textwire/textwire/v2" // [!code ++]
 ```
 
 ### 2. Update the dependencies
@@ -24,12 +24,12 @@ go mod tidy
 ```
 
 ### 3. Change the package name
-Change the package name from `textwire.Config` to `config.Config` in your code if you use configuration and import `"github.com/textwire/textwire/v2/config"`. If you already have a package named `config`, you can alias the import like `twconfig "github.com/textwire/textwire/v2/config"`
+Change the package name from `textwire.Config` to `config.Config` in your code if you use configuration and import `"codeberg.org/textwire/textwire/v2/config"`. If you already have a package named `config`, you can alias the import like `twconfig "codeberg.org/textwire/textwire/v2/config"`
 
 ```go
 import (
-    "github.com/textwire/textwire/v2"
-    "github.com/textwire/textwire/v2/config"
+    "codeberg.org/textwire/textwire/v2"
+    "codeberg.org/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template

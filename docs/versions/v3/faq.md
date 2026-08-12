@@ -5,7 +5,7 @@ description: Find answers to common questions about Textwire, a templating engin
 
 # Frequently Asked Questions
 
-Find answers to common questions about Textwire. If you don't find what you're looking for, feel free to [open an issue on GitHub](https://github.com/textwire/textwire.github.io/issues/new).
+Find answers to common questions about Textwire. If you don't find what you're looking for, feel free to [open an issue on Codeberg](https://codeberg.org/textwire/pages/issues/new).
 
 ## What is Textwire?
 

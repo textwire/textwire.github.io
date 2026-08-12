@@ -13,5 +13,5 @@ Go `1.13` or higher is required to use Textwire. If you don't have Go installed 
 Install the Textwire package in your Go environment. You can do this by running the following command:
 
 ```bash :no-line-numbers
-go get -u github.com/textwire/textwire/v2
+go get -u codeberg.org/textwire/textwire/v2
 ```

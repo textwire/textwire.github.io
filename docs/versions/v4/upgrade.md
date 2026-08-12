@@ -15,8 +15,8 @@ For a complete overview of v4 features and changes, read the [Textwire v4 Releas
 Replace all v3 imports with v4:
 
 ```go
-import "github.com/textwire/textwire/v3" // [!code --]
-import "github.com/textwire/textwire/v4" // [!code ++]
+import "codeberg.org/textwire/textwire/v3" // [!code --]
+import "codeberg.org/textwire/textwire/v4" // [!code ++]
 ```
 
 After updating imports, run:
@@ -79,8 +79,8 @@ If you prefer, update your function signatures to use `*fail.Error` directly:
 
 ```go
 import (
-    "github.com/textwire/textwire/v4"
-    "github.com/textwire/textwire/v4/pkg/fail"
+    "codeberg.org/textwire/textwire/v4"
+    "codeberg.org/textwire/textwire/v4/pkg/fail"
 )
 
 func initTemplate() (*textwire.Template, *fail.Error) {
@@ -293,4 +293,4 @@ After completing the migration:
 
 - Review the [Error Handling Guide](/v4/api/error-handling) for details on `*fail.Error`
 - Check the [Statements Reference](/v4/language-elements/statements#postfix-operations) for postfix operator usage
-- Open [GitHub Issue](https://github.com/textwire/textwire/issues) and we will help
+- Open [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help

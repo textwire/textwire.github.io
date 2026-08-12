@@ -8,7 +8,7 @@ outline: [2, 3]
 
 ## Simple Usage
 
-Import `github.com/textwire/textwire/v5` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v5/api/configurations).
+Import `codeberg.org/textwire/textwire/v5` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v5/api/configurations).
 
 Choose one of these initialization patterns:
 
@@ -20,7 +20,7 @@ Choose one of these initialization patterns:
 ```go [Global Template] :line-numbers
 import (
     "net/http"
-    "github.com/textwire/textwire/v5"
+    "codeberg.org/textwire/textwire/v5"
 )
 
 var tpl *textwire.Template
@@ -39,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 ```go [Local Template] :line-numbers
 import (
 	"net/http"
-	"github.com/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v5"
 )
 
 func main() {
@@ -158,9 +158,9 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/textwire/textwire/v5"
-    "github.com/textwire/textwire/v5/fail"
-    "github.com/textwire/textwire/v5/config" // [!code highlight]
+    "codeberg.org/textwire/textwire/v5"
+    "codeberg.org/textwire/textwire/v5/fail"
+    "codeberg.org/textwire/textwire/v5/config" // [!code highlight]
 )
 
 var tpl *textwire.Template

@@ -20,8 +20,8 @@ File Watcher watches all of your template files for changes and automatically re
 ```go
 import (
 	"os"
-	"github.com/textwire/textwire/v5"
-	"github.com/textwire/textwire/v5/config"
+	"codeberg.org/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v5/config"
 )
 
 tpl, err := textwire.NewTemplate(&config.Config{

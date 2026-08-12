@@ -7,15 +7,15 @@ outline: deep
 # Usage with Templates
 
 ## Simple Usage
-To use Textwire as a template language, you need to import the `github.com/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/v2/guides/configurations) in Textwire.
+To use Textwire as a template language, you need to import the `codeberg.org/textwire/textwire/v2` package and create a new Template instance. You can ether pass `nil` or a `*textwire.Config` to the `NewTemplate` function. The `*textwire.Config` is used to configure the template language. Read more about [configurations](/v2/guides/configurations) in Textwire.
 
 ```go
 import (
     "fmt"
     "net/http"
 
-    "github.com/textwire/textwire/v2"
-    "github.com/textwire/textwire/v2/config"
+    "codeberg.org/textwire/textwire/v2"
+    "codeberg.org/textwire/textwire/v2/config"
 )
 
 var tpl *textwire.Template
@@ -119,8 +119,8 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/textwire/textwire/v2"
-    "github.com/textwire/textwire/v2/config" // [!code highlight]
+    "codeberg.org/textwire/textwire/v2"
+    "codeberg.org/textwire/textwire/v2/config" // [!code highlight]
 )
 
 var tpl *textwire.Template

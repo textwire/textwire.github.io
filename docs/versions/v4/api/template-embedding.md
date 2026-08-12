@@ -47,8 +47,8 @@ package main
 import (
 	"embed"
 
-	"github.com/textwire/textwire/v4"
-	"github.com/textwire/textwire/v4/config"
+	"codeberg.org/textwire/textwire/v4"
+	"codeberg.org/textwire/textwire/v4/config"
 )
 
 //go:embed templates/* // [!code highlight]

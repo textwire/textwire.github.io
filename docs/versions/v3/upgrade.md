@@ -42,11 +42,11 @@ Follow the steps below to upgrade your Textwire code to v3.
 
 ### 1. New Import Path
 
-Change all the imports in your code from `github.com/textwire/textwire/v2` to `github.com/textwire/textwire/v3`
+Change all the imports in your code from `codeberg.org/textwire/textwire/v2` to `codeberg.org/textwire/textwire/v3`
 
 ```go
-import "github.com/textwire/textwire/v2" // [!code --]
-import "github.com/textwire/textwire/v3" // [!code ++]
+import "codeberg.org/textwire/textwire/v2" // [!code --]
+import "codeberg.org/textwire/textwire/v3" // [!code ++]
 ```
 
 ### 2. Updating the Dependencies

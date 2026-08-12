@@ -8,7 +8,7 @@ outline: [2, 3]
 
 ## Simple Usage
 
-Import `github.com/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/api/configurations).
+Import `codeberg.org/textwire/textwire/v3` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v3/api/configurations).
 
 Choose one of these initialization patterns:
 
@@ -20,7 +20,7 @@ Choose one of these initialization patterns:
 ```go [Global Template] :line-numbers
 import (
     "net/http"
-    "github.com/textwire/textwire/v3"
+    "codeberg.org/textwire/textwire/v3"
 )
 
 var tpl *textwire.Template
@@ -39,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 ```go [Local Template] :line-numbers
 import (
 	"net/http"
-	"github.com/textwire/textwire/v3"
+	"codeberg.org/textwire/textwire/v3"
 )
 
 func main() {
@@ -159,8 +159,8 @@ import (
     "fmt"
     "net/http"
 
-    "github.com/textwire/textwire/v3"
-    "github.com/textwire/textwire/v3/config" // [!code highlight]
+    "codeberg.org/textwire/textwire/v3"
+    "codeberg.org/textwire/textwire/v3/config" // [!code highlight]
 )
 
 var tpl *textwire.Template

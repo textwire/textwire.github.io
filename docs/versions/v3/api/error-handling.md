@@ -122,8 +122,8 @@ Set `ErrorPagePath` in your configuration:
 ```go
 import (
 	"os"
-	"github.com/textwire/textwire/v3"
-	"github.com/textwire/textwire/v3/config"
+	"codeberg.org/textwire/textwire/v3"
+	"codeberg.org/textwire/textwire/v3/config"
 )
 
 func main() {

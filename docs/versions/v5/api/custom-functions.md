@@ -43,8 +43,8 @@ Here is a useful example for registering function that converts string date to h
 import (
 	"fmt"
 
-	"github.com/SerhiiCho/timeago/v3"
-	"github.com/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v3"
+	"codeberg.org/textwire/textwire/v5"
 )
 
 func main() {

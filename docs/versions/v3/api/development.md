@@ -21,8 +21,8 @@ This is intended for development use only and should not be enabled in productio
 ```go
 import (
 	"os"
-	"github.com/textwire/textwire/v3"
-	"github.com/textwire/textwire/v3/config"
+	"codeberg.org/textwire/textwire/v3"
+	"codeberg.org/textwire/textwire/v3/config"
 )
 
 tpl, err := textwire.NewTemplate(&config.Config{

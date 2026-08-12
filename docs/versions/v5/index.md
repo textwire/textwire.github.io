@@ -11,7 +11,7 @@ Textwire is a domain-specific language (DSL) tailored for Go projects as a templ
 Built specifically for Go, Textwire offers a clean and intuitive syntax that simplifies the injection of variables and logic into any text-based format.
 
 > [!TIP] Syntax Highlighting
-> If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+> If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://codeberg.org/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 
 Textwire enables the integration of dynamic content into HTML files to create data-driven, responsive pages.
 

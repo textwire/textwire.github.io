@@ -188,7 +188,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reserve`, it will fallback to an empty string.
-- **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v4.1.0](https://github.com/textwire/textwire/pull/68).
+- **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v4.1.0](https://codeberg.org/textwire/textwirepull/68).
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/v4/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
