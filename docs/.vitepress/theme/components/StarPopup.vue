@@ -7,7 +7,7 @@ const emit = defineEmits<{ (e: 'close'): void }>()
 
 <template>
     <div class="popup">
-        <span>Star Textwire to keep us going</span>
+        <span>Star Textwire on Codeberg to keep us going</span>
 
         <div class="popup__buttons">
             <PopupBtn href="https://codeberg.org/textwire/textwire">
