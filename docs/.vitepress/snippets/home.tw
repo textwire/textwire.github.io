@@ -9,7 +9,7 @@
     @if(books.len() > 0)
         <div>
             @each(book in books)
-                @component('components/book', { book })
+                @component('components/book', { book })@end
             @end
         </div>
     @else
