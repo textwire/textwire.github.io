@@ -103,6 +103,7 @@ Read more about loops in the [Loops guide](/v5/language-elements/loops).
 ### Important Notes
 
 - **Extends parent scope.** Each loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
+- **Single-type array item.** `@each` requires single-type arrays. Since Textwire variables are strictly typed, the iterator adopts the type of the first element; mixed types will trigger a reassignment error. For arrays with multiple types, use a standard `@for` loop with index access.
 
 ## @use
 
@@ -126,7 +127,6 @@ The `@use` directive accepts a string literal as its argument. This string liter
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
 - **Recommended at the beginning.** You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
 - **Not allowed in layouts.** Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
-- **Single-type array item.** `@each` requires single-type arrays. Since Textwire variables are strictly typed, the iterator adopts the type of the first element; mixed types will trigger a reassignment error. For arrays with multiple types, use a standard `@for` loop with index access.
 
 ## @insert
 
