@@ -69,6 +69,10 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 
 Read more about loops in the [Loops guide](/v5/language-elements/loops).
 
+### Important Notes
+
+- **Extends parent scope.** For loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
+
 #### Example
 
 ```textwire
@@ -95,6 +99,10 @@ Each directive is a special form of `for` loop that you can use to iterate over 
 ```
 
 Read more about loops in the [Loops guide](/v5/language-elements/loops).
+
+### Important Notes
+
+- **Extends parent scope.** Each loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
 
 ## @use
 
