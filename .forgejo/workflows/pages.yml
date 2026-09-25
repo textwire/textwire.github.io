@@ -26,8 +26,16 @@ jobs:
           npm ci
           npm run build
 
-      - name: Deploy 🚀
-        uses: https://github.com/JamesIves/github-pages-deploy-action@v4
+      - name: Create SSH key
+        uses: https://codeberg.org/act/ssh-auth@v1
         with:
-          folder: docs/.vitepress/dist
-          branch: pages
+          host-user: ${{ secrets.HOST_USER }}
+          host-ip: ${{ secrets.HOST_IP }}
+          host-key: ${{ secrets.HOST_PRIVATE_SSH_KEY }}
+
+      - name: Deploy 🚀
+        run: |
+          host="${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }}"
+          dest="~/pages/textwire"
+          ssh $host "mkdir -p $dest"
+          rsync -avz --delete docs/.vitepress/dist ${host}:$dest
