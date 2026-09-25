@@ -22,7 +22,6 @@ Directives are Textwire statements that begin with the `@` symbol. They define l
 
 ### Important Notes
 
-
 - **Expressions and Variables**: Directives support expressions and variables, such as `@if(x == 1)` or `@use(layoutName)`.
 - **Closing Directives**: Directives with a body (like `@if`, `@for`, `@each`, and `@component`) must be closed with the `@end` keyword.
 
