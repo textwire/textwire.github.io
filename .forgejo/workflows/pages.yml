@@ -13,7 +13,7 @@ jobs:
     name: Build and deploy
 
     steps:
-      - name: Install deps 🛎️
+      - name: Install deps ⬇️
         run: |
           apt-get update
           apt-get install -y rsync
@@ -26,7 +26,7 @@ jobs:
           npm ci
           npm run build
 
-      - name: Create SSH key
+      - name: Create SSH key 🔑
         uses: https://codeberg.org/act/ssh-auth@v1
         with:
           host-user: ${{ secrets.HOST_USER }}
@@ -38,4 +38,4 @@ jobs:
           host="${{ secrets.HOST_USER }}@${{ secrets.HOST_IP }}"
           dest="~/pages/textwire"
           ssh $host "mkdir -p $dest"
-          rsync -avz --delete docs/.vitepress/dist ${host}:$dest
+          rsync -avz --delete docs/.vitepress/dist/ ${host}:$dest
