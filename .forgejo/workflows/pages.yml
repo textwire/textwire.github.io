@@ -41,7 +41,7 @@ jobs:
           rsync -avz --delete docs/.vitepress/dist/ ${host}:$dest
 
       - name: Deploy to pages branch 🪾
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: https://github.com/JamesIves/github-pages-deploy-action@v4
         with:
-            # The folder the action should deploy.
-            folder: docs/.vitepress/dist
+          folder: docs/.vitepress/dist
+          branch: pages
