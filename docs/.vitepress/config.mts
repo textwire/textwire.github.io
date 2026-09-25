@@ -1,3 +1,4 @@
+import type { HeadConfig, TransformContext } from 'vitepress'
 import defineVersionedConfig, { Versioned } from 'vitepress-versioning-plugin'
 import { resolve } from 'path'
 import { sidebarV1 } from './sidebars/sidebarV1'
@@ -33,11 +34,32 @@ async function fetchTextwireGrammar() {
     return twLang
 }
 
+const host = 'https://textwire.serhiicho.com'
+
+function setCanonicalTag(page: string): string {
+    page = page.replace('.md', '.html')
+
+    if (page == 'index.html') {
+        return host
+    }
+
+    return host + '/' + page
+}
+
 export default defineVersionedConfig(
     {
         lang: 'en-US',
         title: 'Textwire',
         head: [['link', { rel: 'icon', href: '/images/favicon.png' }]],
+
+        transformHead: (ctx: TransformContext) => {
+            const head: HeadConfig[] = []
+
+            head.push(['link', { rel: 'canonical', href: setCanonicalTag(ctx.page) }])
+            
+            return head
+        },
+
         description:
             'Textwire embraces Go’s philosophy by prioritizing stability, and ongoing performance improvements over frequent new feature releases. The focus is on delivering reliable, efficient solutions that users can depend on long term',
 
