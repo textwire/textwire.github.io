@@ -57,7 +57,7 @@ export default defineVersionedConfig(
             },
         },
 
-        cleanUrls: false,
+        cleanUrls: true,
 
         versioning: {
             latestVersion: VERSIONS[0],
