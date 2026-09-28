@@ -1,5 +1,6 @@
 import type { HeadConfig, TransformContext } from 'vitepress'
 import { defineVersionedConfig, SidebarType } from '@viteplus/versions'
+import { versions, latestVersion, outdatedVersions } from './theme/versions'
 import { resolve } from 'path'
 import { sidebarV1 } from './sidebars/sidebarV1'
 import { sidebarV2 } from './sidebars/sidebarV2'
@@ -7,9 +8,7 @@ import { sidebarV3 } from './sidebars/sidebarV3'
 import { sidebarV4 } from './sidebars/sidebarV4'
 import { sidebarV5 } from './sidebars/sidebarV5'
 
-const excludeSitemapPrefixes = ['v1/', 'v2/', 'v3/', 'v4/']
-const versions = ['v5', 'v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
-const latestVersion = versions[0]
+const excludeSitemapPrefixes = outdatedVersions.map(v => v.replace(/^\/|\/$/g,'') + '/')
 const sidebar: SidebarType = {
     '/v1/': sidebarV1,
     '/v2/': sidebarV2,
