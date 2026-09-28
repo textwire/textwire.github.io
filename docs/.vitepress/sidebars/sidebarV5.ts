@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'vitepress'
 
 export const sidebarV5: DefaultTheme.SidebarItem[] = [
-    { text: 'Introduction', link: '/' },
+    { text: 'Introduction', link: '/intro' },
     { text: 'Get Started', link: '/get-started' },
     {
         text: 'Engine API',

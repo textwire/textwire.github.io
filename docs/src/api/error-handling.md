@@ -40,7 +40,7 @@ func evalTextwire() error {
 }
 ```
 
-The [split](/v5/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'string' must be a string`.
+The [split](/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'string' must be a string`.
 
 ### Common Error Handling Patterns
 
@@ -85,7 +85,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 > }
 > ```
 
-You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/v5/api/error-handling#custom-error-pages).
+You don't need to crash the program in your handlers because Textwire will render error page for users. You can read how to customize error pages [here](/api/error-handling#custom-error-pages).
 
 ## Error Pages
 
@@ -135,7 +135,7 @@ With default `TemplateDir` of `"templates"`, the error page loads from `template
 
 ##### Creating a Custom Error Page
 
-Use layouts and Textwire syntax. You can access [global data](/v5/api/configurations#global-data) variables:
+Use layouts and Textwire syntax. You can access [global data](/api/configurations#global-data) variables:
 
 ```textwire
 @use('~main')

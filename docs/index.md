@@ -11,7 +11,7 @@ hero:
           link: /v5/get-started
         - theme: alt
           text: Introduction
-          link: /v5/
+          link: /v5/intro
     image:
         src: /images/logo.png
         alt: Textwire Logo

@@ -28,7 +28,7 @@ will be rendered as:
 
 ## Passing JSON to JavaScript
 
-When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/v5/functions/obj#camel) function to convert object keys to camel case and [json](/v5/functions/obj#json) function to convert the object to a JSON string. Example:
+When you need to pass a JSON object from Textwire to JavaScript frameworks using props, you can use the [camel](/functions/obj#camel) function to convert object keys to camel case and [json](/functions/obj#json) function to convert the object to a JSON string. Example:
 
 ```textwire
 {{ post = {

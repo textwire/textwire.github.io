@@ -8,7 +8,7 @@ outline: [2, 3]
 
 ## Simple Usage
 
-Import `codeberg.org/textwire/textwire/v5` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/v5/api/configurations).
+Import `codeberg.org/textwire/textwire/v5` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/api/configurations).
 
 Choose one of these initialization patterns:
 
@@ -100,7 +100,7 @@ To define a layout in Textwire you need to create a file anywhere within your `t
 
 ### Reserving Space in Layouts
 
-The [@reserve](/v5/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
+The [@reserve](/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
 
 ```textwire :line-numbers
 <!DOCTYPE html>
@@ -121,11 +121,11 @@ The [@reserve](/v5/language-elements/directives#reserve) directive reserves plac
 
 This layout reserves spaces for the title, description and content. These placeholders can be populated with data from templates that use this layout. The next section explains how to insert content into reserved spaces.
 
-Learn about [@reserve](/v5/language-elements/directives#reserve) directive.
+Learn about [@reserve](/language-elements/directives#reserve) directive.
 
 ### Inserting Content into Reserved Spaces
 
-The [@insert](/v5/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a block. In the following example, we insert "title" and "description" without a block, and "content" with a block.
+The [@insert](/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a block. In the following example, we insert "title" and "description" without a block, and "content" with a block.
 
 Example `templates/views/home.tw` template:
 
@@ -147,7 +147,7 @@ Example `templates/views/home.tw` template:
 3. Insert the description into the layout.
 4. Insert the main content into the layout with the HTML block.
 
-Learn about [@insert](/v5/language-elements/directives#insert) directive.
+Learn about [@insert](/language-elements/directives#insert) directive.
 
 ## Configuration
 
@@ -180,7 +180,7 @@ func main() {
 }
 ```
 
-For detailed information about available configuration options, visit the [configurations](/v5/api/configurations) page.
+For detailed information about available configuration options, visit the [configurations](/api/configurations) page.
 
 ## Important Notes
 
@@ -188,4 +188,4 @@ For detailed information about available configuration options, visit the [confi
 - **Live reload.** If your template files are not showing up after creation and you're using live-reload tools like [Fresh](https://github.com/gravityblast/fresh) or [Air](https://github.com/air-verse/air), restart them and add `.tw` files to the watch list.
 - **Layout organization.** Store layout files in `templates/layouts` directory for better organization and consistency across your project.
 - **Error handling.** `Response()` and `String()` return `*fail.Error` with detailed info (line number, filepath, message). Call `failure.Error()` to convert to standard `error`.
-- **Use path alias.** If your views are located in the `views` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v5/faq#what-are-the-path-aliases).
+- **Use path alias.** If your views are located in the `views` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).

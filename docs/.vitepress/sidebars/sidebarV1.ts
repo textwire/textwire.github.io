@@ -3,7 +3,7 @@ import { DefaultTheme } from 'vitepress'
 export const sidebarV1: DefaultTheme.SidebarItem[] = [
     {
         text: 'Usage with Templates',
-        link: '/',
+        link: '/intro',
         items: [
             { text: 'Evaluating Strings', link: '/get-started/eval-string' },
             { text: 'Evaluating Files', link: '/get-started/eval-file' },

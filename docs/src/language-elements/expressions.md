@@ -108,7 +108,7 @@ Example:
 {{ name.split(" ") }}
 ```
 
-You can read more detail about built-in functions on the [Functions Guide](/v5/functions/guide) page.
+You can read more detail about built-in functions on the [Functions Guide](/functions/guide) page.
 
 ## Logical Expressions
 
@@ -124,4 +124,4 @@ You can use logical OR (`||`) and logical AND (`&&`) expressions to combine bool
 @end
 ```
 
-Logical expression accepts any literal value and converts it to boolean. Read about [Truthy and Falsy Values](/v5/#truthy-and-falsy-values).
+Logical expression accepts any literal value and converts it to boolean. Read about [Truthy and Falsy Values](/#truthy-and-falsy-values).

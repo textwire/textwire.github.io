@@ -17,11 +17,11 @@ You can also chain multiple functions together to perform complex operations.
 {{ "  Textwire  ".trim().len() }} {{-- output: 8 --}}
 ```
 
-Learn about [error handling](/v5/api/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
+Learn about [error handling](/api/error-handling) in Textwire when you call a function that doesn't exist, or when you pass incorrect arguments
 
 ## Unicode Support
 
-Textwire's built-in functions fully support Unicode characters and strings. Whether you're working with emojis, accented characters, or non-Latin scripts, all functions work correctly. Learn more in the [Unicode](/v5/language-elements/unicode) section.
+Textwire's built-in functions fully support Unicode characters and strings. Whether you're working with emojis, accented characters, or non-Latin scripts, all functions work correctly. Learn more in the [Unicode](/language-elements/unicode) section.
 
 ## Suggest a new function
 

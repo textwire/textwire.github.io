@@ -67,7 +67,7 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 @end
 ```
 
-Read more about loops in the [Loops guide](/v5/language-elements/loops).
+Read more about loops in the [Loops guide](/language-elements/loops).
 
 ### Important Notes
 
@@ -98,7 +98,7 @@ Each directive is a special form of `for` loop that you can use to iterate over 
 @end
 ```
 
-Read more about loops in the [Loops guide](/v5/language-elements/loops).
+Read more about loops in the [Loops guide](/language-elements/loops).
 
 ### Important Notes
 
@@ -115,7 +115,7 @@ Example:
 @use("layouts/main")
 ```
 
-The `@use` directive accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/v5/api/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/v5/api/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout directive like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
+The `@use` directive accepts a string literal as its argument. This string literal should specify the path to the layout file relative to the [`TemplateDir`](/api/configurations#setting-configurations) parameter defined in the configuration. For example, if [`TemplateDir`](/api/configurations#setting-configurations) is set to `"src/templates"` and you have `layouts` directory in there, you can use the layout directive like `@use("layouts/main")`, and it will look for the layout file at `"src/templates/layouts/main.tw"`.
 
 > [!TIP] Understanding the @use Directive
 > When you use the `@use` directive, only the content inside [`@insert`](#insert) directives will be rendered; the rest of the file's content will be ignored. This is because the `@use` takes the layout file as a base instead of rendering the current file directly. During this process, all placeholders reserved in the layout file are populated with the content specified within your inserts.
@@ -123,7 +123,7 @@ The `@use` directive accepts a string literal as its argument. This string liter
 ### Important Notes
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
-- **Use path alias.** If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v5/faq#what-are-the-path-aliases).
+- **Use path alias.** If your layouts are located in the `layouts` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
 - **Recommended at the beginning.** You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
 - **Not allowed in layouts.** Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
@@ -198,7 +198,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reserve`, it will fallback to an empty string.
 - **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v5.1.0](https://codeberg.org/textwire/textwirepull/68).
-- **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/v5/language-elements/directives#pass). Example:
+- **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
         @pass('title')
@@ -236,7 +236,7 @@ To include your component use `@component` directive with first argument being t
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is an [object](/v5/language-elements/literals#object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
+The second optional argument is an [object](/language-elements/literals#object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
 
 ```textwire
 <ul>
@@ -251,9 +251,9 @@ The second optional argument is an [object](/v5/language-elements/literals#objec
 - **Always must be closed.** Component directive always requires to be closed with the `@end` directive.
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Argument must be an object literal.** Second argument for components must be an object literal. If you provide a non-object literal, it will result in an error.
-- **Layout for components.** You can include layout file into components using [`@use`](/v5/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
-- **Use passes to pass data.** You can use [@pass](/v5/language-elements/directives#pass) and [@passif](/v5/language-elements/directives#passif) in components to pass content to the component file.
-- **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/v5/faq#what-are-the-path-aliases).
+- **Layout for components.** You can include layout file into components using [`@use`](/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+- **Use passes to pass data.** You can use [@pass](/language-elements/directives#pass) and [@passif](/language-elements/directives#passif) in components to pass content to the component file.
+- **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
 
 ## @slot
 
@@ -353,11 +353,11 @@ Here’s an example of how to use conditional passes in a component. Example:
 
 ### Important Notes
 
-- **Same rules.** All the rules from [@pass](/v5/language-elements/directives#pass) apply to `@passif`.
+- **Same rules.** All the rules from [@pass](/language-elements/directives#pass) apply to `@passif`.
 
 ## @dump
 
-The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/v5/language-elements/literals#object), [arrays](/v5/language-elements/literals#array), [strings](/v5/language-elements/literals#string) and other data types to the screen.
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals#object), [arrays](/language-elements/literals#array), [strings](/language-elements/literals#string) and other data types to the screen.
 
 Here’s an example of how to use the `@dump` directive:
 

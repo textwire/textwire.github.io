@@ -54,7 +54,7 @@ Directives and statements are fundamental elements of the Textwire language. Bot
 - **Statements** are expressions that perform an action but don't return a value (e.g., <code v-pre>{{ x = 5 }}</code>)
 
 :::info Learn More
-See the [Directives](/v5/language-elements/directives) section for a complete reference.
+See the [Directives](/language-elements/directives) section for a complete reference.
 :::
 
 ## What are the Path Aliases?

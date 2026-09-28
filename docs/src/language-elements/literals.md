@@ -132,7 +132,7 @@ You can access values in an array by using an index. Example:
 ### Important Notes
 
 - **Out of bounds returns nil.** Accessing array on non-existant index returns `nil` instead of resulting in error.
-- **Indexing strings.** You cannot use `[number]` to access string character, instead, use [at()](/v5/functions/str#at) function.
+- **Indexing strings.** You cannot use `[number]` to access string character, instead, use [at()](/functions/str#at) function.
 - **Prints as comma-separated.** Printing array will convert it to comma seperated values. Example:
     ```textwire
     <span>{{ [1, 2, 3] }}</span>
@@ -176,7 +176,7 @@ You can access values in an object by using a key. Example:
 ### Important Notes
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
-- **Save accessing.** You can use [get()](/v5/functions/obj#get) function to safely access object properties without worrying about errors. Example:
+- **Save accessing.** You can use [get()](/functions/obj#get) function to safely access object properties without worrying about errors. Example:
     ```textwire
     {{ user = {age: 25, name: {first: 'Anna', last: 'Cho'}} }}
     {{ user.get('name.first') }}
