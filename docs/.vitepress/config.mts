@@ -1,11 +1,16 @@
 import type { HeadConfig, TransformContext } from 'vitepress'
-import { defineVersionedConfig } from '@viteplus/versions'
+import { defineVersionedConfig, SidebarType } from '@viteplus/versions'
 import { resolve } from 'path'
 import { sidebarV1 } from './sidebars/sidebarV1'
 import { sidebarV2 } from './sidebars/sidebarV2'
 import { sidebarV3 } from './sidebars/sidebarV3'
 import { sidebarV4 } from './sidebars/sidebarV4'
 import { sidebarV5 } from './sidebars/sidebarV5'
+
+const hostname = 'https://textwire.serhiicho.com'
+const excludeSitemapPrefixes = ['v1/', 'v2/', 'v3/', 'v4']
+const versions = ['v5', 'v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
+const rmGrammarUrl = 'https://codeberg.org/textwire/vscode-textwire/raw/branch/master/syntaxes/textwire.tmLanguage.json'
 
 const excludeSearchPrefixes = [
     'versions/v1',
@@ -14,12 +19,8 @@ const excludeSearchPrefixes = [
     'versions/v4',
     'blog',
 ]
-const excludeSitemapPrefixes = ['v1/', 'v2/', 'v3/', 'v4']
-const versions = ['v5', 'v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
-const rmGrammarUrl =
-    'https://codeberg.org/textwire/vscode-textwire/raw/branch/master/syntaxes/textwire.tmLanguage.json'
 
-const sidebar: Versioned.Sidebar = {
+const sidebar: SidebarType = {
     '/v1/': sidebarV1,
     '/v2/': sidebarV2,
     '/v3/': sidebarV3,
@@ -34,16 +35,9 @@ async function fetchTextwireGrammar() {
     return twLang
 }
 
-const host = 'https://textwire.serhiicho.com'
-
 function setCanonicalTag(page: string): string {
     page = page.replace('.md', '.html')
-
-    if (page == 'index.html') {
-        return host
-    }
-
-    return host + '/' + page
+    return page == 'index.html' ? hostname : `${hostname}/${page}`
 }
 
 export default defineVersionedConfig(
@@ -54,9 +48,7 @@ export default defineVersionedConfig(
 
         transformHead: (ctx: TransformContext) => {
             const head: HeadConfig[] = []
-
             head.push(['link', { rel: 'canonical', href: setCanonicalTag(ctx.page) }])
-            
             return head
         },
 
@@ -74,32 +66,25 @@ export default defineVersionedConfig(
         vite: {
             resolve: {
                 alias: {
-                    '@': resolve(__dirname, './theme'),
+                    '@': resolve(import.meta.dirname, './theme'),
                 },
             },
         },
 
-        cleanUrls: false,
-
-        versioning: {
-            latestVersion: versions[0],
+        versionsConfig: {
+            current: versions[0],
+            versionSwitcher: false,
         },
 
         lastUpdated: true,
 
         sitemap: {
-            hostname: 'https://textwire.codeberg.page',
-
+            hostname,
             // exclude old version pages from sitemap
-            transformItems: items =>
-                items.filter(
-                    item =>
-                        !excludeSitemapPrefixes.some(p => item.url.startsWith(p)),
-                ),
+            transformItems: items => items.filter(item => !excludeSitemapPrefixes.some(p => item.url.startsWith(p))),
         },
 
         themeConfig: {
-            versionSwitcher: false,
             logo: '/images/logo.png',
             footer: {
                 message:
@@ -162,6 +147,5 @@ export default defineVersionedConfig(
             ],
         },
     },
-    // @ts-ignore
-    __dirname,
+    import.meta.dirname,
 )
