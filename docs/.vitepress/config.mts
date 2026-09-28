@@ -7,11 +7,8 @@ import { sidebarV3 } from './sidebars/sidebarV3'
 import { sidebarV4 } from './sidebars/sidebarV4'
 import { sidebarV5 } from './sidebars/sidebarV5'
 
-const hostname = 'https://textwire.serhiicho.com'
-const excludeSitemapPrefixes = ['v1/', 'v2/', 'v3/', 'v4']
+const excludeSitemapPrefixes = ['v1/', 'v2/', 'v3/', 'v4/']
 const versions = ['v5', 'v4', 'v3', 'v2', 'v1'] // NEWEST -> OLDEST
-const rmGrammarUrl = 'https://codeberg.org/textwire/vscode-textwire/raw/branch/master/syntaxes/textwire.tmLanguage.json'
-
 const sidebar: SidebarType = {
     '/v1/': sidebarV1,
     '/v2/': sidebarV2,
@@ -19,6 +16,9 @@ const sidebar: SidebarType = {
     '/v4/': sidebarV4,
     '/': sidebarV5,
 }
+
+const hostname = 'https://textwire.serhiicho.com'
+const rmGrammarUrl = 'https://codeberg.org/textwire/vscode-textwire/raw/branch/master/syntaxes/textwire.tmLanguage.json'
 
 async function fetchTextwireGrammar() {
     const resp = await fetch(rmGrammarUrl)
