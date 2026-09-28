@@ -2,10 +2,6 @@
 title: Getting Started - v1
 ---
 
-:::danger Outdated version
-You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
-:::
-
 # Getting Started
 
 Welcome to Textwire, a powerful template evaluate designed for Go developers. Textwire provides a seamless way to inject variables into your HTML files, making it easier to create dynamic and data-driven content. This guide will walk you through the essential steps to get started with Textwire in your Go projects.

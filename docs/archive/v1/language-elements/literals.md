@@ -2,10 +2,6 @@
 title: Literals - v1
 ---
 
-:::danger Outdated version
-You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
-:::
-
 # Literals
 
 - [String Literals](#string-literals) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
