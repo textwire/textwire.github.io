@@ -17,6 +17,10 @@ hero:
         alt: Textwire Logo
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 ::: code-group
 
 <<< @/.vitepress/snippets/home.tw{textwire} [Home page]

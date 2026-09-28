@@ -3,6 +3,10 @@ title: Usage with Templates - v1
 outline: deep
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 # Usage with Templates
 
 ## Template Configuration

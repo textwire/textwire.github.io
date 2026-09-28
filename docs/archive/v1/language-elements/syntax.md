@@ -3,6 +3,10 @@ title: Language Elements - v1
 outline: deep
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 # Language Elements
 Textwire is designed to be easy to use for Go developers. It has a similar syntax to Go, but it is a separate language and has specific grammar to make it easier to use as a template language.
 

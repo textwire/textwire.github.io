@@ -4,6 +4,10 @@ description: Frequently asked questions about Textwire
 outline: deep
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 # FAQ
 
 ## Information

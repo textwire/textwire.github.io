@@ -2,6 +2,10 @@
 title: Statements - v1
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 # Statements
 
 - [If Statement](#if-statement) `@if(x == 1)`

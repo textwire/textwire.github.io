@@ -2,6 +2,10 @@
 title: Expressions - v1
 ---
 
+:::danger Outdated version
+You are viewing the outdated version of Textwire. [Switch to the latest version](/) to get all the new features and improvements
+:::
+
 # Expressions
 
 - [Ternary expressions](#ternary-expressions) <code v-pre>{{ x ? y : z }}</code>
