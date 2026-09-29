@@ -5,7 +5,7 @@ import Home from '@/components/Pages/Home.vue'
 import VersionSwitcher from '@/components/VersionSwitcher.vue'
 import OutdatedVersion from '@/components/OutdatedVersion.vue'
 import Blog from '@/components/Blog/Blog.vue'
-import './main.css'
+import '@/main.css'
 
 export default {
     extends: DefaultTheme,
