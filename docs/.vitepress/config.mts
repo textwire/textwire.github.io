@@ -92,14 +92,6 @@ export default defineVersionedConfig(
                     { text: 'Docs', link: `/intro` },
                     { text: 'Blog', link: '/blog/', skipVersioning: true },
                     { text: 'Support', link: '/community', skipVersioning: true },
-                    {
-                        text: 'Neovim',
-                        link: 'https://codeberg.org/textwire/textwire.nvim',
-                    },
-                    {
-                        text: 'VSCode',
-                        link: 'https://codeberg.org/textwire/vscode-textwire',
-                    },
                 ],
             },
 
@@ -107,13 +99,23 @@ export default defineVersionedConfig(
 
             socialLinks: [
                 {
+                    icon: 'neovim',
+                    ariaLabel: 'Neovim Plugin',
+                    link: 'https://codeberg.org/textwire/textwire.nvim',
+                },
+                {
+                    icon: 'visualstudiocode',
+                    ariaLabel: 'VSCode Extension',
+                    link: 'https://codeberg.org/textwire/vscode-textwire',
+                },
+                {
                     icon: 'go',
                     ariaLabel: 'Golang',
                     link: `https://pkg.go.dev/codeberg.org/textwire/textwire/${latestVersion}`,
                 },
                 {
                     icon: 'codeberg',
-                    ariaLabel: 'Codeberg',
+                    ariaLabel: 'Codeberg repository',
                     link: 'https://codeberg.org/textwire/textwire',
                 },
             ],
