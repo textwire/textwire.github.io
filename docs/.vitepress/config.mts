@@ -107,7 +107,7 @@ export default defineVersionedConfig(
 
             socialLinks: [
                 {
-                    icon: 'golang',
+                    icon: 'go',
                     ariaLabel: 'Golang',
                     link: `https://pkg.go.dev/codeberg.org/textwire/textwire/${latestVersion}`,
                 },
