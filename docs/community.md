@@ -13,11 +13,11 @@ import { members } from '@/modules/members'
 
 ## Meet the Creator
 
-I'm [SerhiiCho](https://serhiicho.com/about-me), and I fell in love with Go in 2019. That's when I started investing my time in the language and noticed something was missing. Other templating systems didn't give me the joy of writing frontend code that I was looking for. Textwire is my answer - one of those small lego bricks that completes the Go ecosystem's templating landscape.
+I'm [Serhii Cho](https://serhiicho.com/about-me), in 2019 I got sick of Go's templating engines and Textwire is my solution to that frastration. It's a perfect lego brick that completes the Go ecosystem's templating landscape.
 
 ## Support the Project
 
-To help Textwire continue evolving, we need your support. Our goal is $50 per week in total weekly donations to maintain Textwire core, VSCode and Neovim plugins, LSP server, Tree Sitter parser, and documentation. [Donate on Liberapay](https://liberapay.com/textwire/donate) to help us reach this goal.
+To help Textwire continue evolving, we need your support. Our goal is $50 per week in total weekly donations to maintain Textwire core, VSCode and Neovim plugins, LSP server, Tree Sitter parser, and documentation. [Donate on Liberapay](https://liberapay.com/textwire/donate) to help us reach this goal. You can also check [my crypto addresses](https://serhiicho.com/about-me) if that's the way you prefer.
 
 :::tip ⭐️ Star on Codeberg
 You can also support us by starring Textwire on [Codeberg](https://codeberg.org/textwire/textwire) to help increase visibility and grow our community.
