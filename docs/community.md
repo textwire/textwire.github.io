@@ -1,7 +1,7 @@
 ---
-sidebar: false
 title: Early Stargazers & Community Heroes
 description: Meet the early supporters who believed in Textwire from the beginning
+sidebar: false
 ---
 
 <script setup>

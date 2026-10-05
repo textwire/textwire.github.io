@@ -1,19 +1,19 @@
 import type { HeadConfig, TransformContext } from 'vitepress'
 import { defineVersionedConfig, SidebarType } from '@viteplus/versions'
-import { versions, latestVersion, outdatedVersions } from './theme/versions'
+import { latestVersion, outdatedVersions } from './theme/versions.ts'
 import { resolve } from 'node:path'
-import { sidebarV1 } from './sidebars/sidebarV1'
-import { sidebarV2 } from './sidebars/sidebarV2'
-import { sidebarV3 } from './sidebars/sidebarV3'
-import { sidebarV4 } from './sidebars/sidebarV4'
-import { sidebarV5 } from './sidebars/sidebarV5'
+import { sidebarV1 } from './sidebars/sidebarV1.ts'
+import { sidebarV2 } from './sidebars/sidebarV2.ts'
+import { sidebarV3 } from './sidebars/sidebarV3.ts'
+import { sidebarV4 } from './sidebars/sidebarV4.ts'
+import { sidebarV5 } from './sidebars/sidebarV5.ts'
 
 const sidebar: SidebarType = {
-    '/v1/': sidebarV1,
-    '/v2/': sidebarV2,
-    '/v3/': sidebarV3,
-    '/v4/': sidebarV4,
-    '/': sidebarV5,
+    root: sidebarV5,
+    'v1': sidebarV1,
+    'v2': sidebarV2,
+    'v3': sidebarV3,
+    'v4': sidebarV4,
 }
 
 const hostname = 'https://textwire.serhiicho.com'
@@ -45,6 +45,7 @@ export default defineVersionedConfig(
         },
 
         lastUpdated: true,
+        cleanUrls: true,
 
         markdown: {
             languages: ['html', await fetchTextwireGrammar()],
@@ -63,6 +64,7 @@ export default defineVersionedConfig(
         },
 
         versionsConfig: {
+            current: latestVersion,
             versionSwitcher: false,
         },
 
@@ -85,10 +87,7 @@ export default defineVersionedConfig(
 
             nav: {
                 root: [
-                    {
-                        component: 'VersionSwitcher',
-                        props: { versions, latestVersion },
-                    },
+                    { component: 'VersionSwitcher' },
                     { text: 'Docs', link: `/intro` },
                     { text: 'Blog', link: '/blog/', skipVersioning: true },
                     { text: 'Support', link: '/community', skipVersioning: true },

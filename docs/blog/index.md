@@ -1,7 +1,7 @@
 ---
 title: Textwire Blog
 description: Important version releases and news
-aside: false
+sidebar: false
 ---
 
 # Textwire Blog

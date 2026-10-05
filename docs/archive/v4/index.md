@@ -2,19 +2,19 @@
 layout: home
 
 hero:
-    name: Textwire
-    text: Zero-dependency
-    tagline: Prioritizing runtime performance and long-term stability for Go developers
-    actions:
-        - theme: brand
-          text: Get Started →
-          link: /v4/get-started
-        - theme: alt
-          text: Introduction
-          link: /v4/intro
-    image:
-        src: /images/logo.png
-        alt: Textwire Logo
+  name: Textwire
+  text: Zero-dependency
+  tagline: Prioritizing runtime performance and long-term stability for Go developers
+  actions:
+    - theme: brand
+      text: Get Started →
+      link: /v4/get-started
+    - theme: alt
+      text: Introduction
+      link: /v4/intro
+  image:
+    src: /images/logo.png
+    alt: Textwire Logo
 ---
 
 ::: code-group
@@ -27,4 +27,4 @@ hero:
 
 :::
 
-<Home />
+<HomeHeatures />

@@ -27,4 +27,4 @@ hero:
 
 :::
 
-<Home />
+<HomeHeatures />

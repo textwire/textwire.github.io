@@ -1,8 +1,8 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
-import Home from '@/components/Pages/Home.vue'
-import VersionSwitcher from '@/components/VersionSwitcher.vue'
+import HomeFeatures from '@/components/HomeFeatures.vue'
+import VersionSwitcher from '@viteplus/versions/components/version-switcher.component.vue'
 import OutdatedVersion from '@/components/OutdatedVersion.vue'
 import Blog from '@/components/Blog/Blog.vue'
 import '@/main.css'
@@ -17,7 +17,7 @@ export default {
     },
     enhanceApp({ app }) {
         app.component('VersionSwitcher', VersionSwitcher)
-        app.component('Home', Home)
+        app.component('HomeFeatures', HomeFeatures)
         app.component('Blog', Blog)
     },
 } satisfies Theme
