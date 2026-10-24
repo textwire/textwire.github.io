@@ -5,4 +5,4 @@ Converts to a string with a decimal part by appending a decimal separator and th
 
 #### Arguments:
 1. `separator` (str) (optional) - The separator to use for the decimal. Default is `"."`
-2. `decimals` (int) (optional) - The number of decimal places to add to the number. Default is `2`
+2. `decimals` (int) (optional) - The number of decimal places to add to the number. Default is `2`. Negative values are treated as `0`, so the value is returned unchanged

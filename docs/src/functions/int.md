@@ -31,11 +31,15 @@ int.decimal(separator?: string = ".", decimals?: integer = 2): string
 #### Input Example:
 ```textwire
 {{ 123.decimal() }}
+{{ 123.decimal(".", 0) }}
+{{ 123.decimal(".", -1) }}
 ```
 
 #### Output:
 ```html
 123.00
+123
+123
 ```
 
 ## float

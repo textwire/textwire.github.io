@@ -230,7 +230,9 @@ Shuffles the elements of an array and returns a new array
 arr.slice(start: integer, end?: integer): array
 ```
 
-Returns a portion of an array. The `start` argument is the index at which to begin the slice. The `end` argument is the index at which to end the slice. If `end` is not provided, it slices to the end of the array
+- Returns a portion of an array, from `start` up to but not including `end`
+- If `end` is not provided, it slices to the end of the array
+- If `start` is greater than `end`, it returns an empty array
 
 #### Arguments:
 
