@@ -9,7 +9,7 @@ description: Explore the various boolean functions available in Textwire
 bool.binary(): integer
 ```
 
-Returns an integer `1` if the receiver is true, `0` otherwise
+Returns an integer `1` if the receiver is true, `0` otherwise.
 
 #### Input Example:
 ```textwire
@@ -28,7 +28,7 @@ Returns an integer `1` if the receiver is true, `0` otherwise
 bool.then(ifCase: any, elseCase?: any = nil): any
 ```
 
-Returns the `ifCase` if the receiver is true, otherwise returns the `elseCase`. The `elseCase` is optional and defaults to `nil`
+Returns the `ifCase` if the receiver is true, otherwise returns the `elseCase`. The `elseCase` is optional and defaults to `nil`.
 
 #### Arguments:
 1. `ifCase` (any) - The value to return if the receiver is true

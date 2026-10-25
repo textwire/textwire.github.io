@@ -11,7 +11,7 @@ description: Explore the various array functions available in Textwire
 arr.append(elem: any...): array
 ```
 
-Adds one or more elements to the end of an array and returns a new array
+Adds one or more elements to the end of an array and returns a new array.
 
 #### Arguments:
 
@@ -35,7 +35,7 @@ one, two, three, four
 arr.contains(elem?: any): boolean
 ```
 
-Returns `true` if the array contains the given element, otherwise `false`
+Returns `true` if the array contains the given element, otherwise `false`.
 
 #### Arguments:
 
@@ -101,7 +101,7 @@ Converts array to a JSON string and returns it.
 arr.join(separator?: string = ","): string
 ```
 
-Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma
+Joins the elements of an array into a string and returns it. It takes an optional argument `separator` which is used to join the elements. If no separator is provided, it defaults to a comma.
 
 #### Arguments:
 
@@ -125,7 +125,7 @@ one two
 arr.len(): integer
 ```
 
-Returns the length of an array
+Returns the length of an array.
 
 #### Input Example:
 
@@ -145,7 +145,7 @@ Returns the length of an array
 arr.prepend(elem: any...): array
 ```
 
-Adds one or more elements to the beginning of an array and returns a new array
+Adds one or more elements to the beginning of an array and returns a new array.
 
 #### Arguments:
 
@@ -189,7 +189,7 @@ Returns a random element from the array. The return type depends on the type of 
 arr.reverse(): array
 ```
 
-Reverses the elements of an array and returns a new array
+Reverses the elements of an array and returns a new array.
 
 #### Input Example:
 
@@ -209,7 +209,7 @@ Reverses the elements of an array and returns a new array
 arr.shuffle(): array
 ```
 
-Shuffles the elements of an array and returns a new array
+Shuffles the elements of an array and returns a new array.
 
 #### Input Example:
 

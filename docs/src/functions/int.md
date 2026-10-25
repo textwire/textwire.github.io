@@ -9,7 +9,7 @@ description: Explore the various integer functions available in Textwire
 int.abs(): integer
 ```
 
-Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it
+Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it.
 
 #### Input Example:
 ```textwire
@@ -47,7 +47,7 @@ int.decimal(separator?: string = ".", decimals?: integer = 2): string
 int.float(): float
 ```
 
-Converts an integer to a float by adding a decimal part of `.0` to the number
+Converts an integer to a float by adding a decimal part of `.0` to the number.
 
 #### Input Example:
 ```textwire
@@ -66,7 +66,7 @@ The value `0` will be converted to `0.0`.
 int.len(): integer
 ```
 
-Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign
+Returns the number of digits in an integer. If the integer is negative, it will return the number of digits excluding the `-` sign.
 
 #### Input Example:
 ```textwire
@@ -83,7 +83,7 @@ Returns the number of digits in an integer. If the integer is negative, it will 
 int.str(): string
 ```
 
-Converts an integer to a string and returns it
+Converts an integer to a string and returns it.
 
 #### Input Example:
 ```textwire

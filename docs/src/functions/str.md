@@ -38,7 +38,7 @@ e
 str.capitalize(): string
 ```
 
-Capitalizes the first letter of a string
+Capitalizes the first letter of a string.
 
 #### Input Example:
 
@@ -58,7 +58,7 @@ Hello, world!
 str.contains(substr: string): boolean
 ```
 
-Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string
+Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string.
 
 #### Arguments:
 
@@ -116,7 +116,7 @@ str.decimal(separator?: string = ".", decimals?: integer = 2): string
 str.first(): string
 ```
 
-Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the first character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template.
 
 #### Input Example:
 
@@ -167,7 +167,7 @@ I have 3 apples, they are tasty
 str.last(): string
 ```
 
-Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template
+Returns the last character of a string. When the string is empty, it will return `nil` type, which will be converted to an empty string when rendered in the template.
 
 #### Input Example:
 
@@ -187,7 +187,7 @@ e
 str.len(): integer
 ```
 
-Returns the length of the string
+Returns the length of the string.
 
 #### Input Example:
 
@@ -207,7 +207,7 @@ Returns the length of the string
 str.lower(): string
 ```
 
-Converts a string to lowercase
+Converts a string to lowercase.
 
 #### Input Example:
 
@@ -227,7 +227,7 @@ hello, world!
 str.repeat(times: integer): string
 ```
 
-Returns a new string consisting of count copies of the string on which it was called
+Returns a new string consisting of count copies of the string on which it was called.
 
 #### Arguments:
 
@@ -251,7 +251,7 @@ HelloHelloHello
 str.reverse(): string
 ```
 
-Returns a string with the characters reversed
+Returns a string with the characters reversed.
 
 #### Input Example:
 
@@ -271,7 +271,7 @@ desserts
 str.split(separator?: string = " "): array
 ```
 
-Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space
+Function `split` is used to split a string into an array of substrings. It takes an optional argument `separator` which is used to split the string. If no separator is provided, it defaults to a space.
 
 #### Arguments:
 
@@ -295,7 +295,7 @@ Function `split` is used to split a string into an array of substrings. It takes
 str.trim(chars?: string = "\t \n\r"): string
 ```
 
-Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
+Trims a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string.
 
 #### Arguments:
 
@@ -319,7 +319,7 @@ Trims a string from spaces and special characters like tabs, spaces and new line
 str.trimLeft(chars?: string = "\t \n\r"): string
 ```
 
-Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
+Trims left side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string.
 
 #### Arguments:
 
@@ -343,7 +343,7 @@ Trims left side of a string from spaces and special characters like tabs, spaces
 str.trimRight(chars?: string = "\t \n\r"): string
 ```
 
-Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string
+Trims right side of a string from spaces and special characters like tabs, spaces and new lines by default. You can pass an argument to trim a specific set of characters from a string.
 
 #### Arguments:
 
@@ -367,7 +367,7 @@ Trims right side of a string from spaces and special characters like tabs, space
 str.truncate(length: integer, ellipsis: string = "..."): string
 ```
 
-Returns a string truncated to the given length with an optional ellipsis at the end
+Returns a string truncated to the given length with an optional ellipsis at the end.
 
 #### Arguments:
 
@@ -392,7 +392,7 @@ Hello...
 str.upper(): string
 ```
 
-Converts a string to uppercase
+Converts a string to uppercase.
 
 #### Input Example:
 
