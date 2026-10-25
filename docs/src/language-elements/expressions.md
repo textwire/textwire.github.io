@@ -1,12 +1,12 @@
 ---
 title: Expressions - v5
-description: You can find here all the information about expressions in Textwire
+description: Reference for ternary, prefix, infix, comparison, function call, and logical expressions in Textwire
 ---
 
 # Expressions
 
 - [Ternary](#ternary) <code v-pre>{{ x ? y : z }}</code>
-- [Prefix](#prefix) <code v-pre>{{ !x` or `-x }}</code>
+- [Prefix](#prefix) <code v-pre>{{ !x }}</code> or <code v-pre>{{ -x }}</code>
 - [Infix](#infix) <code v-pre>{{ x * (y + 3) }}</code>
 - [Comparison](#comparison) <code v-pre>{{ x == y }}</code>
 - [Function calls](#function-calls) <code v-pre>{{ name.split(" ") }}</code>
@@ -70,11 +70,32 @@ You can use infix expressions to perform arithmetic operations. Example:
 
 ### Important Notes
 
-- **String concatenation.** Use `+` operator to concatenate strings. Example: <code v-pre>{{ "Hello, " + name }}</code> will result in `Hello, {name}`.
+- **String concatenation.** Use `+` operator to concatenate strings. Example: <code v-pre>{{ "Hello, " + name }}</code> will result in `Hello, ` followed by the value of `name`.
+
+### Operator Precedence
+
+Operators with higher precedence bind tighter. From lowest to highest:
+
+| Precedence | Operators / Expressions                      |
+| ---------- | -------------------------------------------- |
+| 1          | Ternary `? :`                                |
+| 2          | Logical OR `\|\|`                            |
+| 3          | Logical AND `&&`                             |
+| 4          | Equality `==`, `!=`                          |
+| 5          | Comparison `<`, `>`, `<=`, `>=`              |
+| 6          | Addition and subtraction `+`, `-`            |
+| 7          | Multiplication, division, modulo `*`, `/`, `%` |
+| 8          | Prefix `!`, `-`                              |
+| 9          | Indexing `arr[index]`                        |
+| 10         | Postfix `++`, `--`                           |
+| 11         | Member access `obj.key`                      |
+| 12         | Function call `value.func()`                 |
+
+Because member access and function calls bind tighter than prefix operators, <code v-pre>{{ -5.abs() }}</code> is evaluated as <code v-pre>{{ -(5.abs()) }}</code> and returns `-5`. Use parentheses to negate first: <code v-pre>{{ (-5).abs() }}</code>.
 
 ## Comparison
 
-Comparison expressions produce a boolean value. Example:
+Comparison expressions produce a boolean value. Booleans render as `1` for `true` and `0` for `false` when printed directly. Example:
 
 ```textwire
 @if(x == 1)
@@ -124,4 +145,4 @@ You can use logical OR (`||`) and logical AND (`&&`) expressions to combine bool
 @end
 ```
 
-Logical expression accepts any literal value and converts it to boolean. Read about [Truthy and Falsy Values](/#truthy-and-falsy-values).
+Logical expression accepts any literal value and converts it to boolean. `&&` and `||` return a boolean and short-circuit: the right side is not evaluated when the result is already known. Read about [Truthy and Falsy Values](/intro#truthy-and-falsy-values).

@@ -1,6 +1,6 @@
 ---
 title: Unicode Support - v5
-description: Textwire a good support for Unicode characters, including emojis and non-Latin scripts.
+description: Textwire has good support for Unicode characters, including emojis and non-Latin scripts.
 outline: deep
 ---
 
@@ -25,7 +25,7 @@ Keep in mind that with emojis it could be tricky, because some emojis are repres
 
 ### File Names
 
-Directives that accept file names—like `@component`, `@use`, `@insert`, `@reserve`, and `@slot`—fully support Unicode paths:
+Directives that accept file paths, like `@component` and `@use`, fully support Unicode paths. Directives that accept placeholder names, like `@insert`, `@reserve`, and `@slot`, accept Unicode names too:
 
 ```textwire
 @component('书', { name })@end

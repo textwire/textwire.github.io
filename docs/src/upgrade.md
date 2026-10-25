@@ -1,12 +1,12 @@
 ---
 title: Upgrade Guide - v5
-description: Learn how to upgrade your Textwire code from v3 to v5
+description: Learn how to upgrade your Textwire code from v4 to v5
 outline: deep
 ---
 
 # Upgrade Guide
 
-Upgrading from v4 to v5 is the most easier upgrade yet. The only breaking change that was introduced is "Raw string output" syntax. Previously, in order to get unescaped string output you needed to use [raw](https://textwire.serhiicho.com/v4/functions/str#raw) function on strings like this:
+Upgrading from v4 to v5 is the easiest upgrade yet. The only breaking change introduced is the "Raw string output" syntax. Previously, in order to get unescaped string output you needed to use [raw](https://textwire.serhiicho.com/v4/functions/str#raw) function on strings like this:
 
 ```textwire
 {{ "<h1>Test</h1>".raw() }}
@@ -39,7 +39,7 @@ go mod tidy
 
 ### 2. Replace `raw` Function
 
-If you use `raw` function in your code, replace it's usage with new syntax:
+If you use `raw` function in your code, replace its usage with new syntax:
 
 ```textwire
 {{ post.description.raw() }} // [!code --]

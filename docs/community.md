@@ -13,7 +13,7 @@ import { members } from '@/modules/members'
 
 ## Meet the Creator
 
-I'm [Serhii Cho](https://serhiicho.com/about-me), in 2019 I got sick of Go's templating engines and Textwire is my solution to that frastration. It's a perfect lego brick that completes the Go ecosystem's templating landscape.
+I'm [Serhii Cho](https://serhiicho.com/about-me). In 2019 I got tired of Go's templating engines, and Textwire is my solution to that frustration. It's a perfect Lego brick that completes the Go ecosystem's templating landscape.
 
 ## Support the Project
 
