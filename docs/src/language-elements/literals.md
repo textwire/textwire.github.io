@@ -177,6 +177,10 @@ You can access values in an object by using a key. Example:
 ### Important Notes
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
+- **Keys must be identifiers or strings.** Unquoted keys have to be valid identifiers. If a key contains characters like `-` or starts with a number, wrap it in quotes. Example:
+    ```textwire
+    {{ user = { name: "John", "first-name": "Johnny", "1st": true } }}
+    ```
 - **Save accessing.** You can use [get()](/functions/obj#get) function to safely access object properties without worrying about errors. Example:
     ```textwire
     {{ user = {age: 25, name: {first: 'Anna', last: 'Cho'}} }}
