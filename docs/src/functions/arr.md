@@ -94,6 +94,7 @@ Converts array to a JSON string and returns it.
     ```textwire
     <post-likes :post="{{ likes.json() }}" />
     ```
+<!--@include: @/.vitepress/parts/funcs/non-finite-floats.md-->
 
 ## join
 

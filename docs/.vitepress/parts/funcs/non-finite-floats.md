@@ -1,0 +1,1 @@
+- **Non-finite floats become `null` in JSON.** `+Inf`, `-Inf`, and `NaN` are serialized as `null`.

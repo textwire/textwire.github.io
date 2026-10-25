@@ -56,6 +56,7 @@ Converts object to a JSON string and returns it.
     ```textwire
     <post-likes :post="{{ post.camel().json() }}" />
     ```
+<!--@include: @/.vitepress/parts/funcs/non-finite-floats.md-->
 
 ## get
 
