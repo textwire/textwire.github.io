@@ -1,6 +1,7 @@
 ---
 title: Syntax & Types - v5
 description: Textwire has a simple syntax that is easy to learn
+outline: 2-3
 ---
 
 # Syntax & Types
@@ -42,6 +43,30 @@ will be rendered as:
 <p>{{ not code }}</p>
 <p>@use("~base")</p>
 ```
+
+### Escaping in Strings
+
+Inside string literals, a backslash followed by a specific character inserts that character into the string. These sequences are supported:
+
+| Sequence | Result          |
+| -------- | --------------- |
+| `\\`     | Backslash       |
+| `\"`     | Double quote    |
+| `\'`     | Single quote    |
+| `\n`     | Newline         |
+| `\t`     | Tab             |
+| `\r`     | Carriage return |
+
+For example:
+
+```textwire
+{{ "a\\" }}     {{-- Output: a\ --}}
+{{ "C:\\new" }} {{-- Output: C:\new --}}
+{{ "a\"b" }}    {{-- Output: a"b --}}
+{{ 'a\'b' }}    {{-- Output: a'b --}}
+```
+
+Any other escape sequence is kept as is. For example, <code v-pre>{{ "a\xb" }}</code> outputs `a\xb`.
 
 ## Raw Unescaped Output
 

@@ -33,6 +33,7 @@ When you print a string, it will be automatically escaped. If you want to print 
 - **Use `{!! !!}` for unescaped output.** Use the `{!! myVar !!}` when you need to output HTML, XML, JSON without escaping.
 - **Concatenation with `+`.** Use the `+` operator to join strings together.
 - **Quote flexibility.** Single and double quotes are interchangeable for string literals.
+- **Escaping.** Use a backslash to insert special characters inside strings. See [Escaping](/language-elements/syntax#escaping-in-strings).
 
 ## Integer
 
