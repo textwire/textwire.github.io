@@ -48,6 +48,10 @@ You can use integer literals and perform arithmetic operations with them. Exampl
 - **Arithmetic operators.** Support `+`, `-`, `*`, `/`, `%` operations.
 - **Division returns float.** Even integer division like `4 / 2` returns `2.0` (float).
 - **Negative numbers.** Prefix with `-` for negative integers (e.g., `-42`).
+- **Overflow.** Integers are 64-bit. Adding to the maximum value `9223372036854775807` overflows and wraps around to `-9223372036854775808`. Example:
+    ```textwire
+    {{ 9223372036854775807 + 1 }} {{-- Output: -9223372036854775808 --}}
+    ```
 
 ## Nil
 
