@@ -136,7 +136,7 @@ T
 str.format(arg: any...): string
 ```
 
-Function `format` is used to format a string using placeholders. The placeholders are represented by `%s` in the string, and they will be replaced by the corresponding arguments passed to the function. The number of placeholders in the string should match the number of arguments passed to the function.
+Function `format` is used to format a string using placeholders. The placeholders are represented by `%s` in the string, and they will be replaced by the corresponding arguments passed to the function. The number of placeholders in the string should match the number of arguments passed to the function, otherwise, placeholders are just going to be rendered as `%s`.
 
 #### Arguments:
 
