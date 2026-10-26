@@ -58,7 +58,7 @@ Hello, world!
 str.contains(substr: string): boolean
 ```
 
-Returns true if the string contains the given substring, otherwise false. The function is case-sensitive, so the substring must match the case of the string.
+Returns `true` if the string contains the given substring, otherwise `false`. Booleans render as `1` and `0` when printed directly. The function is case-sensitive, so the substring must match the case of the string.
 
 #### Arguments:
 
@@ -73,11 +73,11 @@ Returns true if the string contains the given substring, otherwise false. The fu
 #### Output:
 
 ```html
-true
+1
 ```
 
 > [!TIP] Empty Substring
-> If the `substr` argument is an empty string, the function will always return `true`. It's done this way because an empty string is always a substring of any string
+> If the `substr` argument is an empty string, the function will always return `true` (`1` when rendered). It's done this way because an empty string is always a substring of any string
 
 > [!TIP] Ignore Case
 > If you want to search for a substring without considering the case, you can use the `lower` function to convert both the string and the substring to lowercase:
@@ -156,10 +156,10 @@ I have 3 apples, they are tasty
 
 #### Important Notes
 
-- **Too many arguments.** If you pass more arguments that the string needs, the rest will be ignored.
-- **Non enough arguments.** If you pass not enough arguments, the rest of the placeholders will be rendered as `%s`.
+- **Too many arguments.** If you pass more arguments than the string needs, the rest will be ignored.
+- **Not enough arguments.** If you pass not enough arguments, the remaining placeholders will be rendered as `%s`.
 - **Required argument.** Requires at least 1 argument.
-- **Convertion to string.** All the arguments passed to the function will be converted to string.
+- **Conversion to string.** All the arguments passed to the function will be converted to string.
 
 ## last
 

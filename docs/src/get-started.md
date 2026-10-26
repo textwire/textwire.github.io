@@ -9,12 +9,12 @@ This guide will help you get Textwire up and running in your Go project. You'll 
 
 ## Requirements
 
-Go `1.25` or higher is required to use Textwire. If you don't have Go installed on your machine, you can download it from the [official Go website](https://golang.org/dl/).
+Go `1.25` or higher is required to use Textwire. If you don't have Go installed on your machine, you can download it from the [official Go website](https://go.dev/dl/).
 
 ## Installation
 
 Install the Textwire package in your Go environment:
 
 ```bash
-go get -u codeberg.org/textwire/textwire/v5
+go get codeberg.org/textwire/textwire/v5
 ```

@@ -5,7 +5,7 @@ description: Learn about Textwire literals like string, int, float, bool, nil, a
 
 # Literals
 
-- [String](#string) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ `Hello, World!` }}</code>
+- [String](#string) <code v-pre>{{ "Hello, World!" }}</code> or <code v-pre>{{ 'Hello, World!' }}</code>
 - [Integer](#integer) <code v-pre>{{ 123 }}</code> or <code v-pre>{{ -234 }}</code>
 - [Float](#float) <code v-pre>{{ 123.456 }}</code>
 - [Boolean](#boolean) <code v-pre>{{ true }}</code>
@@ -46,7 +46,7 @@ You can use integer literals and perform arithmetic operations with them. Exampl
 ### Important Notes
 
 - **Arithmetic operators.** Support `+`, `-`, `*`, `/`, `%` operations.
-- **Division returns float.** Even integer division like `4 / 2` returns `2.0` (float).
+- **Division returns an integer.** Integer division like `4 / 2` returns `2` (integer). Use a float literal if you need a float result, for example `4.0 / 2.0`.
 - **Negative numbers.** Prefix with `-` for negative integers (e.g., `-42`).
 - **Overflow.** Integers are 64-bit. Adding to the maximum value `9223372036854775807` overflows and wraps around to `-9223372036854775808`. Example:
     ```textwire
@@ -86,7 +86,7 @@ You can use float literals and perform arithmetic operations with them. Example:
 
 - **Precision limit (IEEE 754).** Floating-point numbers have ~15-17 digit precision. For example, `1234567890.1234567890` rounds to `1234567890.1234567`.
 - **Large numbers as strings.** Keep large numbers as strings if you need exact precision.
-- **Division always returns float.** Integer division like `4 / 2` returns `2.0`.
+- **Division follows the operand types.** Float division like `4.0 / 2.0` returns a float. Integer division like `4 / 2` returns an integer.
 - **Follows IEEE 754 like Go.** Overflow produces `+Inf` or `-Inf`, values too small to represent underflow to `0.0`, and invalid operations like `+Inf - +Inf` produce `NaN`. These special values are printed as `+Inf`, `-Inf`, and `NaN`.
 <!--@include: @/.vitepress/parts/funcs/non-finite-floats.md-->
 
@@ -106,12 +106,13 @@ Booleans represent truth values and can be either `true` or `false`. They are es
 
 ### Important Notes
 
-- **Truthy values.** Non-empty strings, non-zero numbers (including negatives), arrays, and objects are truthy. Arrays and objects are always truthy regardless of being empty.
-- **Falsy values.** Only `false`, `nil`, `0`, and empty strings `""` are falsy.
+- **Truthy values.** Non-empty strings, non-zero numbers (including negatives), non-empty arrays, and objects with at least one key are truthy.
+- **Falsy values.** `false`, `nil`, `0`, `0.0`, empty strings `""`, empty arrays `[]`, and empty objects `{}` are falsy.
+- **Printed as `1` and `0`.** Outputting a boolean renders `1` for `true` and `0` for `false`. Use a ternary expression if you need `"true"` or `"false"` text.
 
 ## Array
 
-Defining an array in Textwire is done is a similar way as in other languages. Example:
+Defining an array in Textwire is done in a similar way as in other languages. Example:
 
 ```textwire
 {{ names = ["John", "Jane", "Jack"] }}
@@ -138,9 +139,9 @@ You can access values in an array by using an index. Example:
 
 ### Important Notes
 
-- **Out of bounds returns nil.** Accessing array on non-existant index returns `nil` instead of resulting in error.
-- **Indexing strings.** You cannot use `[number]` to access string character, instead, use [at()](/functions/str#at) function.
-- **Prints as comma-separated.** Printing array will convert it to comma seperated values. Example:
+- **Out of bounds returns nil.** Accessing an array at a non-existent index returns `nil` instead of resulting in an error.
+- **Indexing strings.** You cannot use `[number]` to access a string character, instead, use [at()](/functions/str#at) function.
+- **Prints as comma-separated.** Printing an array converts it to comma separated values. Example:
     ```textwire
     <span>{{ [1, 2, 3] }}</span>
     ```
@@ -187,7 +188,7 @@ You can access values in an object by using a key. Example:
     ```textwire
     {{ user = { name: "John", "first-name": "Johnny", "1st": true } }}
     ```
-- **Save accessing.** You can use [get()](/functions/obj#get) function to safely access object properties without worrying about errors. Example:
+- **Safe accessing.** You can use the [get()](/functions/obj#get) function to safely access object properties without worrying about errors. Example:
     ```textwire
     {{ user = {age: 25, name: {first: 'Anna', last: 'Cho'}} }}
     {{ user.get('name.first') }}

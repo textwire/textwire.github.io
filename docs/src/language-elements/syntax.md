@@ -8,7 +8,7 @@ outline: 2-3
 
 Textwire’s syntax is straightforward and easy to learn. Below are the key rules for writing Textwire code:
 
-- **File Extensions:** All HTML files intended for Textwire parsing must have a `.tw` extension.
+- **File Extensions:** By default, Textwire template files use the `.tw` extension. The extension is configurable with the `TemplateExt` option, and the file content can be HTML, XML, JSON, or any other text-based format.
 - **Code Placement:** All Textwire code must either:
     - Be enclosed within <code v-pre>{{ }}</code> braces, or
     - Be enclosed within <code v-pre>{!! !!}</code> braces, or
@@ -19,7 +19,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
 
 ## Directives
 
-Directives are Textwire statements that begin with the `@` symbol. They define layouts, insert content into placeholders, and perform logical operations like conditionals and loops. Directives can only be placed within HTML and cannot be used inside braces (<code v-pre>{{</code> and <code v-pre>}}</code>).
+Directives are Textwire statements that begin with the `@` symbol. They define layouts, insert content into placeholders, and perform logical operations like conditionals and loops. Directives can be placed anywhere in the template outside of braces (<code v-pre>{{</code> and <code v-pre>}}</code>) and are not limited to HTML files.
 
 ### Important Notes
 
@@ -104,20 +104,20 @@ Textwire has a different type system from Go. When you pass a variable to Textwi
 | `integer`     | `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`                                                                     |
 | `float`       | `float32`, `float64`                                                                                                                                        |
 | `nil`         | `nil`                                                                                                                                                       |
-| `array`       | `[]string`, `[]bool`, `[]int`, `[]int64`, `[]int32`, `[]int16`, `[]int8`, `[]uint`, `[]uint64`, `[]uint32`, `[]uint16`, `[]uint8`, `[]float64`, `[]float32` |
-| `object`      | `struct{}`, `User{}`, `map[string]string`, any struct or map                                                                                                |
+| `array`       | Any slice, for example `[]string`, `[]int`, `[]any`, or a slice of structs                                                                                   |
+| `object`      | `struct{}`, `User{}`, `map[string]any`, or any other struct or map                                                                                          |
 
 The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: <code v-pre>{{ "hello world".split(" ") }}</code> to get an array of strings `["hello", "world"]`.
 
-## Nullable Types
+## Empty Values
 
-Like Go, each type in Textwire has a nullable version. Here is the table of nullable types:
+Each Textwire type has an empty value that is treated as falsy in boolean contexts:
 
 | Type      | Empty Literal | Description   |
 | --------- | ------------- | ------------- |
 | `string`  | `""`          | Empty string  |
-| `integer` | `0`, `-0`     | Zero integer  |
-| `float`   | `0.0`, `-0.0` | Zero float    |
+| `integer` | `0`           | Zero integer  |
+| `float`   | `0.0`         | Zero float    |
 | `boolean` | `false`       | False boolean |
 | `array`   | `[]`          | Empty array   |
 | `object`  | `{}`          | Empty object  |

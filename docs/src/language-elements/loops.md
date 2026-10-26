@@ -45,7 +45,7 @@ Use `@breakif()` and `@continueif()` with a single condition argument.
 ```textwire
 @each(num in [0, 1])
     @breakif(num == 1)
-    <p>{{ name }}</p>
+    <p>{{ num }}</p>
 @end
 ```
 
@@ -69,7 +69,7 @@ Direct `@continue` skips to next iteration immediately. Direct `@break` exits th
 
 ## Loop Variables
 
-Both `@for` and `@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration.
+`@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration. `@for` loops do not provide a `loop` object; use the loop variable you declared in `@for` instead.
 
 Available properties:
 
@@ -126,4 +126,4 @@ When the array is empty, the result is `<p>No names</p>`. Without the `@else` st
 
 1. **Choose appropriate loop type**: Use `@each` for simple array iteration, `@for` for index-based control
 2. **Handle empty arrays**: Always include `@else` for better user experience
-3. **Use loop variables**: Leverage `loop.first`, and `loop.last` for conditional logic
+3. **Use loop variables**: In `@each` loops, leverage `loop.first` and `loop.last` for conditional logic

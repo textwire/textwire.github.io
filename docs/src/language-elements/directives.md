@@ -41,7 +41,7 @@ You can also use `else` and `elseif` directives:
 @end
 ```
 
-If you pass `nil` or an empty string to the `@if` directive, it will be treated as `false`.
+If you pass `nil`, an empty string, an empty array, or an empty object to the `@if` directive, it will be treated as `false`.
 
 ```textwire
 {{ name = nil }}
@@ -55,7 +55,7 @@ If you pass `nil` or an empty string to the `@if` directive, it will be treated 
 
 You can use regular for loops to iterate over an array or a range of numbers.
 
-This is a basic for loop that you can use. It has a declaration, condition and post directive. `for <declaration>; <condition>; <post>`. They are all optional. Example:
+This is a basic for loop that you can use. It has a declaration, condition and post statement. `for <declaration>; <condition>; <post>`. They are all optional. Example:
 
 ```textwire
 {{ names = ["Ann", "Serhii"] }}
@@ -72,6 +72,7 @@ Read more about loops in the [Loops guide](/language-elements/loops).
 ### Important Notes
 
 - **Extends parent scope.** For loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
+- **No `loop` object.** Unlike `@each`, `@for` does not provide a `loop` object. Use the variable you declared in the loop instead. Read more about [Loop Variables](/language-elements/loops#loop-variables).
 
 #### Example
 
@@ -150,11 +151,11 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 ### Important Notes
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
-- **Takes two arguments.** `@insert` is optional and accepts two arguments: the name of the reserved placeholder and the optional content to be injected into that placeholder.
+- **Two arguments.** `@insert` accepts the name of the reserved placeholder and an optional content argument.
 - **Evaluated in template context.** All inserts are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file. It means they have the context of the file where they are defined.
 - **Requires matching reserve.** If you define an insert without having a matching reserve, it will result in error. Such inserts are considered unused.
 - **Names must be unique.** You cannot define multiple inserts with the same name in a single file. It will result in error.
-- **Requires `@use` first.** If you define `@insert` without defining `@use` directive first, you'll get an error.
+- **Requires `@use`.** `@insert` requires an `@use` directive in the same file, otherwise you'll get an error.
 
 ## @reserve
 
@@ -197,7 +198,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Only in layout files.** `@reserve` can only be used inside layout file. Using it in templates and components will result in error.
 - **`@insert` is optional.** `@reserve` does not force you to have a matching `@insert`. If you don't insert any value into `@reserve`, it will fallback to an empty string.
-- **One `@reserve` per file.**  You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v5.1.0](https://codeberg.org/textwire/textwirepull/68).
+- **One `@reserve` per name.** You cannot define multiple `@reserve` directives with the same name in a single layout file. It will result in an error starting from version [v5.1.0](https://codeberg.org/textwire/textwire/pulls/68).
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
@@ -392,7 +393,7 @@ Similarly, you can print objects and other types of data:
 
 ### Dump Multiple Objects
 
-`@dump` directive can accept an endless amount arguments at once:
+`@dump` directive can accept any number of arguments at once:
 
 ```textwire
 {{ meta = [1, 2.23, true, false, nil] }}
