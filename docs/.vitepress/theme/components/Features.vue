@@ -19,4 +19,8 @@ import { VPFeatures } from 'vitepress/theme'
     margin: 0;
     padding-top: 8px;
 }
+
+.VPFeatures .items .item {
+    list-style: none;
+}
 </style>
