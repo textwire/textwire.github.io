@@ -10,7 +10,7 @@ description: Learn how to define and use custom functions in Textwire, enabling 
 Custom functions are user-defined functions in your Go code that extend Textwire's capabilities beyond built-in functions. They were introduced in Textwire `v2.0.0` and allow you to create type-specific operations invoked using the dot operator `.` followed by the function name.
 
 ```textwire
-{{ "Arlecchino"._isCool() }}`
+{{ "Arlecchino"._isCool() }}
 ```
 
 Custom functions can accept variadic arguments and return values of any type, enabling you to perform custom operations on Textwire data types.
@@ -37,32 +37,29 @@ All registration methods return `*fail.Error`.
 
 **Example: Register String Function**
 
-Here is a useful example for registering function that converts string date to human-readable time ago format:
+Here is an example of registering a string function that uppercases a value and adds an exclamation mark:
 
 ```go
 import (
-	"fmt"
+	"strings"
 
-	"codeberg.org/textwire/textwire/v3"
 	"codeberg.org/textwire/textwire/v5"
 )
 
 func main() {
-	textwire.RegisterStrFunc("_timeago", func(s string, args ...any) any {
-		out, err := timeago.Parse(s)
-		if err != nil {
-			fmt.Println(err)
-			return ""
-		}
-		return out
+	err := textwire.RegisterStrFunc("_shout", func(s string, args ...any) any {
+		return strings.ToUpper(s) + "!"
 	})
+	if err != nil {
+		err.FatalOnError()
+	}
 }
 ```
 
 In your Textwire you can now use it like that:
 
 ```textwire
-{{ post.CreatedDate._timeago() }} {{-- 14 days ago --}}
+{{ "hello"._shout() }} {{-- HELLO! --}}
 ```
 
 **Other Function Types**

@@ -32,7 +32,7 @@ one, two, three, four
 ## contains
 
 ```ts
-arr.contains(elem?: any): boolean
+arr.contains(elem: any): boolean
 ```
 
 Returns `true` if the array contains the given element, otherwise `false`.
@@ -88,7 +88,7 @@ Converts array to a JSON string and returns it.
 - **Raw (non-encoded) JSON.** To get non-encoded JSON, use raw embedding:
     ```textwire
     {!! myArr.json() !!}
-    {{-- Ouput: ["one","two",false,10] --}}
+    {{-- Output: ["one","two",false,10] --}}
     ```
 - **Pass to JavaScript through props.** Look at this Vue.js example showing how to pass JSON array from Textwire to JavaScript frameworks using props:
     ```textwire

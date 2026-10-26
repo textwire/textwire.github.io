@@ -55,7 +55,7 @@ if err != nil {
 ## File Path Resolution
 The `EvaluateFile` function resolves file paths as follows:
 
-- **Relative paths** are resolved from the main entry point directory
+- **Relative paths** are resolved from the process's current working directory
 - **Absolute paths** are used as specified
 - **Template directory configuration** does not affect `EvaluateFile` - it uses exact paths
 - **File extensions** are not automatically added - specify the full path including `.tw`

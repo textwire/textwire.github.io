@@ -13,7 +13,7 @@ Returns the absolute value of an integer. If the integer is negative, it will re
 
 #### Input Example:
 ```textwire
-{{ -5.abs() }}
+{{ (-5).abs() }}
 ```
 
 #### Output:
@@ -87,7 +87,7 @@ Converts an integer to a string and returns it.
 
 #### Input Example:
 ```textwire
-{{ 5.str() }} and {{ -10.str() }}
+{{ 5.str() }} and {{ (-10).str() }}
 ```
 
 #### Output:

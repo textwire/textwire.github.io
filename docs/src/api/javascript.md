@@ -50,4 +50,4 @@ In your JavaScript, you'll get this JSON:
 }
 ```
 
-If you don't use `camel` function, your JSON keys will be in snake case, which may not work well with JavaScript frameworks that expect camel case. By using `camel` and `json` together, you ensure that your data is properly formatted for JavaScript consumption.
+If you don't use the `camel` function, your JSON keys keep their original case (for example `Title` and `CreatedAt`), which may not work well with JavaScript frameworks that expect camel case. By using `camel` and `json` together, you ensure that your data is properly formatted for JavaScript consumption.

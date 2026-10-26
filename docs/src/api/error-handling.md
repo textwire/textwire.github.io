@@ -30,17 +30,19 @@ Error handling in Textwire occurs in your Go code. All functions return `*fail.E
 func evalTextwire() error {
     inp := "{{ name.split(1) }}"
 
-    out, err := textwire.EvaluateString(inp, map[string]any{
+    _, err := textwire.EvaluateString(inp, map[string]any{
         "name": "Amy Adams",
     })
 
     if err != nil {
         return err.Error()
     }
+
+    return nil
 }
 ```
 
-The [split](/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `String evaluation failed: [Textwire ERROR:1]: first argument for function 'split' on type 'string' must be a string`.
+The [split](/functions/str#split) function requires a string argument, not an integer. When incorrect argument types are passed, Textwire returns an error from the `EvaluateString` function. You will get an error: `[Textwire ERROR:1]: argument 1 on string.split() must be 'string'`.
 
 ### Common Error Handling Patterns
 

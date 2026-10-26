@@ -13,7 +13,7 @@ Returns the absolute value of a float. If the float is negative, it will return 
 
 #### Input Example:
 ```textwire
-{{ -5.125.abs() }}
+{{ (-5.125).abs() }}
 ```
 
 #### Output:

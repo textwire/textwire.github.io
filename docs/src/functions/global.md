@@ -8,8 +8,6 @@ outline: [2, 3]
 
 Global functions are not attached to any specific type like strings or integers, they are globally available everywhere. They are similar to Golang `len()`, `cap()` functions.
 
-This global function should be used only with variables and object properties. It allows you to check if the variable or property is defined or not to prevent Textwire from creating an error.
-
 ## defined
 
 ```ts
@@ -90,7 +88,7 @@ If you try to use `defined()` with a method call that doesn't exist, it will sti
 
 ```textwire
 {{ name = "john"; defined(name.somemethod()) }}
-{{-- Error: method 'somemethod' does not exist on type 'string' --}}
+{{-- [Textwire ERROR:1]: string.somemethod() is not defined --}}
 ```
 
 > [!TIP] Best Practice
@@ -140,7 +138,7 @@ Function `formatDate` converts given string date to a formatted date string usin
 ```
 
 > [!WARNING] Error Handling
-> If the date doesn't match one of the supported formats, you'll get an error: `global function formatDate() doesn't support date format '%s'`
+> If the date doesn't match one of the supported formats, you'll get an error with the actual value, for example: `global function formatDate() doesn't support date format '2026-13-01'`
 
 ## hasValue
 
@@ -148,7 +146,7 @@ Function `formatDate` converts given string date to a formatted date string usin
 hasValue(arg: any...): boolean
 ```
 
-Function `hasValue` checks if variables and properties are defined and [non-nullable](/language-elements/syntax#nullable-types). Unlike function [defined](/functions/global#defined), `hasValue` checks if the variable is not only defined but also has a non-nullable value. For example, if you have a variable `x` that is defined but has a value of `0`, the function `hasValue(x)` will return `false`.
+Function `hasValue` checks if variables and properties are defined and [non-empty](/language-elements/syntax#empty-values). Unlike function [defined](/functions/global#defined), `hasValue` checks if the variable is not only defined but also has a truthy value. For example, if you have a variable `x` that is defined but has a value of `0`, the function `hasValue(x)` will return `false`.
 
 #### Arguments:
 
@@ -169,4 +167,4 @@ No value
 ```
 
 > [!TIP] Best Practice
-> Use `hasValue()` when you need to know for sure that the variable is defined and contains [non-zero value](/language-elements/syntax#nullable-types).
+> Use `hasValue()` when you need to know for sure that the variable is defined and contains a [non-empty value](/language-elements/syntax#empty-values).

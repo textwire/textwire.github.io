@@ -1,6 +1,6 @@
 ---
 title: Introduction - v5
-description: Get an overview of Textwire, a powerful template evaluator for Go developers, and learn about its features, syntax, and various use cases
+description: Get an overview of Textwire, a templating engine for Go developers, and learn about its features, syntax, and various use cases
 outline: deep
 ---
 
@@ -13,7 +13,7 @@ Built specifically for Go, Textwire offers a clean and intuitive syntax that sim
 > [!TIP] Syntax Highlighting
 > If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://codeberg.org/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 
-Textwire enables the integration of dynamic content into HTML files to create data-driven, responsive pages.
+Textwire enables the integration of dynamic content into any text-based format, including HTML, XML, JSON, and plain text.
 
 The syntax is designed to be familiar and easy-to-learn, particularly for developers experienced with other template languages. Visit [Language Elements](/language-elements/syntax) page to explore the full range of available statements and directives for your templates.
 
@@ -76,7 +76,7 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 
 Textwire has two reserved variable names that you cannot use:
 
-1. `loop` Object that is used inside loops. [Read more](/language-elements/loops#loop-variables)
+1. `loop` Object that is available inside `@each` loops. [Read more](/language-elements/loops#loop-variables)
 2. `global` Global object available in all Textwire files. [Read more](/api/configurations#global-data)
 
 ## Truthy and Falsy Values
@@ -89,8 +89,8 @@ Textwire evaluates values as truthy or falsy based on their type when they are u
 | string  | Non-empty string | Empty string (`""`) |
 | integer | Non-zero integer | `0`                 |
 | float   | Non-zero float   | `0.0`               |
-| array   | always `true`    | always `true`       |
-| object  | always `true`    | always `true`       |
+| array   | Non-empty array  | Empty array (`[]`)  |
+| object  | Non-empty object | Empty object (`{}`) |
 | nil     | always `false`   | always `false`      |
 
 This means you can use any literal value in logical expressions:
@@ -103,4 +103,4 @@ In the example above, the result is `"Yes"` because:
 
 - `"nice"` is a non-empty string, so it's truthy
 - `13` is a non-zero integer, so it's truthy
-- Both values are truthy, so the logical AND returns the last truthy value (`13`), which evaluates to `true` in the ternary expression
+- Both values are truthy, so the logical AND evaluates to `true`

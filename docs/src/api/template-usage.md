@@ -155,12 +155,11 @@ The `NewTemplate` function accepts a `*config.Config` parameter with several pro
 
 ```go :line-numbers
 import (
-    "fmt"
     "net/http"
 
     "codeberg.org/textwire/textwire/v5"
-    "codeberg.org/textwire/textwire/v5/fail"
     "codeberg.org/textwire/textwire/v5/config" // [!code highlight]
+    "codeberg.org/textwire/textwire/v5/pkg/fail"
 )
 
 var tpl *textwire.Template

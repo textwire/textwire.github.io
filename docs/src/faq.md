@@ -61,17 +61,15 @@ See the [Directives](/language-elements/directives) section for a complete refer
 
 If you are following Textwire documentation recommendations and keep your files in the suggested directory structure, you can use optional path aliases to simplify your references. This allows you to write cleaner and more concise code when including layouts, components, or views.
 
-For example, Textwire expects your layout files are stores in `templates/layouts/` directory, so you can use the `~` alias to reference them. Instead of writing `@use("layouts/main")`, you can simply write `@use("~main")`. The `~` alias will be automatically replaced with `layouts/` during processing.
-
-This alias adapts to the type of file you are referencing:
+For example, Textwire expects your layout files to be stored in the `templates/layouts/` directory, so you can use the `~` alias to reference them. Instead of writing `@use("layouts/main")`, you can simply write `@use("~main")`. The `~` alias is replaced with the prefix that matches the directive: `layouts/` for `@use`, `components/` for `@component`, and `views/` for template names passed to `Template` methods.
 
 ### Available path aliases
 
-| Alias Usage                           | Converted To                               |
-| ------------------------------------- | ------------------------------------------ |
-| `@use('~main')`                       | `@use('layouts/main')`                     |
-| `@component('~user')@end`             | `@use('components/user')@end`              |
-| `textwire.Response(w, "~home", data)` | `textwire.Response(w, "views/home", data)` |
+| Alias Usage                     | Converted To                        |
+| ------------------------------- | ----------------------------------- |
+| `@use('~main')`                 | `@use('layouts/main')`              |
+| `@component('~user')@end`       | `@component('components/user')@end` |
+| `tpl.Response(w, "~home", data)` | `tpl.Response(w, "views/home", data)` |
 
 ### Example usage
 
@@ -92,6 +90,6 @@ Usage with components:
 Usage with views:
 
 ```go
-err := textwire.Response(w, "views/about-me", data) // [!code --]
-err := textwire.Response(w, "~about-me", data) // [!code ++]
+err := tpl.Response(w, "views/about-me", data) // [!code --]
+err := tpl.Response(w, "~about-me", data) // [!code ++]
 ```

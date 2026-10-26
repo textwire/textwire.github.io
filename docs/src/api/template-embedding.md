@@ -46,6 +46,7 @@ package main
 
 import (
 	"embed"
+	"net/http"
 
 	"codeberg.org/textwire/textwire/v5"
 	"codeberg.org/textwire/textwire/v5/config"
@@ -56,10 +57,15 @@ var templateFS embed.FS // [!code highlight]
 
 func main() {
     tpl, err := textwire.NewTemplate(&config.Config{
-        TemplateFS:    templateFS, // [!code highlight]
+        TemplateFS: templateFS, // [!code highlight]
+    })
+    err.FatalOnError()
+
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        tpl.Response(w, "views/home", nil).PrintOnError()
     })
 
-    // other logic here ...
+    http.ListenAndServe(":8080", nil)
 }
 ```
 

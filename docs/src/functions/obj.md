@@ -11,7 +11,7 @@ description: Explore several object functions available in Textwire
 obj.camel(): object
 ```
 
-Recursively converts object keys to camel case and returns it. Useful when you need to pass data to JavaScript and want to convert keys before calling the [json](/functions/obj#json) function. Doesn't mutate the original object.
+Recursively converts object keys to camel case and returns a new object. Useful when you need to pass data to JavaScript and want to convert keys before calling the [json](/functions/obj#json) function. Doesn't mutate the original object.
 
 #### Input Example:
 
@@ -21,9 +21,13 @@ Recursively converts object keys to camel case and returns it. Useful when you n
 
 #### Output:
 
-```json
-{ "firstName": "Serhii", "lastName": "Cho" }
+```html
+{firstName: &#34;Serhii&#34;, lastName: &#34;Cho&#34;}
 ```
+
+#### Important Notes
+
+- **Use `json()` for JSON.** `camel()` returns a Textwire object. Chain `.json()` if you need a JSON string, for example <code v-pre>{{ obj.camel().json() }}</code>.
 
 ## json
 
@@ -50,7 +54,7 @@ Converts object to a JSON string and returns it.
 - **Raw (non-encoded) JSON.** To get non-encoded JSON, use raw embedding:
     ```textwire
     {!! myObj.json() !!}
-    {{-- Ouput: {"name":"Chiori","element":"Geo"} --}}
+    {{-- Output: {"name":"Chiori","element":"Geo"} --}}
     ```
 - **Pass to JavaScript through props.** Look at this Vue.js example showing how to pass JSON object from Textwire to JavaScript frameworks using props:
     ```textwire
@@ -61,10 +65,10 @@ Converts object to a JSON string and returns it.
 ## get
 
 ```ts
-obj.get(): any
+obj.get(path: string): any
 ```
 
-`get` function retrieves values from the object using a dot notation. It accepts a string as an argument, which represents the path to the desired value within the object. If the specified path does not exist, it returns `undefined`.
+`get` function retrieves values from the object using a dot notation. It accepts a string as an argument, which represents the path to the desired value within the object. If the specified path does not exist, it returns `nil`.
 
 #### Input Example:
 

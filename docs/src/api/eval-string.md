@@ -24,7 +24,7 @@ if err != nil {
 ```
 
 ## Good to Know
-- **Confiturations** that you set with `Configure` have no effect on `EvaluateFile` and `EvaluateString`.
+- **Configurations** that you set with `Configure` have no effect on `EvaluateFile` and `EvaluateString`.
 - You cannot use template directives like `@use`, `@insert`, `@reserve` or `@component` inside because they are specific to templates.
 
 ## Return Values
