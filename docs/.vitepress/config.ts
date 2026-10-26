@@ -77,7 +77,7 @@ export default defineVersionedConfig(
         themeConfig: {
             logo: '/images/logo.png',
             footer: {
-                message: 'Release under the <a href="https://codeberg.org/textwire/textwire/src/branch/master/LICENSE" target="_blank">MIT License</a>',
+                message: 'Released under the <a href="https://codeberg.org/textwire/textwire/src/branch/master/LICENSE" target="_blank">MIT License</a>',
                 copyright: 'Copyright © 2023 - present <a href="https://serhiicho.com/about-me" target="_blank">Serhii Cho</a>',
             },
 

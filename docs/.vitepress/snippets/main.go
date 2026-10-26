@@ -4,21 +4,16 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/textwire/textwire/v2"
-	"github.com/textwire/textwire/v2/config"
+	"codeberg.org/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v5/pkg/fail"
 )
 
 var tpl *textwire.Template
 
 func main() {
-	var err error
-	tpl, err = textwire.NewTemplate(&config.Config{
-		DebugMode: true,
-	})
-
-	if err != nil {
-		fmt.Println(err)
-	}
+	var err *fail.Error
+	tpl, err = textwire.NewTemplate(nil)
+	err.FatalOnError()
 
 	http.HandleFunc("/", homeHandler)
 
@@ -38,8 +33,5 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	err := tpl.Response(w, "views/home", vars)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
+	tpl.Response(w, "views/home", vars).PrintOnError()
 }

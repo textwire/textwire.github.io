@@ -4,11 +4,12 @@ VitePress documentation site for [Textwire](https://codeberg.org/textwire/textwi
 
 ## Directory Structure
 
+- Current docs: `docs/src/`
+- Versioned docs: `docs/archive/`
+- Blog articles: `docs/blog/`
 - Theme files: `docs/.vitepress/theme/`
-- Syntax highlighting: `docs/.vitepress/textwire.tmLanguage.json`
-- VitePress config: `docs/.vitepress/config.mts`
-- Versioned docs: `docs/versions/`
-- Blog articles: `docs/.vitepress/blog/`
+- Syntax highlighting: fetched from Codeberg in `docs/.vitepress/config.ts`
+- VitePress config: `docs/.vitepress/config.ts`
 - Blog registry: `docs/.vitepress/theme/modules/blogPosts.ts`
 
 ## Development
@@ -18,7 +19,7 @@ VitePress documentation site for [Textwire](https://codeberg.org/textwire/textwi
 
 ## Important
 
-- If you write inline code examples with `{{` and `}}` braces that Textwire uses, wrap them in <code v-pre></code> HTML tags instead. Intead of `{{ x = 5}}` Textwire example, you should write <code v-pre>{{ x = 5 }}</code>. It's because if you write it with backtics, Vue will execute them since `{{ }}` braces are also used in Vue.js.
+- If you write inline code examples with `{{` and `}}` braces that Textwire uses, wrap them in <code v-pre></code> HTML tags instead. Instead of `{{ x = 5}}` Textwire example, you should write <code v-pre>{{ x = 5 }}</code>. It's because if you write it with backticks, Vue will execute them since `{{ }}` braces are also used in Vue.js.
 - For all other inline code, use backticks `code`. Only use <code v-pre>code</code> when the code contains `{{` or `}}` braces to prevent Vue.js from executing it.
 
 ## Contribute
