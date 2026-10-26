@@ -181,6 +181,17 @@ You can access values in an object by using a key. Example:
 </ul>
 ```
 
+You can also use an index expression with the key as a string:
+
+```textwire
+{{ hero = { name: 'Skirk', 'release-version': '5.7' } }}
+
+{{ hero['name'] }}             {{-- Skirk --}}
+{{ hero['release-version'] }}  {{-- 5.7 --}}
+```
+
+This is useful for keys that are not valid identifiers, such as `release-version`.
+
 ### Important Notes
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
@@ -188,6 +199,7 @@ You can access values in an object by using a key. Example:
     ```textwire
     {{ user = { name: "John", "first-name": "Johnny", "1st": true } }}
     ```
+- **Dot and bracket access.** Use `obj.key` or `obj['key']` to read a value. Bracket access takes a string key. Use dot notation to assign values, for example `user.name = "Anna"`.
 - **Safe accessing.** You can use the [get()](/functions/obj#get) function to safely access object properties without worrying about errors. Example:
     ```textwire
     {{ user = {age: 25, name: {first: 'Anna', last: 'Cho'}} }}
