@@ -107,6 +107,8 @@ Textwire has a different type system from Go. When you pass a variable to Textwi
 | `array`       | Any slice, for example `[]string`, `[]int`, `[]any`, or a slice of structs                                                                                   |
 | `object`      | `struct{}`, `User{}`, `map[string]any`, or any other struct or map                                                                                          |
 
+Types without a Textwire equivalent are not converted. This includes functions (`func`), channels (`chan`), and complex numbers (`complex64`, `complex128`). Passing one of these types as a value returns an `unsupported value type for field <field>` error.
+
 The biggest difference in types and type literals between Textwire and Go is that Textwire's literals have functions that you can call on them. For example, you can call a `split` function on a string literal like this: <code v-pre>{{ "hello world".split(" ") }}</code> to get an array of strings `["hello", "world"]`.
 
 ## Empty Values
