@@ -86,7 +86,7 @@ Operators with higher precedence bind tighter. From lowest to highest:
 | 6          | Addition and subtraction `+`, `-`            |
 | 7          | Multiplication, division, modulo `*`, `/`, `%` |
 | 8          | Prefix `!`, `-`                              |
-| 9          | Indexing `arr[index]`                        |
+| 9          | Indexing `arr[index]`, `obj['key']`          |
 | 10         | Postfix `++`, `--`                           |
 | 11         | Member access `obj.key`                      |
 | 12         | Function call `value.func()`                 |
