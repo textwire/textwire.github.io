@@ -360,6 +360,9 @@ Here’s an example of how to use conditional passes in a component. Example:
 
 The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals#object), [arrays](/language-elements/literals#array), [strings](/language-elements/literals#string) and other data types to the screen.
 
+> [!WARNING] HTML only
+> `@dump` formats its output with HTML and CSS, so it is intended for HTML templates. In JSON, XML, plain text, or other formats, the raw markup will appear in the output.
+
 Here’s an example of how to use the `@dump` directive:
 
 ```textwire
