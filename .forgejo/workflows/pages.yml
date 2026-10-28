@@ -27,3 +27,6 @@ jobs:
           from: docs/.vitepress/dist/
           to: ~/pages/textwire
           to-pages-branch: true
+
+      - name: Deploy Vite App 🚀
+        run: echo 'hello'
