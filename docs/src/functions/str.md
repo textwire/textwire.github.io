@@ -251,7 +251,7 @@ HelloHelloHello
 str.reverse(): string
 ```
 
-Returns a string with the characters reversed.
+Returns a string with the characters reversed. Doesn't mutate the original string.
 
 #### Input Example:
 
