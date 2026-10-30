@@ -19,6 +19,12 @@ Textwire directives provide control over your templates through commands that be
 - [@passif](#passif) `@passif(true, 'footer')@end`
 - [@dump](#dump) `@dump(users, page)`
 
+### Reserved Names
+
+Directive names are reserved keywords. If you need to use one of them as plain text, for example in an email address, escape it with a backslash. Read more about [escaping](/language-elements/syntax#escaping).
+
+For example, `me@username.com` results in the error `syntax error: expected '(' but found 'rname.com'`, because [@use](#use) is a reserved directive. Escape it like this: `me\@username.com` to get `me@username.com`.
+
 ## @if
 
 You can use if directives to conditionally render content. You can construct `@if` directive using the `@if`, `@elseif`, `@else` and `@end` directives. Example:
