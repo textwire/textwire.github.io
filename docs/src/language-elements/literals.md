@@ -192,6 +192,17 @@ You can also use an index expression with the key as a string:
 
 This is useful for keys that are not valid identifiers, such as `release-version`.
 
+> [!TIP] Uppercase-First Properties
+> Property keys that start with an uppercase letter can be accessed in lowercase, and vice versa. If you are passing an object like `user: User` that has a `Name` field, you can access it as <code v-pre>{{ user.name }}</code> or <code v-pre>{{ user.Name }}</code>, both work. The same applies to nested properties, like <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code>:
+>
+> ```textwire
+> {{ user = {Name: {First: "Anna", Last: "Cho"}} }}
+>
+> <li>First name: {{ user.name.first }}</li>  {{-- "Anna" --}}
+> <li>Last name: {{ user.Name.First }}</li>  {{-- "Anna" --}}
+> ```
+> It only works for the first letter of the property.
+
 ### Important Notes
 
 - **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
