@@ -243,7 +243,7 @@ To include your component use `@component` directive with first argument being t
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is an [object](/language-elements/literals#object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
+The second optional argument is an [object](/language-elements/literals/object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
 
 ```textwire
 <ul>
@@ -364,7 +364,7 @@ Here’s an example of how to use conditional passes in a component. Example:
 
 ## @dump
 
-The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals#object), [arrays](/language-elements/literals#array), [strings](/language-elements/literals#string) and other data types to the screen.
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals/object), [arrays](/language-elements/literals/array), [strings](/language-elements/literals/string) and other data types to the screen.
 
 > [!WARNING] HTML only
 > `@dump` formats its output with HTML and CSS, so it is intended for HTML templates. In JSON, XML, plain text, or other formats, the raw markup will appear in the output.
