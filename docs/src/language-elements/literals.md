@@ -154,6 +154,7 @@ You can access values in an array by using an index. Example:
     {{ names = [] }}
     {{ names[0] ? names[0].upper() : '' }}
     ```
+<!--@include: @/.vitepress/parts/language-elements/circular-reference.md-->
 
 ## Object
 
@@ -224,3 +225,4 @@ This is useful for keys that are not valid identifiers, such as `release-version
     {{ name = "John"; age = 25 }}
     {{ person = { name, age } }}
     ```
+<!--@include: @/.vitepress/parts/language-elements/circular-reference.md-->
