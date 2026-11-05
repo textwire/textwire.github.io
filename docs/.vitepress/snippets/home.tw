@@ -1,4 +1,4 @@
-@use('layouts/base')
+@use('~base')
 
 @insert('title', 'Book Store')
 
@@ -9,7 +9,7 @@
     @if(books.len() > 0)
         <div>
             @each(book in books)
-                @component('components/book', { book })@end
+                @component('~book', { book })@end
             @end
         </div>
     @else
