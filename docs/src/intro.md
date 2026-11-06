@@ -76,7 +76,7 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 
 Textwire has two reserved variable names that you cannot use:
 
-1. `loop` Object that is available inside `@each` loops. [Read more](/language-elements/loops#loop-variables)
+1. `loop` Object that is available inside `@for` and `@each` loops. [Read more](/language-elements/loops#loop-variables)
 2. `global` Global object available in all Textwire files. [Read more](/api/configurations#global-data)
 
 ## Truthy and Falsy Values

@@ -69,16 +69,16 @@ Direct `@continue` skips to next iteration immediately. Direct `@break` exits th
 
 ## Loop Variables
 
-`@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration. `@for` loops do not provide a `loop` object; use the loop variable you declared in `@for` instead.
+Both `@for` and `@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration.
 
 Available properties:
 
-| Property | Type | Description                                |
-| -------- | ---- | ------------------------------------------ |
-| `index`  | int  | Current index number starting from `0`     |
-| `first`  | bool | Is the first item in a loop or not?        |
-| `last`   | bool | Is the last item in a loop or not?         |
-| `iter`   | int  | Current iteration number starting from `1` |
+| Property | Type | Description                                                |
+| -------- | ---- | ---------------------------------------------------------- |
+| `index`  | int  | Current index number starting from `0`                     |
+| `first`  | bool | Is the first item in a loop or not?                        |
+| `last`   | bool | Is the last item in a loop or not? Only `@each` loop!      |
+| `iter`   | int  | Current iteration number starting from `1`                 |
 
 ### Example
 
@@ -96,13 +96,7 @@ Available properties:
 
 ```textwire
 <ul>
-
-        <li>1. Anna</li>
-
-        <li>2. Serhii</li>
-
-        <li>3. Vladimir</li>
-
+    <li>1. Anna</li><li>2. Serhii</li><li>3. Vladimir</li>
 </ul>
 ```
 
@@ -126,4 +120,4 @@ When the array is empty, the result is `<p>No names</p>`. Without the `@else` st
 
 1. **Choose appropriate loop type**: Use `@each` for simple array iteration, `@for` for index-based control
 2. **Handle empty arrays**: Always include `@else` for better user experience
-3. **Use loop variables**: In `@each` loops, leverage `loop.first` and `loop.last` for conditional logic
+3. **Use loop variables**: In `@for` and `@each` loops, leverage `loop.first` for conditional logic. Use `loop.last` in `@each` loops
