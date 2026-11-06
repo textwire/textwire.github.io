@@ -1,5 +1,5 @@
 ---
-title: Literals - v5
+title: Literals - v6
 description: Learn about Textwire literals like string, int, float, bool, nil, array, objects, etc.
 ---
 

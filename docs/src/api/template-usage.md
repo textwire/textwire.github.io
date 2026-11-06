@@ -1,5 +1,5 @@
 ---
-title: Usage with Templates - v5
+title: Usage with Templates - v6
 description: Learn how to configure and use Textwire templates in your Go applications, including importing the package, creating template instances, and more
 outline: [2, 3]
 ---
@@ -8,7 +8,7 @@ outline: [2, 3]
 
 ## Simple Usage
 
-Import `codeberg.org/textwire/textwire/v5` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/api/configurations).
+Import `codeberg.org/textwire/textwire/v6` and call `textwire.NewTemplate(nil)` to create a template instance. Pass `nil` for defaults, or a `*config.Config` to customize. See [configuration options](/api/configurations).
 
 Choose one of these initialization patterns:
 
@@ -20,7 +20,7 @@ Choose one of these initialization patterns:
 ```go [Global Template] :line-numbers
 import (
     "net/http"
-    "codeberg.org/textwire/textwire/v5"
+    "codeberg.org/textwire/textwire/v6"
 )
 
 var tpl *textwire.Template
@@ -39,7 +39,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 ```go [Local Template] :line-numbers
 import (
 	"net/http"
-	"codeberg.org/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v6"
 )
 
 func main() {
@@ -157,9 +157,9 @@ The `NewTemplate` function accepts a `*config.Config` parameter with several pro
 import (
     "net/http"
 
-    "codeberg.org/textwire/textwire/v5"
-    "codeberg.org/textwire/textwire/v5/config" // [!code highlight]
-    "codeberg.org/textwire/textwire/v5/pkg/fail"
+    "codeberg.org/textwire/textwire/v6"
+    "codeberg.org/textwire/textwire/v6/config" // [!code highlight]
+    "codeberg.org/textwire/textwire/v6/pkg/fail"
 )
 
 var tpl *textwire.Template

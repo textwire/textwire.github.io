@@ -1,5 +1,5 @@
 ---
-title: Introduction - v5
+title: Introduction - v6
 description: Get an overview of Textwire, a templating engine for Go developers, and learn about its features, syntax, and various use cases
 outline: deep
 ---

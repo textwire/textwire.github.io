@@ -1,5 +1,5 @@
 ---
-title: Loops - v5
+title: Loops - v6
 description: Learn how to use different types of loops in Textwire, including 'each' and 'for' loops
 outline: deep
 ---

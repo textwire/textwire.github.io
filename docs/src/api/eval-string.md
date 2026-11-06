@@ -1,5 +1,5 @@
 ---
-title: Evaluating Strings - v5
+title: Evaluating Strings - v6
 description: Learn how to evaluate strings containing Textwire code in your Go applications
 ---
 

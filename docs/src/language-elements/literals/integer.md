@@ -1,5 +1,5 @@
 ---
-title: Integer Literals - v5
+title: Integer Literals - v6
 description: Learn about integer literals in Textwire
 ---
 

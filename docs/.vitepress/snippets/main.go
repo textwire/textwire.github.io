@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"codeberg.org/textwire/textwire/v5"
-	"codeberg.org/textwire/textwire/v5/pkg/fail"
+	"codeberg.org/textwire/textwire/v6"
+	"codeberg.org/textwire/textwire/v6/pkg/fail"
 )
 
 var tpl *textwire.Template

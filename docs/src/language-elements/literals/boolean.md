@@ -1,5 +1,5 @@
 ---
-title: Boolean Literals - v5
+title: Boolean Literals - v6
 description: Learn about boolean literals in Textwire
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Object Literals - v5
+title: Object Literals - v6
 description: Learn about object literals in Textwire
 ---
 

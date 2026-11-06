@@ -1,5 +1,5 @@
 ---
-title: String Functions - v5
+title: String Functions - v6
 description: Explore the various string functions available in Textwire
 ---
 

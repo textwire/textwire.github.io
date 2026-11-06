@@ -1,5 +1,5 @@
 ---
-title: Global Functions - v5
+title: Global Functions - v6
 description: Explore global functions available in Textwire
 outline: [2, 3]
 ---

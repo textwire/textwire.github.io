@@ -1,0 +1,47 @@
+---
+title: Upgrade Guide - v5
+description: Learn how to upgrade your Textwire code from v4 to v5
+outline: deep
+---
+
+# Upgrade Guide
+
+Upgrading from v4 to v5 is the easiest upgrade yet. The only breaking change introduced is the "Raw string output" syntax. Previously, in order to get unescaped string output you needed to use [raw](https://textwire.serhiicho.com/v4/functions/str#raw) function on strings like this:
+
+```textwire
+{{ "<h1>Test</h1>".raw() }}
+```
+
+In Textwire v5, [raw](https://textwire.serhiicho.com/v4/functions/str#raw) function was removed. In order to print raw output you now need to use this syntax:
+
+```textwire
+{!! "<h1>Test</h1>" !!}
+```
+
+We did it because `raw` function was causing a lot of issues where a string could be escaped multiple times causing the wrong output.
+
+## Steps
+
+### 1. Update Import Path
+
+Replace all v4 imports with v5:
+
+```go
+import "codeberg.org/textwire/textwire/v4" // [!code --]
+import "codeberg.org/textwire/textwire/v5" // [!code ++]
+```
+
+After updating imports, run:
+
+```bash
+go mod tidy
+```
+
+### 2. Replace `raw` Function
+
+If you use `raw` function in your code, replace its usage with new syntax:
+
+```textwire
+{{ post.description.raw() }} // [!code --]
+{!! post.description !!} // [!code ++]
+```

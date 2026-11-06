@@ -1,5 +1,5 @@
 ---
-title: Object Functions - v5
+title: Object Functions - v6
 description: Explore several object functions available in Textwire
 ---
 

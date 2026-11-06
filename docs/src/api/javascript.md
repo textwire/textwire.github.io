@@ -1,5 +1,5 @@
 ---
-title: JavaScript - v5
+title: JavaScript - v6
 description: Learn how Textwire works together with JavaScript frameworks and how to avoid conflicts between them
 outline: deep
 ---

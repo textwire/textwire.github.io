@@ -1,5 +1,5 @@
 ---
-title: Functions Guide - v5
+title: Functions Guide - v6
 description: Discover correct syntax for Textwire functions and learn about built-in and global functions.
 ---
 

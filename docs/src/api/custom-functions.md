@@ -1,5 +1,5 @@
 ---
-title: Custom Functions - v5
+title: Custom Functions - v6
 description: Learn how to define and use custom functions in Textwire, enabling you to extend the functionality of Textwire by incorporating user-defined operations
 ---
 
@@ -43,7 +43,7 @@ Here is an example of registering a string function that uppercases a value and 
 import (
 	"strings"
 
-	"codeberg.org/textwire/textwire/v5"
+	"codeberg.org/textwire/textwire/v6"
 )
 
 func main() {

@@ -1,5 +1,5 @@
 ---
-title: Integer Functions - v5
+title: Integer Functions - v6
 description: Explore the various integer functions available in Textwire
 ---
 

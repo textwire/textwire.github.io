@@ -1,5 +1,5 @@
 ---
-title: Syntax & Types - v5
+title: Syntax & Types - v6
 description: Textwire has a simple syntax that is easy to learn
 outline: 2-3
 ---

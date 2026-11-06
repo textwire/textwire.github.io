@@ -1,5 +1,5 @@
 ---
-title: Float Literals - v5
+title: Float Literals - v6
 description: Learn about float literals in Textwire
 ---
 

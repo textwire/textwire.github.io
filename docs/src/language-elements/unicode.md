@@ -1,5 +1,5 @@
 ---
-title: Unicode Support - v5
+title: Unicode Support - v6
 description: Textwire has good support for Unicode characters, including emojis and non-Latin scripts.
 outline: deep
 ---

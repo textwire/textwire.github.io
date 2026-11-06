@@ -1,5 +1,5 @@
 ---
-title: Error Handling - v5
+title: Error Handling - v6
 description: Learn how to handle errors in Textwire, enabling you to identify and resolve issues in your project
 outline: [2, 4]
 ---
@@ -121,8 +121,8 @@ Set `ErrorPagePath` in your configuration:
 ```go
 import (
 	"os"
-	"codeberg.org/textwire/textwire/v5"
-	"codeberg.org/textwire/textwire/v5/config"
+	"codeberg.org/textwire/textwire/v6"
+	"codeberg.org/textwire/textwire/v6/config"
 )
 
 func main() {

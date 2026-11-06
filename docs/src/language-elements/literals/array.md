@@ -1,5 +1,5 @@
 ---
-title: Array Literals - v5
+title: Array Literals - v6
 description: Learn about array literals in Textwire
 ---
 

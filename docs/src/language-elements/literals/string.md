@@ -1,5 +1,5 @@
 ---
-title: String Literals - v5
+title: String Literals - v6
 description: Learn about string literals in Textwire
 ---
 

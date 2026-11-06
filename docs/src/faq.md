@@ -1,5 +1,5 @@
 ---
-title: FAQ - v5
+title: FAQ - v6
 description: Find answers to common questions about Textwire, a templating engine for Go
 ---
 

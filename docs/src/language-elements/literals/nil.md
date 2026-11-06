@@ -1,5 +1,5 @@
 ---
-title: Nil Literal - v5
+title: Nil Literal - v6
 description: Learn about the nil literal in Textwire
 ---
 

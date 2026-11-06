@@ -1,5 +1,5 @@
 ---
-title: Directives - v5
+title: Directives - v6
 description: Learn about different directives in Textwire, including @if, @each, @for, @insert, @declare and more
 ---
 

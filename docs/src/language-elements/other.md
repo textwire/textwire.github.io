@@ -1,5 +1,5 @@
 ---
-title: Other Information - v5
+title: Other Information - v6
 description: Learn about trailing commas and comments in Textwire, including how to use them in arrays, objects, and function arguments
 ---
 
