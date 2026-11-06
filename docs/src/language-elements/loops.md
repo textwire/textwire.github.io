@@ -73,12 +73,15 @@ Both `@for` and `@each` loops provide access to a `loop` object with iteration m
 
 Available properties:
 
-| Property | Type | Description                                                |
-| -------- | ---- | ---------------------------------------------------------- |
-| `index`  | int  | Current index number starting from `0`                     |
-| `first`  | bool | Is the first item in a loop or not?                        |
-| `last`   | bool | Is the last item in a loop or not? Only `@each` loop!      |
-| `iter`   | int  | Current iteration number starting from `1`                 |
+| Property | Type   | Description                                                |
+| -------- | ------ | ---------------------------------------------------------- |
+| `index`  | int    | Current index number starting from `0`                     |
+| `first`  | bool   | Is the first item in a loop or not?                        |
+| `last`   | bool   | Is the last item in a loop or not? Only `@each` loop!      |
+| `iter`   | int    | Current iteration number starting from `1`                 |
+| `parent` | object | Parent loop object when loops are nested                   |
+
+This eliminates the need for additional variables to track iteration data.
 
 ### Example
 
@@ -100,7 +103,19 @@ Available properties:
 </ul>
 ```
 
-It's a useful feature that eliminates the need for additional variables to track iteration data.
+### Parent Loop
+
+When loops are nested, `loop.parent` refers to the `loop` object of the immediate parent loop. This works for both `@for` and `@each` loops, including mixed nested loops.
+
+```textwire
+@each(group in groups)
+    @each(name in group)
+        {{ loop.parent.index }}:{{ loop.index }} {{ name }}
+    @end
+@end
+```
+
+At the outermost loop, `loop.parent` is `nil`. For deeper nesting, chain the property, for example `loop.parent.parent`.
 
 ## Else Statement
 
