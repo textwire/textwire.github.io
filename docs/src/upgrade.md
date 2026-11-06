@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces one breaking change to the `loop` object in nested loops. Non-nested loops are not affected.
+Upgrading from v5 to v6 introduces two breaking changes: the `loop` object scope in nested loops and loop control directives crossing component boundaries.
 
 ## Breaking Changes
 
@@ -34,7 +34,25 @@ In v6, `loop.index` refers to the current inner loop. To keep the old behavior, 
 @end
 ```
 
-This also applies to other `loop` properties such as `loop.first`, `loop.last`, and `loop.iter`. Closes [#138](https://codeberg.org/textwire/textwire/issues/138).
+This also applies to other `loop` properties such as `loop.first`, `loop.last`, and `loop.iter`. Non-nested loops are not affected. Closes [#138](https://codeberg.org/textwire/textwire/issues/138).
+
+### Loop Control Directives Across Component Boundaries
+
+In v5, using a loop control directive (`@break`, `@continue`, `@breakif`, or `@continueif`) inside a component body to control a loop outside that component was silently ignored. In v6, it results in a parser error, for example: `@breakif is not allowed inside @component`.
+
+Components are now a boundary for loop control, even though the component body can access variables from the surrounding scope.
+
+```textwire
+@each(name in names)
+    @component('user')
+        @breakif(name == 'Skirk')
+    @end
+@end
+
+{{-- ERROR: @breakif is not allowed inside @component --}}
+```
+
+A loop defined inside the component body can still use its own loop control directives.
 
 ## New Features
 
@@ -86,5 +104,28 @@ If you access the parent loop object inside a nested loop, replace `loop` with `
         {{ loop.index }} // [!code --]
         {{ loop.parent.index }} // [!code ++]
     @end
+@end
+```
+
+### 3. Move Loop Control Directives Out of Components
+
+If a loop control directive inside a component body targets a loop outside the component, move it into the surrounding loop, outside the `@component` call.
+
+Before (v5):
+
+```textwire
+@each(post in posts)
+    @component("components/post-card", { post })
+        @continue
+    @end
+@end
+```
+
+After (v6):
+
+```textwire
+@each(post in posts)
+    @continue
+    @component("components/post-card", { post })@end
 @end
 ```
