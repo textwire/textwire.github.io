@@ -96,13 +96,7 @@ Available properties:
 
 ```textwire
 <ul>
-
-        <li>1. Anna</li>
-
-        <li>2. Serhii</li>
-
-        <li>3. Vladimir</li>
-
+    <li>1. Anna</li><li>2. Serhii</li><li>3. Vladimir</li>
 </ul>
 ```
 
