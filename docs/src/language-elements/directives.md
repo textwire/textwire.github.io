@@ -208,9 +208,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
-        @pass('title')
-            @reserve('title')
-        @end
+        @pass('title')@reserve('title')@end
     @end
     ```
 
@@ -261,6 +259,7 @@ The second optional argument is an [object](/language-elements/literals/object) 
 - **Layout for components.** You can include layout file into components using [`@use`](/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 - **Use passes to pass data.** You can use [@pass](/language-elements/directives#pass) and [@passif](/language-elements/directives#passif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
+- **Can't use loop control directives.** A component body is supplying content for a slot, it doesn't own the loop it's sitting in, so it can't reach back and kill it with [loop control directives](/language-elements/loops#break-and-continue) like `@break`.
 
 ## @slot
 
