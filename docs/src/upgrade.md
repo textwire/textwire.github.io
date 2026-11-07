@@ -38,7 +38,7 @@ This also applies to other `loop` properties such as `loop.first`, `loop.last`, 
 
 ### Loop Control Directives Across Component Boundaries
 
-In v5, using a loop control directive (`@break`, `@continue`, `@breakif`, or `@continueif`) inside a component body to control a loop outside that component was silently ignored. In v6, it results in a parser error, for example: `@breakif is not allowed inside @component`.
+In v5, using a loop control directive (`@break`, `@continue`, `@breakif`, or `@continueif`) inside a component body to control a loop outside that component was silently ignored. In v6, it results in a parser error.
 
 Components are now a boundary for loop control, even though the component body can access variables from the surrounding scope.
 
