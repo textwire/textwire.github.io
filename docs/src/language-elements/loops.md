@@ -97,9 +97,11 @@ This eliminates the need for additional variables to track iteration data.
 
 ### Output
 
-```textwire
+```html
 <ul>
-    <li>1. Anna</li><li>2. Serhii</li><li>3. Vladimir</li>
+        <li>1. Anna</li>
+        <li>2. Serhii</li>
+        <li>3. Vladimir</li>
 </ul>
 ```
 

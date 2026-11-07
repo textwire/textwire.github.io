@@ -124,3 +124,28 @@ Each Textwire type has an empty value that is treated as falsy in boolean contex
 | `array`   | `[]`          | Empty array   |
 | `object`  | `{}`          | Empty object  |
 | `nil`     | `nil`         | Nil value     |
+
+## Handling newlines
+
+In Textwire 6, a line containing only one control directive, such as `@if`, `@each`, `@else` or `@end`, and optional spaces or tabs is removed entirely, including its ending newline. The directive still executes normally, but leaves no blank line behind.
+
+If there is any other content before or after the directive on the same line, no surrounding whitespace is trimmed. Spaces, tabs and newlines are preserved exactly as written.
+
+Output-producing directives such as `@dump` and interpolations such as <code v-pre>{{ item }}</code> do not trigger standalone-line removal.
+
+For example:
+
+```textwire
+@each(item in ["apple", "pear"])
+-   {{ item }}
+@end
+```
+
+Produces:
+
+```html
+-   apple
+-   pear
+```
+
+The `@each` and `@end` lines disappear. Each line keeps its indentation and ending newline. Only the directive lines are removed, neighboring blank lines and content indentation are left untouched.
