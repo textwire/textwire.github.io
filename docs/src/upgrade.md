@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces two breaking changes: the `loop` object scope in nested loops and loop control directives crossing component boundaries.
+Upgrading from v5 to v6 introduces three breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, and line-based whitespace handling.
 
 ## Breaking Changes
 
@@ -53,6 +53,12 @@ Components are now a boundary for loop control, even though the component body c
 ```
 
 A loop defined inside the component body can still use its own loop control directives.
+
+### Line-Based Whitespace Handling
+
+In v6, whitespace handling is line-based. Textwire now removes the indentation and ending newline from lines that contain only a directive or embedded code. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
+
+See [Handling Newlines](/language-elements/syntax#handling-newlines) for details and examples.
 
 ## New Features
 
@@ -129,3 +135,23 @@ After (v6):
     @component("components/post-card", { post })@end
 @end
 ```
+
+### 4. Check Whitespace-Sensitive Templates
+
+Review templates where blank lines or newlines matter. In v6, lines containing only a directive or embedded code no longer render their indentation or ending newline. See [Handling Newlines](/language-elements/syntax#handling-newlines) for details.
+
+## Verification Checklist
+
+After completing the migration:
+
+1. <input type="checkbox"> All imports changed from `v5` to `v6`
+2. <input type="checkbox"> `go mod tidy` runs without errors
+3. <input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata
+4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
+5. <input type="checkbox"> Whitespace-sensitive outputs checked after the line-based whitespace change
+6. <input type="checkbox"> Project compiles successfully
+
+## Need Help?
+
+- Check the [Handling Newlines](/language-elements/syntax#handling-newlines) page for whitespace rules
+- Open a [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help

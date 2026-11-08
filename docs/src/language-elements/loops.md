@@ -87,7 +87,6 @@ This eliminates the need for additional variables to track iteration data.
 
 ```textwire
 {{ names = ["Anna", "Serhii", "Vladimir"] }}
-
 <ul>
     @each(name in names)
         <li>{{ loop.iter }}. {{ name }}</li>

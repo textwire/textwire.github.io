@@ -125,17 +125,15 @@ Each Textwire type has an empty value that is treated as falsy in boolean contex
 | `object`  | `{}`          | Empty object  |
 | `nil`     | `nil`         | Nil value     |
 
-## Handling newlines
+## Handling Newlines
 
-Since v6, Textwire moved to a **line-based whitespace handling**. Which means that Textwire will remove lines that contain only a directive and whitespace. This is different from v5, where Textwire would preserve all whitespace and remove some newlines. It was inconsistent and caused confusion with formats like YAML, where whitespace is significant. The new behavior is more consistent and predictable.
+Since v6, Textwire moved to a **line-based whitespace handling**. Which means that Textwire will remove lines that contain only a directive or embedded code and whitespace. This is different from v5, where Textwire would preserve all whitespace and remove some newlines. It was inconsistent and caused confusion with formats like YAML, where whitespace is significant. The new behavior is more consistent and predictable.
 
 ### Detailed explanation
 
-A line containing only one control directive, such as `@if`, `@each`, `@else` or `@end`, and optional spaces or tabs is removed entirely, including its ending newline. The directive still executes normally, but leaves no blank line behind.
+A line containing only one piece of Textwire code, such as a control directive (`@if`, `@each`, `@else`, `@end`) or embedded code (<code v-pre>{{ var }}</code>, <code v-pre>{!! var !!}</code>), and optional spaces or tabs is removed entirely, including its ending newline. The code still executes normally, including any output, but the surrounding line whitespace and newline are not rendered.
 
-If there is any other content before or after the directive on the same line, no surrounding whitespace is trimmed. Spaces, tabs and newlines are preserved exactly as written.
-
-Output-producing directives such as `@dump` and interpolations such as <code v-pre>{{ item }}</code> do not trigger standalone-line removal.
+If there is any other content before or after the Textwire code on the same line, no surrounding whitespace is trimmed. Spaces, tabs and newlines are preserved exactly as written.
 
 ### Example
 
@@ -152,4 +150,14 @@ Produces:
 -   pear
 ```
 
-The `@each` and `@end` lines disappear. Each line keeps its indentation and ending newline. Only the directive lines are removed, neighboring blank lines and content indentation are left untouched.
+The `@each` and `@end` lines disappear. Each line keeps its indentation and ending newline. Only the Textwire code lines are removed, neighboring blank lines and content indentation are left untouched.
+
+Multiline embedded code is handled the same way. For example:
+
+```textwire
+{{
+    1 + 2
+}}
+```
+
+removes whitespace on all three lines and outputs only `3`.
