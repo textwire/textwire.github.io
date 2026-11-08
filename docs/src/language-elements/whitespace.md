@@ -165,3 +165,40 @@ Middle
 
 End
 ```
+
+## Example
+
+```textwire
+{{ names = ["Escoffier", "Kokomi", "Skirk"] }}
+<ul>
+    @each(name in names)
+        @for(i = 0; i < 2; i++)
+            @each(letter in ["a", "b"])
+                <li>{{ loop.parent.iter }}.{{ loop.iter }} {{ loop.parent.parent.index }}: {{ name }}-{{ letter }}{{ i }}</li>
+            @end
+        @end
+    @end
+</ul>
+```
+
+Since `@each`, `@for`, and the inner `@each` are all standalone, their surrounding whitespace and line endings are removed. The `<li>` lines are not standalone, so they retain their indentation and line endings. Here is the output:
+
+```html
+
+<ul>
+                <li>1.1 0: Escoffier-a0</li>
+                <li>1.2 0: Escoffier-b0</li>
+                <li>2.1 0: Escoffier-a1</li>
+                <li>2.2 0: Escoffier-b1</li>
+                <li>1.1 1: Kokomi-a0</li>
+                <li>1.2 1: Kokomi-b0</li>
+                <li>2.1 1: Kokomi-a1</li>
+                <li>2.2 1: Kokomi-b1</li>
+                <li>1.1 2: Skirk-a0</li>
+                <li>1.2 2: Skirk-b0</li>
+                <li>2.1 2: Skirk-a1</li>
+                <li>2.2 2: Skirk-b1</li>
+</ul>
+```
+
+The first line is embedded code, not directive, so it is not trimmed.
