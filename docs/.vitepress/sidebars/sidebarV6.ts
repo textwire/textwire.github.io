@@ -21,6 +21,7 @@ export const sidebarV6: DefaultTheme.SidebarItem[] = [
         text: 'Language Elements',
         items: [
             { text: 'Syntax & Types', link: '/language-elements/syntax' },
+            { text: 'Whitespace Handling', link: '/language-elements/whitespace' },
             { text: 'Unicode Support', link: '/language-elements/unicode' },
             { text: 'Loops', link: '/language-elements/loops' },
             { text: 'Directives', link: '/language-elements/directives' },

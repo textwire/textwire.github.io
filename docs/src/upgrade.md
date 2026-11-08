@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces three breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, and line-based whitespace handling.
+Upgrading from v5 to v6 introduces three breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, and whitespace handling around standalone directives.
 
 ## Breaking Changes
 
@@ -54,11 +54,11 @@ Components are now a boundary for loop control, even though the component body c
 
 A loop defined inside the component body can still use its own loop control directives.
 
-### Line-Based Whitespace Handling
+### Standalone Directive Whitespace
 
-In v6, whitespace handling is line-based. Textwire now removes the indentation and ending newline from lines that contain only a directive or embedded code. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
+In v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/). Only lines where exactly one directive is the sole non-whitespace content are trimmed. Lines containing embedded expressions or other content keep their whitespace and line endings. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
 
-See [Handling Newlines](/language-elements/syntax#handling-newlines) for details and examples.
+See [Whitespace Handling](/language-elements/whitespace) for details and examples.
 
 ## New Features
 
@@ -138,7 +138,7 @@ After (v6):
 
 ### 4. Check Whitespace-Sensitive Templates
 
-Review templates where blank lines or newlines matter. In v6, lines containing only a directive or embedded code no longer render their indentation or ending newline. See [Handling Newlines](/language-elements/syntax#handling-newlines) for details.
+Review templates where standalone directive lines affect whitespace-sensitive output. In v6, only lines where exactly one directive is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
 
 ## Verification Checklist
 
@@ -148,10 +148,10 @@ After completing the migration:
 2. <input type="checkbox"> `go mod tidy` runs without errors
 3. <input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata
 4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
-5. <input type="checkbox"> Whitespace-sensitive outputs checked after the line-based whitespace change
+5. <input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change
 6. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
-- Check the [Handling Newlines](/language-elements/syntax#handling-newlines) page for whitespace rules
+- Check the [Whitespace Handling](/language-elements/whitespace) page for whitespace rules
 - Open a [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help
