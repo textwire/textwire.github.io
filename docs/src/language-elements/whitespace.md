@@ -6,13 +6,27 @@ outline: deep
 
 # Whitespace Handling
 
-Since v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/), adapted for Textwire directives. Textwire uses directives instead of Mustache tags. Embedded expressions such as <code v-pre>{{ ... }}</code> and <code v-pre>{!! ... !!}</code> behave like Mustache variable tags and never trigger standalone-line trimming.
+Since v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/), adapted for Textwire directives. We call it **Standalone directive rules**.
 
-## 1. Standalone directive lines are trimmed
+Textwire uses directives (like `@if`, `@each`, `@end`) instead of Mustache tags. Embedded expressions such as <code v-pre>{{ ... }}</code> and <code v-pre>{!! ... !!}</code> behave like Mustache variable tags and never trigger standalone-line trimming.
 
-When exactly one directive is the only non-whitespace content on a line, Textwire removes the surrounding whitespace and the line ending. The directive still executes normally.
+The goal of standalone whitespace handling is to let you write clean, indented template code without generating unwanted blank lines in your final output.
 
-```textwire
+## The Core Rule
+
+A directive is considered **standalone** if it is the **only non-whitespace content on its line**. 
+
+When a directive is standalone, Textwire automatically removes:
+1. The leading horizontal whitespace (indentation).
+2. The directive itself.
+3. The trailing horizontal whitespace.
+4. The line ending (`\n` or `\r\n`).
+
+The directive still executes normally, but it leaves no "footprint" in the output.
+
+### Basic Example
+
+```textwire :line-numbers
 | Before
 @if(true)
 |
@@ -20,19 +34,20 @@ When exactly one directive is the only non-whitespace content on a line, Textwir
 | After
 ```
 
-Output:
+**Output:**
 
-```text
+```text :line-numbers
 | Before
 |
 | After
 ```
 
-## 2. Indented standalone lines are trimmed too
+## What Counts as Standalone?
 
-Leading spaces or tabs before the directive do not prevent it from being standalone. The indentation is removed along with the line ending.
+### Indented Directives
+Leading spaces or tabs do not prevent a directive from being standalone. The indentation is consumed along with the line ending.
 
-```textwire
+```textwire :line-numbers
 <ul>
     @each(item in ["a", "b"])
     <li>{{ item }}</li>
@@ -40,20 +55,76 @@ Leading spaces or tabs before the directive do not prevent it from being standal
 </ul>
 ```
 
-Output:
+**Output:**
 
-```html
+```html :line-numbers
 <ul>
     <li>a</li>
     <li>b</li>
 </ul>
 ```
 
-## 3. Both sides must be clear
+### Whitespace Inside Arguments
+Spaces inside a directive's parentheses do not affect standalone detection.
 
-A directive is standalone only when there is nothing before it except optional horizontal whitespace back to the line start, and nothing after it except optional horizontal whitespace up to the line ending. Any other visible content on either side means the line is not standalone.
+```textwire :line-numbers
+@if( x == 1 )
+Yes
+@end
+```
 
-```textwire
+**Output:**
+
+```text :line-numbers
+Yes
+```
+
+### Component Indentation
+
+Unlike Mustache partials, Textwire components do not transfer the indentation of the component call to every line of their rendered content. The component's own indentation is preserved.
+
+For an inline call like the one below, you can think of rendering as replacing everything from `@component` through `@end` with the component's rendered content. The spaces before `@component` remain before the first line; they are not added to subsequent lines.
+
+**Main template:**
+
+```textwire :line-numbers
+Before
+    @component('components/indent')@end
+After
+```
+
+**Component (`components/indent.tw`):**
+
+```textwire :line-numbers
+<div>
+    <span>First</span>
+    <span>Second</span>
+</div>
+```
+
+**Output:**
+
+```html :line-numbers
+Before
+    <div>
+    <span>First</span>
+    <span>Second</span>
+</div>
+After
+```
+
+The opening `<div>` has the four spaces from the component call. Each `<span>` keeps its original four spaces, and the closing `</div>` has no indentation. No additional indentation is applied to those lines.
+
+This example places `@component` and `@end` on the same line, so standalone-line trimming does not apply.
+
+## When is a Line NOT Standalone?
+
+If any visible content exists on the same line, the line is **not standalone**, and its whitespace and line endings are preserved.
+
+### 1. Inline Text
+A directive is standalone only when there is nothing before it except optional horizontal whitespace, and nothing after it except optional horizontal whitespace up to the line ending.
+
+```textwire :line-numbers
 | Prefix @if(true)
 Text
 @end
@@ -61,55 +132,33 @@ Text
 
 The first line is not standalone because `| Prefix ` appears before the directive, so its whitespace and line ending are preserved.
 
-## 4. Multiple directives are not standalone
+**Output:**
 
+```text :line-numbers
+| Prefix 
+Text
+```
+
+### 2. Multiple Directives
 If a line contains more than one directive, its whitespace and line ending are preserved.
 
-```textwire
+```textwire :line-numbers
 @if(false)@else
 | Fallback
 @end
 ```
 
-The first line contains two directives, so its whitespace and line ending are preserved.
+**Output:**
 
-## 5. CRLF line endings are supported
+```text :line-numbers
 
-Both `\n` and `\r\n` line endings are removed from standalone directive lines.
-
-Template with Windows line endings:
-
-```textwire
-@if(true)\r\nHello\r\n@end\r\n
+| Fallback
 ```
 
-Output:
+### 3. Embedded Expressions
+Lines containing embedded expressions like <code v-pre>{{ ... }}</code> or <code v-pre>{!! ... !!}</code> are **never** trimmed, even when the expression is the only non-whitespace content on the line. They behave like standard text content.
 
-```text
-Hello\r\n
-```
-
-## 6. No surrounding newline is required
-
-A standalone directive at the beginning or end of a template is still treated as standalone.
-
-```textwire
-@if(true)
-Hello
-@end
-```
-
-Output:
-
-```text
-Hello
-```
-
-## 7. Embedded expressions are never standalone
-
-A line containing <code v-pre>{{ ... }}</code> or <code v-pre>{!! ... !!}</code> is never trimmed, even when the expression is its only non-whitespace content. The whitespace and line ending are preserved, and the expression still produces its normal output.
-
-```textwire
+```textwire :line-numbers
 <ul>
     @each(item in ["apple", "pear"])
         {{ item }}
@@ -117,36 +166,39 @@ A line containing <code v-pre>{{ ... }}</code> or <code v-pre>{!! ... !!}</code>
 </ul>
 ```
 
-Output:
+**Output:**
 
-```html
+```html :line-numbers
 <ul>
         apple
         pear
 </ul>
 ```
 
-## 8. Whitespace inside directive arguments does not matter
+## Edge Cases
 
-Spaces inside a directive's parentheses do not affect standalone detection.
+### Start and End of File
+Standalone directives are trimmed at template boundaries too, even without a preceding or final newline.
 
-```textwire
-@if( x == 1 )
-Yes
+```textwire :line-numbers
+@if(true)
+Hello
 @end
 ```
 
-Output:
+**Output:**
 
-```text
-Yes
+```text :line-numbers
+Hello
 ```
 
-## 9. Blank lines are unchanged
+### CRLF Line Endings
+Both `\n` (Unix) and `\r\n` (Windows) line endings are correctly removed from standalone directive lines.
 
-Empty or whitespace-only lines that do not contain a directive are left as written.
+### Blank Lines
+Empty or whitespace-only lines that do not contain a directive are left exactly as written. They are not collapsed or removed.
 
-```textwire
+```textwire :line-numbers
 Start
 
 @if(true)
@@ -156,9 +208,9 @@ Middle
 End
 ```
 
-Output:
+**Output:**
 
-```text
+```text :line-numbers
 Start
 
 Middle
@@ -166,39 +218,43 @@ Middle
 End
 ```
 
-## Example
+## Comprehensive Example
 
-```textwire
-{{ names = ["Escoffier", "Kokomi", "Skirk"] }}
+Here is a more complex template demonstrating nested standalone directives and embedded expressions.
+
+```textwire :line-numbers
+{{ team = ["Escoffier", "Vodyanitsa", "Mona", "Skirk"] }}
+
+<h2>Team Rotation</h2>
+
 <ul>
-    @each(name in names)
-        @for(i = 0; i < 2; i++)
-            @each(letter in ["a", "b"])
-                <li>{{ loop.parent.iter }}.{{ loop.iter }} {{ loop.parent.parent.index }}: {{ name }}-{{ letter }}{{ i }}</li>
-            @end
+    @each(char in team)
+        @each(action in ["Skill", "Burst"])
+            @continueif(char == "Mona" && loop.index == 0)
+            <li>{{ char }}: {{ action }}</li>
         @end
     @end
 </ul>
 ```
 
-Since `@each`, `@for`, and the inner `@each` are all standalone, their surrounding whitespace and line endings are removed. The `<li>` lines are not standalone, so they retain their indentation and line endings. Here is the output:
+Since `@each`, `@for`, and the inner `@each` are all standalone, their surrounding whitespace and line endings are removed. The `<li>` lines are not standalone, so they retain their indentation and line endings. 
 
-```html
+**Output:**
+
+```html :line-numbers
+
+
+<h2>Skirk Team Rotation</h2>
 
 <ul>
-                <li>1.1 0: Escoffier-a0</li>
-                <li>1.2 0: Escoffier-b0</li>
-                <li>2.1 0: Escoffier-a1</li>
-                <li>2.2 0: Escoffier-b1</li>
-                <li>1.1 1: Kokomi-a0</li>
-                <li>1.2 1: Kokomi-b0</li>
-                <li>2.1 1: Kokomi-a1</li>
-                <li>2.2 1: Kokomi-b1</li>
-                <li>1.1 2: Skirk-a0</li>
-                <li>1.2 2: Skirk-b0</li>
-                <li>2.1 2: Skirk-a1</li>
-                <li>2.2 2: Skirk-b1</li>
+            <li>Escoffier: Skill</li>
+            <li>Escoffier: Burst</li>
+            <li>Vodyanitsa: Skill</li>
+            <li>Vodyanitsa: Burst</li>
+            <li>Mona: Burst</li>
+            <li>Skirk: Skill</li>
+            <li>Skirk: Burst</li>
 </ul>
 ```
 
-The first line is embedded code, not directive, so it is not trimmed.
+*Note: The first line is an embedded expression, not a directive, so it is not trimmed and leaves a blank line at the start of the output.*
