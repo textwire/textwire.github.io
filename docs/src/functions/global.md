@@ -14,7 +14,9 @@ Global functions are not attached to any specific type like strings or integers,
 defined(arg: any...): boolean
 ```
 
-Function `defined` checks if variables and properties are defined. It doesn't care about `true`, `false`, `nil`, or any other literal type, it only tells you if the variable is defined and if the property on an object is defined or not.
+Function `defined` checks if variables, object properties, and array indices are defined. It doesn't care about `true`, `false`, `nil`, or any other literal type, it only tells you if the variable is defined, if the property exists on an object, or if the index is inside the array bounds.
+
+A property or index that exists but holds `nil` counts as defined. A missing property, a key that isn't in the object, or an index outside the array bounds returns `false`.
 
 #### Arguments:
 
@@ -33,6 +35,33 @@ If you pass more than 1 variable, the function will return `true` if all variabl
 ```html
 Missing
 ```
+
+### Missing Properties and Indices
+
+A property or index that is missing from the object or array is not defined, even though reading it produces `nil`:
+
+```textwire
+{{ empty = {} }}
+{{ defined(empty.name) }} {{-- Output: false --}}
+
+{{ withNil = { name: nil } }}
+{{ defined(withNil.name) }} {{-- Output: true --}}
+
+{{ arr = [1, 2] }}
+{{ defined(arr[1]) }} {{-- Output: true --}}
+{{ defined(arr[5]) }} {{-- Output: false --}}
+{{ defined(arr[-1]) }} {{-- Output: false --}}
+```
+
+This also applies to chained access. In the example below, `defined()` returns `false` if any part of the chain is missing:
+
+```textwire
+{{ user = { address: {} } }}
+{{ defined(user.address.street.number) }} {{-- Output: false --}}
+```
+
+> [!NOTE] Changed in v6
+> Before v6, missing properties and out-of-range indices returned `true` because they evaluated to `nil`. See the [Upgrade Guide](/upgrade#define-returns-false-for-missing-properties-and-indices) for migration details.
 
 ### When to Use It?
 
@@ -77,11 +106,10 @@ The function `defined` is designed to work with variables and object properties,
 
 ### Limitations
 
-The `defined` function only checks for **undefined variables** and **undefined properties on objects**. It does **not** check for:
+The `defined` function only checks for **undefined variables**, **missing properties on objects**, and **out-of-range array indices**. It does **not** check for:
 
 - Method calls on objects
 - Function calls
-- Array index out of bounds
 - Type errors
 
 If you try to use `defined()` with a method call that doesn't exist, it will still produce an error:

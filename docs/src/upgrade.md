@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces three breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, and whitespace handling around standalone directives.
+Upgrading from v5 to v6 introduces four breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, and `defined()` returning `false` for missing properties and indices.
 
 ## Breaking Changes
 
@@ -59,6 +59,26 @@ A loop defined inside the component body can still use its own loop control dire
 In v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/). Only lines where exactly one directive is the sole non-whitespace content are trimmed. Lines containing embedded expressions or other content keep their whitespace and line endings. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
 
 See [Whitespace Handling](/language-elements/whitespace) for details and examples.
+
+### `defined()` Returns `false` for Missing Properties and Indices
+
+In v5, `defined()` returned `true` when you checked a property that didn't exist on an object or an index outside an array, because both evaluated to `nil`. In v6, both return `false`. A property or index that exists and holds `nil` still counts as defined.
+
+```textwire
+{{ empty = {} }}
+{{ defined(empty.name) }} {{-- v5: true, v6: false --}}
+
+{{ withNil = { name: nil } }}
+{{ defined(withNil.name) }} {{-- v5: true, v6: true --}}
+
+{{ arr = [1, 2] }}
+{{ defined(arr[5]) }} {{-- v5: true, v6: false --}}
+{{ defined(arr[-1]) }} {{-- v5: true, v6: false --}}
+```
+
+This also applies to chained access. `defined(user.address.street.number)` returns `false` if any part of the chain is missing.
+
+Closes [#167](https://codeberg.org/textwire/textwire/issues/167).
 
 ## New Features
 
@@ -136,7 +156,19 @@ After (v6):
 @end
 ```
 
-### 4. Check Whitespace-Sensitive Templates
+### 4. Review `defined()` Checks
+
+Search your templates for `defined()` calls that check optional object properties or array indices. In v6 they return `false` when the property or index is missing:
+
+```textwire
+@if(defined(user.address.street.number))
+    {{ user.address.street.number }}
+@end
+```
+
+In v5 this block was entered even when `user.address.street.number` was missing, which hid mistakes. If a template depended on the old behavior, make the property exist with a `nil` value or guard the access with your own condition.
+
+### 5. Check Whitespace-Sensitive Templates
 
 Review templates where standalone directive lines affect whitespace-sensitive output. In v6, only lines where exactly one directive is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
 
@@ -149,9 +181,11 @@ After completing the migration:
 3. <input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata
 4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
 5. <input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change
-6. <input type="checkbox"> Project compiles successfully
+6. <input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices
+7. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
 - Check the [Whitespace Handling](/language-elements/whitespace) page for whitespace rules
 - Open a [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help
+- Read about [defined()](/functions/global#defined) function
