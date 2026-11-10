@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces four breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, and `defined()` returning `false` for missing properties and indices.
+Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, and a 500 level limit on component nesting depth.
 
 ## Breaking Changes
 
@@ -79,6 +79,12 @@ In v5, `defined()` returned `true` when you checked a property that didn't exist
 This also applies to chained access. `defined(user.address.street.number)` returns `false` if any part of the chain is missing.
 
 Closes [#167](https://codeberg.org/textwire/textwire/issues/167).
+
+### Component Depth Limit
+
+In v6, components can be nested at most 500 levels deep during a single render. If a component includes itself, directly or through other components, Textwire stops with an error instead of crashing the program with a stack overflow. Components rendered one after another, like inside of a loop, don't count toward the limit.
+
+This most likely doesn't affect you. But if you rely on recursive component calls and the depth goes higher than 500, change the `MaxComponentDepth` configuration. See [Available Configurations](/api/configurations#available-configurations) for details.
 
 ## New Features
 
@@ -172,6 +178,18 @@ In v5 this block was entered even when `user.address.street.number` was missing,
 
 Review templates where standalone directive lines affect whitespace-sensitive output. In v6, only lines where exactly one directive is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
 
+### 6. Review Recursive Components
+
+Only needed if your components include each other recursively and go deeper than 500 levels. In that case, increase `MaxComponentDepth` in your Textwire configuration:
+
+```go
+textwire.Configure(&config.Config{
+    MaxComponentDepth: 1000,
+})
+```
+
+See [Available Configurations](/api/configurations#available-configurations) for details.
+
 ## Verification Checklist
 
 After completing the migration:
@@ -182,7 +200,8 @@ After completing the migration:
 4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
 5. <input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change
 6. <input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices
-7. <input type="checkbox"> Project compiles successfully
+7. <input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised
+8. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
