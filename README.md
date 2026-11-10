@@ -15,7 +15,8 @@ VitePress documentation site for [Textwire](https://codeberg.org/textwire/textwi
 ## Development
 
 - No tests needed
-- Build: `npm run build`
+- Vitepress build: `podman-compose run --rm app npm run build`
+- Vitepress watch server: `podman-compose exec app npm run dev`
 
 ## Important
 
