@@ -260,6 +260,7 @@ The second optional argument is an [object](/language-elements/literals/object) 
 - **Use passes to pass data.** You can use [@pass](/language-elements/directives#pass) and [@passif](/language-elements/directives#passif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
 - **Can't use loop control directives.** A component body is supplying content for a slot, it doesn't own the loop it's sitting in, so it can't reach back and kill it with [loop control directives](/language-elements/loops#break-and-continue) like `@break`.
+- **Nesting depth is limited to 500.** Components can be nested at most 500 levels deep during a single render. A component that includes itself, directly or through other components, stops with an error instead of crashing the program with a stack overflow. Components rendered one after another, like inside of a loop, don't count toward the limit. If you need a different limit, change the [`MaxComponentDepth`](/api/configurations#available-configurations) configuration.
 
 ## @slot
 
