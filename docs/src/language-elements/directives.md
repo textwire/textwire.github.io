@@ -158,6 +158,7 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Two arguments.** `@insert` accepts the name of the reserved placeholder and an optional content argument.
+- **Values are escaped.** The short-form content argument is HTML-escaped the same way as <code v-pre>{{ }}</code>. Use [`raw()`](/functions/global#raw) for trusted HTML, or the block form for markup.
 - **Evaluated in template context.** All inserts are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file. It means they have the context of the file where they are defined.
 - **Requires matching reserve.** If you define an insert without having a matching reserve, it will result in error. Such inserts are considered unused.
 - **Names must be unique.** You cannot define multiple inserts with the same name in a single file. It will result in error.
@@ -183,7 +184,7 @@ When defining a layout file for your template, you can reserve placeholders for 
 
 ### Fallback Argument
 
-As a second argument, `@reserve` can also take a fallback value that will be used if no corresponding `@insert` is defined in the template. Example:
+As a second argument, `@reserve` can also take a fallback value that will be used if no corresponding `@insert` is defined in the template. The fallback is HTML-escaped the same way as <code v-pre>{{ }}</code>. Use [`raw()`](/functions/global#raw) when the fallback is trusted HTML. Example:
 
 ```textwire
 <!DOCTYPE html>
@@ -198,6 +199,8 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 </body>
 </html>
 ```
+
+Values inserted into a reserved placeholder are escaped when they are defined in `@insert`, so `@reserve` prints them as they are.
 
 ### Important Notes
 

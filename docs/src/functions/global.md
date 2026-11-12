@@ -196,3 +196,148 @@ No value
 
 > [!TIP] Best Practice
 > Use `hasValue()` when you need to know for sure that the variable is defined and contains a [non-empty value](/language-elements/syntax#empty-values).
+
+## raw
+
+```ts
+raw(value: any): any
+```
+
+Function `raw` marks the strings in `value` as raw, so they are printed without HTML escaping. It only changes output escaping: wherever Textwire would normally HTML-escape the value, such as <code v-pre>{{ }}</code>, the short form of `@insert`, or a `@reserve` fallback, the marked strings are printed as is. The value itself stays the same, so comparisons are not affected.
+
+#### Arguments:
+
+1. `value` (any) - A value with strings to print without HTML escaping
+
+#### Input Example:
+
+```textwire
+{{ html = "<strong>Hello</strong>" }}
+{{ html }}
+{{ raw(html) }}
+```
+
+#### Output:
+
+```html
+&lt;strong&gt;Hello&lt;/strong&gt;
+<strong>Hello</strong>
+```
+
+This is the same as using the <code v-pre>{!! !!}</code> braces:
+
+```textwire
+{{ raw(html) }}
+{!! html !!}
+```
+
+Both lines print `<strong>Hello</strong>`. The difference is that `raw()` lets you decide about escaping per value, while <code v-pre>{!! !!}</code> decides it for the whole output. Calling `raw()` inside <code v-pre>{!! !!}</code> is allowed but does nothing, because that output is already raw.
+
+> [!WARNING] Security
+> `raw()` disables HTML escaping. Only use it with trusted content or content that was already sanitized. Passing user-provided data to `raw()` can introduce XSS vulnerabilities.
+
+### Arrays and Objects
+
+When you pass an array or an object to `raw()`, every string inside it is marked as raw, including strings in nested arrays and objects. Non-string literals like integers, floats, booleans, and `nil` are returned unchanged.
+
+```textwire
+{{ raw(["<a>", "<b>"]) }} {{-- Output: <a>, <b> --}}
+{{ raw({ name: "<b>", count: 1 }) }} {{-- Output: {name: "<b>", count: 1} --}}
+```
+
+Arrays and objects are copied, so the original value is never changed. You can safely keep using the original value with escaping:
+
+```textwire
+{{ safe = ["<b>"] }}
+{{ unsafe = raw(safe) }}
+
+{{ safe }} {{-- Output: &lt;b&gt; --}}
+{{ unsafe }} {{-- Output: <b> --}}
+```
+
+Raw and plain strings can be mixed in the same array or object. Only the strings marked with `raw()` are printed without escaping:
+
+```textwire
+{{ [raw("<b>"), "<b>"] }}
+{{-- Output: <b>, &lt;b&gt; --}}
+
+{{ { a: raw("<b>"), b: "<b>" } }}
+{{-- Output: {a: "<b>", b: &#34;&lt;b&gt;&#34;} --}}
+```
+
+The raw mark is kept when you access nested values, assign a raw value to a variable, or store it in an array or object:
+
+```textwire
+{{ user = { name: "<b>" } }}
+{{ raw(user).name }} {{-- Output: <b> --}}
+
+{{ html = raw("<i>") }}
+{{ obj = { content: html } }}
+{{ obj.content }} {{-- Output: <i> --}}
+```
+
+### Functions
+
+Functions that keep the elements of a collection keep the raw mark. For example, `reverse()`, `slice()`, `rand()`, and `append()` with a raw value:
+
+```textwire
+{{ raw(["<a>", "<b>"]).reverse() }} {{-- Output: <b>, <a> --}}
+```
+
+Functions that create a new string return a plain, unmarked string, so the result is escaped again. Wrap the result in `raw()` when you need raw output:
+
+```textwire
+{{ raw("<b>").upper() }} {{-- Output: &lt;B&gt; --}}
+{{ raw("<b>".upper()) }} {{-- Output: <B> --}}
+
+{{ raw("<b>") + "<b>" }} {{-- Output: &lt;b&gt;&lt;b&gt; --}}
+{{ raw("<b>" + "<b>") }} {{-- Output: <b><b> --}}
+```
+
+### Comparisons and Other Functions
+
+The raw mark only affects output. Two strings with the same text are equal even if only one of them is raw:
+
+```textwire
+{{ raw("<b>") == "<b>" }} {{-- Output: 1 --}}
+{{ raw("<b>").len() }} {{-- Output: 3 --}}
+```
+
+Functions like `defined()` and `hasValue()` treat raw values the same way as plain values.
+
+### JSON
+
+`json()` ignores the raw mark, because it always returns a new string. The result is escaped when printed with <code v-pre>{{ }}</code>. Wrap the `json()` result itself in `raw()` when you need unescaped JSON:
+
+```textwire
+{{ data = { name: "<b>" } }}
+{{ raw(data).json() }} {{-- Output: {&#34;name&#34;:&#34;&lt;b&gt;&#34;} --}}
+{{ raw(data.json()) }} {{-- Output: {"name":"<b>"} --}}
+```
+
+### `@insert`, `@reserve`, and Components
+
+The short form of `@insert` and the fallback of `@reserve` are escaped the same way as <code v-pre>{{ }}</code>. Use `raw()` for trusted HTML:
+
+```textwire
+@use("layout")
+@insert("title", raw("<span>Title</span>"))
+```
+
+```textwire
+<title>@reserve("title", raw("<i>Fallback</i>"))</title>
+```
+
+For `@insert`, the block form is usually a better choice for markup, because the content is a normal template body. Use `{!! !!}` inside the block only for dynamic strings that should not be escaped:
+
+```textwire
+@insert("content")
+    <p>{!! post.html !!}</p>
+@end
+```
+
+Components behave the same way. Raw values passed as props, slots, or default values keep their raw mark:
+
+```textwire
+@component("~header", { title: raw("<span>Title</span>") })@end
+```

@@ -21,7 +21,7 @@ Learn about [error handling](/api/error-handling) in Textwire when you call a fu
 
 ## Global Functions
 
-Functions like `defined()`, `hasValue()`, and `formatDate()` are not attached to a specific type. They are available everywhere and are documented on the [Global Functions](/functions/global) page.
+Functions like `defined()`, `hasValue()`, `formatDate()`, and `raw()` are not attached to a specific type. They are available everywhere and are documented on the [Global Functions](/functions/global) page.
 
 ## Unicode Support
 

@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, and a 500 level limit on component nesting depth.
+Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values, and a 500 level limit on component nesting depth.
 
 ## Breaking Changes
 
@@ -86,6 +86,51 @@ In v6, components can be nested at most 500 levels deep during a single render. 
 
 This most likely doesn't affect you. But if you rely on recursive component calls and the depth goes higher than 500, change the `MaxComponentDepth` configuration. See [Available Configurations](/api/configurations#available-configurations) for details.
 
+### Escaped `@insert` and `@reserve` Values
+
+In v5, the short form `@insert("title", value)` and the `@reserve("title", fallback)` fallback printed their values raw. In v6, they are HTML-escaped the same way as <code v-pre>{{ }}</code>, which prevents XSS when user data is passed this way.
+
+```textwire
+{{-- index.tw --}}
+@use("layout")
+@insert("title", "<span>Title</span>")
+```
+
+```textwire
+{{-- layout.tw --}}
+<title>@reserve("title")</title>
+```
+
+In v5 the output was:
+
+```html
+<title><span>Title</span></title>
+```
+
+In v6 the same code produces:
+
+```html
+<title>&lt;span&gt;Title&lt;/span&gt;</title>
+```
+
+If the HTML is trusted and should be printed as is, wrap the value in [`raw()`](/functions/global#raw):
+
+```textwire
+@insert("title", raw("<span>Title</span>"))
+```
+
+For `@insert`, you can also use the block form, which is a normal template body:
+
+```textwire
+@insert("title")
+    <span>Title</span>
+@end
+```
+
+Do not use `raw()` for user-provided data unless it was sanitized first.
+
+Closes [#156](https://codeberg.org/textwire/textwire/issues/156).
+
 ## New Features
 
 ### `loop` Object in `@for` Loops
@@ -108,6 +153,18 @@ The `last` property is not available because a `for` loop may not have a known l
 ```
 
 Closes [#130](https://codeberg.org/textwire/textwire/issues/130).
+
+### `raw()` Global Function
+
+The new `raw()` global function marks a value as raw, so it is printed without HTML escaping. This is useful when you need unescaped output for a single value instead of a whole <code v-pre>{!! !!}</code> block. The function works recursively on strings in arrays and objects:
+
+```textwire
+{{ raw("<span>Title</span>") }} {{-- Output: <span>Title</span> --}}
+{{ raw(["<a>", "<b>"]) }}        {{-- Output: <a>, <b> --}}
+{{ raw({ name: "<b>" }) }}       {{-- Output: {name: "<b>"} --}}
+```
+
+See [raw()](/functions/global#raw) for all details and examples.
 
 ## Steps
 
@@ -178,7 +235,18 @@ In v5 this block was entered even when `user.address.street.number` was missing,
 
 Review templates where standalone directive lines affect whitespace-sensitive output. In v6, only lines where exactly one directive is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
 
-### 6. Review Recursive Components
+### 6. Review Escaped `@insert` and `@reserve` Values
+
+Search your templates for the short form `@insert("name", value)` and `@reserve("name", fallback)`. In v6, their values are HTML-escaped. If a value contained trusted HTML and should stay raw, wrap it in [`raw()`](/functions/global#raw):
+
+```textwire
+@insert("title", raw("<span>Title</span>"))
+@reserve("title", raw("<i>Fallback</i>"))
+```
+
+For `@insert`, you can also move static markup into the block form. Leave user-provided values escaped.
+
+### 7. Review Recursive Components
 
 Only needed if your components include each other recursively and go deeper than 500 levels. In that case, increase `MaxComponentDepth` in your Textwire configuration:
 
@@ -200,11 +268,13 @@ After completing the migration:
 4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
 5. <input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change
 6. <input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices
-7. <input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised
-8. <input type="checkbox"> Project compiles successfully
+7. <input type="checkbox"> Short-form `@insert` and `@reserve` fallbacks reviewed for newly escaped values
+8. <input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised
+9. <input type="checkbox"> Project compiles successfully
 
 ## Need Help?
 
 - Check the [Whitespace Handling](/language-elements/whitespace) page for whitespace rules
 - Open a [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help
 - Read about [defined()](/functions/global#defined) function
+- Read about [raw()](/functions/global#raw) function

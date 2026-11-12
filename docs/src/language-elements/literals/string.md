@@ -36,3 +36,13 @@ Single and double quotes are interchangeable for string literals.
 ## Escaping
 
 Use a backslash to insert special characters inside strings. See [Escaping](/language-elements/syntax#escaping-in-strings).
+
+Backslash escapes only change the characters in the string. They do not disable HTML escaping when the string is printed. If a trusted string should be printed as is, use the [`raw()`](/functions/global#raw) global function:
+
+```textwire
+{{ html = "<b>Hello</b>" }}
+{{ html }}      {{-- Output: &lt;b&gt;Hello&lt;/b&gt; --}}
+{{ raw(html) }} {{-- Output: <b>Hello</b> --}}
+```
+
+Read more about [`raw()`](/functions/global#raw) in the Global Functions documentation.
