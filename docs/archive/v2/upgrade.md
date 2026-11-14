@@ -1,6 +1,7 @@
 ---
 title: Upgrade Guide - v2
 description: Learn how to upgrade your Textwire code from version 1 to version 2
+outline: deep
 ---
 
 # Upgrade Guide

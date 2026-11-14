@@ -92,4 +92,6 @@ You can access your global data in any Textwire template using the `global` obje
 @end
 ```
 
+The `global` object is read-only. Writing to `global`, one of its properties, an array element, or a value aliased from it results in an error. Use a local variable or a copy when a template needs a modified value.
+
 The `global` identifier is a reserved word and cannot be used for variable names. Read more about [reserved variables](/intro#reserved-variable-names).

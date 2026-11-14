@@ -6,7 +6,11 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values, and a 500 level limit on component nesting depth.
+Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values and more.
+
+A lot of changes but it needs to be done while **Textwire is still young**. It's much harder to make these changes later when there are more users and more templates in the wild.
+
+Most of these changes are not going to effect you but still you need to go through your templates and code to make sure everything works as expected. This guide will help you identify the changes that affect your project and how to fix them.
 
 ## Breaking Changes
 
@@ -130,6 +134,97 @@ For `@insert`, you can also use the block form, which is a normal template body:
 Do not use `raw()` for user-provided data unless it was sanitized first.
 
 Closes [#156](https://codeberg.org/textwire/textwire/issues/156).
+
+### Read-Only Global Data
+
+In v5, assigning to `global`, one of its properties, or a value aliased from it was silently ignored. In v6, it returns an evaluation error. This applies everywhere: templates, layouts, components, and loops.
+
+```textwire
+{{ global.limit = 99 }}          {{-- ERROR... --}}
+{{ global.user.name = "Bob" }}   {{-- ERROR... --}}
+{{ global.tags[0] = "new" }}     {{-- ERROR... --}}
+{{ global.count++ }}             {{-- ERROR... --}}
+
+{{ user = global.user }}
+{{ user.name = "Bob" }}          {{-- ERROR... --}}
+```
+
+Global data is meant to be read, not changed. If a template needs a modified value, create a new local value instead:
+
+```textwire
+{{ user = { name: "Bob", role: global.user.role } }}
+```
+
+Since v5 ignored these writes, you shouldn't have any code that depends on them. If you do, just remove those assignments since they are dead code anyway.
+
+### Global Data Converted Once at Template Creation
+
+In v5, `GlobalData` was converted while rendering, so changes to the original map after `NewTemplate` were picked up. In v6, it is converted once inside `NewTemplate` and frozen, so later changes are not picked up:
+
+```go
+global := map[string]any{"env": "dev"}
+
+tpl, err := textwire.NewTemplate(&config.Config{GlobalData: global})
+if err != nil {
+    // handle error
+}
+
+// v5: templates see "prod", v6: templates still see "dev"
+global["env"] = "prod"
+```
+
+Unsupported values, such as functions and channels, now fail in `NewTemplate` instead of at render time:
+
+```go
+_, err := textwire.NewTemplate(&config.Config{
+    GlobalData: map[string]any{"callback": func() {}},
+})
+// v6: NewTemplate returns "unsupported value type 'func()'"
+```
+
+Finish global data before calling `NewTemplate`. For values that change per render, pass them to `String()` or `Response()` as template data instead of mutating `GlobalData`.
+
+### Public `pkg/` API Changes
+
+If you import Textwire's `pkg/` packages directly, three functions changed:
+
+| v5                                             | v6                                            |
+| ---------------------------------------------- | --------------------------------------------- |
+| `evaluator.New(customFunc, conf)`              | `evaluator.New(customFunc, conf, global)`      |
+| `value.NewScopeFromMap(data)`                  | `value.NewScopeFromMap(data, global)`          |
+| `scope.AddGlobal(key, value)`                  | Removed. Pass the value through `GlobalData`.  |
+
+`global` is a `*value.Obj`. Pass `nil` to keep the previous behavior.
+
+Before (v5):
+
+```go
+scope, err := value.NewScopeFromMap(data)
+if err != nil {
+    // handle error
+}
+
+scope.AddGlobal("env", "dev")
+e := evaluator.New(customFunc, conf)
+```
+
+After (v6):
+
+```go
+global, err := value.NewFrozenGlobal(map[string]any{"env": "dev"})
+if err != nil {
+    // handle error
+}
+
+scope, err := value.NewScopeFromMap(data, global)
+if err != nil {
+    // handle error
+}
+
+e := evaluator.New(customFunc, conf, global)
+```
+
+`NewTemplate` does this for you, so this only affects code that uses `pkg/evaluator` or `pkg/value` directly.
 
 ## New Features
 
@@ -258,19 +353,73 @@ textwire.Configure(&config.Config{
 
 See [Available Configurations](/api/configurations#available-configurations) for details.
 
+### 8. Remove Writes to Global Data
+
+Search your templates for assignments, increments, or decrements that target `global`, its properties, array elements, or values aliased from it. In v6 they fail at render time. Since v5 ignored them, you can usually delete them. If a template needs the new value, use a local variable instead:
+
+```textwire
+{{ global.theme = "dark" }} // [!code --]
+{{ theme = "dark" }}       // [!code ++]
+```
+
+An alias points to the same frozen value, so create a new local object when you need to modify a copy:
+
+```textwire
+{{ user = global.user }} // [!code --]
+{{ user.name = "Bob" }} // [!code --]
+
+{{ user = { name: "Bob", role: global.user.role } }} // [!code ++]
+```
+
+### 9. Prepare Global Data Before `NewTemplate`
+
+Move any changes to the `GlobalData` map before `NewTemplate`, and make sure it contains only supported values. Functions, channels, and other unsupported types now fail in `NewTemplate`:
+
+```go
+tpl, err := textwire.NewTemplate(&config.Config{
+    GlobalData: map[string]any{"env": os.Getenv("APP_ENV")},
+})
+if err != nil {
+    // handle error
+}
+```
+
+Values that change per render should go through template data instead:
+
+```go
+html, err := tpl.String("index", map[string]any{"user": user})
+```
+
+### 10. Update Direct `pkg/` Usage
+
+Only needed if you call `pkg/evaluator` or `pkg/value` directly. Pass the global value to the constructors and remove `Scope.AddGlobal` calls:
+
+```go
+scope, err := value.NewScopeFromMap(data) // [!code --]
+scope, err := value.NewScopeFromMap(data, global) // [!code ++]
+
+e := evaluator.New(customFunc, conf) // [!code --]
+e := evaluator.New(customFunc, conf, global) // [!code ++]
+```
+
+Pass `nil` for `global` to keep the previous behavior. See [Public `pkg/` API Changes](#public-pkg-api-changes) for the full example.
+
 ## Verification Checklist
 
 After completing the migration:
 
-1. <input type="checkbox"> All imports changed from `v5` to `v6`
-2. <input type="checkbox"> `go mod tidy` runs without errors
-3. <input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata
-4. <input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call
-5. <input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change
-6. <input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices
-7. <input type="checkbox"> Short-form `@insert` and `@reserve` fallbacks reviewed for newly escaped values
-8. <input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised
-9. <input type="checkbox"> Project compiles successfully
+1. <label><input type="checkbox"> All imports changed from `v5` to `v6`</label>
+2. <label><input type="checkbox"> `go mod tidy` runs without errors</label>
+3. <label><input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata.</label>
+4. <label><input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call</label>
+5. <label><input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change</label>
+6. <label><input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices</label>
+7. <label><input type="checkbox"> Short-form `@insert` and `@reserve` fallbacks reviewed for newly escaped values</label>
+8. <label><input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised</label>
+9. <label><input type="checkbox"> No assignments target `global` or values aliased from it</label>
+10. <label><input type="checkbox"> Global data is prepared before `NewTemplate` and contains no unsupported values</label>
+11. <label><input type="checkbox"> Direct `evaluator.New`, `value.NewScopeFromMap`, and `Scope.AddGlobal` usage updated</label>
+12. <label><input type="checkbox"> Project compiles successfully</label>
 
 ## Need Help?
 
