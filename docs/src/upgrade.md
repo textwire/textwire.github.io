@@ -6,7 +6,7 @@ outline: deep
 
 # Upgrade Guide
 
-Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values and more.
+Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives and comments, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values and more.
 
 A lot of changes but it needs to be done while **Textwire is still young**. It's much harder to make these changes later when there are more users and more templates in the wild.
 
@@ -60,7 +60,9 @@ A loop defined inside the component body can still use its own loop control dire
 
 ### Standalone Directive Whitespace
 
-In v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/). Only lines where exactly one directive is the sole non-whitespace content are trimmed. Lines containing embedded expressions or other content keep their whitespace and line endings. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
+In v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/). Only lines where exactly one directive or Textwire comment is the sole non-whitespace content are trimmed. Lines containing embedded expressions or other content keep their whitespace and line endings. This is different from v5, where all whitespace was preserved and some newlines were removed, which caused issues with whitespace-sensitive formats such as YAML.
+
+In v5, removing a standalone comment left its indentation and line ending behind, producing a blank line. In v6, the whole comment line is removed.
 
 See [Whitespace Handling](/language-elements/whitespace) for details and examples.
 
@@ -328,7 +330,7 @@ In v5 this block was entered even when `user.address.street.number` was missing,
 
 ### 5. Check Whitespace-Sensitive Templates
 
-Review templates where standalone directive lines affect whitespace-sensitive output. In v6, only lines where exactly one directive is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
+Review templates where standalone directive or comment lines affect whitespace-sensitive output. In v6, only lines where exactly one directive or comment is the sole non-whitespace content are trimmed. See [Whitespace Handling](/language-elements/whitespace) for details.
 
 ### 6. Review Escaped `@insert` and `@reserve` Values
 
@@ -412,7 +414,7 @@ After completing the migration:
 2. <label><input type="checkbox"> `go mod tidy` runs without errors</label>
 3. <label><input type="checkbox"> Nested loops use `loop.parent` when accessing parent loop metadata.</label>
 4. <label><input type="checkbox"> Loop control directives inside components have a local loop or were moved outside the `@component` call</label>
-5. <label><input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive whitespace change</label>
+5. <label><input type="checkbox"> Whitespace-sensitive outputs checked after the standalone directive and comment whitespace change</label>
 6. <label><input type="checkbox"> `defined()` checks reviewed for missing properties and out-of-range indices</label>
 7. <label><input type="checkbox"> Short-form `@insert` and `@reserve` fallbacks reviewed for newly escaped values</label>
 8. <label><input type="checkbox"> Recursive components stay under 500 levels or `MaxComponentDepth` was raised</label>

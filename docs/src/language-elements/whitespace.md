@@ -1,28 +1,28 @@
 ---
 title: Whitespace Handling - v6
-description: Learn how Textwire handles whitespace around standalone directives
+description: Learn how Textwire handles whitespace around standalone directives and comments
 outline: deep
 ---
 
 # Whitespace Handling
 
-Since v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/), adapted for Textwire directives. We call it **Standalone directive rules**.
+Since v6, Textwire follows [Mustache's standalone-tag whitespace rules](https://mustache.github.io/), adapted for Textwire directives and comments. We call it **Standalone directive rules**.
 
-Textwire uses directives (like `@if`, `@each`, `@end`) instead of Mustache tags. Embedded expressions such as <code v-pre>{{ ... }}</code> and <code v-pre>{!! ... !!}</code> behave like Mustache variable tags and never trigger standalone-line trimming.
+Textwire uses directives (like `@if`, `@each`, `@end`) instead of Mustache tags. Textwire comments (<code v-pre>{{-- ... --}}</code>) follow the same standalone rules as directives. Embedded expressions such as <code v-pre>{{ ... }}</code> and <code v-pre>{!! ... !!}</code> behave like Mustache variable tags and never trigger standalone-line trimming.
 
 The goal of standalone whitespace handling is to let you write clean, indented template code without generating unwanted blank lines in your final output.
 
 ## The Core Rule
 
-A directive is considered **standalone** if it is the **only non-whitespace content on its line**. 
+A directive or Textwire comment is considered **standalone** if it is the **only non-whitespace content on its line**.
 
-When a directive is standalone, Textwire automatically removes:
+When a directive or comment is standalone, Textwire automatically removes:
 1. The leading horizontal whitespace (indentation).
-2. The directive itself.
+2. The directive or comment itself.
 3. The trailing horizontal whitespace.
 4. The line ending (`\n` or `\r\n`).
 
-The directive still executes normally, but it leaves no "footprint" in the output.
+The directive still executes normally, and the comment is still ignored, but neither leaves a "footprint" in the output.
 
 ### Basic Example
 
@@ -63,6 +63,60 @@ Leading spaces or tabs do not prevent a directive from being standalone. The ind
     <li>b</li>
 </ul>
 ```
+
+### Standalone Comments
+A Textwire comment on its own line is removed together with its indentation and line ending. This keeps comments from creating blank lines in the output.
+
+```textwire :line-numbers
+| Before
+{{-- This line disappears --}}
+| After
+```
+
+**Output:**
+
+```text :line-numbers
+| Before
+| After
+```
+
+Indented comments follow the same rule:
+
+```textwire :line-numbers
+<ul>
+    {{-- Render the list --}}
+    @each(item in ["a", "b"])
+    <li>{{ item }}</li>
+    @end
+</ul>
+```
+
+**Output:**
+
+```html :line-numbers
+<ul>
+    <li>a</li>
+    <li>b</li>
+</ul>
+```
+
+Multiline comments are trimmed on every line where the comment is the only non-whitespace content:
+
+```textwire :line-numbers
+| Before
+{{-- This comment
+     spans two lines --}}
+| After
+```
+
+**Output:**
+
+```text :line-numbers
+| Before
+| After
+```
+
+Only Textwire comments participate in standalone trimming. HTML comments such as `<!-- ... -->` are treated as regular text and are always preserved.
 
 ### Whitespace Inside Arguments
 Spaces inside a directive's parentheses do not affect standalone detection.
@@ -175,10 +229,37 @@ Lines containing embedded expressions like <code v-pre>{{ ... }}</code> or <code
 </ul>
 ```
 
+### 4. Inline Comments
+Only the comment is removed from a line with other content. The surrounding spaces and the line ending stay in place.
+
+```textwire :line-numbers
+| Before {{-- note --}} After
+```
+
+**Output:**
+
+```text :line-numbers
+| Before  After
+```
+
+Both spaces around the comment remain, producing a double space. If a line contains more than one Textwire comment, or a comment and a directive, standalone trimming does not apply.
+
+An escaped comment is treated as plain text and never takes part in standalone trimming:
+
+```textwire :line-numbers
+\{{-- This is printed --}}
+```
+
+**Output:**
+
+```text :line-numbers
+{{-- This is printed --}}
+```
+
 ## Edge Cases
 
 ### Start and End of File
-Standalone directives are trimmed at template boundaries too, even without a preceding or final newline.
+Standalone directives and comments are trimmed at template boundaries too, even without a preceding or final newline.
 
 ```textwire :line-numbers
 @if(true)
@@ -193,10 +274,10 @@ Hello
 ```
 
 ### CRLF Line Endings
-Both `\n` (Unix) and `\r\n` (Windows) line endings are correctly removed from standalone directive lines.
+Both `\n` (Unix) and `\r\n` (Windows) line endings are correctly removed from standalone directive and comment lines.
 
 ### Blank Lines
-Empty or whitespace-only lines that do not contain a directive are left exactly as written. They are not collapsed or removed.
+Empty or whitespace-only lines that do not contain a directive or comment are left exactly as written. They are not collapsed or removed. A line containing only a comment is not a blank line; it is removed along with its line ending.
 
 ```textwire :line-numbers
 Start

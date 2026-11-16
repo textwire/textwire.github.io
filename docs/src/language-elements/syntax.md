@@ -25,7 +25,7 @@ Directives are Textwire statements that begin with the `@` symbol. They define l
 
 - **Expressions and Variables**: Directives support expressions and variables, such as `@if(x == 1)` or `@use(layoutName)`.
 - **Closing Directives**: Directives with a body (like `@if`, `@for`, `@each`, and `@component`) must be closed with the `@end` keyword.
-- **Whitespace Handling**: Lines containing only a directive are trimmed. Read more on the [Whitespace Handling](/language-elements/whitespace) page.
+- **Whitespace Handling**: Lines containing only a directive or a Textwire comment are trimmed. Read more on the [Whitespace Handling](/language-elements/whitespace) page.
 
 Read about directives on [Directives](/language-elements/directives) page.
 

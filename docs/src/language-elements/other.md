@@ -34,3 +34,22 @@ You can use comments in Textwire to write notes or to comment out code. Example:
 ```
 
 HTML comment will be displayed in the final HTML output, but Textwire comment will be removed from the final HTML output. It might be useful when you want to comment out some code that you don't want to be displayed in the final HTML output.
+
+Textwire comments can span multiple lines and can be nested:
+
+```textwire
+{{-- This comment
+     spans two lines --}}
+
+{{-- Outer {{-- inner --}} --}}
+```
+
+A comment on its own line is removed together with its indentation and line ending, so it does not leave a blank line. An inline comment only removes the comment itself and preserves the surrounding text and whitespace. See [Whitespace Handling](/language-elements/whitespace#standalone-comments) for examples.
+
+To print comment syntax as text, escape it with a backslash:
+
+```textwire
+\{{-- This is printed --}}
+```
+
+The output is <code v-pre>{{-- This is printed --}}</code>.
