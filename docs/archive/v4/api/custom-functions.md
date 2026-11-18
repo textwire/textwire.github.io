@@ -44,7 +44,7 @@ import (
 	"fmt"
 
 	"codeberg.org/timeago/timeago/v3"
-	"codeberg.org/textwire/textwire/v4"
+	"github.com/textwire/textwire/v4"
 )
 
 func main() {

@@ -48,8 +48,8 @@ import (
 	"embed"
 	"net/http"
 
-	"codeberg.org/textwire/textwire/v6"
-	"codeberg.org/textwire/textwire/v6/config"
+	"github.com/textwire/textwire/v5"
+	"github.com/textwire/textwire/v5/config"
 )
 
 //go:embed templates/* // [!code highlight]

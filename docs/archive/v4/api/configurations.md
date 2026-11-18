@@ -24,8 +24,8 @@ For detailed instructions on using `textwire.NewTemplate`, refer to the [Usage w
 
 ```go
 import (
-    "codeberg.org/textwire/textwire/v4"
-    "codeberg.org/textwire/textwire/v4/config"
+    "github.com/textwire/textwire/v4"
+    "github.com/textwire/textwire/v4/config"
 )
 
 func main() {
@@ -63,8 +63,8 @@ Global data allows you to share values from your Go code across all Textwire tem
 ```go :line-numbers
 import (
     "os"
-    "codeberg.org/textwire/textwire/v4"
-    "codeberg.org/textwire/textwire/v4/config"
+    "github.com/textwire/textwire/v4"
+    "github.com/textwire/textwire/v4/config"
 )
 
 tpl, err = textwire.NewTemplate(&config.Config{

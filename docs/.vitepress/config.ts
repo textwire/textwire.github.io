@@ -19,7 +19,7 @@ const sidebar: SidebarType = {
 }
 
 const hostname = 'https://textwire.serhiicho.com'
-const rmGrammarUrl = 'https://codeberg.org/textwire/vscode-textwire/raw/branch/master/syntaxes/textwire.tmLanguage.json'
+const rmGrammarUrl = 'https://raw.githubusercontent.com/textwire/vscode-textwire/master/syntaxes/textwire.tmLanguage.json'
 
 async function fetchTextwireGrammar() {
     const resp = await fetch(rmGrammarUrl)
@@ -79,7 +79,7 @@ export default defineVersionedConfig(
         themeConfig: {
             logo: '/images/logo.png',
             footer: {
-                message: 'Released under the <a href="https://codeberg.org/textwire/textwire/src/branch/master/LICENSE" target="_blank">MIT License</a>',
+                message: 'Released under the <a href="https://github.com/textwire/textwire/blob/master/LICENSE" target="_blank">MIT License</a>',
                 copyright: 'Copyright © 2023 - present <a href="https://serhiicho.com/about-me" target="_blank">Serhii Cho</a>',
             },
 
@@ -102,22 +102,22 @@ export default defineVersionedConfig(
                 {
                     icon: 'neovim',
                     ariaLabel: 'Neovim Plugin',
-                    link: 'https://codeberg.org/textwire/textwire.nvim',
+                    link: 'https://github.com/textwire/textwire.nvim',
                 },
                 {
                     icon: 'visualstudiocode',
                     ariaLabel: 'VSCode Extension',
-                    link: 'https://codeberg.org/textwire/vscode-textwire',
+                    link: 'https://github.com/textwire/vscode-textwire',
                 },
                 {
                     icon: 'go',
                     ariaLabel: 'Golang',
-                    link: `https://pkg.go.dev/codeberg.org/textwire/textwire/${latestVersion}`,
+                    link: `https://pkg.go.dev/github.com/textwire/textwire/${latestVersion}`,
                 },
                 {
-                    icon: 'codeberg',
-                    ariaLabel: 'Codeberg repository',
-                    link: 'https://codeberg.org/textwire/textwire',
+                    icon: 'github',
+                    ariaLabel: 'GitHub repository',
+                    link: 'https://github.com/textwire/textwire',
                 },
             ],
         },

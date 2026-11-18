@@ -23,7 +23,7 @@ import (
 	"log"
 	"unicode"
 
-	"codeberg.org/textwire/textwire/v2"
+	"github.com/textwire/textwire/v2"
 )
 
 func main() {
@@ -60,7 +60,7 @@ import (
 	"log"
 	"unicode"
 
-	"codeberg.org/textwire/textwire/v2"
+	"github.com/textwire/textwire/v2"
 )
 
 func main() {

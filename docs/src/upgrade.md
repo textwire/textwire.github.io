@@ -270,8 +270,8 @@ See [raw()](/functions/global#raw) for all details and examples.
 Replace all v5 imports with v6:
 
 ```go
-import "codeberg.org/textwire/textwire/v5" // [!code --]
-import "codeberg.org/textwire/textwire/v6" // [!code ++]
+import "github.com/textwire/textwire/v5" // [!code --]
+import "github.com/textwire/textwire/v5" // [!code ++]
 ```
 
 After updating imports, run:
@@ -426,6 +426,6 @@ After completing the migration:
 ## Need Help?
 
 - Check the [Whitespace Handling](/language-elements/whitespace) page for whitespace rules
-- Open a [Codeberg Issue](https://codeberg.org/textwire/textwire/issues) and we will help
+- Open an [issue](https://github.com/textwire/textwire/issues/new) and we will help
 - Read about [defined()](/functions/global#defined) function
 - Read about [raw()](/functions/global#raw) function

@@ -2,7 +2,7 @@
     "name": "textwire",
     "main": "docs/.vitepress/index.js",
     "type": "module",
-    "repository": "https://codeberg.org/textwire/pages",
+    "repository": "https://github.com/textwire/textwire.github.io",
     "author": "SerhiiCho <serhiicho@protonmail.com>",
     "license": "MIT",
     "contributors": [

@@ -43,7 +43,7 @@ Here is an example of registering a string function that uppercases a value and 
 import (
 	"strings"
 
-	"codeberg.org/textwire/textwire/v6"
+	"github.com/textwire/textwire/v5"
 )
 
 func main() {

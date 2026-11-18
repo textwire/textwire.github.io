@@ -1,6 +1,6 @@
 # Textwire Documentation
 
-VitePress documentation site for [Textwire](https://codeberg.org/textwire/textwire) templating engine for Go programming language. Uses [VitePress](https://vitepress.dev/).
+VitePress documentation site for [Textwire](https://github.com/textwire/textwire) templating engine for Go programming language. Uses [VitePress](https://vitepress.dev/).
 
 ## Directory Structure
 
@@ -8,7 +8,7 @@ VitePress documentation site for [Textwire](https://codeberg.org/textwire/textwi
 - Versioned docs: `docs/archive/`
 - Blog articles: `docs/blog/`
 - Theme files: `docs/.vitepress/theme/`
-- Syntax highlighting: fetched from Codeberg in `docs/.vitepress/config.ts`
+- Syntax highlighting: fetched from GitHub in `docs/.vitepress/config.ts`
 - VitePress config: `docs/.vitepress/config.ts`
 - Blog registry: `docs/.vitepress/theme/modules/blogPosts.ts`
 

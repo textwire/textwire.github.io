@@ -27,8 +27,8 @@ We did it because `raw` function was causing a lot of issues where a string coul
 Replace all v4 imports with v5:
 
 ```go
-import "codeberg.org/textwire/textwire/v4" // [!code --]
-import "codeberg.org/textwire/textwire/v5" // [!code ++]
+import "github.com/textwire/textwire/v4" // [!code --]
+import "github.com/textwire/textwire/v5" // [!code ++]
 ```
 
 After updating imports, run:
