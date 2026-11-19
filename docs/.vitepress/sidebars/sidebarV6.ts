@@ -58,5 +58,6 @@ export const sidebarV6: DefaultTheme.SidebarItem[] = [
         ],
     },
     { text: 'FAQ', link: '/faq' },
+    { text: 'Migrating from Codeberg', link: '/codeberg-migration' },
     { text: 'Upgrade Guide', link: '/upgrade' },
 ]

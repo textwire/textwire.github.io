@@ -8,6 +8,8 @@ outline: deep
 
 Upgrading from v5 to v6 introduces some breaking changes: the `loop` object scope in nested loops, loop control directives crossing component boundaries, whitespace handling around standalone directives and comments, `defined()` returning `false` for missing properties and indices, HTML escaping of `@insert` and `@reserve` values and more.
 
+If you installed Textwire from Codeberg (`codeberg.org/textwire/textwire/v5`), follow the [Migrating from Codeberg](/codeberg-migration) guide first to move your imports back to GitHub, then continue here. If you stayed on GitHub the whole time, only the version suffix in your imports changes.
+
 A lot of changes but it needs to be done while **Textwire is still young**. It's much harder to make these changes later when there are more users and more templates in the wild.
 
 Most of these changes are not going to effect you but still you need to go through your templates and code to make sure everything works as expected. This guide will help you identify the changes that affect your project and how to fix them.
