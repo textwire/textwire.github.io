@@ -4,7 +4,7 @@ export const members = [
         title: 'Creator',
         avatar: 'https://avatars.githubusercontent.com/u/35465417',
         links: [
-            { icon: 'codeberg', link: 'https://codeberg.org/SerhiiCho' },
+            { icon: 'github', link: 'https://github.com/SerhiiCho' },
             { icon: 'mastodon', link: 'https://mastodon.social/@SerhiiCho' },
         ],
     },

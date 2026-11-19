@@ -1,5 +1,5 @@
 ---
-title: Array Functions - v5
+title: Array Functions - v6
 description: Explore the various array functions available in Textwire
 ---
 

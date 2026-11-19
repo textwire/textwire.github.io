@@ -19,8 +19,8 @@ I'm [Serhii Cho](https://serhiicho.com/about-me). In 2019 I got tired of Go's te
 
 To help Textwire continue evolving, we need your support. Our goal is $50 per week in total weekly donations to maintain Textwire core, VSCode and Neovim plugins, LSP server, Tree Sitter parser, and documentation. [Donate on Liberapay](https://liberapay.com/textwire/donate) to help us reach this goal. You can also check [my crypto addresses](https://serhiicho.com/about-me) if that's the way you prefer.
 
-:::tip ⭐️ Star on Codeberg
-You can also support us by starring Textwire on [Codeberg](https://codeberg.org/textwire/textwire) to help increase visibility and grow our community.
+:::tip ⭐️ Star on GitHub
+You can also support us by starring Textwire on [GitHub](https://github.com/textwire/textwire) to help increase visibility and grow our community.
 :::
 
 ## Community Heroes

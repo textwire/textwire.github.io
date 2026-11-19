@@ -1,5 +1,5 @@
 ---
-title: Introduction - v5
+title: Introduction - v6
 description: Get an overview of Textwire, a templating engine for Go developers, and learn about its features, syntax, and various use cases
 outline: deep
 ---
@@ -11,7 +11,7 @@ Textwire is a domain-specific language (DSL) tailored for Go projects as a templ
 Built specifically for Go, Textwire offers a clean and intuitive syntax that simplifies the injection of variables and logic into any text-based format.
 
 > [!TIP] Syntax Highlighting
-> If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://codeberg.org/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+> If you use Neovim or VSCode code editor, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 
 Textwire enables the integration of dynamic content into any text-based format, including HTML, XML, JSON, and plain text.
 
@@ -76,7 +76,7 @@ Textwire operates similarly to Go when it comes to mathematical expressions. You
 
 Textwire has two reserved variable names that you cannot use:
 
-1. `loop` Object that is available inside `@each` loops. [Read more](/language-elements/loops#loop-variables)
+1. `loop` Object that is available inside `@for` and `@each` loops. [Read more](/language-elements/loops#loop-variables)
 2. `global` Global object available in all Textwire files. [Read more](/api/configurations#global-data)
 
 ## Truthy and Falsy Values

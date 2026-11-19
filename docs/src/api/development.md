@@ -1,5 +1,5 @@
 ---
-title: Development - v5
+title: Development - v6
 description: Learn about the development process of Textwire, including debug mode and File Watcher that refreshes template files on changes, making development faster and easier
 outline: deep
 ---
@@ -20,8 +20,8 @@ File Watcher watches all of your template files for changes and automatically re
 ```go
 import (
 	"os"
-	"codeberg.org/textwire/textwire/v5"
-	"codeberg.org/textwire/textwire/v5/config"
+	"github.com/textwire/textwire/v5"
+	"github.com/textwire/textwire/v5/config"
 )
 
 tpl, err := textwire.NewTemplate(&config.Config{

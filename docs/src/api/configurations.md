@@ -1,5 +1,5 @@
 ---
-title: Configurations - v5
+title: Configurations - v6
 description: Learn how to setup and configure Textwire in your Go applications
 ---
 
@@ -24,8 +24,8 @@ For detailed instructions on using `textwire.NewTemplate`, refer to the [Usage w
 
 ```go
 import (
-    "codeberg.org/textwire/textwire/v5"
-    "codeberg.org/textwire/textwire/v5/config"
+    "github.com/textwire/textwire/v5"
+    "github.com/textwire/textwire/v5/config"
 )
 
 func main() {
@@ -52,6 +52,7 @@ All Textwire configurations are optional and include sensible default values. Re
 | `GlobalData`      | Global data accessible in all Textwire files. [Read more](#global-data).<br><br>- Type: `map[string]any`<br>- Default: `map[string]any{}`                                                                                                        |
 | `FileWatcher`     | Enables the File Watcher to watch Textwire files for changes and refresh the content. [Read more](/api/development#file-watcher).<br><br>- Type: `bool`<br>- Default: `false` |
 | `WatcherInterval` | Changes how frequently the File Watcher checks for changes in your templates. You cannot set the value lower than a second. [Read more](/api/development#watcher-interval).<br><br>- Type: `time.Duration`<br>- Default: `time.Second` |
+| `MaxComponentDepth` | Limits how many component directives can be rendering inside each other at the same time during one render. It stops a component that includes itself, directly or through other components, with an error instead of crashing the program with a stack overflow. Only nesting counts: components rendered one after another, like inside of a loop, don't add up. Values less than 1 are treated as the default.<br><br>- Type: `int`<br>- Default: `500` |
 
 > [!WARNING] Extension Compatibility
 > If you are using VSCode and change the `TemplateExt` setting to anything other than `.tw`, you will lose syntax highlighting for Textwire files provided by the [Textwire extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire). To maintain full extension functionality, use `.tw` as the extension for Textwire files.
@@ -63,8 +64,8 @@ Global data allows you to share values from your Go code across all Textwire tem
 ```go :line-numbers
 import (
     "os"
-    "codeberg.org/textwire/textwire/v5"
-    "codeberg.org/textwire/textwire/v5/config"
+    "github.com/textwire/textwire/v5"
+    "github.com/textwire/textwire/v5/config"
 )
 
 tpl, err = textwire.NewTemplate(&config.Config{
@@ -90,5 +91,7 @@ You can access your global data in any Textwire template using the `global` obje
     <p>Welcome, {{ global.auth.name }}!</p>
 @end
 ```
+
+The `global` object is read-only. Writing to `global`, one of its properties, an array element, or a value aliased from it results in an error. Use a local variable or a copy when a template needs a modified value.
 
 The `global` identifier is a reserved word and cannot be used for variable names. Read more about [reserved variables](/intro#reserved-variable-names).

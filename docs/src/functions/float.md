@@ -1,5 +1,5 @@
 ---
-title: Float Functions - v5
+title: Float Functions - v6
 description: Explore the various float functions available in Textwire
 ---
 

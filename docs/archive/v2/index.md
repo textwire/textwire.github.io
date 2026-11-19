@@ -12,6 +12,9 @@ hero:
         - theme: alt
           text: Introduction
           link: /v2/intro
+        - theme: alt
+          text: Migrate from v1
+          link: /v2/upgrade
     image:
         src: /images/logo.png
         alt: Textwire Logo

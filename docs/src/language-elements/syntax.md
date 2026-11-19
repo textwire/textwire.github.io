@@ -1,5 +1,5 @@
 ---
-title: Syntax & Types - v5
+title: Syntax & Types - v6
 description: Textwire has a simple syntax that is easy to learn
 outline: 2-3
 ---
@@ -15,7 +15,7 @@ Textwire’s syntax is straightforward and easy to learn. Below are the key rule
     - Start with the `@` symbol.
 
 > [!TIP] Syntax Highlighting
-> If you use Neovim or VSCode, you can use our [Neovim plugin](https://codeberg.org/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
+> If you use Neovim or VSCode, you can use our [Neovim plugin](https://github.com/textwire/textwire.nvim) or [VSCode extension](https://marketplace.visualstudio.com/items?itemName=SerhiiCho.textwire) to get syntax highlighting and other features for Textwire.
 
 ## Directives
 
@@ -25,6 +25,7 @@ Directives are Textwire statements that begin with the `@` symbol. They define l
 
 - **Expressions and Variables**: Directives support expressions and variables, such as `@if(x == 1)` or `@use(layoutName)`.
 - **Closing Directives**: Directives with a body (like `@if`, `@for`, `@each`, and `@component`) must be closed with the `@end` keyword.
+- **Whitespace Handling**: Lines containing only a directive or a Textwire comment are trimmed. Read more on the [Whitespace Handling](/language-elements/whitespace) page.
 
 Read about directives on [Directives](/language-elements/directives) page.
 
@@ -124,3 +125,4 @@ Each Textwire type has an empty value that is treated as falsy in boolean contex
 | `array`   | `[]`          | Empty array   |
 | `object`  | `{}`          | Empty object  |
 | `nil`     | `nil`         | Nil value     |
+

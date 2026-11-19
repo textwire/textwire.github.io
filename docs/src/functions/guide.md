@@ -1,5 +1,5 @@
 ---
-title: Functions Guide - v5
+title: Functions Guide - v6
 description: Discover correct syntax for Textwire functions and learn about built-in and global functions.
 ---
 
@@ -21,7 +21,7 @@ Learn about [error handling](/api/error-handling) in Textwire when you call a fu
 
 ## Global Functions
 
-Functions like `defined()`, `hasValue()`, and `formatDate()` are not attached to a specific type. They are available everywhere and are documented on the [Global Functions](/functions/global) page.
+Functions like `defined()`, `hasValue()`, `formatDate()`, and `raw()` are not attached to a specific type. They are available everywhere and are documented on the [Global Functions](/functions/global) page.
 
 ## Unicode Support
 
@@ -29,6 +29,6 @@ Most built-in string functions handle Unicode characters and strings. Whether yo
 
 ## Suggest a new function
 
-New functions are added in a new version of Textwire when there is a need for them. You can follow the updates in our [Release Notes](https://codeberg.org/textwire/textwire/src/branch/master/CHANGELOG.md) on Codeberg.
+New functions are added in a new version of Textwire when there is a need for them. You can follow the updates in our [Release Notes](https://github.com/textwire/textwire/blob/master/CHANGELOG.md) on GitHub.
 
-If you have a suggestion for a new function that might benefit everybody using Textwire, please open [an issue](https://codeberg.org/textwire/textwire/issues/new) on Codeberg if it's an important function to add.
+If you have a suggestion for a new function that might benefit everybody using Textwire, please open [an issue](https://github.com/textwire/textwire/issues/new) on GitHub if it's an important function to add.

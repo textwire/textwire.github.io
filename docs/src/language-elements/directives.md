@@ -1,5 +1,5 @@
 ---
-title: Directives - v5
+title: Directives - v6
 description: Learn about different directives in Textwire, including @if, @each, @for, @insert, @declare and more
 ---
 
@@ -18,6 +18,12 @@ Textwire directives provide control over your templates through commands that be
 - [@pass](#pass) `@pass('footer')@end`
 - [@passif](#passif) `@passif(true, 'footer')@end`
 - [@dump](#dump) `@dump(users, page)`
+
+### Reserved Names
+
+Directive names are reserved keywords. If you need to use one of them as plain text, for example in an email address, escape it with a backslash. Read more about [escaping](/language-elements/syntax#escaping).
+
+For example, `me@username.com` results in the error `syntax error: expected '(' but found 'rname.com'`, because [@use](#use) is a reserved directive. Escape it like this: `me\@username.com` to get `me@username.com`.
 
 ## @if
 
@@ -72,7 +78,7 @@ Read more about loops in the [Loops guide](/language-elements/loops).
 ### Important Notes
 
 - **Extends parent scope.** For loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
-- **No `loop` object.** Unlike `@each`, `@for` does not provide a `loop` object. Use the variable you declared in the loop instead. Read more about [Loop Variables](/language-elements/loops#loop-variables).
+- **`loop` object.** `@for` loops provide a `loop` object with iteration metadata. The `loop.last` property is only available in `@each` loops. Read more about [Loop Variables](/language-elements/loops#loop-variables).
 
 #### Example
 
@@ -152,6 +158,7 @@ Below is an example demonstrating two scenarios for the `@insert` directive with
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Two arguments.** `@insert` accepts the name of the reserved placeholder and an optional content argument.
+- **Values are escaped.** The short-form content argument is HTML-escaped the same way as <code v-pre>{{ }}</code>. Use [`raw()`](/functions/global#raw) for trusted HTML, or the block form for markup.
 - **Evaluated in template context.** All inserts are evaluated within the template file first, and next, they are matched to placeholders defined by the [`@reserve`](#reserve) directives in the layout file. It means they have the context of the file where they are defined.
 - **Requires matching reserve.** If you define an insert without having a matching reserve, it will result in error. Such inserts are considered unused.
 - **Names must be unique.** You cannot define multiple inserts with the same name in a single file. It will result in error.
@@ -177,7 +184,7 @@ When defining a layout file for your template, you can reserve placeholders for 
 
 ### Fallback Argument
 
-As a second argument, `@reserve` can also take a fallback value that will be used if no corresponding `@insert` is defined in the template. Example:
+As a second argument, `@reserve` can also take a fallback value that will be used if no corresponding `@insert` is defined in the template. The fallback is HTML-escaped the same way as <code v-pre>{{ }}</code>. Use [`raw()`](/functions/global#raw) when the fallback is trusted HTML. Example:
 
 ```textwire
 <!DOCTYPE html>
@@ -193,6 +200,8 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 </html>
 ```
 
+Values inserted into a reserved placeholder are escaped when they are defined in `@insert`, so `@reserve` prints them as they are.
+
 ### Important Notes
 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
@@ -202,9 +211,7 @@ As a second argument, `@reserve` can also take a fallback value that will be use
 - **Can be passed to components.** If you want to pass the value of `@reserve` from layout into a component, you can pass it using [passes](/language-elements/directives#pass). Example:
     ```textwire
     @component('header')
-        @pass('title')
-            @reserve('title')
-        @end
+        @pass('title')@reserve('title')@end
     @end
     ```
 
@@ -237,7 +244,7 @@ To include your component use `@component` directive with first argument being t
 
 The first argument of the `@component` directive is a path to the component file relative to the `TemplateDir` parameter that you set in the config.
 
-The second optional argument is an [object](/language-elements/literals#object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
+The second optional argument is an [object](/language-elements/literals/object) literal that will be passed to the component file. Here is another example of using a component with a second argument:
 
 ```textwire
 <ul>
@@ -255,6 +262,8 @@ The second optional argument is an [object](/language-elements/literals#object) 
 - **Layout for components.** You can include layout file into components using [`@use`](/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
 - **Use passes to pass data.** You can use [@pass](/language-elements/directives#pass) and [@passif](/language-elements/directives#passif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
+- **Can't use loop control directives.** A component body is supplying content for a slot, it doesn't own the loop it's sitting in, so it can't reach back and kill it with [loop control directives](/language-elements/loops#break-and-continue) like `@break`.
+- **Nesting depth is limited to 500.** Components can be nested at most 500 levels deep during a single render. A component that includes itself, directly or through other components, stops with an error instead of crashing the program with a stack overflow. Components rendered one after another, like inside of a loop, don't count toward the limit. If you need a different limit, change the [`MaxComponentDepth`](/api/configurations#available-configurations) configuration.
 
 ## @slot
 
@@ -358,7 +367,7 @@ Here’s an example of how to use conditional passes in a component. Example:
 
 ## @dump
 
-The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals#object), [arrays](/language-elements/literals#array), [strings](/language-elements/literals#string) and other data types to the screen.
+The `@dump` directive is primarily used for debugging purposes. This directive outputs the value of variables, [objects](/language-elements/literals/object), [arrays](/language-elements/literals/array), [strings](/language-elements/literals/string) and other data types to the screen.
 
 > [!WARNING] HTML only
 > `@dump` formats its output with HTML and CSS, so it is intended for HTML templates. In JSON, XML, plain text, or other formats, the raw markup will appear in the output.

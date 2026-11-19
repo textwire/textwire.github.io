@@ -1,5 +1,5 @@
 ---
-title: Template Embedding - v5
+title: Template Embedding - v6
 description: Learn how to use Go's embed package to embed Textwire templates into your Go applications for efficient template management.
 outline: deep
 ---
@@ -48,8 +48,8 @@ import (
 	"embed"
 	"net/http"
 
-	"codeberg.org/textwire/textwire/v5"
-	"codeberg.org/textwire/textwire/v5/config"
+	"github.com/textwire/textwire/v5"
+	"github.com/textwire/textwire/v5/config"
 )
 
 //go:embed templates/* // [!code highlight]

@@ -1,11 +1,11 @@
 ---
-title: FAQ - v5
+title: FAQ - v6
 description: Find answers to common questions about Textwire, a templating engine for Go
 ---
 
 # Frequently Asked Questions
 
-Find answers to common questions about Textwire. If you don't find what you're looking for, feel free to [open an issue on Codeberg](https://codeberg.org/textwire/textwire/issues/new).
+Find answers to common questions about Textwire. If you don't find what you're looking for, feel free to [open an issue](https://github.com/textwire/textwire/issues/new).
 
 ## What is Textwire?
 

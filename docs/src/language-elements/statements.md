@@ -1,5 +1,5 @@
 ---
-title: Statements - v5
+title: Statements - v6
 description: Comprehensive guide to statements in Textwire templating language
 outline: 2-3
 ---

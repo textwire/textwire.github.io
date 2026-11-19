@@ -1,5 +1,5 @@
 ---
-title: Loops - v5
+title: Loops - v6
 description: Learn how to use different types of loops in Textwire, including 'each' and 'for' loops
 outline: deep
 ---
@@ -69,22 +69,24 @@ Direct `@continue` skips to next iteration immediately. Direct `@break` exits th
 
 ## Loop Variables
 
-`@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration. `@for` loops do not provide a `loop` object; use the loop variable you declared in `@for` instead.
+Both `@for` and `@each` loops provide access to a `loop` object with iteration metadata. The `loop` object updates on each iteration.
 
 Available properties:
 
-| Property | Type | Description                                |
-| -------- | ---- | ------------------------------------------ |
-| `index`  | int  | Current index number starting from `0`     |
-| `first`  | bool | Is the first item in a loop or not?        |
-| `last`   | bool | Is the last item in a loop or not?         |
-| `iter`   | int  | Current iteration number starting from `1` |
+| Property | Type   | Description                                                |
+| -------- | ------ | ---------------------------------------------------------- |
+| `index`  | int    | Current index number starting from `0`                     |
+| `first`  | bool   | Is the first item in a loop or not?                        |
+| `last`   | bool   | Is the last item in a loop or not? Only `@each` loop!      |
+| `iter`   | int    | Current iteration number starting from `1`                 |
+| `parent` | object | Parent loop object when loops are nested                   |
+
+This eliminates the need for additional variables to track iteration data.
 
 ### Example
 
 ```textwire
 {{ names = ["Anna", "Serhii", "Vladimir"] }}
-
 <ul>
     @each(name in names)
         <li>{{ loop.iter }}. {{ name }}</li>
@@ -94,19 +96,27 @@ Available properties:
 
 ### Output
 
-```textwire
+```html
 <ul>
-
         <li>1. Anna</li>
-
         <li>2. Serhii</li>
-
         <li>3. Vladimir</li>
-
 </ul>
 ```
 
-It's a useful feature that eliminates the need for additional variables to track iteration data.
+### Parent Loop
+
+When loops are nested, `loop.parent` refers to the `loop` object of the immediate parent loop. This works for both `@for` and `@each` loops, including mixed nested loops.
+
+```textwire
+@each(group in groups)
+    @each(name in group)
+        {{ loop.parent.index }}:{{ loop.index }} {{ name }}
+    @end
+@end
+```
+
+At the outermost loop, `loop.parent` is `nil`. For deeper nesting, chain the property, for example `loop.parent.parent`.
 
 ## Else Statement
 
@@ -126,4 +136,4 @@ When the array is empty, the result is `<p>No names</p>`. Without the `@else` st
 
 1. **Choose appropriate loop type**: Use `@each` for simple array iteration, `@for` for index-based control
 2. **Handle empty arrays**: Always include `@else` for better user experience
-3. **Use loop variables**: In `@each` loops, leverage `loop.first` and `loop.last` for conditional logic
+3. **Use loop variables**: In `@for` and `@each` loops, leverage `loop.first` for conditional logic. Use `loop.last` in `@each` loops

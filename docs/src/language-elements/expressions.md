@@ -1,5 +1,5 @@
 ---
-title: Expressions - v5
+title: Expressions - v6
 description: Reference for ternary, prefix, infix, comparison, function call, and logical expressions in Textwire
 ---
 

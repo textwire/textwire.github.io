@@ -1,5 +1,5 @@
 ---
-title: Get Started - v5
+title: Get Started - v6
 description: Learn how to get started with Textwire DSL for Go, including installation instructions and quick start guide
 ---
 
@@ -16,5 +16,5 @@ Go `1.25` or higher is required to use Textwire. If you don't have Go installed 
 Install the Textwire package in your Go environment:
 
 ```bash
-go get codeberg.org/textwire/textwire/v5
+go get github.com/textwire/textwire/v5
 ```

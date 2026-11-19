@@ -1,5 +1,5 @@
 ---
-title: String Functions - v5
+title: String Functions - v6
 description: Explore the various string functions available in Textwire
 ---
 
@@ -251,7 +251,7 @@ HelloHelloHello
 str.reverse(): string
 ```
 
-Returns a string with the characters reversed.
+Returns a string with the characters reversed. Doesn't mutate the original string.
 
 #### Input Example:
 

@@ -1,5 +1,5 @@
 ---
-title: Boolean Functions - v5
+title: Boolean Functions - v6
 description: Explore the various boolean functions available in Textwire
 ---
 
