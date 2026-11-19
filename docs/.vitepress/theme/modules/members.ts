@@ -3,16 +3,19 @@ export const members = [
         name: 'SerhiiCho',
         title: 'Creator',
         avatar: 'https://avatars.githubusercontent.com/u/35465417',
-        links: [
-            { icon: 'github', link: 'https://github.com/SerhiiCho' },
-            { icon: 'mastodon', link: 'https://mastodon.social/@SerhiiCho' },
-        ],
+        links: [{ icon: 'github', link: 'https://github.com/SerhiiCho' }],
     },
     {
         name: 'joeyjurjens',
         title: 'First Issue Opener',
         avatar: 'https://avatars.githubusercontent.com/u/7702200',
         links: [{ icon: 'github', link: 'https://github.com/joeyjurjens' }],
+    },
+    {
+        name: 'peterlodri-sec',
+        title: 'First Pull Request',
+        avatar: 'https://avatars.githubusercontent.com/u/267054113',
+        links: [{ icon: 'github', link: 'https://github.com/peterlodri-sec' }],
     },
     {
         name: 'pasterdeucris',
