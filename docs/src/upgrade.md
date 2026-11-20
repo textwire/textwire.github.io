@@ -272,8 +272,8 @@ See [raw()](/functions/global#raw) for all details and examples.
 Replace all v5 imports with v6:
 
 ```go
-import "github.com/textwire/textwire/v5" // [!code --]
-import "github.com/textwire/textwire/v5" // [!code ++]
+import "github.com/textwire/textwire/v6" // [!code --]
+import "github.com/textwire/textwire/v6" // [!code ++]
 ```
 
 After updating imports, run:
