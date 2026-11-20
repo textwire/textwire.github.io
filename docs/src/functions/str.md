@@ -369,6 +369,9 @@ str.truncate(length: integer, ellipsis: string = "..."): string
 
 Returns a string truncated to the given length with an optional ellipsis at the end.
 
+- Passing a negative integer as `length` results in error (since `v6.0.3`).
+- If the string is shorter than the given length, it will return the original string.
+
 #### Arguments:
 
 1. `length` (integer) - The length to truncate the string to
