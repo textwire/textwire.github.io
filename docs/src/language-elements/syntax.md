@@ -100,13 +100,21 @@ Textwire has a different type system from Go. When you pass a variable to Textwi
 
 | Textwire type | Equivalent Go types                                                                                                                                         |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `string`      | `string`                                                                                                                                                    |
+| `string`      | `string`                                                                                                  |
 | `boolean`     | `bool`                                                                                                                                                      |
 | `integer`     | `int`, `int8`, `int16`, `int32`, `int64`, `uint`, `uint8`, `uint16`, `uint32`, `uint64`                                                                     |
 | `float`       | `float32`, `float64`                                                                                                                                        |
 | `nil`         | `nil`                                                                                                                                                       |
-| `array`       | Any slice, for example `[]string`, `[]int`, `[]any`, or a slice of structs                                                                                   |
+| `array`       | Any slice, for example `[]string`, `[]int`, `[]any`, or a slice of structs                                                                                  |
 | `object`      | `struct{}`, `User{}`, `map[string]any`, or any other struct or map                                                                                          |
+
+### Special Go Types
+
+Special Go types are converted to Textwire types as follows:
+
+| Go Type       | Textwire type | Explanation
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------- |
+| `time.Time{}` | string        | Converted to a date format `YYYY-MM-DD HH:MM:SS`.                                              |
 
 Types without a Textwire equivalent are not converted. This includes functions (`func`), channels (`chan`), and complex numbers (`complex64`, `complex128`). Passing one of these types as a value returns an `unsupported value type for field <field>` error.
 
