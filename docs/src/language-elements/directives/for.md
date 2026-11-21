@@ -21,12 +21,9 @@ This is a basic for loop that you can use. It has a declaration, condition and p
 
 Read more about loops in the [Loops guide](/language-elements/loops).
 
-## Important Notes
+## Example with `@continueif`
 
-- **Extends parent scope.** For loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
-- **`loop` object.** `@for` loops provide a `loop` object with iteration metadata. The `loop.last` property is only available in `@each` loops. Read more about [Loop Variables](/language-elements/loops#loop-variables).
-
-### Example
+This example renders a list of names and skips `Serhii` with `@continueif`:
 
 ```textwire
 {{ names = ["Ann", "Serhii", "Vladimir"] }}
@@ -38,3 +35,8 @@ Read more about loops in the [Loops guide](/language-elements/loops).
     @end
 </ul>
 ```
+
+## Important Notes
+
+- **Extends parent scope.** For loop extends parent scope, which means that you can manipulate variables defined outside of the loop. For example, you can define a variable outside of the loop and increment it inside the loop.
+- **`loop` object.** `@for` loops provide a `loop` object with iteration metadata. The `loop.last` property is only available in `@each` loops. Read more about [Loop Variables](/language-elements/loops#loop-variables).
