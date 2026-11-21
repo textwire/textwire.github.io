@@ -51,10 +51,6 @@ This is useful for keys that are not valid identifiers, such as `release-version
 > ```
 > It only works for the first letter of the property.
 
-## First character case-insensitivity in field access
-
-Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
-
 ## Keys must be identifiers or strings
 
 Unquoted keys have to be valid identifiers. If a key contains characters like `-` or starts with a number, wrap it in quotes. Example:
@@ -62,10 +58,6 @@ Unquoted keys have to be valid identifiers. If a key contains characters like `-
 ```textwire
 {{ user = { name: "John", "first-name": "Johnny", "1st": true } }}
 ```
-
-## Dot and bracket access
-
-Use `obj.key` or `obj['key']` to read a value. Bracket access takes a string key. Use dot notation to assign values, for example `user.name = "Anna"`.
 
 ## Safe accessing
 
@@ -80,14 +72,6 @@ You can use the [get()](/functions/obj#get) function to safely access object pro
 
 Textwire automatically converts Go structs to objects, but **only exported fields** are converted. Since Go doesn't export fields that start with lowercase letters, Textwire cannot access them. Make sure to capitalize field names if you want them available in your templates.
 
-## Accessing missing object properties returns `nil`
-
-Similar to arrays, trying to access a property that doesn't exist on an object returns `nil` rather than throwing an error. However, this only applies to the first undefined property—attempting to access a property on `nil` itself will result in an error.
-
-## Sorted keys when printed
-
-Objects in Textwire maintain the order of keys in alphabetical order when printed or in JSON string if you do <code v-pre>{{ myObj.json() }}</code>.
-
 ## Shorthand Property Notation
 
 Similar to objects in JavaScript, you can use shorthand property notation to define an object.
@@ -98,3 +82,10 @@ Similar to objects in JavaScript, you can use shorthand property notation to def
 ```
 
 <!--@include: @/.vitepress/parts/language-elements/circular-reference.md-->
+
+## Important Notes
+
+- **First character case-insensitivity in field access.** Field name matching ignores case differences in the first character. This means <code v-pre>{{ user.name.first }}</code> and <code v-pre>{{ user.Name.First }}</code> resolve to the same result.
+- **Dot and bracket access.** Use `obj.key` or `obj['key']` to read a value. Bracket access takes a string key. Use dot notation to assign values, for example `user.name = "Anna"`.
+- **Accessing missing object properties returns `nil`.** Similar to arrays, trying to access a property that doesn't exist on an object returns `nil` rather than throwing an error. However, this only applies to the first undefined property—attempting to access a property on `nil` itself will result in an error.
+- **Sorted keys when printed.** Objects in Textwire maintain the order of keys in alphabetical order when printed or in JSON string if you do <code v-pre>{{ myObj.json() }}</code>.

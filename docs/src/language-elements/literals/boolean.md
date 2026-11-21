@@ -17,14 +17,8 @@ Booleans represent truth values and can be either `true` or `false`. They are es
 @end
 ```
 
-## Truthy values
+## Important Notes
 
-Non-empty strings, non-zero numbers (including negatives), non-empty arrays, and objects with at least one key are truthy.
-
-## Falsy values
-
-`false`, `nil`, `0`, `0.0`, empty strings `""`, empty arrays `[]`, and empty objects `{}` are falsy.
-
-## Printed as `1` and `0`
-
-Outputting a boolean renders `1` for `true` and `0` for `false`. Use a ternary expression if you need `"true"` or `"false"` text.
+- **Truthy values.** Non-empty strings, non-zero numbers (including negatives), non-empty arrays, and objects with at least one key are truthy.
+- **Falsy values.** `false`, `nil`, `0`, `0.0`, empty strings `""`, empty arrays `[]`, and empty objects `{}` are falsy.
+- **Printed as `1` and `0`.** Outputting a boolean renders `1` for `true` and `0` for `false`. Use a ternary expression if you need `"true"` or `"false"` text.

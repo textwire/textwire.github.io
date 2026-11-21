@@ -30,14 +30,6 @@ You can access values in an array by using an index. Example:
 </ul>
 ```
 
-## Out of bounds returns nil
-
-Accessing an array at a non-existent index returns `nil` instead of resulting in an error.
-
-## Indexing strings
-
-You cannot use `[number]` to access a string character, instead, use [at()](/functions/str#at) function.
-
 ## Prints as comma-separated
 
 Printing an array converts it to comma separated values. Example:
@@ -61,3 +53,8 @@ Always check array access with index for `nil` before using it to prevent using 
 ```
 
 <!--@include: @/.vitepress/parts/language-elements/circular-reference.md-->
+
+## Important Notes
+
+- **Out of bounds returns nil.** Accessing an array at a non-existent index returns `nil` instead of resulting in an error.
+- **Indexing strings.** You cannot use `[number]` to access a string character, instead, use [at()](/functions/str#at) function.

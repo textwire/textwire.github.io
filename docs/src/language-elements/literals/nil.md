@@ -17,18 +17,9 @@ In Textwire, `nil` is treated as `false` in boolean contexts, making it easy to 
 @end
 ```
 
-## Converts to `false` in conditions
+## Important Notes
 
-`nil` is falsy in boolean contexts.
-
-## Prints as empty string
-
-Outputting `nil` displays nothing.
-
-## Array out-of-bounds returns `nil`
-
-Accessing non-existent array indices returns `nil` instead of error.
-
-## Accessing object property `nil`
-
-Accessing a property that doesn't exist on object returns `nil` instead of error.
+- **Converts to `false` in conditions.** `nil` is falsy in boolean contexts.
+- **Prints as empty string.** Outputting `nil` displays nothing.
+- **Array out-of-bounds returns `nil`.** Accessing non-existent array indices returns `nil` instead of error.
+- **Accessing object property `nil`.** Accessing a property that doesn't exist on object returns `nil` instead of error.

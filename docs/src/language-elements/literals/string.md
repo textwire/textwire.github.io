@@ -17,22 +17,6 @@ When you print a string, it will be automatically escaped. If you want to print 
 {!! "<h1>Test</h1>" !!}
 ```
 
-## Auto-escaped on output
-
-All strings are automatically HTML-escaped when printed to prevent XSS attacks.
-
-## Use `{!! !!}` for unescaped output
-
-Use the `{!! myVar !!}` when you need to output HTML, XML, JSON without escaping.
-
-## Concatenation with `+`
-
-Use the `+` operator to join strings together.
-
-## Quote flexibility
-
-Single and double quotes are interchangeable for string literals.
-
 ## Escaping
 
 Use a backslash to insert special characters inside strings. See [Escaping](/language-elements/syntax#escaping-in-strings).
@@ -46,3 +30,10 @@ Backslash escapes only change the characters in the string. They do not disable 
 ```
 
 Read more about [`raw()`](/functions/global#raw) in the Global Functions documentation.
+
+## Important Notes
+
+- **Auto-escaped on output.** All strings are automatically HTML-escaped when printed to prevent XSS attacks.
+- **Use `{!! !!}` for unescaped output.** Use the `{!! myVar !!}` when you need to output HTML, XML, JSON without escaping.
+- **Concatenation with `+`.** Use the `+` operator to join strings together.
+- **Quote flexibility.** Single and double quotes are interchangeable for string literals.
