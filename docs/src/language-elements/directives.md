@@ -134,6 +134,7 @@ The `@use` directive accepts a string literal as its argument. This string liter
 - **Only one `@use` allowed.** Only one `@use` directive is allowed per template file. Defining multiple layouts will cause an error.
 - **Recommended at the beginning.** You can place `@use` anywhere in the template, but it’s **recommended to put it on the first line** for clarity.
 - **Not allowed in layouts.** Defining `@use` inside a **layout file** will always result in an error. This is intentional to keep layouts simple.
+<!--@include: @/.vitepress/parts/language-elements/component-as-layout.md-->
 
 ## @insert
 
@@ -260,6 +261,7 @@ The second optional argument is an [object](/language-elements/literals/object) 
 - **Name is a constant.** The first argument (name) is the constant, it cannot be dynamic, only literal strings are allowed.
 - **Argument must be an object literal.** Second argument for components must be an object literal. If you provide a non-object literal, it will result in an error.
 - **Layout for components.** You can include layout file into components using [`@use`](/language-elements/directives#use) directive, but it can make your templates more complex and harder to maintain. We recommend to avoid using layouts in components and keep them simple.
+<!--@include: @/.vitepress/parts/language-elements/component-as-layout.md-->
 - **Use passes to pass data.** You can use [@pass](/language-elements/directives#pass) and [@passif](/language-elements/directives#passif) in components to pass content to the component file.
 - **Use path alias.** If your components are located in the `components` directory, you can use the `~` alias to reference them. Read about [Path Aliases](/faq#what-are-the-path-aliases).
 - **Can't use loop control directives.** A component body is supplying content for a slot, it doesn't own the loop it's sitting in, so it can't reach back and kill it with [loop control directives](/language-elements/loops#break-and-continue) like `@break`.

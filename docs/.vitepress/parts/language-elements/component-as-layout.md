@@ -1,0 +1,1 @@
+- **Don't use the same file as a component and a layout.** A component is rendered with slots and passes, while a layout is rendered with inserts and reserves. The same file can't correctly serve both roles, so keep component files and layout files separate.
