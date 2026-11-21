@@ -12,6 +12,12 @@ export const members = [
         links: [{ icon: 'github', link: 'https://github.com/joeyjurjens' }],
     },
     {
+        name: 'No_Emu_2239',
+        title: 'First Praise on Reddit',
+        avatar: '/images/No_Emu_2239-avatar.png',
+        links: [{ icon: 'reddit', link: 'https://www.reddit.com/user/No_Emu_2239' }],
+    },
+    {
         name: 'peterlodri-sec',
         title: 'First Pull Request',
         avatar: 'https://avatars.githubusercontent.com/u/267054113',

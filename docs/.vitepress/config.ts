@@ -92,7 +92,7 @@ export default defineVersionedConfig(
                     { component: 'VersionSwitcher' },
                     { text: 'Docs', link: `/intro` },
                     { text: 'Blog', link: '/blog/', skipVersioning: true },
-                    { text: 'Support', link: '/community', skipVersioning: true },
+                    { text: 'Community', link: '/community', skipVersioning: true },
                 ],
             },
 
