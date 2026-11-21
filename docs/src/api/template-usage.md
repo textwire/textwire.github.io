@@ -100,7 +100,7 @@ To define a layout in Textwire you need to create a file anywhere within your `t
 
 ### Reserving Space in Layouts
 
-The [@reserve](/language-elements/directives#reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
+The [@reserve](/language-elements/directives/reserve) directive reserves placeholders for dynamic content that can be inserted later. For example, you can reserve a space for the page title and description, and then populate it from other templates such as `about-me.tw` or `contact-us.tw`. Example layout file:
 
 ```textwire :line-numbers
 <!DOCTYPE html>
@@ -121,11 +121,11 @@ The [@reserve](/language-elements/directives#reserve) directive reserves placeho
 
 This layout reserves spaces for the title, description and content. These placeholders can be populated with data from templates that use this layout. The next section explains how to insert content into reserved spaces.
 
-Learn about [@reserve](/language-elements/directives#reserve) directive.
+Learn about [@reserve](/language-elements/directives/reserve) directive.
 
 ### Inserting Content into Reserved Spaces
 
-The [@insert](/language-elements/directives#insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a block. In the following example, we insert "title" and "description" without a block, and "content" with a block.
+The [@insert](/language-elements/directives/insert) directive inserts content into reserved placeholders. It can be used in two ways: with or without a block. In the following example, we insert "title" and "description" without a block, and "content" with a block.
 
 Example `templates/views/home.tw` template:
 
@@ -147,7 +147,7 @@ Example `templates/views/home.tw` template:
 3. Insert the description into the layout.
 4. Insert the main content into the layout with the HTML block.
 
-Learn about [@insert](/language-elements/directives#insert) directive.
+Learn about [@insert](/language-elements/directives/insert) directive.
 
 ## Configuration
 
