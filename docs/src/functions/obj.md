@@ -25,6 +25,17 @@ Recursively converts object keys to camel case and returns a new object. Useful 
 {firstName: &#34;Serhii&#34;, lastName: &#34;Cho&#34;}
 ```
 
+#### Conversion Rules
+
+- **Separators.** `_`, `-`, `.` and space are removed, and the next letter is uppercased. Example: `user_name` becomes `userName`.
+- **Edges.** Leading and trailing spaces are trimmed.
+- **First letter.** The first letter is lowercased. Example: `Title` becomes `title`.
+- **Uppercase runs.** Uppercase letters after an uppercase letter are lowercased. Example: `CreatedAt` becomes `createdAt`, `userID` becomes `userId`, `URL` becomes `url`.
+- **Digits.** Digits are kept, and the letter after a digit is uppercased. Example: `item_2nd` becomes `item2Nd`.
+- **Other characters.** Any other character is removed and doesn't uppercase the next letter. Example: `na$me` becomes `name`, `naïve` becomes `nave`.
+- **Nested objects.** Objects inside objects are converted too. Arrays are returned as is, so objects inside arrays keep their original keys.
+- **Key collisions.** When several keys convert to the same key, only one is kept. A key that is already in camel case wins. Otherwise, the key that comes first in byte order wins. Example: `{a_b: 1, aB: 2}.camel()` returns `{aB: 2}`.
+
 #### Important Notes
 
 - **Use `json()` for JSON.** `camel()` returns a Textwire object. Chain `.json()` if you need a JSON string, for example <code v-pre>{{ obj.camel().json() }}</code>.
