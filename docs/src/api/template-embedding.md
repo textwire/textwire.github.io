@@ -59,6 +59,7 @@ func main() {
     tpl, err := textwire.NewTemplate(&config.Config{
         TemplateFS: templateFS, // [!code highlight]
     })
+
     err.FatalOnError()
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -70,3 +71,7 @@ func main() {
 ```
 
 That's it! Now you can build your Go application and the Textwire templates will be embedded in the binary.
+
+## Keeping the Embedded Filesystem
+
+`Configure(nil)` keeps embedded templates. If you set `TemplateFS`, Textwire keeps using it. Calling `Configure(nil)` doesn't switch back to the folder in `TemplateDir`. Textwire only uses `TemplateDir` when `TemplateFS` is empty.

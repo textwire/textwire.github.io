@@ -8,15 +8,43 @@ description: Learn how to setup and configure Textwire in your Go applications
 Textwire provides configuration options to customize template behavior. You can apply these settings in two ways:
 
 1. **Using `textwire.Configure`:**
-   Call the `textwire.Configure` function to set global configurations for the library.
+   Set app-wide defaults for templates created afterward.
 
 2. **Passing to `textwire.NewTemplate`:**
-   Pass the configuration directly to the `textwire.NewTemplate` function when creating templates.
+   Set options for that template instance, overriding the app-wide defaults.
 
 > [!NOTE] Configuration Scope
 > Settings passed to `Configure` and `NewTemplate` apply when you use Textwire as a templating system.
 >
 > For simple string evaluations with `EvaluateString` or `EvaluateFile`, configurations are ignored.
+
+## How Configurations Are Resolved
+
+Each template resolves its configuration in three layers, where every later layer overrides the previous one:
+
+1. Built-in defaults
+2. Settings passed to `textwire.Configure`
+3. Options passed to `textwire.NewTemplate`
+
+A `Template` keeps the config it was created with. Creating another template doesn't change the component depth limit, global data, error paths, or any other setting of templates that already exist. Calling `Configure` doesn't change them either: it only affects templates created afterward. Rendering is also safe to run while another goroutine calls `NewTemplate` or `Configure`.
+
+For example:
+
+```go
+textwire.Configure(&config.Config{
+    TemplateDir:       "templates",
+    MaxComponentDepth: 100,
+})
+
+// Depth is 100, taken from Configure
+appTpl, _ := textwire.NewTemplate(nil)
+
+// Depth is 10, overridden for this template only
+previewTpl, _ := textwire.NewTemplate(&config.Config{
+    TemplateDir:       "templates",
+    MaxComponentDepth: 10,
+})
+```
 
 ## Setting Configurations
 
@@ -37,6 +65,8 @@ func main() {
 ```
 
 In the example above, `TemplateDir` applies only when using Textwire as a template engine for your project. For evaluating individual Textwire files or strings, this configuration is not required.
+
+`Configure` applies the settings you pass to the app-wide config used by templates created afterward. Passing `nil` doesn't reset your settings.
 
 All Textwire configurations are optional and include sensible default values. Read more about the available configurations below.
 
