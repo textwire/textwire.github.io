@@ -3,7 +3,7 @@ layout: home
 
 hero:
   name: Textwire
-  text: Zero-dependency
+  text: Templating Engine
   tagline: Prioritizing runtime performance and long-term stability for Go developers
   actions:
     - theme: brand
