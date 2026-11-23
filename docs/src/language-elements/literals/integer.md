@@ -13,11 +13,21 @@ You can use integer literals and perform arithmetic operations with them. Exampl
 
 ## Overflow
 
-Integers are 64-bit. Adding to the maximum value `9223372036854775807` overflows and wraps around to `-9223372036854775808`. Example:
+Integers are 64-bit and follow Go's `int64` arithmetic, so they range from `-9223372036854775808` to `9223372036854775807`. When `+`, `-`, `*`, `/`, unary `-`, `++` or `--` produce a value outside this range, it wraps around to the other end instead of causing render error. Example:
 
 ```textwire
 {{ 9223372036854775807 + 1 }} {{-- Output: -9223372036854775808 --}}
+{{ -9223372036854775808 - 1 }} {{-- Output: 9223372036854775807 --}}
+{{ 3037000500 * 3037000500 }} {{-- Output: -9223372036709301616 --}}
+{{ -9223372036854775808 / -1 }} {{-- Output: -9223372036854775808 --}}
 ```
+
+These cases cause render error instead of wrapping:
+
+- **Division by zero.** `/` and `%` with a divisor of `0`.
+- **Literals out of range.** An integer literal above the maximum, like `9223372036854775808`.
+- **Unsigned data out of range.** A `uint` or `uint64` value from your Go data above `9223372036854775807`.
+- **Function results out of range.** [`abs()`](/functions/int#abs) on `-9223372036854775808`, and [`int()`](/functions/float#int), [`ceil()`](/functions/float#ceil) or [`floor()`](/functions/float#floor) on a float too large for an integer.
 
 ## Important Notes
 

@@ -9,7 +9,7 @@ description: Explore the various integer functions available in Textwire
 int.abs(): integer
 ```
 
-Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it.
+Returns the absolute value of an integer. If the integer is negative, it will return the positive value of it. Causes render error for the minimum integer `-9223372036854775808`, because its positive value doesn't fit in 64 bits.
 
 #### Input Example:
 ```textwire

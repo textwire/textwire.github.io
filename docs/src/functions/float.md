@@ -26,7 +26,7 @@ Returns the absolute value of a float. If the float is negative, it will return 
 float.ceil(): integer
 ```
 
-Returns the rounded up value of a float to the nearest integer.
+Returns the rounded up value of a float to the nearest integer. Causes render error if the result doesn't fit in a 64-bit integer.
 
 #### Input Example:
 ```textwire
@@ -43,7 +43,7 @@ Returns the rounded up value of a float to the nearest integer.
 float.floor(): integer
 ```
 
-Returns the rounded down value of a float to the nearest integer.
+Returns the rounded down value of a float to the nearest integer. Causes render error if the result doesn't fit in a 64-bit integer.
 
 #### Input Example:
 ```textwire
@@ -60,7 +60,7 @@ Returns the rounded down value of a float to the nearest integer.
 float.int(): integer
 ```
 
-Converts a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part.
+Converts a float to an integer by removing the decimal part of the number. It doesn't round the number, it just removes the decimal part. Causes render error if the result doesn't fit in a 64-bit integer.
 
 #### Input Example:
 ```textwire
